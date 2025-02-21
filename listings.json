@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/experiments.html",
+    "items": [
+      "/experiments/001-durezza/index.html",
+      "/experiments/002-resistenza/index.html"
+    ]
+  },
+  {
+    "listing": "/slides.html",
+    "items": [
+      "/slides/001-tesi.html"
+    ]
+  }
+]
