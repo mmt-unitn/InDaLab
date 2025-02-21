@@ -1,0 +1,18 @@
+project:
+  type: website
+execute:
+  freeze: auto
+website:
+  title: "InDaLab"
+  site-url: "https://pbosetti.github.io/indalab/"
+  navbar:
+    left:
+      - text: "Home"
+        href: "index.qmd"
+      - text: "Esperimenti"
+        href: "experiments.qmd"
+      - text: "Presentazioni"
+        href: "slides.qmd"
+    right:
+      - icon: github
+        href: "https://github.com/pbosetti/indalab"

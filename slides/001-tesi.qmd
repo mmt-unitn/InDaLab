@@ -1,0 +1,75 @@
+---
+title: "Organizzazione Tesi"
+author: "Paolo Bosetti"
+date: "02/05/2025"
+# date-modified: today
+draft: false
+categories: 
+  - tesi
+abstract: >
+  Descrizione del tema di ttesi proposto
+format: 
+  revealjs:
+    # theme: dark
+    # theme: beige
+    # theme: blood
+    # theme: dark
+    # theme: default
+    # theme: league
+    theme: moon
+    # theme: night
+    # theme: serif
+    # theme: simple
+    # theme: sky
+    # theme: solarized
+    width: 1280
+    height: 720
+    margin: 0.1
+    slide-number: true
+    code-line-numbers: true
+    code-annotations: below
+    preview-links: auto
+    chalkboard: true
+    footer: "[Home](/slides.qmd)"
+    fig-width: 5
+    fig-height: 4
+    fig-dpi: 300
+    email-obfuscation: javascript
+    pdf-separate-fragments: true
+    link-external-icon: true
+    lang: it-IT
+---
+
+## Contesto
+
+Il nuovo ordinamento dell'orientamento Materiali prevede nuovi corsi di laboratorio:
+
+* Chimica
+* Metallurgia
+
+Si desidera integrare la didattica del corso di Analisi Dati e Statistica (**ADAS**) con questi due corsi
+
+
+## Obiettivo
+
+Mettere a punto 2--3 esperimenti che richiedano una raccolta ed analisi dati mediante metodi e strumenti utilizzati in ADAS.
+
+A titolo di esempio:
+
+* Durezza dei materiali: confronto tra T-Test e T-Test accoppiato
+* Proprietà meccaniche: ANOVA a una via per identificare la sensitività (tipo prove a trazione su filato)
+* Composto/reazione chimica: piano fattoriale
+
+
+## Prodotti
+
+Il risultati attesi sono:
+
+1. definizione e prima ripetizione degli esperimenti
+2. stesura report tipo per ogni esperimento
+3. completamento di questo sito con descrizione esperimento (slide) e report esempio
+
+
+## Tempi
+
+I corsi inizieranno con il prossimo Anno Accademico

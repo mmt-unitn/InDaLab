@@ -1,0 +1,49 @@
+---
+title: "Esempio: resistenza di un filato"
+author: "Paolo Bosetti"
+date: "02/05/2025"
+# date-modified: today
+format: html
+draft: false
+categories: 
+  - materiali
+abstract: >
+  In questo esperimento si conducono delle misure di resistenza di un filato misto, in funzione della composizione
+---
+
+```{r}
+#| label: setup
+knitr::opts_chunk$set(
+  fig.align = "center",
+  # This for default device
+  out.width = "16cm",
+  # This two for high quality charts:
+  fig.dim = c(16, 9)*0.4
+)
+```
+
+
+# Descrizione dell'esperimento
+
+## Richiami teorici
+
+{{< lipsum 2 >}}
+
+## Descrizione attrezzature
+
+{{< lipsum 2 >}}
+
+
+## Progettazione dei test
+
+{{< lipsum 2 >}}
+
+
+## Raccolta dati
+
+{{< lipsum 3 >}}
+
+
+## Analisi e discussione
+
+{{< lipsum 2 >}}
