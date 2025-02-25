@@ -16,3 +16,7 @@ website:
     right:
       - icon: github
         href: "https://github.com/pbosetti/indalab"
+format:
+  html:
+    theme: materia
+    

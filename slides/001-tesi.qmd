@@ -7,7 +7,7 @@ draft: false
 categories: 
   - tesi
 abstract: >
-  Descrizione del tema di ttesi proposto
+  Descrizione del tema di tesi proposto
 format: 
   revealjs:
     # theme: dark
