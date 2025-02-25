@@ -2,10 +2,12 @@
 title: "InDaLab"
 ---
 
-## Quarto
+## Contenuti
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Questo sito contiene una guida alle esercitazioni di laboratorio tenute durante il corso di laurea triennale in Ingegneria Industriale del Dipartimento di Ingegneria Industriale dell'Università di Trento.
 
-```{r}
-1 + 1
-```
+Alla pagina [Esperimenti](/experiments.qmd) trovate gli esperimenti proposti organizzati in schede. Ogni scheda contiene una descrizione dell'esperimento con una traccia per l'analisi dei risultati.
+
+Alla pagina [Presentazioni](/slides.qmd) trovate alcune presentazioni utili a illustrare vari concetti.
+
+Questo sito ed i contenuti in esso proposti sono sviluppati come tesi di laurea triennale in Ingegneria Industriale.

@@ -7,8 +7,6 @@ website:
   site-url: "https://pbosetti.github.io/indalab/"
   navbar:
     left:
-      - text: "Home"
-        href: "index.qmd"
       - text: "Esperimenti"
         href: "experiments.qmd"
       - text: "Presentazioni"
@@ -18,5 +16,6 @@ website:
         href: "https://github.com/pbosetti/indalab"
 format:
   html:
+    lang: it
     theme: materia
     
