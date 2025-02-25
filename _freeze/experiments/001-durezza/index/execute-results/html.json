@@ -1,9 +1,11 @@
 {
-  "hash": "f022726e168d9bb8e45d4ac2ddeb263f",
+  "hash": "4e46cd51b50c4673782a980db4083bb5",
   "result": {
     "engine": "knitr",
-    "markdown": "---\ntitle: \"Esempio: misura durezza\"\nauthor: \"Paolo Bosetti\"\ndate: \"02/05/2025\"\n# date-modified: today\nformat: html\ndraft: false\ncategories: \n  - materiali\nabstract: >\n  In questo esperimento si conducono delle misure di durezza superficiale su diversi campioni metallici, dopo opportuna preparazione superficiale\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nknitr::opts_chunk$set(\n  fig.align = \"center\",\n  # This for default device\n  out.width = \"16cm\",\n  # This two for high quality charts:\n  fig.dim = c(16, 9)*0.4\n)\n```\n:::\n\n\n\n\n# Descrizione dell'esperimento\n\n## Richiami teorici\n\n\n\n{{< lipsum 2 >}}\n\n\n\n\n## Descrizione attrezzature\n\n\n\n{{< lipsum 2 >}}\n\n\n\n\n\n## Progettazione dei test\n\n\n\n{{< lipsum 2 >}}\n\n\n\n\n\n## Raccolta dati\n\n\n\n{{< lipsum 3 >}}\n\n\n\n\n\n## Analisi e discussione\n\n\n\n{{< lipsum 2 >}}\n",
-    "supporting": [],
+    "markdown": "---\ntitle: \"Esempio: misura durezza\"\nauthor: \"Paolo Bosetti\"\ndate: \"02/05/2025\"\n# date-modified: today\nformat: \n  html:\n    toc: true\n  pdf:\n    toc: true\ndraft: false\ncategories: \n  - materiali\nabstract: >\n  In questo esperimento si conducono delle misure di durezza superficiale su diversi campioni metallici, dopo opportuna preparazione superficiale\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nknitr::opts_chunk$set(\n  fig.align = \"center\",\n  # This for default device\n  out.width = \"16cm\",\n  # This two for high quality charts:\n  fig.dim = c(16, 9)*0.4\n)\n```\n:::\n\n\n\n\n\n\n\n# Descrizione dell'esperimento\n\n## Richiami teorici\n\n\n\n\n\n\n{{< lipsum 2 >}}\n\n\n\n\n\n\n\n\n\n\n## Descrizione attrezzature\n\n\n\n\n\n\n{{< lipsum 2 >}}\n\n\n\n\n\n\n\n\n\n\n\n## Progettazione dei test\n\n\n\n\n\n\n{{< lipsum 2 >}}\n\n\n\n\n\n\n\n\n\n\n\n## Raccolta dati\n\n\n\n\n\n\n{{< lipsum 3 >}}\n\n\n\n\n\n\n\n\n\n\n\n## Analisi e discussione\n\n\n\n\n\n\n{{< lipsum 2 >}}\n\n",
+    "supporting": [
+      "index_files"
+    ],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
