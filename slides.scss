@@ -1,0 +1,22 @@
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+/*-- scss:mixins --*/
+
+/*-- scss:functions --*/
+
+/*-- scss:uses --*/
+
+
+h2 {
+  position: relative;
+  padding-left: 1em; /* Spazio per il ">" */
+  white-space: pre-wrap; /* Mantiene i ritorni a capo */
+}
+
+h2::before {
+  content: "> ";
+  position: absolute;
+  left: 0;
+}

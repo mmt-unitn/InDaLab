@@ -16,7 +16,7 @@ format:
     # theme: dark
     # theme: default
     # theme: league
-    theme: moon
+    theme: [moon, ../slides.scss]
     # theme: night
     # theme: serif
     # theme: simple
