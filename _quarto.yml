@@ -4,7 +4,7 @@ execute:
   freeze: auto
 website:
   title: "InDaLab"
-  site-url: "https://pbosetti.github.io/indalab/"
+  site-url: "https://mmt-unitn.github.io/InDaLab/"
   navbar:
     left:
       - text: "Esperimenti"
@@ -13,7 +13,7 @@ website:
         href: "slides.qmd"
     right:
       - icon: github
-        href: "https://github.com/pbosetti/indalab"
+        href: "https://github.com/mmt-unitn/InDaLab"
 format:
   html:
     lang: it
