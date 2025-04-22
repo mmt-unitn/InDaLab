@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
   # This two for high quality charts:
   fig.dim = c(16, 9)*0.4
 )
+library(tidyverse)
 ```
 
 # Descrizione dell'attività
@@ -198,7 +199,6 @@ L'esperimento si articola nelle seguenti fasi:
 ## Progettazione della campagna di misure
 
 ```{r}
-library(tidyverse)
 df<-tibble(
   sample=1:10,
   HV30_OK=NA,
@@ -218,46 +218,65 @@ write.csv(df,"misure_di_durezza.csv")
 ```{r}
 df$HV30_OK=c(679, 673, 635, 273, 275, 279, 164, 658, 682, 294)
 df$HV30_NOK=c(667, 660,647, 267, 271, 284,163,645, 653, 303)
-df$stima_ok = c(502, 551, 555, 200, 139, 208, 151, 585, 604, 262)
-df$stima_no = c(592, 588, 584, 217, 223, 222, 157, 611, 616, 263)
+df$stima_OK = c(502, 551, 555, 200, 139, 208, 151, 585, 604, 262)
+df$stima_NOK = c(592, 588, 584, 217, 223, 222, 157, 611, 616, 263)
 
 df
 ```
 
-```{r}
-df %>% 
-  pivot_longer(-sample) %>%
-  ggplot(aes(x=name,y=value)) +
-  geom_boxplot()
-```
+Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un'unica colonna `durezza`:
 
 ```{r}
-df %>% ggplot(aes(x=stima_ok, y=stima_no)) + 
+dfv <- df %>% 
+  pivot_longer(-sample, names_sep="_", names_to = c("misura","ok"), values_to="durezza") %>% 
+  mutate(ok=ifelse(ok=="OK","integro","rotto"))
+dfv
+```
+
+Confrontiamo tutti i dati: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale **maschera** le variabilità delle misure.
+
+```{r}
+dfv %>% 
+  ggplot(aes(x=misura, y=durezza, color=ok)) +
+  geom_boxplot() +
+  labs(x="Misura", y="Durezza", color="Penetratore")
+```
+
+Osserviamo la relazione tra stima e durezza, separatamente per penetratore: sembrano essere differenti sia l'intercetta che la pendenza.
+
+```{r}
+dfv %>%
+  pivot_wider(names_from = misura, values_from = durezza) %>% 
+  ggplot(aes(x=HV30, y=stima, color=ok)) + 
   geom_point() + 
   geom_smooth(method="lm", formula=y~x) +
-  geom_abline(slope=1, intercept=0, color="red")
-df %>% ggplot(aes(x=HV30_OK, y=HV30_NOK)) + 
-  geom_point() + 
-  geom_smooth(method="lm", formula=y~x) +
-  geom_abline(slope=1, intercept=0, color="red")
+  labs(color="penetratore") 
 ```
 
+Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla rettadiagonale con equazione $y=x$. Si osserva che i punti corrispondenti al HV30 effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è significativamente al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l'indentatore rotto che per quello integro.
 
 ```{r}
-df %>% 
-  ggplot(aes(x=HV30_OK, y=stima_ok)) +
-  geom_point() +
-  geom_smooth(method="lm", formula = y~x)
+dfv %>%
+  pivot_wider(names_from = ok, values_from = durezza) %>% 
+  ggplot(aes(x=integro, y=rotto, color=misura)) + 
+  geom_abline(slope=1, intercept=0, color="red", lty=2) +
+  geom_point() + 
+  geom_smooth(method="lm", formula=y~x)
 ```
+
+
+
 
 
 ## Analisi e discussione
 
+Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con `split`, e infine applico la funzione `t.test` a ciascun sottoinsieme mediante `map`:
+
 ```{r}
-t.test(df$HV30_OK,df$HV30_NOK,paired = T)
-t.test(df$stima_ok,df$stima_no,paired = T)
+dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>% 
+  split(.$misura) %>% 
+  map(~t.test(.x$integro, .x$rotto, paired = T))
 ```
-{{< lipsum 2 >}}
 
 Il risultato ottenuto suggerisce di accettare l'ipotesi nulla: non c'è differenza a livello statistico nell'utilizzare un penetratore o l'altro.
 
