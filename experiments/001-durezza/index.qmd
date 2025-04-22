@@ -1,6 +1,6 @@
 ---
 title: "Esempio: misura durezza"
-author: "Paolo Bosetti"
+author: "Tommaso Stefani"
 date: "02/05/2025"
 # date-modified: today
 format: 
@@ -17,6 +17,7 @@ abstract: >
 
 ```{r}
 #| label: setup
+#| include: false
 knitr::opts_chunk$set(
   fig.align = "center",
   # This for default device
