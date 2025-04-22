@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Paolo Bosetti">
+<meta name="author" content="Tommaso Stefani">
 
 <title>Esempio: misura durezza – InDaLab</title>
 <style>
@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -133,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pbosetti/indalab"> <i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/mmt-unitn/InDaLab"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -153,16 +182,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">In questa pagina</h2>
    
   <ul>
-  <li><a href="#descrizione-dellesperimento" id="toc-descrizione-dellesperimento" class="nav-link active" data-scroll-target="#descrizione-dellesperimento">Descrizione dell’esperimento</a>
+  <li><a href="#descrizione-dellattività" id="toc-descrizione-dellattività" class="nav-link active" data-scroll-target="#descrizione-dellattività">Descrizione dell’attività</a>
   <ul class="collapse">
-  <li><a href="#richiami-teorici" id="toc-richiami-teorici" class="nav-link" data-scroll-target="#richiami-teorici">Richiami teorici</a></li>
+  <li><a href="#richiami-teorici" id="toc-richiami-teorici" class="nav-link" data-scroll-target="#richiami-teorici">Richiami teorici</a>
+  <ul class="collapse">
+  <li><a href="#la-durezza" id="toc-la-durezza" class="nav-link" data-scroll-target="#la-durezza">La durezza</a></li>
+  <li><a href="#test-di-student-accoppiato" id="toc-test-di-student-accoppiato" class="nav-link" data-scroll-target="#test-di-student-accoppiato">Test di student accoppiato</a></li>
+  </ul></li>
   <li><a href="#descrizione-attrezzature" id="toc-descrizione-attrezzature" class="nav-link" data-scroll-target="#descrizione-attrezzature">Descrizione attrezzature</a></li>
-  <li><a href="#progettazione-dei-test" id="toc-progettazione-dei-test" class="nav-link" data-scroll-target="#progettazione-dei-test">Progettazione dei test</a></li>
-  <li><a href="#raccolta-dati" id="toc-raccolta-dati" class="nav-link" data-scroll-target="#raccolta-dati">Raccolta dati</a></li>
+  <li><a href="#descrizione-delle-modalità-operative-dellesperimento" id="toc-descrizione-delle-modalità-operative-dellesperimento" class="nav-link" data-scroll-target="#descrizione-delle-modalità-operative-dellesperimento">Descrizione delle modalità operative dell’esperimento</a></li>
+  <li><a href="#progettazione-della-campagna-di-misure" id="toc-progettazione-della-campagna-di-misure" class="nav-link" data-scroll-target="#progettazione-della-campagna-di-misure">Progettazione della campagna di misure</a></li>
+  <li><a href="#raccolta-dei-dati" id="toc-raccolta-dei-dati" class="nav-link" data-scroll-target="#raccolta-dei-dati">Raccolta dei dati</a></li>
   <li><a href="#analisi-e-discussione" id="toc-analisi-e-discussione" class="nav-link" data-scroll-target="#analisi-e-discussione">Analisi e discussione</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -182,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Autore/Autrice</div>
     <div class="quarto-title-meta-contents">
-             <p>Paolo Bosetti </p>
+             <p>Tommaso Stefani </p>
           </div>
   </div>
     
@@ -207,42 +241,277 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.align =</span> <span class="st">"center"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This for default device</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">out.width =</span> <span class="st">"16cm"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This two for high quality charts:</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.dim =</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">9</span>)<span class="sc">*</span><span class="fl">0.4</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="descrizione-dellesperimento" class="level1">
-<h1>Descrizione dell’esperimento</h1>
+<section id="descrizione-dellattività" class="level1">
+<h1>Descrizione dell’attività</h1>
+<p>La presente attività ha lo scopo di simulare l’attività di misurazione e la relativa indagine statistica che si potrebbe applicare in un contesto industriale nel quale si abbia il dubbio che un generico strumento di misura sia danneggiato.</p>
+<p>Il contesto che si prende come esempio è quello di una situazione in cui nel reparto qualità di un’azienda che produce componenti meccanici vengano rilevati valori di durezza difformi rispetto allo storico per uno specifico articolo.</p>
+<p>Si potrebbe ragionevolmente ipotizzare che tali valori siano dovuti al fatto che il penetratore utilizzato nelle prove di durezza sia danneggiato. Per inferire circa la probabilità di errore nell’assumere vera tale ipotesi è necessario eseguire un Test statistico.</p>
+<p>Il Test che più si presta ad essere applicato a tale situazione (come verrà illustrato nel paragrafo…..) è il <em>Test di Student accoppiato</em>.</p>
+<p>La presente attività, quindi, con il presupposto di simulare tale contesto si compone delle seguenti fasi:</p>
+<ol type="1">
+<li>pianificazione della campagna di misure di durezza</li>
+<li>realizzazione delle misure in laboratorio (contesto metallurgico)</li>
+<li>Analisi statistica e discussione dei risultati ottennuti</li>
+</ol>
+<p>In particolare si misureranno le durezze Vickers di un certo numero di campioni di acciaio (la composizione e i trattamenti subiti dagli stessi non sono noti proprio per evidenziare la peculiarità del test adottato) utilizzando prima un’incisore integro e poi uno danneggiato. Una volta concluse e analizzate le misure ottenute si potrà stabilire con un certo valore di probabilità di errore se le anomalie riscontrate nelle misurazioni siano dovute o meno al penetratore sospettato di essere danneggiato.</p>
 <section id="richiami-teorici" class="level2">
 <h2 class="anchored" data-anchor-id="richiami-teorici">Richiami teorici</h2>
+<section id="la-durezza" class="level3">
+<h3 class="anchored" data-anchor-id="la-durezza">La durezza</h3>
+<p>La durezza è la proprietà meccanica dei materiali che esprime la loro resistenza alla deformazione plastica locale, determinata mediante prove di penetrazione, graffiatura o abrasione. Essa rappresenta la capacità di un materiale ad opporsi alla formazione di impronte permanenti sotto l’azione di un corpo più duro.</p>
+<p>Esistono diverse tecniche per la valutazione quantitativa della durezza. Le più comuni e utilizzate prevedono l’impiego di un piccolo penetratore il quale viene forzato a penetrare attraverso la superficie del materiale da analizzare, secondo modalità di applicazione del carico e velocità di penetrazione controllate. La profondità o la dimensione dell’impronta che ne risulta viene poi misurata e da queste misure, attraverso formule stabilite dal metodo di prova adottato, si risale alla valutazione della durezza, espressa con un numero.</p>
+<p>E’ importante sottolineare che le misure di durezza non sono valori assoluti ma relativi in quanto dipendono fortemente dal metodo di prova utilizzato (Brinell, Vickers, Rockwell, Mohs, ecc.) e dalle condizioni di prova. Per questo motivo quando si riporta un valore di durezza è indispensabile riportare la sigla che ne definisce la scala di riferimento. La sigla <span class="math inline">\(350\,\mathrm{HV}\,30\,/\,10\)</span>, per esempio, sta ad indicare una durezza di 350 stabilita con il metodo Vickers, usando un carico di 30 kgf applicato per un tempo di 10 secondi.</p>
+<p>Trattandosi di una grandezza empirica (non esprimibile con una propria unità di misura), la durezza non è direttamente derivabile da altre proprietà fisiche fondamentali, ma dipende da fattori quali per esempio la microstruttura, la composizione chimica, il trattamento termico e le condizioni di prova. Va comunque detto che in molti materiali metallici (soprattutto acciai e leghe) esiste una certa correlazione empirica tra il valore di durezza (soprattutto Vickers o Brinell) e la tensione di rottura a trazione. Questa correlazione nasce dal fatto che entrambe le grandezze riflettono la resistenza del materiale alla deformazione plastica.</p>
+<p>Alla luce di quanto detto è evidente come non esista un metodo generale di conversione tra le diverse scale di misura della durezza (corrispondenti ai diversi metodi di prova utilizzati) ma solo tentativi di raffronto sperimentali.</p>
+<p>Le prove di durezza sono effettuate di frequente in quanto:</p>
+<ol type="1">
+<li>Sono semplici e poco costose: il campione non subisce particolari preparazioni preliminari e l’apparecchio di misura è poco costoso</li>
+<li>La prova è di carattere non distruttivo: sul campione rimane solo una piccola impronta</li>
+<li>Altre proprietà meccaniche possono essere dedotte (seppur approssimativamente) dalle misure di durezza (per esempio la resistenza a rottura)</li>
+</ol>
+<p>Di seguito si riportano le 3 scale di durezza più comuni per materiali metallici (compresi gli acciai), soffermandosi maggiormente sulla scala Vickers, adottata nelle misure del presente esperimento. Si illustra brevemente anche la scala Mohs, in quanto storicamente è stato il primo tentativo di comparare le diverse durezze dei materiali e tutt’ora viene utilizzata in certi ambiti.</p>
+<section id="scala-mohs" class="level4">
+<h4 class="anchored" data-anchor-id="scala-mohs">Scala Mohs</h4>
+<p>La scala di Mohs è un sistema ideato nel 1812 dal mineralogista tedesco Friedrich Mohs per classificare i materiali in base alla loro durezza, intesa come resistenza alla graffiatura. Si tratta di un metodo empirico e comparativo, che non fornisce un valore numerico assoluto, ma piuttosto consente di stabilire se un materiale è più o meno duro rispetto a un altro.</p>
+<p>La scala è composta da dieci livelli, ognuno rappresentato da un minerale di riferimento, ordinati dal più tenero (il talco, al livello 1) al più duro (il diamante, al livello 10). Per esempio, il quarzo si trova al livello 7, e può graffiare tutti i materiali con durezza inferiore, ma non quelli più duri di lui.</p>
+<p>Questo metodo è ancora oggi largamente utilizzato in geologia e mineralogia, dove è utile per un’identificazione rapida e pratica dei minerali sul campo o in laboratorio. Tuttavia, nel settore metallurgico e industriale, la scala Mohs ha un impiego molto più limitato, perché non permette misurazioni quantitative o confronti precisi. In quei contesti, infatti, si preferiscono metodi come Rockwell, Vickers o Brinell, che restituiscono valori numerici affidabili e ripetibili.</p>
+<p>In sintesi, la scala di Mohs è uno strumento semplice ed efficace per valutare la durezza relativa tra materiali, ma non è adatta quando serve un dato tecnico rigoroso o confrontabile in ambito industriale.</p>
+</section>
+<section id="scala-rockwell" class="level4">
+<h4 class="anchored" data-anchor-id="scala-rockwell">Scala Rockwell</h4>
+<p>La prova Rockwell è un metodo basato sulla <strong>misura della profondità residua</strong> di penetrazione dopo l’applicazione di carichi normalizzati. È molto diffusa per la sua rapidità e semplicità.</p>
+<p>La procedura prevede 3 fasi:</p>
+<ul>
+<li>preparazione dei campioni</li>
+<li>Applicazione di un <strong>precarico</strong> (10 kgf) per stabilizzare il contatto;</li>
+<li>Applicazione e successiva rimozione del <strong>carico principale</strong>, dopo cui si misura la profondità <span class="math inline">\(h\)</span> dell’impronta residua.</li>
+</ul>
+<p>Il valore di durezza Rockwell è calcolato mediante la formula:</p>
+<p><span class="math display">\[
+HR = N - \frac{h}{s}
+\]</span></p>
+<p>dove: - <span class="math inline">\(HR\)</span> è il valore di durezza, - <span class="math inline">\(h\)</span> è la profondità residua dell’impronta (in mm), - <span class="math inline">\(s = 0.002 \, \text{mm}\)</span> è il coefficiente di scala, - <span class="math inline">\(N\)</span> è una costante che dipende dalla scala (es. <span class="math inline">\(N = 100\)</span> per la scala HRC).</p>
+<p>Per la scala Rockwell C:</p>
+<p><span class="math display">\[
+HRC = 100 - \frac{h}{0.002} = 100 - 500h
+\]</span></p>
+<p>Le diverse scale Rockwell si distinguono principalemente per: - tipo di <strong>penetratore</strong> (cono in diamante o sfera di diverse dimensioni), - <strong>carico totale</strong> (da 60 a 150 kgf),</p>
+<p>La procedura, le condizioni operative, la scelta della scala e le modalità di taratura sono dettagliatamente definite nella norma internazionale <strong>UNI EN ISO 6508-1:2016</strong></p>
+</section>
+<section id="scala-brinell" class="level4">
+<h4 class="anchored" data-anchor-id="scala-brinell">Scala Brinell</h4>
+<p>La <strong>prova Brinell</strong> è un metodo ottico che misura la durezza di un materiale valutando la resistenza all’indentazione provocata da una <strong>sfera in acciaio o carburo di tungsteno</strong> sottoposta a un carico statico. E’ una prova robusta che può essere applicata ad un ampio intervallo di durezze.</p>
+<p>Dopo l’applicazione del carico, si misura il <strong>diametro dell’impronta</strong> residua. La durezza Brinell si calcola tramite:</p>
+<p><span class="math display">\[
+HBW = \frac{2F}{\pi D \left( D - \sqrt{D^2 - d^2} \right)}
+\]</span></p>
+<p>dove: - <span class="math inline">\(F\)</span>: carico applicato (kgf)<br>
+- <span class="math inline">\(D\)</span>: diametro della sfera (mm)<br>
+- <span class="math inline">\(d\)</span>: diametro medio dell’impronta (mm)</p>
+<p>La procedura, le condizioni operative, la scelta della scala e le modalità di taratura sono dettagliatamente definite nella norma internazionale <strong>UNI EN ISO 6506-1</strong></p>
+</section>
+<section id="scala-vickers" class="level4">
+<h4 class="anchored" data-anchor-id="scala-vickers">Scala Vickers</h4>
+<p>La prova Vickers è un metodo ottico per la determinazione della durezza dei materiali metallici, basato sulla misurazione delle dimensioni di un’impronta ottenuta tramite un penetratore piramidale in diamante. Il penetratore ha una geometria a base quadrata con un angolo di 136° tra le facce opposte. Durante la prova, si applica un carico statico definito, mantenuto per un determinato intervallo di tempo. Una volta rimosso il carico, si osserva l’impronta lasciata sulla superficie del campione.</p>
+<p>La durezza viene determinata misurando otticamente le due diagonali dell’impronta, generalmente tramite un microscopio ottico con reticolo graduato o un sistema digitale di acquisizione. Il valore di durezza Vickers si calcola come rapporto tra il carico applicato e l’area della superficie dell’impronta, secondo la seguente formula:</p>
+<p><span class="math display">\[
+HV = \frac{1.854 \cdot F}{d^2}
+\]</span></p>
+<p>dove $ F $ è il carico applicato in kgf e $ d $ è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.</p>
+<p>Trattandosi di una misura ottica, la preparazione del campione è un aspetto fondamentale. La superficie da testare deve essere accuratamente levigata e lucidata, al fine di permettere una lettura chiara e precisa dell’impronta. Per questo motivo, la prova Vickers è particolarmente indicata per materiali metallici omogenei e per applicazioni su sezioni sottili o microstrutture, come nel caso delle microdurezze.</p>
+<p>La scala Vickers è unica nella geometria del penetratore, ma varia in funzione del carico applicato, indicato accanto alla sigla HV. Ad esempio, la sigla <strong>HV5</strong> indica una prova eseguita con un carico di 5 kgf, <strong>HV10</strong> con 10 kgf, e così via. Questa specifica è fondamentale perché la dimensione dell’impronta e la risposta del materiale possono variare in base alla forza impiegata. I risultati ottenuti con carichi diversi <strong>non sono sempre direttamente confrontabili</strong>, specialmente su materiali eterogenei o trattati superficialmente.</p>
+<p>Tutti i dettagli tecnici, i criteri di esecuzione e le tolleranze della prova sono regolati dalla norma <strong>UNI EN ISO 6507-1</strong>, che rappresenta il riferimento principale per l’applicazione corretta del metodo Vickers.</p>
+</section>
+</section>
+<section id="test-di-student-accoppiato" class="level3">
+<h3 class="anchored" data-anchor-id="test-di-student-accoppiato">Test di student accoppiato</h3>
+<p>Nel caso di test di Student a due campioni, quando essi <strong>hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili</strong>, è opportuno accoppiarli e effettuare il test di Student accoppiato</p>
+<p>Ogni misura è esprimibile come: <span class="math display">\[
+y_{ij}=\mu_i+\beta_j+\varepsilon_{ij};\hspace{9pt} \left\{ \begin{array}{l}i=1,2\\j=1,2,\dots ,n\end{array} \right.
+\]</span> Se definisco <span class="math inline">\(d_j=y_{1j} - y_{2j}\)</span>, ricordando le proprietà dell’operatore <span class="math inline">\(E(\cdot)\)</span>, risulta <span class="math inline">\(\mu_d = \mu_1 - \mu_2\)</span>. Quindi posso riformulare una coppia di ipotesi equivalenti: <span class="math display">\[
+\begin{eqnarray}
+H_0 :~&amp; \mu_d = 0 \\
+H_1 :~&amp; \mu_d \neq 0
+\end{eqnarray}
+\]</span> Quindi il test accoppiato è un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
 <p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
 <p>Proin sodales neque erat, varius cursus diam tincidunt sit amet. Etiam scelerisque fringilla nisl eu venenatis. Donec sem ipsum, scelerisque ac venenatis quis, hendrerit vel mauris. Praesent semper erat sit amet purus condimentum, sit amet auctor mi feugiat. In hac habitasse platea dictumst. Nunc ac mauris in massa feugiat bibendum id in dui. Praesent accumsan urna at lacinia aliquet. Proin ultricies eu est quis pellentesque. In vel lorem at nisl rhoncus cursus eu quis mi. In eu rutrum ante, quis placerat justo. Etiam euismod nibh nibh, sed elementum nunc imperdiet in. Praesent gravida nunc vel odio lacinia, at tempus nisl placerat. Aenean id ipsum sed est sagittis hendrerit non in tortor.</p>
+</section>
 </section>
 <section id="descrizione-attrezzature" class="level2">
 <h2 class="anchored" data-anchor-id="descrizione-attrezzature">Descrizione attrezzature</h2>
-<p>Duis urna urna, pellentesque eu urna ut, malesuada bibendum dolor. Suspendisse potenti. Vivamus ornare, arcu quis molestie ultrices, magna est accumsan augue, auctor vulputate erat quam quis neque. Nullam scelerisque odio vel ultricies facilisis. Ut porta arcu non magna sagittis lacinia. Cras ornare vulputate lectus a tristique. Pellentesque ac arcu congue, rhoncus mi id, dignissim ligula.</p>
-<p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
-</section>
-<section id="progettazione-dei-test" class="level2">
-<h2 class="anchored" data-anchor-id="progettazione-dei-test">Progettazione dei test</h2>
+<p>Le attrezzature e i materiali necessari per eseguire l’esperimento sono:</p>
+<ul>
+<li>10 campioni di acciai di varia domposizione (non nota)</li>
+<li>carta abrasiva</li>
+<li>etanolo</li>
+<li>carta assorbente</li>
+<li>Durometro Vickers</li>
+<li>penetatore Vickers danneggiato</li>
+<li>penetratore Vickers integro</li>
+<li>10 campioni di acciaio di composizione non nota</li>
+</ul>
 <p>Duis ornare ex ac iaculis pretium. Maecenas sagittis odio id erat pharetra, sit amet consectetur quam sollicitudin. Vivamus pharetra quam purus, nec sagittis risus pretium at. Nullam feugiat, turpis ac accumsan interdum, sem tellus blandit neque, id vulputate diam quam semper nisl. Donec sit amet enim at neque porttitor aliquet. Phasellus facilisis nulla eget placerat eleifend. Vestibulum non egestas eros, eget lobortis ipsum. Nulla rutrum massa eget enim aliquam, id porttitor erat luctus. Nunc sagittis quis eros eu sagittis. Pellentesque dictum, erat at pellentesque sollicitudin, justo augue pulvinar metus, quis rutrum est mi nec felis. Vestibulum efficitur mi lorem, at elementum purus tincidunt a. Aliquam finibus enim magna, vitae pellentesque erat faucibus at. Nulla mauris tellus, imperdiet id lobortis et, dignissim condimentum ipsum. Morbi nulla orci, varius at aliquet sed, facilisis id tortor. Donec ut urna nisi.</p>
 <p>Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</p>
 </section>
-<section id="raccolta-dati" class="level2">
-<h2 class="anchored" data-anchor-id="raccolta-dati">Raccolta dati</h2>
-<p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
-<p>Proin sodales neque erat, varius cursus diam tincidunt sit amet. Etiam scelerisque fringilla nisl eu venenatis. Donec sem ipsum, scelerisque ac venenatis quis, hendrerit vel mauris. Praesent semper erat sit amet purus condimentum, sit amet auctor mi feugiat. In hac habitasse platea dictumst. Nunc ac mauris in massa feugiat bibendum id in dui. Praesent accumsan urna at lacinia aliquet. Proin ultricies eu est quis pellentesque. In vel lorem at nisl rhoncus cursus eu quis mi. In eu rutrum ante, quis placerat justo. Etiam euismod nibh nibh, sed elementum nunc imperdiet in. Praesent gravida nunc vel odio lacinia, at tempus nisl placerat. Aenean id ipsum sed est sagittis hendrerit non in tortor.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+<section id="descrizione-delle-modalità-operative-dellesperimento" class="level2">
+<h2 class="anchored" data-anchor-id="descrizione-delle-modalità-operative-dellesperimento">Descrizione delle modalità operative dell’esperimento</h2>
+<p>L’esperimento si articola nelle seguenti fasi:</p>
+<ol type="1">
+<li><p>Preparazione del campione: il campione deve essere accuratamente lucidato per ottenere una superficie liscia e priva di ossidazioni o impurità. In seguito si pulisce con etanolo per rimuovere polveri o residui.</p></li>
+<li><p>Configurazione del durometro: si installa sul durometro il penetratore Vickers integro e si impostano i parametri della prova HV 30 come da normativa UNI EN ISO 6507-1 (***sono gia impostati basta richiamare la memoria).</p></li>
+<li><p>Esecuzione delle 10 misurazioni relative ai 10 campioni</p></li>
+<li><p>Cambio del penetratore: si rimuove il penetratore integro e si installa quello danneggiato.</p></li>
+<li><p>Esecuzione delle 10 misurazioni relative ai 10 campioni</p></li>
+</ol>
+</section>
+<section id="progettazione-della-campagna-di-misure" class="level2">
+<h2 class="anchored" data-anchor-id="progettazione-della-campagna-di-misure">Progettazione della campagna di misure</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">tibble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">sample=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">HV30_OK=</span><span class="cn">NA</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">HV30_NOK=</span><span class="cn">NA</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df,<span class="st">"misure_di_durezza.csv"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Etiam congue quam eget velit convallis, eu sagittis orci vestibulum. Vestibulum at massa turpis. Curabitur ornare ex sed purus vulputate, vitae porta augue rhoncus. Phasellus auctor suscipit purus, vel ultricies nunc. Nunc eleifend nulla ac purus volutpat, id fringilla felis aliquet. Duis vitae porttitor nibh, in rhoncus risus. Vestibulum a est vitae est tristique vehicula. Proin mollis justo id est tempus hendrerit. Praesent suscipit placerat congue. Aliquam eu elit gravida, consequat augue non, ultricies sapien. Nunc ultricies viverra ante, sit amet vehicula ante volutpat id. Etiam tempus purus vitae tellus mollis viverra. Donec at ornare mauris. Aliquam sodales hendrerit ornare. Suspendisse accumsan lacinia sapien, sit amet imperdiet dui molestie ut.</p>
+<p>Etiam non efficitur urna, quis elementum nisi. Mauris posuere a augue vel gravida. Praesent luctus erat et ex iaculis interdum. Nulla vestibulum quam ac nunc consequat vulputate. Nullam iaculis lobortis sem sit amet fringilla. Aliquam semper, metus ut blandit semper, nulla velit fermentum sapien, fermentum ultrices dolor sapien sed leo. Vestibulum molestie faucibus magna, at feugiat nulla ullamcorper a. Aliquam erat volutpat. Praesent scelerisque magna a justo maximus, sit amet suscipit mauris tempor. Nulla nec dolor eget ipsum pellentesque lobortis a in ipsum. Morbi turpis turpis, fringilla a eleifend maximus, viverra nec neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+</section>
+<section id="raccolta-dei-dati" class="level2">
+<h2 class="anchored" data-anchor-id="raccolta-dei-dati">Raccolta dei dati</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>HV30_OK<span class="ot">=</span><span class="fu">c</span>(<span class="dv">679</span>, <span class="dv">673</span>, <span class="dv">635</span>, <span class="dv">273</span>, <span class="dv">275</span>, <span class="dv">279</span>, <span class="dv">164</span>, <span class="dv">658</span>, <span class="dv">682</span>, <span class="dv">294</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>HV30_NOK<span class="ot">=</span><span class="fu">c</span>(<span class="dv">667</span>, <span class="dv">660</span>,<span class="dv">647</span>, <span class="dv">267</span>, <span class="dv">271</span>, <span class="dv">284</span>,<span class="dv">163</span>,<span class="dv">645</span>, <span class="dv">653</span>, <span class="dv">303</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>stima_OK <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">502</span>, <span class="dv">551</span>, <span class="dv">555</span>, <span class="dv">200</span>, <span class="dv">139</span>, <span class="dv">208</span>, <span class="dv">151</span>, <span class="dv">585</span>, <span class="dv">604</span>, <span class="dv">262</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>stima_NOK <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">592</span>, <span class="dv">588</span>, <span class="dv">584</span>, <span class="dv">217</span>, <span class="dv">223</span>, <span class="dv">222</span>, <span class="dv">157</span>, <span class="dv">611</span>, <span class="dv">616</span>, <span class="dv">263</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+   sample HV30_OK HV30_NOK stima_OK stima_NOK
+    &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1      1     679      667      502       592
+ 2      2     673      660      551       588
+ 3      3     635      647      555       584
+ 4      4     273      267      200       217
+ 5      5     275      271      139       223
+ 6      6     279      284      208       222
+ 7      7     164      163      151       157
+ 8      8     658      645      585       611
+ 9      9     682      653      604       616
+10     10     294      303      262       263</code></pre>
+</div>
+</div>
+<p>Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un’unica colonna <code>durezza</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>sample, <span class="at">names_sep=</span><span class="st">"_"</span>, <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"misura"</span>,<span class="st">"ok"</span>), <span class="at">values_to=</span><span class="st">"durezza"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ok=</span><span class="fu">ifelse</span>(ok<span class="sc">==</span><span class="st">"OK"</span>,<span class="st">"integro"</span>,<span class="st">"rotto"</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dfv</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 4
+   sample misura ok      durezza
+    &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;
+ 1      1 HV30   integro     679
+ 2      1 HV30   rotto       667
+ 3      1 stima  integro     502
+ 4      1 stima  rotto       592
+ 5      2 HV30   integro     673
+ 6      2 HV30   rotto       660
+ 7      2 stima  integro     551
+ 8      2 stima  rotto       588
+ 9      3 HV30   integro     635
+10      3 HV30   rotto       647
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<p>Confrontiamo tutti i dati: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale <strong>maschera</strong> le variabilità delle misure.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>misura, <span class="at">y=</span>durezza, <span class="at">color=</span>ok)) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Misura"</span>, <span class="at">y=</span><span class="st">"Durezza"</span>, <span class="at">color=</span><span class="st">"Penetratore"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Osserviamo la relazione tra stima e durezza, separatamente per penetratore: sembrano essere differenti sia l’intercetta che la pendenza.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> misura, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>HV30, <span class="at">y=</span>stima, <span class="at">color=</span>ok)) <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">"penetratore"</span>) </span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla rettadiagonale con equazione <span class="math inline">\(y=x\)</span>. Si osserva che i punti corrispondenti al HV30 effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è significativamente al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l’indentatore rotto che per quello integro.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> ok, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>integro, <span class="at">y=</span>rotto, <span class="at">color=</span>misura)) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="analisi-e-discussione" class="level2">
 <h2 class="anchored" data-anchor-id="analisi-e-discussione">Analisi e discussione</h2>
-<p>Nullam dapibus cursus dolor sit amet consequat. Nulla facilisi. Curabitur vel nulla non magna lacinia tincidunt. Duis porttitor quam leo, et blandit velit efficitur ut. Etiam auctor tincidunt porttitor. Phasellus sed accumsan mi. Fusce ut erat dui. Suspendisse eu augue eget turpis condimentum finibus eu non lorem. Donec finibus eros eu ante condimentum, sed pharetra sapien sagittis. Phasellus non dolor ac ante mollis auctor nec et sapien. Pellentesque vulputate at nisi eu tincidunt. Vestibulum at dolor aliquam, hendrerit purus eu, eleifend massa. Morbi consectetur eros id tincidunt gravida. Fusce ut enim quis orci hendrerit lacinia sed vitae enim.</p>
-<p>Nulla eget cursus ipsum. Vivamus porttitor leo diam, sed volutpat lectus facilisis sit amet. Maecenas et pulvinar metus. Ut at dignissim tellus. In in tincidunt elit. Etiam vulputate lobortis arcu, vel faucibus leo lobortis ac. Aliquam erat volutpat. In interdum orci ac est euismod euismod. Nunc eleifend tristique risus, at lacinia odio commodo in. Sed aliquet ligula odio, sed tempor neque ultricies sit amet.</p>
+<p>Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con <code>split</code>, e infine applico la funzione <code>t.test</code> a ciascun sottoinsieme mediante <code>map</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> ok, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(.<span class="sc">$</span>misura) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span><span class="fu">t.test</span>(.x<span class="sc">$</span>integro, .x<span class="sc">$</span>rotto, <span class="at">paired =</span> T))</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$HV30
+
+    Paired t-test
+
+data:  .x$integro and .x$rotto
+t = 1.3399, df = 9, p-value = 0.2131
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -3.57945 13.97945
+sample estimates:
+mean difference 
+            5.2 
+
+
+$stima
+
+    Paired t-test
+
+data:  .x$integro and .x$rotto
+t = -3.2099, df = 9, p-value = 0.01066
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -53.869964  -9.330036
+sample estimates:
+mean difference 
+          -31.6 </code></pre>
+</div>
+</div>
+<p>Il risultato ottenuto suggerisce di accettare l’ipotesi nulla: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro.</p>
+<p>Questo fatto può parere inaspettato, in quanto il penetratore si sa essere danneggiato. Tuttavia sta ad indicare proprio che nonostante esso sia danneggiato <em>nel campo di applicazione nel quale si sono svolte le misure</em> questo fatto non è statisticamente rilevante.</p>
 
 
 </section>
@@ -339,7 +608,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/pbosetti\.github\.io\/indalab\/");
+      var filterRegex = new RegExp("https:\/\/mmt-unitn\.github\.io\/InDaLab\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

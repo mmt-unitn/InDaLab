@@ -1,1 +1,1 @@
-Sitemap: https://pbosetti.github.io/indalab/sitemap.xml
+Sitemap: https://mmt-unitn.github.io/InDaLab/sitemap.xml
