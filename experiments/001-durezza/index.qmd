@@ -6,6 +6,8 @@ date: "02/05/2025"
 format: 
   html:
     toc: true
+  pdf:
+    toc: true
 draft: false
 categories: 
   - materiali
@@ -156,12 +158,13 @@ $$
 y_{ij}=\mu_i+\beta_j+\varepsilon_{ij};\hspace{9pt} \left\{ \begin{array}{l}i=1,2\\j=1,2,\dots ,n\end{array} \right.
 $$
 Se definisco $d_j=y_{1j} - y_{2j}$, ricordando le proprietà dell'operatore $E(\cdot)$, risulta $\mu_d = \mu_1 - \mu_2$. Quindi posso riformulare una coppia di ipotesi equivalenti:
-$$
-\begin{eqnarray}
+
+\begin{eqnarray} 
 H_0 :~& \mu_d = 0 \\
 H_1 :~& \mu_d \neq 0
 \end{eqnarray}
-$$
+
+
 Quindi il test accoppiato è un test a un campione, con il vantaggio che **gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test**
 
 
@@ -213,7 +216,10 @@ Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da 
 
 ```{r}
 dfv <- df %>% 
-  pivot_longer(-sample, names_sep="_", names_to = c("misura","ok"), values_to="durezza") %>% 
+  pivot_longer(-sample, 
+               names_sep="_", 
+               names_to = c("misura","ok"), 
+               values_to="durezza") %>% 
   mutate(ok=ifelse(ok=="OK","integro","rotto"))
 dfv %>% head() %>% kable()
 ```
@@ -266,10 +272,15 @@ dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>%
     }, .init=tibble())
   } %>% 
   relocate(p.value, .after=-1) %>% 
-  mutate(significant = p.value < 0.05) %>%
+  mutate(
+    significant = p.value < 0.05, 
+    across(c(statistic, conf.low, conf.high, p.value), ~round(., 3))) %>%
+  select(-method, -alternative) %>%
   kable()
 ```
+
 
 Il risultato ottenuto suggerisce di accettare l'ipotesi nulla: non c'è differenza a livello statistico nell'utilizzare un penetratore o l'altro.
 
 Questo fatto può parere inaspettato, in quanto il penetratore si sa essere danneggiato. Tuttavia sta ad indicare proprio che nonostante esso sia danneggiato *nel campo di applicazione nel quale si sono svolte le misure* questo fatto non è statisticamente rilevante.
+
