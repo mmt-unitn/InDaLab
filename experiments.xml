@@ -25,18 +25,19 @@
 <p>La presente attività ha lo scopo di simulare l’attività di misurazione e la relativa indagine statistica che si potrebbe applicare in un contesto industriale nel quale si abbia il dubbio che un generico strumento di misura sia danneggiato.</p>
 <p>Il contesto che si prende come esempio è quello di una situazione in cui nel reparto qualità di un’azienda che produce componenti meccanici vengano rilevati valori di durezza difformi rispetto allo storico per uno specifico articolo.</p>
 <p>Si potrebbe ragionevolmente ipotizzare che tali valori siano dovuti al fatto che il penetratore utilizzato nelle prove di durezza sia danneggiato. Per inferire circa la probabilità di errore nell’assumere vera tale ipotesi è necessario eseguire un Test statistico.</p>
-<p>Il Test che più si presta ad essere applicato a tale situazione (come verrà illustrato nel paragrafo…..) è il <em>Test di Student accoppiato</em>.</p>
+<p>Il Test che più si presta ad essere applicato a tale situazione (come verrà illustrato nel paragrafo Sezione&nbsp;2.2) è il <em>Test di Student accoppiato</em>.</p>
 <p>La presente attività, quindi, con il presupposto di simulare tale contesto si compone delle seguenti fasi:</p>
 <ol type="1">
 <li>pianificazione della campagna di misure di durezza</li>
 <li>realizzazione delle misure in laboratorio (contesto metallurgico)</li>
-<li>Analisi statistica e discussione dei risultati ottennuti</li>
+<li>Analisi statistica e discussione dei risultati ottenuti</li>
 </ol>
-<p>In particolare si misureranno le durezze Vickers di un certo numero di campioni di acciaio (la composizione e i trattamenti subiti dagli stessi non sono noti proprio per evidenziare la peculiarità del test adottato) utilizzando prima un’incisore integro e poi uno danneggiato. Una volta concluse e analizzate le misure ottenute si potrà stabilire con un certo valore di probabilità di errore se le anomalie riscontrate nelle misurazioni siano dovute o meno al penetratore sospettato di essere danneggiato.</p>
-<section id="richiami-teorici" class="level2">
-<h2 class="anchored" data-anchor-id="richiami-teorici">Richiami teorici</h2>
-<section id="la-durezza" class="level3">
-<h3 class="anchored" data-anchor-id="la-durezza">La durezza</h3>
+<p>In particolare si misureranno le durezze Vickers di un certo numero di campioni di acciaio (la composizione e i trattamenti subiti dagli stessi non sono noti proprio per evidenziare la peculiarità del test adottato) utilizzando prima un incisore integro e poi uno danneggiato. Una volta concluse e analizzate le misure ottenute si potrà stabilire con un certo valore di probabilità di errore se le anomalie riscontrate nelle misurazioni siano dovute o meno al penetratore sospettato di essere danneggiato.</p>
+</section>
+<section id="richiami-teorici" class="level1">
+<h1>Richiami teorici</h1>
+<section id="la-durezza" class="level2">
+<h2 class="anchored" data-anchor-id="la-durezza">La durezza</h2>
 <p>La durezza è la proprietà meccanica dei materiali che esprime la loro resistenza alla deformazione plastica locale, determinata mediante prove di penetrazione, graffiatura o abrasione. Essa rappresenta la capacità di un materiale ad opporsi alla formazione di impronte permanenti sotto l’azione di un corpo più duro.</p>
 <p>Esistono diverse tecniche per la valutazione quantitativa della durezza. Le più comuni e utilizzate prevedono l’impiego di un piccolo penetratore il quale viene forzato a penetrare attraverso la superficie del materiale da analizzare, secondo modalità di applicazione del carico e velocità di penetrazione controllate. La profondità o la dimensione dell’impronta che ne risulta viene poi misurata e da queste misure, attraverso formule stabilite dal metodo di prova adottato, si risale alla valutazione della durezza, espressa con un numero.</p>
 <p>E’ importante sottolineare che le misure di durezza non sono valori assoluti ma relativi in quanto dipendono fortemente dal metodo di prova utilizzato (Brinell, Vickers, Rockwell, Mohs, ecc.) e dalle condizioni di prova. Per questo motivo quando si riporta un valore di durezza è indispensabile riportare la sigla che ne definisce la scala di riferimento. La sigla <img src="https://latex.codecogs.com/png.latex?350%5C,%5Cmathrm%7BHV%7D%5C,30%5C,/%5C,10">, per esempio, sta ad indicare una durezza di 350 stabilita con il metodo Vickers, usando un carico di 30 kgf applicato per un tempo di 10 secondi.</p>
@@ -49,20 +50,20 @@
 <li>Altre proprietà meccaniche possono essere dedotte (seppur approssimativamente) dalle misure di durezza (per esempio la resistenza a rottura)</li>
 </ol>
 <p>Di seguito si riportano le 3 scale di durezza più comuni per materiali metallici (compresi gli acciai), soffermandosi maggiormente sulla scala Vickers, adottata nelle misure del presente esperimento. Si illustra brevemente anche la scala Mohs, in quanto storicamente è stato il primo tentativo di comparare le diverse durezze dei materiali e tutt’ora viene utilizzata in certi ambiti.</p>
-<section id="scala-mohs" class="level4">
-<h4 class="anchored" data-anchor-id="scala-mohs">Scala Mohs</h4>
+<section id="scala-mohs" class="level3">
+<h3 class="anchored" data-anchor-id="scala-mohs">Scala Mohs</h3>
 <p>La scala di Mohs è un sistema ideato nel 1812 dal mineralogista tedesco Friedrich Mohs per classificare i materiali in base alla loro durezza, intesa come resistenza alla graffiatura. Si tratta di un metodo empirico e comparativo, che non fornisce un valore numerico assoluto, ma piuttosto consente di stabilire se un materiale è più o meno duro rispetto a un altro.</p>
 <p>La scala è composta da dieci livelli, ognuno rappresentato da un minerale di riferimento, ordinati dal più tenero (il talco, al livello 1) al più duro (il diamante, al livello 10). Per esempio, il quarzo si trova al livello 7, e può graffiare tutti i materiali con durezza inferiore, ma non quelli più duri di lui.</p>
 <p>Questo metodo è ancora oggi largamente utilizzato in geologia e mineralogia, dove è utile per un’identificazione rapida e pratica dei minerali sul campo o in laboratorio. Tuttavia, nel settore metallurgico e industriale, la scala Mohs ha un impiego molto più limitato, perché non permette misurazioni quantitative o confronti precisi. In quei contesti, infatti, si preferiscono metodi come Rockwell, Vickers o Brinell, che restituiscono valori numerici affidabili e ripetibili.</p>
 <p>In sintesi, la scala di Mohs è uno strumento semplice ed efficace per valutare la durezza relativa tra materiali, ma non è adatta quando serve un dato tecnico rigoroso o confrontabile in ambito industriale.</p>
 </section>
-<section id="scala-rockwell" class="level4">
-<h4 class="anchored" data-anchor-id="scala-rockwell">Scala Rockwell</h4>
+<section id="scala-rockwell" class="level3">
+<h3 class="anchored" data-anchor-id="scala-rockwell">Scala Rockwell</h3>
 <p>La prova Rockwell è un metodo basato sulla <strong>misura della profondità residua</strong> di penetrazione dopo l’applicazione di carichi normalizzati. È molto diffusa per la sua rapidità e semplicità.</p>
 <p>La procedura prevede 3 fasi:</p>
 <ul>
 <li>preparazione dei campioni</li>
-<li>Applicazione di un <strong>precarico</strong> (10 kgf) per stabilizzare il contatto;</li>
+<li>Applicazione di un <strong>pre-carico</strong> (10 kgf) per stabilizzare il contatto;</li>
 <li>Applicazione e successiva rimozione del <strong>carico principale</strong>, dopo cui si misura la profondità <img src="https://latex.codecogs.com/png.latex?h"> dell’impronta residua.</li>
 </ul>
 <p>Il valore di durezza Rockwell è calcolato mediante la formula:</p>
@@ -70,21 +71,26 @@
 <p>dove: - <img src="https://latex.codecogs.com/png.latex?HR"> è il valore di durezza, - <img src="https://latex.codecogs.com/png.latex?h"> è la profondità residua dell’impronta (in mm), - <img src="https://latex.codecogs.com/png.latex?s%20=%200.002%20%5C,%20%5Ctext%7Bmm%7D"> è il coefficiente di scala, - <img src="https://latex.codecogs.com/png.latex?N"> è una costante che dipende dalla scala (es. <img src="https://latex.codecogs.com/png.latex?N%20=%20100"> per la scala HRC).</p>
 <p>Per la scala Rockwell C:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0AHRC%20=%20100%20-%20%5Cfrac%7Bh%7D%7B0.002%7D%20=%20100%20-%20500h%0A"></p>
-<p>Le diverse scale Rockwell si distinguono principalemente per: - tipo di <strong>penetratore</strong> (cono in diamante o sfera di diverse dimensioni), - <strong>carico totale</strong> (da 60 a 150 kgf),</p>
+<p>Le diverse scale Rockwell si distinguono principalmente per: - tipo di <strong>penetratore</strong> (cono in diamante o sfera di diverse dimensioni), - <strong>carico totale</strong> (da 60 a 150 kgf),</p>
 <p>La procedura, le condizioni operative, la scelta della scala e le modalità di taratura sono dettagliatamente definite nella norma internazionale <strong>UNI EN ISO 6508-1:2016</strong></p>
 </section>
-<section id="scala-brinell" class="level4">
-<h4 class="anchored" data-anchor-id="scala-brinell">Scala Brinell</h4>
+<section id="scala-brinell" class="level3">
+<h3 class="anchored" data-anchor-id="scala-brinell">Scala Brinell</h3>
 <p>La <strong>prova Brinell</strong> è un metodo ottico che misura la durezza di un materiale valutando la resistenza all’indentazione provocata da una <strong>sfera in acciaio o carburo di tungsteno</strong> sottoposta a un carico statico. E’ una prova robusta che può essere applicata ad un ampio intervallo di durezze.</p>
 <p>Dopo l’applicazione del carico, si misura il <strong>diametro dell’impronta</strong> residua. La durezza Brinell si calcola tramite:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0AHBW%20=%20%5Cfrac%7B2F%7D%7B%5Cpi%20D%20%5Cleft(%20D%20-%20%5Csqrt%7BD%5E2%20-%20d%5E2%7D%20%5Cright)%7D%0A"></p>
-<p>dove: - <img src="https://latex.codecogs.com/png.latex?F">: carico applicato (kgf)<br>
-- <img src="https://latex.codecogs.com/png.latex?D">: diametro della sfera (mm)<br>
-- <img src="https://latex.codecogs.com/png.latex?d">: diametro medio dell’impronta (mm)</p>
+<p>dove:</p>
+<ul>
+<li><img src="https://latex.codecogs.com/png.latex?F">: carico applicato (kgf)<br>
+</li>
+<li><img src="https://latex.codecogs.com/png.latex?D">: diametro della sfera (mm)<br>
+</li>
+<li><img src="https://latex.codecogs.com/png.latex?d">: diametro medio dell’impronta (mm)</li>
+</ul>
 <p>La procedura, le condizioni operative, la scelta della scala e le modalità di taratura sono dettagliatamente definite nella norma internazionale <strong>UNI EN ISO 6506-1</strong></p>
 </section>
-<section id="scala-vickers" class="level4">
-<h4 class="anchored" data-anchor-id="scala-vickers">Scala Vickers</h4>
+<section id="scala-vickers" class="level3">
+<h3 class="anchored" data-anchor-id="scala-vickers">Scala Vickers</h3>
 <p>La prova Vickers è un metodo ottico per la determinazione della durezza dei materiali metallici, basato sulla misurazione delle dimensioni di un’impronta ottenuta tramite un penetratore piramidale in diamante. Il penetratore ha una geometria a base quadrata con un angolo di 136° tra le facce opposte. Durante la prova, si applica un carico statico definito, mantenuto per un determinato intervallo di tempo. Una volta rimosso il carico, si osserva l’impronta lasciata sulla superficie del campione.</p>
 <p>La durezza viene determinata misurando otticamente le due diagonali dell’impronta, generalmente tramite un microscopio ottico con reticolo graduato o un sistema digitale di acquisizione. Il valore di durezza Vickers si calcola come rapporto tra il carico applicato e l’area della superficie dell’impronta, secondo la seguente formula:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0AHV%20=%20%5Cfrac%7B1.854%20%5Ccdot%20F%7D%7Bd%5E2%7D%0A"></p>
@@ -94,19 +100,21 @@
 <p>Tutti i dettagli tecnici, i criteri di esecuzione e le tolleranze della prova sono regolati dalla norma <strong>UNI EN ISO 6507-1</strong>, che rappresenta il riferimento principale per l’applicazione corretta del metodo Vickers.</p>
 </section>
 </section>
-<section id="test-di-student-accoppiato" class="level3">
-<h3 class="anchored" data-anchor-id="test-di-student-accoppiato">Test di student accoppiato</h3>
+<section id="sec-t-test" class="level2">
+<h2 class="anchored" data-anchor-id="sec-t-test">Test di student accoppiato</h2>
 <p>Nel caso di test di Student a due campioni, quando essi <strong>hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili</strong>, è opportuno accoppiarli e effettuare il test di Student accoppiato</p>
 <p>Ogni misura è esprimibile come: <img src="https://latex.codecogs.com/png.latex?%0Ay_%7Bij%7D=%5Cmu_i+%5Cbeta_j+%5Cvarepsilon_%7Bij%7D;%5Chspace%7B9pt%7D%20%5Cleft%5C%7B%20%5Cbegin%7Barray%7D%7Bl%7Di=1,2%5C%5Cj=1,2,%5Cdots%20,n%5Cend%7Barray%7D%20%5Cright.%0A"> Se definisco <img src="https://latex.codecogs.com/png.latex?d_j=y_%7B1j%7D%20-%20y_%7B2j%7D">, ricordando le proprietà dell’operatore <img src="https://latex.codecogs.com/png.latex?E(%5Ccdot)">, risulta <img src="https://latex.codecogs.com/png.latex?%5Cmu_d%20=%20%5Cmu_1%20-%20%5Cmu_2">. Quindi posso riformulare una coppia di ipotesi equivalenti:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Beqnarray%7D%0AH_0%20:~&amp;%20%5Cmu_d%20=%200%20%5C%5C%0AH_1%20:~&amp;%20%5Cmu_d%20%5Cneq%200%0A%5Cend%7Beqnarray%7D"></p>
 <p>Quindi il test accoppiato è un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
 </section>
 </section>
-<section id="descrizione-attrezzature" class="level2">
-<h2 class="anchored" data-anchor-id="descrizione-attrezzature">Descrizione attrezzature</h2>
+<section id="esperimento" class="level1">
+<h1>Esperimento</h1>
+<section id="descrizione-dellattrezzatura" class="level2">
+<h2 class="anchored" data-anchor-id="descrizione-dellattrezzatura">Descrizione dell’attrezzatura</h2>
 <p>Le attrezzature e i materiali necessari per eseguire l’esperimento sono:</p>
 <ul>
-<li>10 campioni di acciai di varia domposizione (non nota)</li>
+<li>10 campioni di acciai di varia composizione (non nota)</li>
 <li>carta abrasiva</li>
 <li>etanolo</li>
 <li>carta assorbente</li>
@@ -121,7 +129,7 @@
 <p>L’esperimento si articola nelle seguenti fasi:</p>
 <ol type="1">
 <li><p>Preparazione del campione: il campione deve essere accuratamente lucidato per ottenere una superficie liscia e priva di ossidazioni o impurità. In seguito si pulisce con etanolo per rimuovere polveri o residui.</p></li>
-<li><p>Configurazione del durometro: si installa sul durometro il penetratore Vickers integro e si impostano i parametri della prova HV 30 come da normativa UNI EN ISO 6507-1 (***sono gia impostati basta richiamare la memoria).</p></li>
+<li><p>Configurazione del durometro: si installa sul durometro il penetratore Vickers integro e si impostano i parametri della prova HV 30 come da normativa UNI EN ISO 6507-1 (***sono già impostati basta richiamare la memoria).</p></li>
 <li><p>Esecuzione delle 10 misurazioni relative ai 10 campioni</p></li>
 <li><p>Cambio del penetratore: si rimuove il penetratore integro e si installa quello danneggiato.</p></li>
 <li><p>Esecuzione delle 10 misurazioni relative ai 10 campioni</p></li>
@@ -129,6 +137,7 @@
 </section>
 <section id="progettazione-della-campagna-di-misure" class="level2">
 <h2 class="anchored" data-anchor-id="progettazione-della-campagna-di-misure">Progettazione della campagna di misure</h2>
+<p>Decidiamo di raccogliere 10 misure di durezza a 30&nbsp;kgf per ogni indentatone su 10 campioni di metallo ignoto. Su ogni campione vengono realizzate due indentazioni con entrambi i penetratori.</p>
 </section>
 <section id="raccolta-dei-dati" class="level2">
 <h2 class="anchored" data-anchor-id="raccolta-dei-dati">Raccolta dei dati</h2>
@@ -562,7 +571,7 @@ font-style: inherit;">"penetratore"</span>) </span></code></pre></div>
 </div>
 </div>
 </div>
-<p>Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla rettadiagonale con equazione <img src="https://latex.codecogs.com/png.latex?y=x">. Si osserva che i punti corrispondenti al HV30 effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è significativamente al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l’indentatore rotto che per quello integro.</p>
+<p>Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla retta diagonale con equazione <img src="https://latex.codecogs.com/png.latex?y=x">. Si osserva che i punti corrispondenti al <code>HV30</code> effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è significativamente al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l’indentatore rotto che per quello integro.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">dfv <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -637,7 +646,7 @@ font-style: inherit;">~</span>x)</span></code></pre></div>
 </section>
 <section id="analisi-e-discussione" class="level2">
 <h2 class="anchored" data-anchor-id="analisi-e-discussione">Analisi e discussione</h2>
-<p>Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con <code>split</code>, e infine applico la funzione <code>t.test</code> a ciascun sottoinsieme mediante <code>reduce</code>, usando <code>tidy</code> per trasformare il risultato di ciascun test in una tibble:</p>
+<p>Effettuo i T-test per <code>HV30</code> e per <code>stima</code>, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con <code>split</code>, e infine applico la funzione <code>t.test</code> a ciascun sottoinsieme mediante <code>reduce</code>, usando <code>tidy</code> per trasformare il risultato di ciascun test in una tibble:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">dfv <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -791,8 +800,22 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
 </table>
 </div>
 </div>
-<p>Il risultato ottenuto suggerisce di accettare l’ipotesi nulla: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro.</p>
-<p>Questo fatto può parere inaspettato, in quanto il penetratore si sa essere danneggiato. Tuttavia sta ad indicare proprio che nonostante esso sia danneggiato <em>nel campo di applicazione nel quale si sono svolte le misure</em> questo fatto non è statisticamente rilevante.</p>
+<p>Il risultato ottenuto suggerisce di accettare l’ipotesi nulla per il gruppo <code>HV30</code>: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro <strong>se per la diagonale mancante (a causa del danno), si estrapola visivamente la lunghezza</strong>.</p>
+<p>Viceversa, per il gruppo <code>stima</code> l’ipotesi nulla viene rifiutata con una probabilità di errore molto bassa: il penetratore danneggiato produce misure significativamente più alte rispetto a quello integro, perché in questo caso il sistema di calcolo è basato sulla misura della penetrazione e non sulla lunghezza della diagonale, e la prima evidentemente risente del danno.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Conclusione">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Conclusione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In altre parole, il danno al penetratore viene compensato dalla capacità dell’operatore di estrapolare dal contesto la posizione del vertice mancante nell’impronta. Questa compensazione è però soggettiva e dipende dall’esperienza e capacità dell’operatore.</p>
+<p>Viceversa, la misura basata sulla penetrazione è completamente oggettiva e risente quindi della integrità del penetratore: tanto più la geometria reale si discosta dalla geometria nominale per la quale è nota la relazione tra altezza della piramide e area della base, tanto più la misura è errata.</p>
+</div>
+</div>
 
 
 </section>
@@ -855,18 +878,18 @@ font-style: inherit;">0.4</span></span>
 <h1>Descrizione dell’esperimento</h1>
 <section id="richiami-teorici" class="level2">
 <h2 class="anchored" data-anchor-id="richiami-teorici">Richiami teorici</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-<p>Nunc ac dignissim magna. Vestibulum vitae egestas elit. Proin feugiat leo quis ante condimentum, eu ornare mauris feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus laoreet ex, dignissim bibendum est posuere iaculis. Suspendisse et maximus elit. In fringilla gravida ornare. Aenean id lectus pulvinar, sagittis felis nec, rutrum risus. Nam vel neque eu arcu blandit fringilla et in quam. Aliquam luctus est sit amet vestibulum eleifend. Phasellus elementum sagittis molestie. Proin tempor lorem arcu, at condimentum purus volutpat eu. Fusce et pellentesque ligula. Pellentesque id tellus at erat luctus fringilla. Suspendisse potenti.</p>
+<p>Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</p>
+<p>Ut ut condimentum augue, nec eleifend nisl. Sed facilisis egestas odio ac pretium. Pellentesque consequat magna sed venenatis sagittis. Vivamus feugiat lobortis magna vitae accumsan. Pellentesque euismod malesuada hendrerit. Ut non mauris non arcu condimentum sodales vitae vitae dolor. Nullam dapibus, velit eget lacinia rutrum, ipsum justo malesuada odio, et lobortis sapien magna vel lacus. Nulla purus neque, hendrerit non malesuada eget, mattis vel erat. Suspendisse potenti.</p>
 </section>
 <section id="descrizione-attrezzature" class="level2">
 <h2 class="anchored" data-anchor-id="descrizione-attrezzature">Descrizione attrezzature</h2>
-<p>Proin sodales neque erat, varius cursus diam tincidunt sit amet. Etiam scelerisque fringilla nisl eu venenatis. Donec sem ipsum, scelerisque ac venenatis quis, hendrerit vel mauris. Praesent semper erat sit amet purus condimentum, sit amet auctor mi feugiat. In hac habitasse platea dictumst. Nunc ac mauris in massa feugiat bibendum id in dui. Praesent accumsan urna at lacinia aliquet. Proin ultricies eu est quis pellentesque. In vel lorem at nisl rhoncus cursus eu quis mi. In eu rutrum ante, quis placerat justo. Etiam euismod nibh nibh, sed elementum nunc imperdiet in. Praesent gravida nunc vel odio lacinia, at tempus nisl placerat. Aenean id ipsum sed est sagittis hendrerit non in tortor.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+<p>Nunc ac dignissim magna. Vestibulum vitae egestas elit. Proin feugiat leo quis ante condimentum, eu ornare mauris feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus laoreet ex, dignissim bibendum est posuere iaculis. Suspendisse et maximus elit. In fringilla gravida ornare. Aenean id lectus pulvinar, sagittis felis nec, rutrum risus. Nam vel neque eu arcu blandit fringilla et in quam. Aliquam luctus est sit amet vestibulum eleifend. Phasellus elementum sagittis molestie. Proin tempor lorem arcu, at condimentum purus volutpat eu. Fusce et pellentesque ligula. Pellentesque id tellus at erat luctus fringilla. Suspendisse potenti.</p>
+<p>Etiam maximus accumsan gravida. Maecenas at nunc dignissim, euismod enim ac, bibendum ipsum. Maecenas vehicula velit in nisl aliquet ultricies. Nam eget massa interdum, maximus arcu vel, pretium erat. Maecenas sit amet tempor purus, vitae aliquet nunc. Vivamus cursus urna velit, eleifend dictum magna laoreet ut. Duis eu erat mollis, blandit magna id, tincidunt ipsum. Integer massa nibh, commodo eu ex vel, venenatis efficitur ligula. Integer convallis lacus elit, maximus eleifend lacus ornare ac. Vestibulum scelerisque viverra urna id lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget enim at diam bibendum tincidunt eu non purus. Nullam id magna ultrices, sodales metus viverra, tempus turpis.</p>
 </section>
 <section id="progettazione-dei-test" class="level2">
 <h2 class="anchored" data-anchor-id="progettazione-dei-test">Progettazione dei test</h2>
-<p>Duis ornare ex ac iaculis pretium. Maecenas sagittis odio id erat pharetra, sit amet consectetur quam sollicitudin. Vivamus pharetra quam purus, nec sagittis risus pretium at. Nullam feugiat, turpis ac accumsan interdum, sem tellus blandit neque, id vulputate diam quam semper nisl. Donec sit amet enim at neque porttitor aliquet. Phasellus facilisis nulla eget placerat eleifend. Vestibulum non egestas eros, eget lobortis ipsum. Nulla rutrum massa eget enim aliquam, id porttitor erat luctus. Nunc sagittis quis eros eu sagittis. Pellentesque dictum, erat at pellentesque sollicitudin, justo augue pulvinar metus, quis rutrum est mi nec felis. Vestibulum efficitur mi lorem, at elementum purus tincidunt a. Aliquam finibus enim magna, vitae pellentesque erat faucibus at. Nulla mauris tellus, imperdiet id lobortis et, dignissim condimentum ipsum. Morbi nulla orci, varius at aliquet sed, facilisis id tortor. Donec ut urna nisi.</p>
-<p>Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</p>
+<p>Etiam quis tortor luctus, pellentesque ante a, finibus dolor. Phasellus in nibh et magna pulvinar malesuada. Ut nisl ex, sagittis at sollicitudin et, sollicitudin id nunc. In id porta urna. Proin porta dolor dolor, vel dapibus nisi lacinia in. Pellentesque ante mauris, ornare non euismod a, fermentum ut sapien. Proin sed vehicula enim. Aliquam tortor odio, vestibulum vitae odio in, tempor molestie justo. Praesent maximus lacus nec leo maximus blandit.</p>
+<p>Maecenas turpis velit, ultricies non elementum vel, luctus nec nunc. Nulla a diam interdum, faucibus sapien viverra, finibus metus. Donec non tortor diam. In ut elit aliquet, bibendum sem et, aliquam tortor. Donec congue, sem at rhoncus ultrices, nunc augue cursus erat, quis porttitor mauris libero ut ex. Nullam quis leo urna. Donec faucibus ligula eget pellentesque interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean rhoncus interdum erat ut ultricies. Aenean tempus ex non elit suscipit, quis dignissim enim efficitur. Proin laoreet enim massa, vitae laoreet nulla mollis quis.</p>
 </section>
 <section id="raccolta-dati" class="level2">
 <h2 class="anchored" data-anchor-id="raccolta-dati">Raccolta dati</h2>
@@ -876,8 +899,8 @@ font-style: inherit;">0.4</span></span>
 </section>
 <section id="analisi-e-discussione" class="level2">
 <h2 class="anchored" data-anchor-id="analisi-e-discussione">Analisi e discussione</h2>
-<p>Vestibulum ultrices, tortor at mattis porta, odio nisi rutrum nulla, sit amet tincidunt eros quam facilisis tellus. Fusce eleifend lectus in elementum lacinia. Nam auctor nunc in massa ullamcorper, sit amet auctor ante accumsan. Nam ut varius metus. Curabitur eget tristique leo. Cras finibus euismod erat eget elementum. Integer vel placerat ex. Ut id eros quis lectus lacinia venenatis hendrerit vel ante.</p>
-<p>Etiam congue quam eget velit convallis, eu sagittis orci vestibulum. Vestibulum at massa turpis. Curabitur ornare ex sed purus vulputate, vitae porta augue rhoncus. Phasellus auctor suscipit purus, vel ultricies nunc. Nunc eleifend nulla ac purus volutpat, id fringilla felis aliquet. Duis vitae porttitor nibh, in rhoncus risus. Vestibulum a est vitae est tristique vehicula. Proin mollis justo id est tempus hendrerit. Praesent suscipit placerat congue. Aliquam eu elit gravida, consequat augue non, ultricies sapien. Nunc ultricies viverra ante, sit amet vehicula ante volutpat id. Etiam tempus purus vitae tellus mollis viverra. Donec at ornare mauris. Aliquam sodales hendrerit ornare. Suspendisse accumsan lacinia sapien, sit amet imperdiet dui molestie ut.</p>
+<p>Nunc ac dignissim magna. Vestibulum vitae egestas elit. Proin feugiat leo quis ante condimentum, eu ornare mauris feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus laoreet ex, dignissim bibendum est posuere iaculis. Suspendisse et maximus elit. In fringilla gravida ornare. Aenean id lectus pulvinar, sagittis felis nec, rutrum risus. Nam vel neque eu arcu blandit fringilla et in quam. Aliquam luctus est sit amet vestibulum eleifend. Phasellus elementum sagittis molestie. Proin tempor lorem arcu, at condimentum purus volutpat eu. Fusce et pellentesque ligula. Pellentesque id tellus at erat luctus fringilla. Suspendisse potenti.</p>
+<p>Etiam maximus accumsan gravida. Maecenas at nunc dignissim, euismod enim ac, bibendum ipsum. Maecenas vehicula velit in nisl aliquet ultricies. Nam eget massa interdum, maximus arcu vel, pretium erat. Maecenas sit amet tempor purus, vitae aliquet nunc. Vivamus cursus urna velit, eleifend dictum magna laoreet ut. Duis eu erat mollis, blandit magna id, tincidunt ipsum. Integer massa nibh, commodo eu ex vel, venenatis efficitur ligula. Integer convallis lacus elit, maximus eleifend lacus ornare ac. Vestibulum scelerisque viverra urna id lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget enim at diam bibendum tincidunt eu non purus. Nullam id magna ultrices, sodales metus viverra, tempus turpis.</p>
 
 
 </section>
