@@ -24,6 +24,8 @@ knitr::opts_chunk$set(
   fig.dim = c(16, 9)*0.4
 )
 library(tidyverse)
+library(knitr)
+library(broom)
 ```
 
 # Descrizione dell'attività
@@ -137,7 +139,7 @@ $$
 HV = \frac{1.854 \cdot F}{d^2}
 $$
 
-dove $ F $ è il carico applicato in kgf e $ d $ è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.
+dove $F$ è il carico applicato in kgf e $d$ è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.
 
 Trattandosi di una misura ottica, la preparazione del campione è un aspetto fondamentale. La superficie da testare deve essere accuratamente levigata e lucidata, al fine di permettere una lettura chiara e precisa dell’impronta. Per questo motivo, la prova Vickers è particolarmente indicata per materiali metallici omogenei e per applicazioni su sezioni sottili o microstrutture, come nel caso delle microdurezze.
 
@@ -163,8 +165,6 @@ $$
 Quindi il test accoppiato è un test a un campione, con il vantaggio che **gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test**
 
 
-{{< lipsum 2 >}}
-
 ## Descrizione attrezzature
 
 Le attrezzature e i materiali necessari per eseguire l'esperimento sono:
@@ -177,8 +177,6 @@ Le attrezzature e i materiali necessari per eseguire l'esperimento sono:
 - penetatore Vickers danneggiato
 - penetratore Vickers integro
 - 10 campioni di acciaio di composizione non nota
-
-{{< lipsum 2 >}}
 
 
 ## Descrizione delle modalità operative dell'esperimento 
@@ -197,30 +195,18 @@ L'esperimento si articola nelle seguenti fasi:
 
 ## Progettazione della campagna di misure
 
-```{r}
-df<-tibble(
-  sample=1:10,
-  HV30_OK=NA,
-  HV30_NOK=NA
-)
-
-write.csv(df,"misure_di_durezza.csv")
-```
-
-
-
-{{< lipsum 2 >}}
-
-
 ## Raccolta dei dati
 
 ```{r}
-df$HV30_OK=c(679, 673, 635, 273, 275, 279, 164, 658, 682, 294)
-df$HV30_NOK=c(667, 660,647, 267, 271, 284,163,645, 653, 303)
-df$stima_OK = c(502, 551, 555, 200, 139, 208, 151, 585, 604, 262)
-df$stima_NOK = c(592, 588, 584, 217, 223, 222, 157, 611, 616, 263)
+df <- tibble(
+  HV30_OK=c(679, 673, 635, 273, 275, 279, 164, 658, 682, 294),
+  HV30_NOK=c(667, 660,647, 267, 271, 284,163,645, 653, 303),
+  stima_OK = c(502, 551, 555, 200, 139, 208, 151, 585, 604, 262),
+  stima_NOK = c(592, 588, 584, 217, 223, 222, 157, 611, 616, 263)
+) %>% 
+  mutate(sample = 1:n(), .before = 1)
 
-df
+df %>% kable()
 ```
 
 Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un'unica colonna `durezza`:
@@ -229,7 +215,7 @@ Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da 
 dfv <- df %>% 
   pivot_longer(-sample, names_sep="_", names_to = c("misura","ok"), values_to="durezza") %>% 
   mutate(ok=ifelse(ok=="OK","integro","rotto"))
-dfv
+dfv %>% head() %>% kable()
 ```
 
 Confrontiamo tutti i dati: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale **maschera** le variabilità delle misure.
@@ -269,12 +255,19 @@ dfv %>%
 
 ## Analisi e discussione
 
-Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con `split`, e infine applico la funzione `t.test` a ciascun sottoinsieme mediante `map`:
+Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con `split`, e infine applico la funzione `t.test` a ciascun sottoinsieme mediante `reduce`, usando `tidy` per trasformare il risultato di ciascun test in una tibble:
 
 ```{r}
 dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>% 
-  split(.$misura) %>% 
-  map(~t.test(.x$integro, .x$rotto, paired = T))
+  split(~misura) %>% {
+    reduce2(., names(.), \(acc, d, n) {
+      t <- t.test(d$integro, d$rotto, paired = T)
+      bind_rows(acc, tidy(t) %>% mutate(group=n, .before=1))
+    }, .init=tibble())
+  } %>% 
+  relocate(p.value, .after=-1) %>% 
+  mutate(significant = p.value < 0.05) %>%
+  kable()
 ```
 
 Il risultato ottenuto suggerisce di accettare l'ipotesi nulla: non c'è differenza a livello statistico nell'utilizzare un penetratore o l'altro.
