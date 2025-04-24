@@ -196,7 +196,7 @@ window.Quarto = {
   <li><a href="#analisi-e-discussione" id="toc-analisi-e-discussione" class="nav-link" data-scroll-target="#analisi-e-discussione">Analisi e discussione</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -328,12 +328,12 @@ HV = \frac{1.854 \cdot F}{d^2}
 <p>Nel caso di test di Student a due campioni, quando essi <strong>hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili</strong>, è opportuno accoppiarli e effettuare il test di Student accoppiato</p>
 <p>Ogni misura è esprimibile come: <span class="math display">\[
 y_{ij}=\mu_i+\beta_j+\varepsilon_{ij};\hspace{9pt} \left\{ \begin{array}{l}i=1,2\\j=1,2,\dots ,n\end{array} \right.
-\]</span> Se definisco <span class="math inline">\(d_j=y_{1j} - y_{2j}\)</span>, ricordando le proprietà dell’operatore <span class="math inline">\(E(\cdot)\)</span>, risulta <span class="math inline">\(\mu_d = \mu_1 - \mu_2\)</span>. Quindi posso riformulare una coppia di ipotesi equivalenti: <span class="math display">\[
-\begin{eqnarray}
+\]</span> Se definisco <span class="math inline">\(d_j=y_{1j} - y_{2j}\)</span>, ricordando le proprietà dell’operatore <span class="math inline">\(E(\cdot)\)</span>, risulta <span class="math inline">\(\mu_d = \mu_1 - \mu_2\)</span>. Quindi posso riformulare una coppia di ipotesi equivalenti:</p>
+<p><span class="math display">\[\begin{eqnarray}
 H_0 :~&amp; \mu_d = 0 \\
 H_1 :~&amp; \mu_d \neq 0
-\end{eqnarray}
-\]</span> Quindi il test accoppiato è un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
+\end{eqnarray}\]</span></p>
+<p>Quindi il test accoppiato è un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
 </section>
 </section>
 <section id="descrizione-attrezzature" class="level2">
@@ -465,9 +465,12 @@ H_1 :~&amp; \mu_d \neq 0
 <p>Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un’unica colonna <code>durezza</code>:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>sample, <span class="at">names_sep=</span><span class="st">"_"</span>, <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"misura"</span>,<span class="st">"ok"</span>), <span class="at">values_to=</span><span class="st">"durezza"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ok=</span><span class="fu">ifelse</span>(ok<span class="sc">==</span><span class="st">"OK"</span>,<span class="st">"integro"</span>,<span class="st">"rotto"</span>))</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>sample, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep=</span><span class="st">"_"</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"misura"</span>,<span class="st">"ok"</span>), </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to=</span><span class="st">"durezza"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ok=</span><span class="fu">ifelse</span>(ok<span class="sc">==</span><span class="st">"OK"</span>,<span class="st">"integro"</span>,<span class="st">"rotto"</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -578,21 +581,22 @@ H_1 :~&amp; \mu_d \neq 0
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">.init=</span><span class="fu">tibble</span>())</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(p.value, <span class="at">.after=</span><span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">significant =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">significant =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>, </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(statistic, conf.low, conf.high, p.value), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>method, <span class="sc">-</span>alternative) <span class="sc">%&gt;%</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 5%">
 <col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
+<col style="width: 12%">
 <col style="width: 13%">
-<col style="width: 11%">
-<col style="width: 9%">
-<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -602,8 +606,6 @@ H_1 :~&amp; \mu_d \neq 0
 <th style="text-align: right;">parameter</th>
 <th style="text-align: right;">conf.low</th>
 <th style="text-align: right;">conf.high</th>
-<th style="text-align: left;">method</th>
-<th style="text-align: left;">alternative</th>
 <th style="text-align: right;">p.value</th>
 <th style="text-align: left;">significant</th>
 </tr>
@@ -612,25 +614,21 @@ H_1 :~&amp; \mu_d \neq 0
 <tr class="odd">
 <td style="text-align: left;">HV30</td>
 <td style="text-align: right;">5.2</td>
-<td style="text-align: right;">1.339858</td>
+<td style="text-align: right;">1.34</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">-3.57945</td>
-<td style="text-align: right;">13.979450</td>
-<td style="text-align: left;">Paired t-test</td>
-<td style="text-align: left;">two.sided</td>
-<td style="text-align: right;">0.2131365</td>
+<td style="text-align: right;">-3.579</td>
+<td style="text-align: right;">13.979</td>
+<td style="text-align: right;">0.213</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">stima</td>
 <td style="text-align: right;">-31.6</td>
-<td style="text-align: right;">-3.209891</td>
+<td style="text-align: right;">-3.21</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">-53.86996</td>
-<td style="text-align: right;">-9.330036</td>
-<td style="text-align: left;">Paired t-test</td>
-<td style="text-align: left;">two.sided</td>
-<td style="text-align: right;">0.0106608</td>
+<td style="text-align: right;">-53.870</td>
+<td style="text-align: right;">-9.330</td>
+<td style="text-align: right;">0.011</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
