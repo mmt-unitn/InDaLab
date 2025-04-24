@@ -88,7 +88,7 @@
 <p>La prova Vickers è un metodo ottico per la determinazione della durezza dei materiali metallici, basato sulla misurazione delle dimensioni di un’impronta ottenuta tramite un penetratore piramidale in diamante. Il penetratore ha una geometria a base quadrata con un angolo di 136° tra le facce opposte. Durante la prova, si applica un carico statico definito, mantenuto per un determinato intervallo di tempo. Una volta rimosso il carico, si osserva l’impronta lasciata sulla superficie del campione.</p>
 <p>La durezza viene determinata misurando otticamente le due diagonali dell’impronta, generalmente tramite un microscopio ottico con reticolo graduato o un sistema digitale di acquisizione. Il valore di durezza Vickers si calcola come rapporto tra il carico applicato e l’area della superficie dell’impronta, secondo la seguente formula:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%0AHV%20=%20%5Cfrac%7B1.854%20%5Ccdot%20F%7D%7Bd%5E2%7D%0A"></p>
-<p>dove $ F $ è il carico applicato in kgf e $ d $ è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.</p>
+<p>dove <img src="https://latex.codecogs.com/png.latex?F"> è il carico applicato in kgf e <img src="https://latex.codecogs.com/png.latex?d"> è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.</p>
 <p>Trattandosi di una misura ottica, la preparazione del campione è un aspetto fondamentale. La superficie da testare deve essere accuratamente levigata e lucidata, al fine di permettere una lettura chiara e precisa dell’impronta. Per questo motivo, la prova Vickers è particolarmente indicata per materiali metallici omogenei e per applicazioni su sezioni sottili o microstrutture, come nel caso delle microdurezze.</p>
 <p>La scala Vickers è unica nella geometria del penetratore, ma varia in funzione del carico applicato, indicato accanto alla sigla HV. Ad esempio, la sigla <strong>HV5</strong> indica una prova eseguita con un carico di 5 kgf, <strong>HV10</strong> con 10 kgf, e così via. Questa specifica è fondamentale perché la dimensione dell’impronta e la risposta del materiale possono variare in base alla forza impiegata. I risultati ottenuti con carichi diversi <strong>non sono sempre direttamente confrontabili</strong>, specialmente su materiali eterogenei o trattati superficialmente.</p>
 <p>Tutti i dettagli tecnici, i criteri di esecuzione e le tolleranze della prova sono regolati dalla norma <strong>UNI EN ISO 6507-1</strong>, che rappresenta il riferimento principale per l’applicazione corretta del metodo Vickers.</p>
@@ -98,8 +98,6 @@
 <h3 class="anchored" data-anchor-id="test-di-student-accoppiato">Test di student accoppiato</h3>
 <p>Nel caso di test di Student a due campioni, quando essi <strong>hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili</strong>, è opportuno accoppiarli e effettuare il test di Student accoppiato</p>
 <p>Ogni misura è esprimibile come: <img src="https://latex.codecogs.com/png.latex?%0Ay_%7Bij%7D=%5Cmu_i+%5Cbeta_j+%5Cvarepsilon_%7Bij%7D;%5Chspace%7B9pt%7D%20%5Cleft%5C%7B%20%5Cbegin%7Barray%7D%7Bl%7Di=1,2%5C%5Cj=1,2,%5Cdots%20,n%5Cend%7Barray%7D%20%5Cright.%0A"> Se definisco <img src="https://latex.codecogs.com/png.latex?d_j=y_%7B1j%7D%20-%20y_%7B2j%7D">, ricordando le proprietà dell’operatore <img src="https://latex.codecogs.com/png.latex?E(%5Ccdot)">, risulta <img src="https://latex.codecogs.com/png.latex?%5Cmu_d%20=%20%5Cmu_1%20-%20%5Cmu_2">. Quindi posso riformulare una coppia di ipotesi equivalenti: <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Beqnarray%7D%0AH_0%20:~&amp;%20%5Cmu_d%20=%200%20%5C%5C%0AH_1%20:~&amp;%20%5Cmu_d%20%5Cneq%200%0A%5Cend%7Beqnarray%7D%0A"> Quindi il test accoppiato è un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
-<p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
-<p>Proin sodales neque erat, varius cursus diam tincidunt sit amet. Etiam scelerisque fringilla nisl eu venenatis. Donec sem ipsum, scelerisque ac venenatis quis, hendrerit vel mauris. Praesent semper erat sit amet purus condimentum, sit amet auctor mi feugiat. In hac habitasse platea dictumst. Nunc ac mauris in massa feugiat bibendum id in dui. Praesent accumsan urna at lacinia aliquet. Proin ultricies eu est quis pellentesque. In vel lorem at nisl rhoncus cursus eu quis mi. In eu rutrum ante, quis placerat justo. Etiam euismod nibh nibh, sed elementum nunc imperdiet in. Praesent gravida nunc vel odio lacinia, at tempus nisl placerat. Aenean id ipsum sed est sagittis hendrerit non in tortor.</p>
 </section>
 </section>
 <section id="descrizione-attrezzature" class="level2">
@@ -115,8 +113,6 @@
 <li>penetratore Vickers integro</li>
 <li>10 campioni di acciaio di composizione non nota</li>
 </ul>
-<p>Duis ornare ex ac iaculis pretium. Maecenas sagittis odio id erat pharetra, sit amet consectetur quam sollicitudin. Vivamus pharetra quam purus, nec sagittis risus pretium at. Nullam feugiat, turpis ac accumsan interdum, sem tellus blandit neque, id vulputate diam quam semper nisl. Donec sit amet enim at neque porttitor aliquet. Phasellus facilisis nulla eget placerat eleifend. Vestibulum non egestas eros, eget lobortis ipsum. Nulla rutrum massa eget enim aliquam, id porttitor erat luctus. Nunc sagittis quis eros eu sagittis. Pellentesque dictum, erat at pellentesque sollicitudin, justo augue pulvinar metus, quis rutrum est mi nec felis. Vestibulum efficitur mi lorem, at elementum purus tincidunt a. Aliquam finibus enim magna, vitae pellentesque erat faucibus at. Nulla mauris tellus, imperdiet id lobortis et, dignissim condimentum ipsum. Morbi nulla orci, varius at aliquet sed, facilisis id tortor. Donec ut urna nisi.</p>
-<p>Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</p>
 </section>
 <section id="descrizione-delle-modalità-operative-dellesperimento" class="level2">
 <h2 class="anchored" data-anchor-id="descrizione-delle-modalità-operative-dellesperimento">Descrizione delle modalità operative dell’esperimento</h2>
@@ -131,50 +127,18 @@
 </section>
 <section id="progettazione-della-campagna-di-misure" class="level2">
 <h2 class="anchored" data-anchor-id="progettazione-della-campagna-di-misure">Progettazione della campagna di misure</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">df<span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">tibble</span>(</span>
-<span id="cb1-2">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">sample=</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">10</span>,</span>
-<span id="cb1-3">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">HV30_OK=</span><span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NA</span>,</span>
-<span id="cb1-4">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">HV30_NOK=</span><span class="cn" style="color: #8f5902;
-background-color: null;
-font-style: inherit;">NA</span></span>
-<span id="cb1-5">)</span>
-<span id="cb1-6"></span>
-<span id="cb1-7"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">write.csv</span>(df,<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"misure_di_durezza.csv"</span>)</span></code></pre></div>
-</div>
-<p>Etiam congue quam eget velit convallis, eu sagittis orci vestibulum. Vestibulum at massa turpis. Curabitur ornare ex sed purus vulputate, vitae porta augue rhoncus. Phasellus auctor suscipit purus, vel ultricies nunc. Nunc eleifend nulla ac purus volutpat, id fringilla felis aliquet. Duis vitae porttitor nibh, in rhoncus risus. Vestibulum a est vitae est tristique vehicula. Proin mollis justo id est tempus hendrerit. Praesent suscipit placerat congue. Aliquam eu elit gravida, consequat augue non, ultricies sapien. Nunc ultricies viverra ante, sit amet vehicula ante volutpat id. Etiam tempus purus vitae tellus mollis viverra. Donec at ornare mauris. Aliquam sodales hendrerit ornare. Suspendisse accumsan lacinia sapien, sit amet imperdiet dui molestie ut.</p>
-<p>Etiam non efficitur urna, quis elementum nisi. Mauris posuere a augue vel gravida. Praesent luctus erat et ex iaculis interdum. Nulla vestibulum quam ac nunc consequat vulputate. Nullam iaculis lobortis sem sit amet fringilla. Aliquam semper, metus ut blandit semper, nulla velit fermentum sapien, fermentum ultrices dolor sapien sed leo. Vestibulum molestie faucibus magna, at feugiat nulla ullamcorper a. Aliquam erat volutpat. Praesent scelerisque magna a justo maximus, sit amet suscipit mauris tempor. Nulla nec dolor eget ipsum pellentesque lobortis a in ipsum. Morbi turpis turpis, fringilla a eleifend maximus, viverra nec neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
 </section>
 <section id="raccolta-dei-dati" class="level2">
 <h2 class="anchored" data-anchor-id="raccolta-dei-dati">Raccolta dei dati</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">df<span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">df <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">$</span>HV30_OK<span class="ot" style="color: #003B4F;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">tibble</span>(</span>
+<span id="cb1-2">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">HV30_OK=</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -196,12 +160,10 @@ font-style: inherit;">658</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">682</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">294</span>)</span>
-<span id="cb2-2">df<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">294</span>),</span>
+<span id="cb1-3">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">$</span>HV30_NOK<span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">HV30_NOK=</span><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -223,12 +185,10 @@ font-style: inherit;">645</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">653</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">303</span>)</span>
-<span id="cb2-3">df<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">303</span>),</span>
+<span id="cb1-4">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">$</span>stima_OK <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">stima_OK =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -250,12 +210,10 @@ font-style: inherit;">585</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">604</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
-font-style: inherit;">262</span>)</span>
-<span id="cb2-4">df<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">262</span>),</span>
+<span id="cb1-5">  <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">$</span>stima_NOK <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+font-style: inherit;">stima_NOK =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
 background-color: null;
@@ -278,32 +236,124 @@ background-color: null;
 font-style: inherit;">616</span>, <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">263</span>)</span>
-<span id="cb2-5"></span>
-<span id="cb2-6">df</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 5
-   sample HV30_OK HV30_NOK stima_OK stima_NOK
-    &lt;int&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
- 1      1     679      667      502       592
- 2      2     673      660      551       588
- 3      3     635      647      555       584
- 4      4     273      267      200       217
- 5      5     275      271      139       223
- 6      6     279      284      208       222
- 7      7     164      163      151       157
- 8      8     658      645      585       611
- 9      9     682      653      604       616
-10     10     294      303      262       263</code></pre>
+<span id="cb1-6">) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb1-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sample =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">n</span>(), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.before =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-8"></span>
+<span id="cb1-9">df <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">sample</th>
+<th style="text-align: right;">HV30_OK</th>
+<th style="text-align: right;">HV30_NOK</th>
+<th style="text-align: right;">stima_OK</th>
+<th style="text-align: right;">stima_NOK</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">679</td>
+<td style="text-align: right;">667</td>
+<td style="text-align: right;">502</td>
+<td style="text-align: right;">592</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">673</td>
+<td style="text-align: right;">660</td>
+<td style="text-align: right;">551</td>
+<td style="text-align: right;">588</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">635</td>
+<td style="text-align: right;">647</td>
+<td style="text-align: right;">555</td>
+<td style="text-align: right;">584</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">273</td>
+<td style="text-align: right;">267</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">217</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">275</td>
+<td style="text-align: right;">271</td>
+<td style="text-align: right;">139</td>
+<td style="text-align: right;">223</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">279</td>
+<td style="text-align: right;">284</td>
+<td style="text-align: right;">208</td>
+<td style="text-align: right;">222</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">164</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">157</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">658</td>
+<td style="text-align: right;">645</td>
+<td style="text-align: right;">585</td>
+<td style="text-align: right;">611</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">682</td>
+<td style="text-align: right;">653</td>
+<td style="text-align: right;">604</td>
+<td style="text-align: right;">616</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">294</td>
+<td style="text-align: right;">303</td>
+<td style="text-align: right;">262</td>
+<td style="text-align: right;">263</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un’unica colonna <code>durezza</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">dfv <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">dfv <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> df <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb4-2">  <span class="fu" style="color: #4758AB;
+<span id="cb2-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_longer</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -326,7 +376,7 @@ background-color: null;
 font-style: inherit;">"durezza"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb4-3">  <span class="fu" style="color: #4758AB;
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -341,30 +391,72 @@ background-color: null;
 font-style: inherit;">"integro"</span>,<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"rotto"</span>))</span>
-<span id="cb4-4">dfv</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 40 × 4
-   sample misura ok      durezza
-    &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt;
- 1      1 HV30   integro     679
- 2      1 HV30   rotto       667
- 3      1 stima  integro     502
- 4      1 stima  rotto       592
- 5      2 HV30   integro     673
- 6      2 HV30   rotto       660
- 7      2 stima  integro     551
- 8      2 stima  rotto       588
- 9      3 HV30   integro     635
-10      3 HV30   rotto       647
-# ℹ 30 more rows</code></pre>
+<span id="cb2-4">dfv <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">sample</th>
+<th style="text-align: left;">misura</th>
+<th style="text-align: left;">ok</th>
+<th style="text-align: right;">durezza</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">integro</td>
+<td style="text-align: right;">679</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">rotto</td>
+<td style="text-align: right;">667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">stima</td>
+<td style="text-align: left;">integro</td>
+<td style="text-align: right;">502</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">stima</td>
+<td style="text-align: left;">rotto</td>
+<td style="text-align: right;">592</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">integro</td>
+<td style="text-align: right;">673</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">rotto</td>
+<td style="text-align: right;">660</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>Confrontiamo tutti i dati: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale <strong>maschera</strong> le variabilità delle misure.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">dfv <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">dfv <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb6-2">  <span class="fu" style="color: #4758AB;
+<span id="cb3-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -377,12 +469,12 @@ background-color: null;
 font-style: inherit;">color=</span>ok)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb6-3">  <span class="fu" style="color: #4758AB;
+<span id="cb3-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_boxplot</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb6-4">  <span class="fu" style="color: #4758AB;
+<span id="cb3-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -400,17 +492,17 @@ font-style: inherit;">"Penetratore"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Osserviamo la relazione tra stima e durezza, separatamente per penetratore: sembrano essere differenti sia l’intercetta che la pendenza.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1">dfv <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">dfv <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb7-2">  <span class="fu" style="color: #4758AB;
+<span id="cb4-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -419,7 +511,7 @@ background-color: null;
 font-style: inherit;">values_from =</span> durezza) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb7-3">  <span class="fu" style="color: #4758AB;
+<span id="cb4-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -432,12 +524,12 @@ background-color: null;
 font-style: inherit;">color=</span>ok)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb7-4">  <span class="fu" style="color: #4758AB;
+<span id="cb4-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb7-5">  <span class="fu" style="color: #4758AB;
+<span id="cb4-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -450,7 +542,7 @@ background-color: null;
 font-style: inherit;">~</span>x) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb7-6">  <span class="fu" style="color: #4758AB;
+<span id="cb4-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -460,17 +552,17 @@ font-style: inherit;">"penetratore"</span>) </span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla rettadiagonale con equazione <img src="https://latex.codecogs.com/png.latex?y=x">. Si osserva che i punti corrispondenti al HV30 effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è significativamente al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l’indentatore rotto che per quello integro.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">dfv <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">dfv <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span></span>
-<span id="cb8-2">  <span class="fu" style="color: #4758AB;
+<span id="cb5-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">pivot_wider</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -479,7 +571,7 @@ background-color: null;
 font-style: inherit;">values_from =</span> durezza) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb8-3">  <span class="fu" style="color: #4758AB;
+<span id="cb5-3">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -492,7 +584,7 @@ background-color: null;
 font-style: inherit;">color=</span>misura)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb8-4">  <span class="fu" style="color: #4758AB;
+<span id="cb5-4">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_abline</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -513,12 +605,12 @@ background-color: null;
 font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb8-5">  <span class="fu" style="color: #4758AB;
+<span id="cb5-5">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> </span>
-<span id="cb8-6">  <span class="fu" style="color: #4758AB;
+<span id="cb5-6">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_smooth</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -532,7 +624,7 @@ font-style: inherit;">~</span>x)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -540,9 +632,9 @@ font-style: inherit;">~</span>x)</span></code></pre></div>
 </section>
 <section id="analisi-e-discussione" class="level2">
 <h2 class="anchored" data-anchor-id="analisi-e-discussione">Analisi e discussione</h2>
-<p>Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con <code>split</code>, e infine applico la funzione <code>t.test</code> a ciascun sottoinsieme mediante <code>map</code>:</p>
+<p>Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con <code>split</code>, e infine applico la funzione <code>t.test</code> a ciascun sottoinsieme mediante <code>reduce</code>, usando <code>tidy</code> per trasformare il risultato di ciascun test in una tibble:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">dfv <span class="sc" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">dfv <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -553,53 +645,132 @@ background-color: null;
 font-style: inherit;">values_from =</span> durezza) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%&gt;%</span> </span>
-<span id="cb9-2">  <span class="fu" style="color: #4758AB;
+<span id="cb6-2">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">split</span>(.<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">split</span>(<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>misura) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">~</span>misura) <span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">%&gt;%</span> </span>
-<span id="cb9-3">  <span class="fu" style="color: #4758AB;
+font-style: inherit;">%&gt;%</span> {</span>
+<span id="cb6-3">    <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">map</span>(<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">reduce2</span>(., <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">~</span><span class="fu" style="color: #4758AB;
+font-style: inherit;">names</span>(.), \(acc, d, n) {</span>
+<span id="cb6-4">      t <span class="ot" style="color: #003B4F;
 background-color: null;
-font-style: inherit;">t.test</span>(.x<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">$</span>integro, .x<span class="sc" style="color: #5E5E5E;
+font-style: inherit;">t.test</span>(d<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>integro, d<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>rotto, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">paired =</span> T))</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$HV30
-
-    Paired t-test
-
-data:  .x$integro and .x$rotto
-t = 1.3399, df = 9, p-value = 0.2131
-alternative hypothesis: true mean difference is not equal to 0
-95 percent confidence interval:
- -3.57945 13.97945
-sample estimates:
-mean difference 
-            5.2 
-
-
-$stima
-
-    Paired t-test
-
-data:  .x$integro and .x$rotto
-t = -3.2099, df = 9, p-value = 0.01066
-alternative hypothesis: true mean difference is not equal to 0
-95 percent confidence interval:
- -53.869964  -9.330036
-sample estimates:
-mean difference 
-          -31.6 </code></pre>
+font-style: inherit;">paired =</span> T)</span>
+<span id="cb6-5">      <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bind_rows</span>(acc, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tidy</span>(t) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">group=</span>n, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.before=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span>
+<span id="cb6-6">    }, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.init=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span>())</span>
+<span id="cb6-7">  } <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">relocate</span>(p.value, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.after=</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb6-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">significant =</span> p.value <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.05</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb6-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">group</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">parameter</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+<th style="text-align: left;">method</th>
+<th style="text-align: left;">alternative</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: left;">significant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HV30</td>
+<td style="text-align: right;">5.2</td>
+<td style="text-align: right;">1.339858</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">-3.57945</td>
+<td style="text-align: right;">13.979450</td>
+<td style="text-align: left;">Paired t-test</td>
+<td style="text-align: left;">two.sided</td>
+<td style="text-align: right;">0.2131365</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">stima</td>
+<td style="text-align: right;">-31.6</td>
+<td style="text-align: right;">-3.209891</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">-53.86996</td>
+<td style="text-align: right;">-9.330036</td>
+<td style="text-align: left;">Paired t-test</td>
+<td style="text-align: left;">two.sided</td>
+<td style="text-align: right;">0.0106608</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <p>Il risultato ottenuto suggerisce di accettare l’ipotesi nulla: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro.</p>
@@ -666,29 +837,29 @@ font-style: inherit;">0.4</span></span>
 <h1>Descrizione dell’esperimento</h1>
 <section id="richiami-teorici" class="level2">
 <h2 class="anchored" data-anchor-id="richiami-teorici">Richiami teorici</h2>
-<p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
-<p>Proin sodales neque erat, varius cursus diam tincidunt sit amet. Etiam scelerisque fringilla nisl eu venenatis. Donec sem ipsum, scelerisque ac venenatis quis, hendrerit vel mauris. Praesent semper erat sit amet purus condimentum, sit amet auctor mi feugiat. In hac habitasse platea dictumst. Nunc ac mauris in massa feugiat bibendum id in dui. Praesent accumsan urna at lacinia aliquet. Proin ultricies eu est quis pellentesque. In vel lorem at nisl rhoncus cursus eu quis mi. In eu rutrum ante, quis placerat justo. Etiam euismod nibh nibh, sed elementum nunc imperdiet in. Praesent gravida nunc vel odio lacinia, at tempus nisl placerat. Aenean id ipsum sed est sagittis hendrerit non in tortor.</p>
+<p>Ut ut condimentum augue, nec eleifend nisl. Sed facilisis egestas odio ac pretium. Pellentesque consequat magna sed venenatis sagittis. Vivamus feugiat lobortis magna vitae accumsan. Pellentesque euismod malesuada hendrerit. Ut non mauris non arcu condimentum sodales vitae vitae dolor. Nullam dapibus, velit eget lacinia rutrum, ipsum justo malesuada odio, et lobortis sapien magna vel lacus. Nulla purus neque, hendrerit non malesuada eget, mattis vel erat. Suspendisse potenti.</p>
+<p>Nullam dapibus cursus dolor sit amet consequat. Nulla facilisi. Curabitur vel nulla non magna lacinia tincidunt. Duis porttitor quam leo, et blandit velit efficitur ut. Etiam auctor tincidunt porttitor. Phasellus sed accumsan mi. Fusce ut erat dui. Suspendisse eu augue eget turpis condimentum finibus eu non lorem. Donec finibus eros eu ante condimentum, sed pharetra sapien sagittis. Phasellus non dolor ac ante mollis auctor nec et sapien. Pellentesque vulputate at nisi eu tincidunt. Vestibulum at dolor aliquam, hendrerit purus eu, eleifend massa. Morbi consectetur eros id tincidunt gravida. Fusce ut enim quis orci hendrerit lacinia sed vitae enim.</p>
 </section>
 <section id="descrizione-attrezzature" class="level2">
 <h2 class="anchored" data-anchor-id="descrizione-attrezzature">Descrizione attrezzature</h2>
-<p>Duis ornare ex ac iaculis pretium. Maecenas sagittis odio id erat pharetra, sit amet consectetur quam sollicitudin. Vivamus pharetra quam purus, nec sagittis risus pretium at. Nullam feugiat, turpis ac accumsan interdum, sem tellus blandit neque, id vulputate diam quam semper nisl. Donec sit amet enim at neque porttitor aliquet. Phasellus facilisis nulla eget placerat eleifend. Vestibulum non egestas eros, eget lobortis ipsum. Nulla rutrum massa eget enim aliquam, id porttitor erat luctus. Nunc sagittis quis eros eu sagittis. Pellentesque dictum, erat at pellentesque sollicitudin, justo augue pulvinar metus, quis rutrum est mi nec felis. Vestibulum efficitur mi lorem, at elementum purus tincidunt a. Aliquam finibus enim magna, vitae pellentesque erat faucibus at. Nulla mauris tellus, imperdiet id lobortis et, dignissim condimentum ipsum. Morbi nulla orci, varius at aliquet sed, facilisis id tortor. Donec ut urna nisi.</p>
-<p>Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+<p>Nunc ac dignissim magna. Vestibulum vitae egestas elit. Proin feugiat leo quis ante condimentum, eu ornare mauris feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus laoreet ex, dignissim bibendum est posuere iaculis. Suspendisse et maximus elit. In fringilla gravida ornare. Aenean id lectus pulvinar, sagittis felis nec, rutrum risus. Nam vel neque eu arcu blandit fringilla et in quam. Aliquam luctus est sit amet vestibulum eleifend. Phasellus elementum sagittis molestie. Proin tempor lorem arcu, at condimentum purus volutpat eu. Fusce et pellentesque ligula. Pellentesque id tellus at erat luctus fringilla. Suspendisse potenti.</p>
 </section>
 <section id="progettazione-dei-test" class="level2">
 <h2 class="anchored" data-anchor-id="progettazione-dei-test">Progettazione dei test</h2>
-<p>Etiam congue quam eget velit convallis, eu sagittis orci vestibulum. Vestibulum at massa turpis. Curabitur ornare ex sed purus vulputate, vitae porta augue rhoncus. Phasellus auctor suscipit purus, vel ultricies nunc. Nunc eleifend nulla ac purus volutpat, id fringilla felis aliquet. Duis vitae porttitor nibh, in rhoncus risus. Vestibulum a est vitae est tristique vehicula. Proin mollis justo id est tempus hendrerit. Praesent suscipit placerat congue. Aliquam eu elit gravida, consequat augue non, ultricies sapien. Nunc ultricies viverra ante, sit amet vehicula ante volutpat id. Etiam tempus purus vitae tellus mollis viverra. Donec at ornare mauris. Aliquam sodales hendrerit ornare. Suspendisse accumsan lacinia sapien, sit amet imperdiet dui molestie ut.</p>
-<p>Etiam non efficitur urna, quis elementum nisi. Mauris posuere a augue vel gravida. Praesent luctus erat et ex iaculis interdum. Nulla vestibulum quam ac nunc consequat vulputate. Nullam iaculis lobortis sem sit amet fringilla. Aliquam semper, metus ut blandit semper, nulla velit fermentum sapien, fermentum ultrices dolor sapien sed leo. Vestibulum molestie faucibus magna, at feugiat nulla ullamcorper a. Aliquam erat volutpat. Praesent scelerisque magna a justo maximus, sit amet suscipit mauris tempor. Nulla nec dolor eget ipsum pellentesque lobortis a in ipsum. Morbi turpis turpis, fringilla a eleifend maximus, viverra nec neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+<p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
+<p>Proin sodales neque erat, varius cursus diam tincidunt sit amet. Etiam scelerisque fringilla nisl eu venenatis. Donec sem ipsum, scelerisque ac venenatis quis, hendrerit vel mauris. Praesent semper erat sit amet purus condimentum, sit amet auctor mi feugiat. In hac habitasse platea dictumst. Nunc ac mauris in massa feugiat bibendum id in dui. Praesent accumsan urna at lacinia aliquet. Proin ultricies eu est quis pellentesque. In vel lorem at nisl rhoncus cursus eu quis mi. In eu rutrum ante, quis placerat justo. Etiam euismod nibh nibh, sed elementum nunc imperdiet in. Praesent gravida nunc vel odio lacinia, at tempus nisl placerat. Aenean id ipsum sed est sagittis hendrerit non in tortor.</p>
 </section>
 <section id="raccolta-dati" class="level2">
 <h2 class="anchored" data-anchor-id="raccolta-dati">Raccolta dati</h2>
-<p>Praesent ornare dolor turpis, sed tincidunt nisl pretium eget. Curabitur sed iaculis ex, vitae tristique sapien. Quisque nec ex dolor. Quisque ut nisl a libero egestas molestie. Nulla vel porta nulla. Phasellus id pretium arcu. Etiam sed mi pellentesque nibh scelerisque elementum sed at urna. Ut congue molestie nibh, sit amet pretium ligula consectetur eu. Integer consectetur augue justo, at placerat erat posuere at. Ut elementum urna lectus, vitae bibendum neque pulvinar quis. Suspendisse vulputate cursus eros id maximus. Duis pulvinar facilisis massa, et condimentum est viverra congue. Curabitur ornare convallis nisl. Morbi dictum scelerisque turpis quis pellentesque. Etiam lectus risus, luctus lobortis risus ut, rutrum vulputate justo. Nulla facilisi.</p>
-<p>Proin sodales neque erat, varius cursus diam tincidunt sit amet. Etiam scelerisque fringilla nisl eu venenatis. Donec sem ipsum, scelerisque ac venenatis quis, hendrerit vel mauris. Praesent semper erat sit amet purus condimentum, sit amet auctor mi feugiat. In hac habitasse platea dictumst. Nunc ac mauris in massa feugiat bibendum id in dui. Praesent accumsan urna at lacinia aliquet. Proin ultricies eu est quis pellentesque. In vel lorem at nisl rhoncus cursus eu quis mi. In eu rutrum ante, quis placerat justo. Etiam euismod nibh nibh, sed elementum nunc imperdiet in. Praesent gravida nunc vel odio lacinia, at tempus nisl placerat. Aenean id ipsum sed est sagittis hendrerit non in tortor.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis posuere ligula sit amet lacinia. Duis dignissim pellentesque magna, rhoncus congue sapien finibus mollis. Ut eu sem laoreet, vehicula ipsum in, convallis erat. Vestibulum magna sem, blandit pulvinar augue sit amet, auctor malesuada sapien. Nullam faucibus leo eget eros hendrerit, non laoreet ipsum lacinia. Curabitur cursus diam elit, non tempus ante volutpat a. Quisque hendrerit blandit purus non fringilla. Integer sit amet elit viverra ante dapibus semper. Vestibulum viverra rutrum enim, at luctus enim posuere eu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+<p>Nunc ac dignissim magna. Vestibulum vitae egestas elit. Proin feugiat leo quis ante condimentum, eu ornare mauris feugiat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris cursus laoreet ex, dignissim bibendum est posuere iaculis. Suspendisse et maximus elit. In fringilla gravida ornare. Aenean id lectus pulvinar, sagittis felis nec, rutrum risus. Nam vel neque eu arcu blandit fringilla et in quam. Aliquam luctus est sit amet vestibulum eleifend. Phasellus elementum sagittis molestie. Proin tempor lorem arcu, at condimentum purus volutpat eu. Fusce et pellentesque ligula. Pellentesque id tellus at erat luctus fringilla. Suspendisse potenti.</p>
+<p>Etiam maximus accumsan gravida. Maecenas at nunc dignissim, euismod enim ac, bibendum ipsum. Maecenas vehicula velit in nisl aliquet ultricies. Nam eget massa interdum, maximus arcu vel, pretium erat. Maecenas sit amet tempor purus, vitae aliquet nunc. Vivamus cursus urna velit, eleifend dictum magna laoreet ut. Duis eu erat mollis, blandit magna id, tincidunt ipsum. Integer massa nibh, commodo eu ex vel, venenatis efficitur ligula. Integer convallis lacus elit, maximus eleifend lacus ornare ac. Vestibulum scelerisque viverra urna id lacinia. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean eget enim at diam bibendum tincidunt eu non purus. Nullam id magna ultrices, sodales metus viverra, tempus turpis.</p>
 </section>
 <section id="analisi-e-discussione" class="level2">
 <h2 class="anchored" data-anchor-id="analisi-e-discussione">Analisi e discussione</h2>
-<p>Aenean placerat luctus tortor vitae molestie. Nulla at aliquet nulla. Sed efficitur tellus orci, sed fringilla lectus laoreet eget. Vivamus maximus quam sit amet arcu dignissim, sed accumsan massa ullamcorper. Sed iaculis tincidunt feugiat. Nulla in est at nunc ultricies dictum ut vitae nunc. Aenean convallis vel diam at malesuada. Suspendisse arcu libero, vehicula tempus ultrices a, placerat sit amet tortor. Sed dictum id nulla commodo mattis. Aliquam mollis, nunc eu tristique faucibus, purus lacus tincidunt nulla, ac pretium lorem nunc ut enim. Curabitur eget mattis nisl, vitae sodales augue. Nam felis massa, bibendum sit amet nulla vel, vulputate rutrum lacus. Aenean convallis odio pharetra nulla mattis consequat.</p>
-<p>Ut ut condimentum augue, nec eleifend nisl. Sed facilisis egestas odio ac pretium. Pellentesque consequat magna sed venenatis sagittis. Vivamus feugiat lobortis magna vitae accumsan. Pellentesque euismod malesuada hendrerit. Ut non mauris non arcu condimentum sodales vitae vitae dolor. Nullam dapibus, velit eget lacinia rutrum, ipsum justo malesuada odio, et lobortis sapien magna vel lacus. Nulla purus neque, hendrerit non malesuada eget, mattis vel erat. Suspendisse potenti.</p>
+<p>Nullam dapibus cursus dolor sit amet consequat. Nulla facilisi. Curabitur vel nulla non magna lacinia tincidunt. Duis porttitor quam leo, et blandit velit efficitur ut. Etiam auctor tincidunt porttitor. Phasellus sed accumsan mi. Fusce ut erat dui. Suspendisse eu augue eget turpis condimentum finibus eu non lorem. Donec finibus eros eu ante condimentum, sed pharetra sapien sagittis. Phasellus non dolor ac ante mollis auctor nec et sapien. Pellentesque vulputate at nisi eu tincidunt. Vestibulum at dolor aliquam, hendrerit purus eu, eleifend massa. Morbi consectetur eros id tincidunt gravida. Fusce ut enim quis orci hendrerit lacinia sed vitae enim.</p>
+<p>Nulla eget cursus ipsum. Vivamus porttitor leo diam, sed volutpat lectus facilisis sit amet. Maecenas et pulvinar metus. Ut at dignissim tellus. In in tincidunt elit. Etiam vulputate lobortis arcu, vel faucibus leo lobortis ac. Aliquam erat volutpat. In interdum orci ac est euismod euismod. Nunc eleifend tristique risus, at lacinia odio commodo in. Sed aliquet ligula odio, sed tempor neque ultricies sit amet.</p>
 
 
 </section>
