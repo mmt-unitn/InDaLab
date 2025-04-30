@@ -140,7 +140,7 @@ La scala Vickers è unica nella geometria del penetratore, ma varia in funzione 
 
 Tutti i dettagli tecnici, i criteri di esecuzione e le tolleranze della prova sono regolati dalla norma **UNI EN ISO 6507-1**, che rappresenta il riferimento principale per l’applicazione corretta del metodo Vickers.
 
-## Test di student accoppiato
+## Test di student accoppiato (da finire)
 
 Nel caso di test di Student a due campioni, quando essi **hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili**, è opportuno accoppiarli e effettuare il test di Student accoppiato
 
@@ -154,6 +154,10 @@ H_1 :~& \mu_d \neq 0
 $$ Quindi il test accoppiato è un test a un campione, con il vantaggio che **gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test**
 
 ## Taratura
+
+
+*ancora da fare
+
 
 # Descrizione attrezzature
 
@@ -248,7 +252,7 @@ Per la raccolta delle misure sono necessarie le seguenti fasi:
 5.  Accensione durometro
 6.  Selezione dei parametri per la prova HV30
 7.  Impostare la messa a fuoco della lente (solo se necessario).
-8.  Esecuzione delle misure previste dalla tabella `df_a` relative all'indetatore danneggiato
+8.  Esecuzione delle misure previste dalla tabella `df_a` relative all'indetatore danneggiato, estrapolando visivamente la posizione del vertice danneggiato (\@ref(fig:estrapolazione))
 9.  Cambio indetatore, montaggio indentatore Vickers integro
 10. Esecuzione delle misure previste dalla tabella `df_b` reltaive all'indetatore integro 
 10. Esecuzione delle misure previste dalla tabella `df_a`, cambiando coerentemente il metodo di prova (HV5,HV10,HV20,HV30,HV50) selezionando i parametri corretti (punto 6)
@@ -257,6 +261,8 @@ Per la raccolta delle misure sono necessarie le seguenti fasi:
 ![Campione lucidato e non lucidato](images/preparazione_campioni.jpg){width=20% #fig:preparazione_campioni}
 
 ![Campioni numerati](images/campioni.jpg){width=20% #fig:campioni}
+
+![Estrapolazione visiva della posizione del vertice danneggiato](images/estrapolazione.jpg){width=20% #fig:estrapolazione}
 
 Per eseguire le fasi che richiedono l'uso del durometro è possibile consultare il manuale d'uso del durometro EMCO TEST M4U 025 presente in laboratorio, tuttavia al fine di agevolare il procedimento si riportano sinteticamente le operazioni necessarie (valide per il durometro EMCO TEST M4U 02,(\@ref(fig: durometro))5).
 
@@ -297,94 +303,140 @@ Per impostare la messa a fuoco dell'immagine (da eseguire solo se necessario):
 5. Una volta che il durometro passa all'ottica stabilire la posizione di fuoco attraverso i tasti  $\leftarrow $ e  $\rightarrow $.
 6. Misurare le diagonali e confermare con il tasto f, in questo modo viene anche memorizzata la nuova posizione di fuoco.
 
-Per selezionare i parametri e il tipo di prova di durezza, il durometro prevede una sezione in cui è possibile impostare diverse specifiche. Tuttavia, non è necessario modificare alcun parametro, eccetto il primo, poiché la sua impostazione richiama automaticamente i parametri per le prove previste dalla presente attività (secondo normativa). Quindi:
+Per selezionare i parametri e il tipo di prova di durezza, il durometro prevede una sezione in cui è possibile impostare diverse specifiche . Tuttavia, non è necessario modificare alcun parametro, eccetto il primo, poiché la sua impostazione richiama automaticamente i parametri per le prove previste dalla presente attività (secondo normativa). Quindi:
 
-1. Premere il tasto Code seguito da 1234, confermare con il tasto f.
-2. Inserire il numero relativo al metodo di prova da eseguire in modo da impostare il parametro n. 1, questo numero è presente nella colonna CODE della tabella posta sul lato destro della macchina. Confermare con f. **Non modificare nessun altro parametro**
+1. Premere il tasto Code seguito da 1234, confermare con il tasto f. Si apre la sezione parametri (\@ref(fig:parametri))
+2. Inserire il numero relativo al metodo di prova da eseguire in modo da impostare il parametro n. 1, questo numero è presente nella colonna CODE della tabella posta sul lato destro della macchina(\@ref(fig:tabella)). Confermare con f. **Non modificare nessun altro parametro** 
 3. Premere nuovamente code
 4. Accertarsi che nella schermata principale sia ora comparso il metodo di prova corretto.
 
 Si raccomanda di accertarsi che sulla macchina sia montata la lente specificata nei parametri della prova. Come detto in precedenza il significato di tutti i codici relativi ai parametri e i parametri stessi sono illustrati nel manuale d'uso presente in laboratorio.
 
+![Sezione di impostazione parametri](images/parametri.jpg){width=30% #fig:parametri}
+
+![Tabella codici di prova](images/tabella.jpg){width=30% #fig:tabella}
+
 ### Misurazione 
 
 Per eseguire una misura di durezza:
 
-1. Premere il tasto  $\begin{array}{c}\downarrow \\ - \\ \uparrow\end{array}$
+1. Poggiare il provino sul piano di supporto della macchina
+2. ruotare il volantino portando in adesione il provino con l'elemento di contatto del durometro (\@ref(fig:contatto))
+1. Premere il tasto  $\begin{array}{c}\downarrow \\ - \\ \uparrow\end{array}$ che avvia il ciclo di misura
 2. Attendere la fine della prova, quindi che compaia l'immagine dell imnpronta sullo schermo, annotare la stima fornita dalla macchina.
-3. Azzerare la posizione del regolo portando a contatto i due corsoi del calibro, premere il tasto f (solo per prima misura dopo accensione)
-4. Allineare la linea presente su uno dei due corsoi con una delle diagonali dell'impronta, in modo da fissare l'orientamento corretto per la misurazione 
-5. Mantendendo l'orientamento ottenuto al punto precedente regolare attraverso i due pomelli presenti sul calibro la posizione dei due corsoi, in modo che le linee presenti sugli stessi combacino con i vertici della diagonale opposta a quella usata da riferimento al punto 4. Confermare con il tasto f.
+3. Azzerare la posizione del regolo portando a contatto i due corsoi del calibro, premere il tasto f (solo per prima misura dopo accensione),(\@ref(fig:azzeramento_regolo))
+4. Allineare la linea presente su uno dei due corsoi con una delle diagonali dell'impronta, in modo da fissare l'orientamento corretto per la misurazione (\@ref(fig:orientamento)) 
+5. Mantendendo l'orientamento ottenuto al punto precedente regolare attraverso i due pomelli presenti sul calibro la posizione dei due corsoi, in modo che le linee presenti sugli stessi combacino con i vertici della diagonale opposta a quella usata da riferimento al punto 4. Confermare con il tasto f.(\@ref(fig:misura))
 6. Ripetere i punti 4,5 per l'altra diagonale
 7. Annotare la misura che compare a display
 8. Premere il tasto f
 
 Per le misure che prevendo di usare due volte la stessa diagonale (quella chiaramente visibile dell'indentatore rotto) rilevare due volte la stessa diagonale (dopo aver effettuato i passi 4. e 5 premere nuovamente il tasto f senza cambiare la posizione dei corsoi)
 
+![Provino a contatto](images/contatto.jpg){width=30% #fig:provino}
+
+
+![Azzeramento del regolo](images/azzeramento_regolo.jpg){width=30% #fig:zeroregolo}
+
+![Orientamento regolo](images/orientamento.jpg){width=30% #fig:orientamento}
+
+![Misura della diagonale](images/misura.jpg){width=30% #fig:misura}
 
 ## Raccolta dei dati
 
 ```{r}
-df_a$estimated_HV30_OK=c(662,242,262,302,330,641,244,165,668,651)
-df_a$HV30_OK=c(676,259,259,306,352,660,244,164,659,625)
-df_a$estimated_HV30_NOK = c(591,205,209,262,318,578,206,156,624,581)
-df_a$HV30_NOK = c(612,212,217,307,339,629,216,157,615,596)
+df_a$estimated_HV30_OK=c(591,205,209,262,318,578,206,156,624,581)
+df_a$HV30_OK=c(662,242,262,302,330,641,244,165,668,651)
+df_a$estimated_HV30_NOK = c(612,212,217,307,339,629,216,157,615,596)
+df_a$HV30_NOK = c(676,259,259,306,352,660,244,164,659,625)
 df_a$estimated_HV30_dd=c(612,219,218,297,337,621,218,157,618,596)
-df_a$HV30_dd=c(648,256,253,297,351,652,247,166,659,635)
+df_a$HV30_dd=c(648,256,253,297,351,652,247,166,659,635)               
 
 df_a
 ```
 
-Si converte la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un'unica colonna `durezza`:
+
+# Analisi differenze indentatore rotto/indentore integro
+
+Si converte la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un'unica colonna `durezza` (si rinominano le colonne e non si tiene conto delle misure doppia diagonale):
 
 ```{r}
-dfv <- df %>% 
+dfv <- df_a%>%
+  select(material:HV30_NOK)%>%
+  rename(
+    stima_NOK=estimated_HV30_NOK,
+    stima_OK=estimated_HV30_OK
+    )%>% 
+  relocate(
+    HV30_NOK,
+    stima_OK,
+    stima_NOK,
+    .after = HV30_OK,
+  )%>%
   pivot_longer(-material, names_sep="_", names_to = c("misura","ok"), values_to="durezza") %>% 
   mutate(ok=ifelse(ok=="OK","integro","rotto"))
+
 dfv
 ```
 
 Confrontiamo tutti i dati: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale **maschera** le variabilità delle misure.
 
 ```{r}
-#dfv %>% 
- # ggplot(aes(x=misura, y=durezza, color=ok)) +
- # geom_boxplot() +
- # labs(x="Misura", y="Durezza", color="Penetratore")
+dfv %>% 
+  ggplot(aes(x=misura, y=durezza, color=ok)) +
+  geom_boxplot() +
+  labs(x="Misura", y="Durezza", color="Penetratore")
 ```
 
 Osserviamo la relazione tra stima e durezza, separatamente per penetratore: sembrano essere differenti sia l'intercetta che la pendenza.
 
 ```{r}
-#dfv %>%
-#  pivot_wider(names_from = misura, values_from = durezza) %>% 
- # ggplot(aes(x=HV30, y=stima, color=ok)) + 
- # geom_point() + 
-#  geom_smooth(method="lm", formula=y~x) +
- # labs(color="penetratore") 
+dfv %>%
+  pivot_wider(names_from = misura, values_from = durezza) %>% 
+  ggplot(aes(x=HV30, y=stima, color=ok)) + 
+  geom_point() + 
+  geom_smooth(method="lm", formula=y~x) +
+  labs(color="penetratore") 
 ```
 
-Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla rettadiagonale con equazione $y=x$. Si osserva che i punti corrispondenti al HV30 effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è significativamente al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l'indentatore rotto che per quello integro.
+Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla rettadiagonale con equazione $y=x$. Si osserva che i punti corrispondenti al HV30 effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l'indentatore rotto che per quello integro.
 
 ```{r}
-#dfv %>%
- # pivot_wider(names_from = ok, values_from = durezza) %>% 
-  #ggplot(aes(x=integro, y=rotto, color=misura)) + 
-  #geom_abline(slope=1, intercept=0, color="red", lty=2) +
-  #geom_point() + 
-#  geom_smooth(method="lm", formula=y~x)
+dfv %>%
+  pivot_wider(names_from = ok, values_from = durezza) %>% 
+  ggplot(aes(x=integro, y=rotto, color=misura)) + 
+  geom_abline(slope=1, intercept=0, color="red", lty=2) +
+  geom_point() + 
+  geom_smooth(method="lm", formula=y~x)
 ```
-
-## Analisi e discussione
+## Discussione risultati
 
 Effettuo i T-test per HV30 e per stima, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con `split`, e infine applico la funzione `t.test` a ciascun sottoinsieme mediante `map`:
 
 ```{r}
-#dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>% 
- # split(.$misura) %>% 
- # map(~t.test(.x$integro, .x$rotto, paired = T))
+dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>% 
+ split(.$misura) %>% 
+ map(~t.test(.x$integro, .x$rotto, paired = T))
 ```
 
 Il risultato ottenuto suggerisce di accettare l'ipotesi nulla: non c'è differenza a livello statistico nell'utilizzare un penetratore o l'altro.
 
 Questo fatto può parere inaspettato, in quanto il penetratore si sa essere danneggiato. Tuttavia sta ad indicare proprio che nonostante esso sia danneggiato *nel campo di applicazione nel quale si sono svolte le misure* questo fatto non è statisticamente rilevante.
+
+
+# Analisi per taratura
+
+```{r}
+df_b<-df_b%>%
+  arrange(StdOrder)%>%
+  mutate(
+    Estimated=c(692,690,516,634,630,343,310,262,318,370,223,217,185,218,209,
+                610,641,481,589,680,304,290,238,297,340,235,229,173,212,205),
+    Hardness=c(709,709,668,680,656,351,341,333,330,341,294,254,261,251,241,
+                671,675,642,646,627,308,317,296,294,295,308,286,265,261,249)
+    
+  )
+
+df_b
+```
+
