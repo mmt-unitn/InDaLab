@@ -1,0 +1,628 @@
+---
+title: "Degradazione fotocatalitica di soluzioni di blu di metilene"
+author: "Tommaso Stefani"
+date: today
+draft: false
+categories: 
+  - tesi
+abstract: >
+  Durezza
+format: 
+  revealjs:
+    # theme: dark
+    # theme: beige
+    # theme: blood
+    # theme: dark
+    # theme: default
+    # theme: league
+    theme: [default, ../slides.scss]
+    # theme: night
+    # theme: serif
+    # theme: simple
+    # theme: sky
+    # theme: solarized
+    width: 1280
+    height: 720
+    margin: 0.1
+    slide-number: true
+    code-line-numbers: true
+    code-annotations: below
+    preview-links: auto
+    chalkboard: true
+    footer: "[Home](/slides.qmd)"
+    fig-width: 5
+    fig-height: 4
+    fig-dpi: 300
+    email-obfuscation: javascript
+    pdf-separate-fragments: true
+    link-external-icon: true
+    lang: it-IT
+---
+
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  fig.align = "center",
+  # This for default device
+  out.width = "16cm",
+  # This two for high quality charts:
+  fig.dim = c(16, 9)*0.4
+)
+library(tidyverse)
+library(stringr)
+library(modelr)
+library(adas.utils)
+library(knitr)
+library(gghalfnorm)
+```
+
+# Descrizione dell'attività
+
+## Descrizione dell'attività
+
+Nella presente attività si conducono reazioni di fotocatalisi per determinare come varia la **velocità di degradazione fotocatalitica di soluzioni acquose di blu di metilene** al variare di **diversi fattori presi in considerazione**.
+
+Allo scopo è necessaria una progettazione dell'esperimento (**DoE**) che permetta di valutare statisticamente come ogni parametro tra quelli presi in considerazione influenzi la velocità (= la resa) del processo.
+
+I parametri che si considerano sono:
+
+* concentrazione di catalizzatore
+* concentrazione di blu di metilene 
+* intensità luminosa (numero di lampade UV accese durante la reazione)
+* temperatura della soluzione
+
+# Cenni teorici
+
+## Blu di metilene
+
+Il **blu di metilene (MB)** è un colorante organico ampiamente utilizzato come molecola sonda per testare l’efficienza di
+processi di decontaminazione di effluenti acquosi, in quanto presenta:
+
+- Colore intenso (blu brillante),
+- Facilità di solubilizzazione in acqua,
+- Spettro di assorbimento ben definito nell'UV-visibile,
+- Stabilità e tracciabilità tramite spettrofotometria UV-Vis.
+
+Lo spettro di assorbimento UV-Vis del MB mostra un **massimo di assorbanza a 664 nm**. Durante una reazione di degradazione, questa assorbanza diminuisce progressivamente, segnalando la **riduzione della concentrazione** della molecola in soluzione.
+
+## Blu di metilene
+<div style="text-align:center">
+![Spettro e molecola del blu di metilene](images/fotocatalisi/spettroMB.jpg){width=50% fig-align="center"}
+</div>
+
+## Meccanismo di reazione
+
+Il processo di **fotocatalisi eterogenea** sfrutta semiconduttori come il **biossido di titanio (TiO₂)**, che viene attivato da radiazione UV. Il meccanismo alla base della reazione considerata è il seguente:
+
+1. Attivazione del fotocatalizzatore:  $\text{TiO}_2 + h\nu \rightarrow e^- + h^+$
+
+2. Reazioni alle interfacce:
+  * Riduzione dell'ossigeno disciolto da parte degli elettroni $e^-$:   $O_2 + e^- \rightarrow O_2^{\cdot-}$
+
+  * Ossidazione dell'acqua da parte delle lacune:   $h^+$: $H_2O + h^+ \rightarrow \cdot OH + H^+$
+
+3. Degradazione del blu di metilene:    $\text{MB} + \cdot OH \rightarrow \text{prodotti ossidati}$
+
+Queste specie reattive degradano il blu di metilene in composti meno complessi, fino alla completa mineralizzazione ($CO_2$, $H_2O$, sali inorganici).
+
+## Meccanismo di reazione
+In figura la sintesi di quanto detto:
+
+<div style="text-align:center">
+![Meccanismo di reazione](images/fotocatalisi/reazione.jpg){width=30% fig-align="center"}
+</div>
+
+<div style="text-align:center">
+![Provette con soluzione di MB prelevate a diversi tempi durante la reazione](images/fotocatalisi/provette.jpg){width=20% fig-align="center"}
+</div>
+## Cinetica della reazione
+
+La degradazione fotocatalitica del MB segue una **cinetica di primo ordine**, governata dalla seguente equazione differenziale:
+
+$$
+\frac{dC}{dt} = -kC
+$$
+
+dove:
+
+- $C$ è la concentrazione del MB al tempo $t$,
+- $C_0$ è la concentrazione iniziale ($t = 0$),
+- $k$ è la costante cinetica (in $min^{-1}$).
+
+La soluzione dell'equazione risulta $\ln\left(\frac{C}{C_0}\right) = -kt$, oppure $C(t) = C_0 \cdot e^{-kt}$
+
+
+
+## Misura della concentrazione tramite UV-Vis
+
+Per determinare l’andamento della concentrazione del blu di metilene nel tempo, si misura l’assorbanza della soluzione a 664 nm. In base alla legge di **Lambert-Beer**, la relazione tra assorbanza e concentrazione è:
+
+$$
+A = \varepsilon \cdot l \cdot C
+$$
+
+dove $A$ è l’assorbanza misurata, $\varepsilon$ è il coefficiente di estinzione molare del blu di metilene, $l$ è il cammino ottico della cuvetta (in genere 1 cm) e $C$ è la concentrazione.
+
+Poiché $\varepsilon$ e $l$ sono costanti nelle condizioni sperimentali, la concentrazione si può ottenere da:
+
+$$
+C = \frac{A}{\varepsilon \cdot l}
+$$
+
+## Misura della concentrazione tramite UV-Vis
+
+<div style="text-align:center">
+![Spettrofotometro](images/fotocatalisi/spettrofotometro.jpg){width=50% fig-align="center"}
+</div>
+
+## Design of Experiments (DoE)
+
+Il **DoE** è un metodo statistico per pianificare esperimenti in modo efficiente, studiando l'effetto di più fattori con meno prove possibili. Il piano fattoriale definisce quali combinazioni testare.
+
+Quando i fattori sono tanti, si usano:
+
+* **Piani frazionati**: testano solo alcune combinazioni.
+
+* **Metodo di Daniel**: individua i fattori significativi con un **Q-Q plot**. Gli effetti non significativi si allineano lungo la diagonale, quelli grandi no.
+
+Eliminando gli effetti non significativi, si può fare ANOVA anche senza ripetizioni esplicite.
+
+# Parte sperimentale
+
+## Apparecchiatura
+
+::: {.columns}
+
+::: {.column width="50%"}
+- Blu di metilene ($MB$)  
+- Acqua distillata  
+- Fotocatalizzatore ($TiO_2$)  
+- Cilindro graduato da 250 ml  
+- Agitatore magnetico  
+- Becher da 250 ml  
+:::
+
+::: {.column width="50%"}
+- Matraccio  
+- Due siringhe da 10 ml  
+- Filtro per siringa  
+- Lampade UV  
+- Cuvette portacampioni  
+- Carta assorbente  
+:::
+
+:::
+
+
+## Procedimento
+
+Dopo aver preparato 1 litro di soluzione 16 mg/l di MB in un matraccio per ogni prova prevista dal piano fattoriale:
+
+* Versare nel cilindro graduato la corretta quantità di soluzione e diluire opportunamente per ottenere la soluzione di concentrazione prevista dalla prova da eseguire.
+* Prelevare un’idonea quantità di soluzione di MB e inserirla in una provetta, identificandola opportunamente.
+* Aggiungere alla soluzione il catalizzatore $TiO_2$ (in quantità prevista dalla prova), versare la soluzione in un becher e lasciare agitare al buio per 30 minuti
+* Prelevare un’idonea quantità di soluzione di MB, filtrarla mediante siringa con filtro e inserirla in una provetta, identificandola opportunamente.
+* Indossare gli occhiali di protezione, accendere le lampade UV e lasciar irraggiare la soluzione per un tempo di 10, 20, 30 e 40 minuti. 
+
+## Procedimento
+
+* Al termine di ciascun intervallo di tempo, prelevare una provetta identificandola opportunamente.
+* Misurare il valore di assorbanza per ogni provetta
+
+In quanto sarà necessario regredire un modello che permetta di correlare l'assorbanza ai valori di concentrazione di MB della soluzione è necessario eseguire anche la misura di assorbanza di diverse soluzioni di MB corrispondenti a diverse concetrazioni.
+
+Informazioni di sicurezza:
+
+* Blu di metilene: Frasi H: 302 (nocivo se ingerito)
+* Utilizzare occhiali protettivi (radiazione UV)
+
+## Procedimento
+<div style="text-align:center">
+![Reattore](images/fotocatalisi/reattore.jpg){width=25% fig-align="center"}
+</div>
+## Misura tramite Spettrofotometro UV-Vis
+
+Lo Spettrofotometro è un dispositivo che misura l’intensità della luce prima e dopo aver attraversato un campione restituendo il valore dell'assorbanza dello stesso. 
+
+$$
+A = \log_{10} \left( \frac{I_0}{I} \right)
+$$
+
+## Misura tramite Spettrofotometro UV-Vis
+
+La procedura di misura è la seguente:
+
+- preparare la soluzione da analizzare e inserirla nella cuvetta portacampioni  
+- inserire la cuvetta nello spettrofotometro UV-Vis  
+- effettuare la misura di baseline (zero strumentale) con una cuvetta in cui vi è solvente puro (acqua distillata)  
+- impostare la scansione dello spettro su un intervallo di lunghezze d’onda opportuno (es. 400–800 nm)  
+- avviare la scansione per acquisire lo spettro di assorbanza completo  
+- lo spettro è memorizzabile come file di testo in cui per ogni lunghezza d'onda è riportato il valore dell'assorbanza
+
+
+# Elaborazione dei dati
+
+## Piano fattoriale
+
+Si vuole indagare la relazione sperimentale che lega la $k$ dell'equazione cinetica con i seguenti 4 parametri:
+
+* concentrazione di $TiO_2$ in g/l -> fattore A (quantitativo)
+* concentrazione di $MB$ in g/l -> fattore B(quantitativo)
+* temperatura della soluzione in °C -> fattore C (quantitativo)
+* intensità luminosa (numero di lampade UV utilizzate) -> fattore D (qualitativo)
+
+In quanto le prove richiedono un tempo di svolgimento rilvante bisogna frazionare o non replicare il piano.
+
+
+## Piano fattoriale
+
+```{r}
+dm<-fp_design_matrix(4)%>%
+  fp_add_names(A="Catalizzatore",B="MB",C="Temperatura",D="Intensità_luminosa")%>%
+  fp_add_scale(A=c(0.2,0.4),B=c(0.004,0.008),C=c(8,22),D=c(3,6))
+#eventualmnete se le prove sono troppe frazionare il piano
+kable(head(dm),caption="Piano fattoriale")
+```
+
+Le prove si identificano tramite la notazione di *Yates*. Si raccomanda di nominare i file ottenuti dallo spettrofotometro in maniera tale da poter poi implementare un codice che permetta di importare in dati in modo "automatico".
+
+## Raccolta dati
+
+Si creano due tabelle:
+
+* `data_cali` per i dati utili alla regressione del modello che lega assorbanza alla concentrazione (in ppm)
+* `data_prove` per i dati utili all'analisi oggetto della presente attività
+
+`data_cali` contiene i valori degli spettri relativi a soluzioni con diverse concentrazioni di MB. 
+
+```{r}
+file_cali <- list.files("003-data/calibrazione", full.names = TRUE)
+
+data_cali <- map_dfr(file_cali, function(file) {
+  read.csv(file, skip = 42, header = TRUE) %>%
+    rename(Wavelength_nm = Wavelength..nm.)%>%
+    mutate(Concentration_ppm = parse_number(sub("\\.txt$", "", basename(file))))
+}) %>%
+  arrange(Concentration_ppm)%>%
+  relocate(Concentration_ppm,.before= Wavelength_nm)
+
+kable(head(data_cali,2),caption="Tabella con i dati degli spettri relativi a soluzioni a diversa concentrazione di MB")
+```
+
+## Raccolta dati
+
+
+`data_prove` contiene i dati degli spettri raccolti dalle provette prelevate a diversi tempi durante lo svolgimento della reazione, per tutte le prove effettuate.
+
+
+```{r}
+#list.dirs() crea una lista di stinghe rappresentanti i percorsi delle cartelle o dei files contenuti subito dentro la cartella
+#data come argomento (se recursive=F)
+
+# keep() restituisce un vettore che contiene solo gli elementi del vettore originario in posizione TRUE rispetto ad un vettore
+#logico passato come argomento.
+
+#str_detect() restituisce un vettore logico ottenuto sulla base di un criterio dato come argomento , nel nostro caso
+#restituisce true se il basename , che è la parte finale del percorso, inizia (^) con la parola prova.
+
+cartelle_prove <- list.dirs("003-data/", recursive = FALSE, full.names = TRUE)%>%
+   keep(~ str_detect(basename(.), "^prova"))   
+
+
+# cartelle_prove è quindi un vettore che contiene i percorsi come "data/prova_(1)_7725" delle cartelle che contengono
+#i file delle SOLE prove.
+  
+#La funzione leggi_prova unisce tutti i file contenuti dentro una SINGOLA cartella di prova, estrae il tempo dal nome di 
+#ogni file, importa i dati saltando le intestazioni, aggiunge le colonne tempo e prova, e unisce tutto in un unica tibble.
+#La tibble che restituisce quindi contiene tutti i dati relativi ad un'unica prova, e quindi gli spettri a diversi tempi della
+#stessa prova.
+
+leggi_prova <- function(cartella) {
+  files <- list.files(cartella, pattern = "\\.txt$", full.names = TRUE) #lista di tutti i path dei  file .txt contenuti nella cartella passata   
+  nome_prova <- str_extract(basename(cartella), "(?<=prova_)[^_]+")  #nome della prova che stiamo caricando nella notazione di yates
+  leggi_file <- function(file) {
+    tempo <- str_extract(file, "_-?\\d+min") %>% str_remove_all("_|min") %>% as.numeric()  #per avere il tempo numerico
+    read.csv(file, skip = 42,header = T) %>%
+      rename(Wavelength_nm = Wavelength..nm.) %>%
+      mutate(
+        .treat = nome_prova,
+        tempo_min = tempo
+      ) %>%
+      tibble()
+  }
+  
+  map_dfr(files, leggi_file)  # per ottenere un'unica tibble 
+}
+
+# Per unire tutte le prove usiamo map_dfr che restituisce un'unico data.frame che contiene tutti i datti di tutte le prove
+
+data_prove <- map_dfr(cartelle_prove, leggi_prova) %>% 
+  mutate(.treat = factor(.treat, levels = dm %>% pull(.treat)))%>%
+  arrange(.treat,tempo_min)%>%
+  relocate(.treat,tempo_min,.before = Wavelength_nm)
+
+kable(head(data_prove))
+
+```
+
+## Calibrazione
+
+Si possono graficare gli spettri delle soluzioni a diversa concentrazione di MB servendosi di `data_cali`:
+
+```{r}
+data_cali%>%
+  ggplot(aes(x=Wavelength_nm,y=Absorbance,color = factor(Concentration_ppm)))+
+  geom_line()+
+  labs(
+    title = "Spettri di assorbimento per diverse concentrazioni di MB",
+    x = "Lunghezza d'onda (nm)",
+    y = "Assorbanza",
+    color = "Concentration (ppm)"
+  )
+```
+
+## Calibrazione
+
+Per trovare il coefficiente del modello che correla assorbanza con concentrazione (che deve essere lineare secondo la legge di *Lambert-Beer*) si individuano i valori di assorbanza che corrispondono al massimo degli spettri per le varie concentrazioni:
+
+```{r}
+data_cali<-data_cali%>%
+  group_by(Concentration_ppm)%>%
+  summarise(Absorbance=max(Absorbance,na.rm=T))
+kable(data_cali, caption="Concentrazione MB vs Assorbanza")
+```
+
+## Calibrazione
+
+Si regredisce quindi il modello lineare ponendo nulla l'intercetta per trovare il coefficiente che lega concentrazione all'assorbanza:
+
+
+```{r}
+data_cali.lm<-lm(Absorbance ~ Concentration_ppm - 1, data = data_cali)
+summary(data_cali.lm)
+```
+
+## Calibrazione
+
+```{r}
+#sequenza di valori x (includendo lo 0)
+pl_data <- tibble(Concentration_ppm = seq(0, max(data_cali$Concentration_ppm), length.out = 100))
+
+# predizioni con intervallo di confidenza
+pred <- predict(data_cali.lm, pl_data, interval = "confidence")
+
+# Unisco le tabelle
+pl_data <- bind_cols(pl_data, as_tibble(pred))
+
+ggplot() +
+  geom_point(data = data_cali, aes(x = Concentration_ppm, y = Absorbance)) +
+  geom_line(data = pl_data, aes(x = Concentration_ppm, y = fit), color = "red") +
+  geom_ribbon(data = pl_data, aes(x = Concentration_ppm, ymin = lwr, ymax = upr), alpha = 0.3) +
+  labs(
+    title = "Assorbanza vs Concentrazione",
+    x = "Concentrazione (ppm)",
+    y = "Assorbanza"
+  ) +
+  expand_limits(x = 0, y = 0)
+
+coeff<-data_cali.lm$coefficients
+```
+
+
+Per trovare il valore incognito di concentrazione di una soluzione di` MB basterà quindi moltiplicare il valore di picco del suo spettro per l'inverso del coefficiente appena trovato.
+
+
+## Spettri delle varie prove
+
+
+Gli spettri delle soluzioni di ogni provetta (ogni provetta corrisponde ad un determinato tempo di prelievo per un determinato trattamento) si possono ottenere da `data_prove`:
+
+
+```{r}
+data_prove%>%
+  ggplot(aes(x=Wavelength_nm,y=Absorbance,color = factor(tempo_min)))+
+  geom_line()+
+  facet_wrap(~.treat,ncol=2)+
+  labs(
+    title = "Spettri di assorbimento",
+    x = "Lunghezza d'onda (nm)",
+    y = "Assorbanza",
+    color = "Tempo (min)"
+  )
+```
+
+Si nota che per alcune prove non è stato necessario procedere fino a 90 minuti in quanto la reazione risultava gia conclusa (asintoticamente).
+
+
+## Curva cinetica della reazione e calcolo della costante k
+
+Si deve innanzitutto verificare che le reazioni condotte siano effettivamente del primo ordine (come suggerito da letteratura).
+
+A tale scopo da `data_prove` si ricava una tabella che contenga i valori di picco dello spettro per ogni provetta, si cacola quindi il valore della concentrazione così da avere un punto sperimentale rappresentativo della concentrazione ad un certo tempo per un certo trattamento. 
+
+Si aggiunge alla tabella anche la concentrazione al tempo 0 (colonna `C0`).
+```{r}
+
+#si aggiunge al dataframe delle prove la concentrazione corrispondente al tempo 0 per ogni prova, servirà in seguito
+
+data_C0 <- data_prove %>%
+  filter(tempo_min == 0) %>%
+  group_by(.treat) %>%
+  summarise(Abs = max(Absorbance, na.rm = TRUE)) %>%
+  mutate(C0=(1/coeff)*Abs)%>%
+  select(!Abs)%>%
+  ungroup()
+
+data_prove <- data_prove %>%
+  left_join(data_C0, by = ".treat")
+
+## si crea un data frame il quale contiene il valore della concentrazione per ogni tempo e per ogni prova (ricavato dal massimo dello spettro per un certo tempo
+
+data_prove_max <- data_prove %>%
+  group_by(.treat, tempo_min) %>%
+  slice_max(order_by = Absorbance, n = 1, with_ties = FALSE) %>%
+  ungroup()%>%
+  mutate(Concentration_ppm = (1/coeff)*Absorbance) 
+kable(head(data_prove_max,4))
+```
+
+## Curva cinetica della reazione e calcolo della costante k
+
+```{r}
+## si plottano i punti sperimentali cosi ottenuti
+
+(data_prove_max_plot<-data_prove_max%>%
+  ggplot(aes(tempo_min,y=Concentration_ppm))+
+  geom_point()+
+  facet_wrap(~.treat)+
+  labs(
+    title = "Concentrazioni vs tempo",
+    x = "Tempo (min)",
+    y = "Concentrazione (ppm)"
+  ))
+```
+
+## Curva cinetica della reazione e calcolo della costante k
+
+Sembrerebbe che  dall'istante 0 (che corrisponde all'accensione delle lampade UV) l'andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.
+
+Si ricorda che la forma linearizzata della soluzione dell'equazione differenziale che governa la cinetica della reazione è la seguente:
+
+$$
+\ln\left(\frac{C}{C_0}\right) = -kt
+$$
+
+Ciò suggerisce di eseguire delle regressioni per i vari trattamenti utilizzando un modello lineare $y~x$ in cui $y=\ln(\frac{C}{C_0})$ in modo da determinare il valore della costante $k$ per ogni trattamneto, unico parametro che descrive la velocità della reazione per il modello adottato.
+
+## Curva cinetica della reazione e calcolo della costante k
+
+Dopo aver svolto la regressione per ogni trattamento:
+
+```{r}
+models <- data_prove_max%>%   #dataframe separati per ogni trattamento
+  filter(tempo_min>=0)%>%
+  group_by(.treat) %>%
+  group_split()
+
+  
+nomi_prove <- data_prove_max%>%   # nomi delle prove 
+  filter(tempo_min >= 0) %>%
+  distinct(.treat) %>%
+  pull(.treat)
+
+# Crea la lista dei modelli
+
+modelli <- map(models, ~ lm(-log(Concentration_ppm/C0) ~ tempo_min -1,data=.x))
+
+# Assegna i nomi alla lista
+names(modelli) <- nomi_prove
+
+df_k<-tibble(
+  .treat = names(modelli),
+  k = map_dbl(modelli, ~ coef(.x)[["tempo_min"]])
+)
+
+kable(head(df_k),caption="Costante cinetica per ogni trattamento")
+```
+
+
+## Curva cinetica della reazione e calcolo della costante k
+
+Si graficano le curve cinetiche che si sono regredite per ogni reazione condotta:
+
+```{r}
+
+f <- function(t, k, C0) {
+  y <- C0 * exp(-k*t)
+  return(y)
+}
+
+#Si aggiugono le k a data_prove_max
+data_prove_max <- data_prove_max %>%
+  left_join(df_k, by = ".treat")
+
+#Creiamo una sequenza continua di tempi da 0 al max tempo >= 0 (preso da data)
+
+tempo_range <- range(data_prove_max$tempo_min[data_prove_max$tempo_min >= 0])
+tempi_seq <- seq(tempo_range[1], tempo_range[2], by = 0.1)
+
+#Generiamo un df con tempi continui per ogni prova e i parametri per calcolare la curva
+
+df_curve <- data_prove_max  %>%       
+  group_by(.treat) %>%
+  expand(tempo_min = tempi_seq) %>%   # crea tempi continui per ogni prova
+  left_join(., data_prove_max %>% distinct(.treat,k, C0), by = ".treat") %>%  
+  mutate(y_fit = f(tempo_min, k, C0)) %>%
+  ungroup()
+
+#Plot con punti sperimentali + curva 
+data_prove_max %>%
+  filter(tempo_min >= 0) %>%
+  ggplot(aes(tempo_min, Concentration_ppm)) +
+  geom_point() +
+  facet_wrap(~.treat) +
+  geom_line(data = df_curve, aes(tempo_min, y_fit), color = "blue") +
+  labs(
+    title = "Concentrazioni vs tempo",
+    x = "tempo (min)",
+    y = "concentrazione (ppm)"
+  )
+
+```
+## Modello che lega k ai fattori
+
+Si inseriscono i valori delle k nel piano fattoriale iniziale (colonna `Y`):
+
+```{r}
+dm <- dm %>%
+  select(-Y) %>%
+  left_join(df_k %>% select(.treat, Y = k), by = ".treat")%>%
+  filter(!is.na(Y))
+kable(head(dm))
+```
+
+## Modello che lega k ai fattori
+
+Si può a questo punto, tramite il metodo di Daniel, verificare se siano presenti effetti o interazioni non significative.
+
+
+```{r}
+#| warning: false
+dm.lm<-lm(Y~A*B, data=dm)
+```
+
+
+```{r}
+dm.lm %>% 
+  effects() %>% 
+  tail(-1) %>%
+  gghalfnorm(labs = names(.), nlab=2)
+```
+## Modello che lega k ai fattori
+
+Si esegue un nuovo modello lineare escludendo gli effetti meno significativi, si effettua quindi l'analisi Anova.
+
+```{r}
+dm.lm<-lm(Y~A,data=dm) 
+anova(dm.lm)%>%kable(caption="Tabella ANOVA")
+```
+
+**Va come usualmente effettuata l'analisi dei residui**
+
+## Modello che lega k ai fattori
+
+Si riporta la superficie di risposta ottenuta:
+
+```{r}
+dm%>%add_predictions(dm.lm,var="k")%>%
+  ggplot(aes(x=A,y=B,z=k))+
+  geom_contour_filled()+
+  facet_wrap(~C)+
+  labs(fill = "k")
+```
+:::{.callout-note title="Conclusione"}
+
+Quindi, risulta che gli unici fattori che ha un impatto significativo sulla velocità di reazione (e quindi sulla costante$k$) sono **(devo fare le prove in laboratorio effettive)
+:::
