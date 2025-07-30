@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tommaso Stefani">
 
-<title>Esempio: misura durezza – InDaLab</title>
+<title>Misura di durezza superficiale – InDaLab</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,8 +22,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -34,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -65,15 +66,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dffbf54dee66fccd70f297dd55a05db1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5e6e3c0497e104ca73a5fdafdcabb1a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,6 +103,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Ricerca"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -134,7 +139,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -192,25 +197,45 @@ window.Quarto = {
   <li><a href="#scala-brinell" id="toc-scala-brinell" class="nav-link" data-scroll-target="#scala-brinell">Scala Brinell</a></li>
   <li><a href="#scala-vickers" id="toc-scala-vickers" class="nav-link" data-scroll-target="#scala-vickers">Scala Vickers</a></li>
   </ul></li>
-  <li><a href="#sec-t-test" id="toc-sec-t-test" class="nav-link" data-scroll-target="#sec-t-test">Test di student accoppiato</a></li>
-  </ul></li>
-  <li><a href="#esperimento" id="toc-esperimento" class="nav-link" data-scroll-target="#esperimento">Esperimento</a>
+  <li><a href="#test-di-student" id="toc-test-di-student" class="nav-link" data-scroll-target="#test-di-student">Test di student</a>
   <ul class="collapse">
-  <li><a href="#descrizione-dellattrezzatura" id="toc-descrizione-dellattrezzatura" class="nav-link" data-scroll-target="#descrizione-dellattrezzatura">Descrizione dell’attrezzatura</a></li>
-  <li><a href="#descrizione-delle-modalità-operative-dellesperimento" id="toc-descrizione-delle-modalità-operative-dellesperimento" class="nav-link" data-scroll-target="#descrizione-delle-modalità-operative-dellesperimento">Descrizione delle modalità operative dell’esperimento</a></li>
-  <li><a href="#progettazione-della-campagna-di-misure" id="toc-progettazione-della-campagna-di-misure" class="nav-link" data-scroll-target="#progettazione-della-campagna-di-misure">Progettazione della campagna di misure</a></li>
-  <li><a href="#raccolta-dei-dati" id="toc-raccolta-dei-dati" class="nav-link" data-scroll-target="#raccolta-dei-dati">Raccolta dei dati</a></li>
-  <li><a href="#analisi-e-discussione" id="toc-analisi-e-discussione" class="nav-link" data-scroll-target="#analisi-e-discussione">Analisi e discussione</a></li>
+  <li><a href="#test-di-student-per-campioni-indipendenti" id="toc-test-di-student-per-campioni-indipendenti" class="nav-link" data-scroll-target="#test-di-student-per-campioni-indipendenti">Test di Student per campioni indipendenti</a></li>
+  </ul></li>
+  <li><a href="#taratura" id="toc-taratura" class="nav-link" data-scroll-target="#taratura">Taratura</a></li>
+  </ul></li>
+  <li><a href="#parte-sperimentale" id="toc-parte-sperimentale" class="nav-link" data-scroll-target="#parte-sperimentale">Parte sperimentale</a>
+  <ul class="collapse">
+  <li><a href="#obiettivi" id="toc-obiettivi" class="nav-link" data-scroll-target="#obiettivi">Obiettivi</a></li>
+  <li><a href="#descrizione-attrezzature" id="toc-descrizione-attrezzature" class="nav-link" data-scroll-target="#descrizione-attrezzature">Descrizione attrezzature</a></li>
+  <li><a href="#progettazione-della-campagna-di-misure" id="toc-progettazione-della-campagna-di-misure" class="nav-link" data-scroll-target="#progettazione-della-campagna-di-misure">Progettazione della campagna di misure</a>
+  <ul class="collapse">
+  <li><a href="#misure-necessarie-per-test-di-student" id="toc-misure-necessarie-per-test-di-student" class="nav-link" data-scroll-target="#misure-necessarie-per-test-di-student">Misure necessarie per Test di student</a></li>
+  <li><a href="#misure-necessarie-per-taratura" id="toc-misure-necessarie-per-taratura" class="nav-link" data-scroll-target="#misure-necessarie-per-taratura">Misure necessarie per taratura</a></li>
+  </ul></li>
+  <li><a href="#fasi-da-seguire-in-laboratorio-per-la-raccolta-delle-misure" id="toc-fasi-da-seguire-in-laboratorio-per-la-raccolta-delle-misure" class="nav-link" data-scroll-target="#fasi-da-seguire-in-laboratorio-per-la-raccolta-delle-misure">Fasi da seguire in laboratorio per la raccolta delle misure</a>
+  <ul class="collapse">
+  <li><a href="#montaggio-e-smontaggio-indentatore" id="toc-montaggio-e-smontaggio-indentatore" class="nav-link" data-scroll-target="#montaggio-e-smontaggio-indentatore">Montaggio e smontaggio indentatore</a></li>
+  <li><a href="#accensione-messa-a-fuoco-e-selezione-dei-parametri" id="toc-accensione-messa-a-fuoco-e-selezione-dei-parametri" class="nav-link" data-scroll-target="#accensione-messa-a-fuoco-e-selezione-dei-parametri">Accensione, messa a fuoco e selezione dei parametri</a></li>
+  <li><a href="#misurazione" id="toc-misurazione" class="nav-link" data-scroll-target="#misurazione">Misurazione</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#elaborazione-dei-dati" id="toc-elaborazione-dei-dati" class="nav-link" data-scroll-target="#elaborazione-dei-dati">Elaborazione dei dati</a>
+  <ul class="collapse">
+  <li><a href="#analisi-differenze-indentatore-rottoindentore-integro" id="toc-analisi-differenze-indentatore-rottoindentore-integro" class="nav-link" data-scroll-target="#analisi-differenze-indentatore-rottoindentore-integro">Analisi differenze indentatore rotto/indentore integro</a>
+  <ul class="collapse">
+  <li><a href="#discussione-risultati" id="toc-discussione-risultati" class="nav-link" data-scroll-target="#discussione-risultati">Discussione risultati</a></li>
+  </ul></li>
+  <li><a href="#analisi-per-taratura" id="toc-analisi-per-taratura" class="nav-link" data-scroll-target="#analisi-per-taratura">Analisi per taratura</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Esempio: misura durezza</h1>
+<h1 class="title">Misura di durezza superficiale</h1>
   <div class="quarto-categories">
     <div class="quarto-category">materiali</div>
   </div>
@@ -230,7 +255,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">5 febbraio 2025</p>
+      <p class="date">30 luglio 2025</p>
     </div>
   </div>
   
@@ -240,7 +265,7 @@ window.Quarto = {
 <div>
   <div class="abstract">
     <div class="block-title">Sommario</div>
-    <p>In questo esperimento si conducono delle misure di durezza superficiale su diversi campioni metallici, dopo opportuna preparazione superficiale</p>
+    <p>In questa attività si conducono misure di durezza superficiale</p>
   </div>
 </div>
 
@@ -250,248 +275,1051 @@ window.Quarto = {
 
 <section id="descrizione-dellattività" class="level1">
 <h1>Descrizione dell’attività</h1>
-<p>La presente attività ha lo scopo di simulare l’attività di misurazione e la relativa indagine statistica che si potrebbe applicare in un contesto industriale nel quale si abbia il dubbio che un generico strumento di misura sia danneggiato.</p>
-<p>Il contesto che si prende come esempio è quello di una situazione in cui nel reparto qualità di un’azienda che produce componenti meccanici vengano rilevati valori di durezza difformi rispetto allo storico per uno specifico articolo.</p>
-<p>Si potrebbe ragionevolmente ipotizzare che tali valori siano dovuti al fatto che il penetratore utilizzato nelle prove di durezza sia danneggiato. Per inferire circa la probabilità di errore nell’assumere vera tale ipotesi è necessario eseguire un Test statistico.</p>
-<p>Il Test che più si presta ad essere applicato a tale situazione (come verrà illustrato nel paragrafo <a href="#sec-t-test" class="quarto-xref">Sezione&nbsp;2.2</a>) è il <em>Test di Student accoppiato</em>.</p>
-<p>La presente attività, quindi, con il presupposto di simulare tale contesto si compone delle seguenti fasi:</p>
+<p>La presente attività ha lo scopo di introdurre alla <strong>misurazione della durezza dei materiali in ambito metallurgico</strong> e all’<strong>analisi statistica dei dati raccolti</strong>. In particolare, si acquisiranno le competenze necessarie per eseguire le procedure di laboratorio finalizzate alla misura della durezza. Successivamente, si condurranno due tipi di analisi statistiche sui dati ottenuti, ciascuna volta a esplorare due aspetti distinti dell’analisi dei dati:</p>
 <ol type="1">
-<li>pianificazione della campagna di misure di durezza</li>
-<li>realizzazione delle misure in laboratorio (contesto metallurgico)</li>
-<li>Analisi statistica e discussione dei risultati ottenuti</li>
+<li>Test di inferenza statistica: Test di Student accoppiato.</li>
+<li>Taratura degli strumenti di misura: Sviluppo del modello analitico di uno strumento di misura e relativa regressione.</li>
 </ol>
-<p>In particolare si misureranno le durezze Vickers di un certo numero di campioni di acciaio (la composizione e i trattamenti subiti dagli stessi non sono noti proprio per evidenziare la peculiarità del test adottato) utilizzando prima un incisore integro e poi uno danneggiato. Una volta concluse e analizzate le misure ottenute si potrà stabilire con un certo valore di probabilità di errore se le anomalie riscontrate nelle misurazioni siano dovute o meno al penetratore sospettato di essere danneggiato.</p>
+<p>Questi due temi si prestano particolarmente bene a essere sviluppati nell’attività sperimentale proposta, in quanto sono applicabili alle seguenti situazioni rappresentative di contesti correnti:</p>
+<ol type="1">
+<li>T test accoppiato: Si sospetta che le anomalie riscontrate in alcune misure di durezza rispetto ai valori noti in letteratura o ricavati da un eventuale storico di produzione aziendale siano causate dall’utilizzo di un penetratore danneggiato.</li>
+<li>Taratura: Si vuole indagare la relazione tra la misura di durezza stimata dalla sola penetrazione dell’indentore (fornita dal durometro utilizzato in laboratorio) e la durezza misurata tenendo conto delle diagonali dell’impronta dell’indentatore, come indicato da normativa.</li>
+</ol>
+<p>La presente attività, quindi, affrontando tali tematiche, si compone delle seguenti fasi:</p>
+<ul>
+<li>Pianificazione della campagna di misure di durezza</li>
+<li>Realizzazione delle misure in laboratorio (contesto metallurgico)</li>
+<li>Analisi statistica dei dati e discussione dei risultati ottenuti</li>
+</ul>
 </section>
 <section id="richiami-teorici" class="level1">
 <h1>Richiami teorici</h1>
 <section id="la-durezza" class="level2">
 <h2 class="anchored" data-anchor-id="la-durezza">La durezza</h2>
-<p>La durezza è la proprietà meccanica dei materiali che esprime la loro resistenza alla deformazione plastica locale, determinata mediante prove di penetrazione, graffiatura o abrasione. Essa rappresenta la capacità di un materiale ad opporsi alla formazione di impronte permanenti sotto l’azione di un corpo più duro.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Definizione – Durezza">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definizione – Durezza
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La <strong>durezza</strong> è la proprietà meccanica dei materiali che esprime la loro resistenza alla deformazione plastica locale, determinata mediante prove di penetrazione, graffiatura o abrasione.<br>
+Essa rappresenta la capacità di un materiale ad opporsi alla formazione di impronte permanenti sotto l’azione di un corpo più duro.</p>
+</div>
+</div>
 <p>Esistono diverse tecniche per la valutazione quantitativa della durezza. Le più comuni e utilizzate prevedono l’impiego di un piccolo penetratore il quale viene forzato a penetrare attraverso la superficie del materiale da analizzare, secondo modalità di applicazione del carico e velocità di penetrazione controllate. La profondità o la dimensione dell’impronta che ne risulta viene poi misurata e da queste misure, attraverso formule stabilite dal metodo di prova adottato, si risale alla valutazione della durezza, espressa con un numero.</p>
 <p>E’ importante sottolineare che le misure di durezza non sono valori assoluti ma relativi in quanto dipendono fortemente dal metodo di prova utilizzato (Brinell, Vickers, Rockwell, Mohs, ecc.) e dalle condizioni di prova. Per questo motivo quando si riporta un valore di durezza è indispensabile riportare la sigla che ne definisce la scala di riferimento. La sigla <span class="math inline">\(350\,\mathrm{HV}\,30\,/\,10\)</span>, per esempio, sta ad indicare una durezza di 350 stabilita con il metodo Vickers, usando un carico di 30 kgf applicato per un tempo di 10 secondi.</p>
 <p>Trattandosi di una grandezza empirica (non esprimibile con una propria unità di misura), la durezza non è direttamente derivabile da altre proprietà fisiche fondamentali, ma dipende da fattori quali per esempio la microstruttura, la composizione chimica, il trattamento termico e le condizioni di prova. Va comunque detto che in molti materiali metallici (soprattutto acciai e leghe) esiste una certa correlazione empirica tra il valore di durezza (soprattutto Vickers o Brinell) e la tensione di rottura a trazione. Questa correlazione nasce dal fatto che entrambe le grandezze riflettono la resistenza del materiale alla deformazione plastica.</p>
 <p>Alla luce di quanto detto è evidente come non esista un metodo generale di conversione tra le diverse scale di misura della durezza (corrispondenti ai diversi metodi di prova utilizzati) ma solo tentativi di raffronto sperimentali.</p>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/confronto_scale.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Confronto tra scale di durezza diverse, Scienza ed ingegneria dei materiali, Callister &amp; Rethwisch, <em>IV edizione</em>, p.&nbsp;169</figcaption>
+</figure>
+</div>
+</div>
 <p>Le prove di durezza sono effettuate di frequente in quanto:</p>
 <ol type="1">
 <li>Sono semplici e poco costose: il campione non subisce particolari preparazioni preliminari e l’apparecchio di misura è poco costoso</li>
 <li>La prova è di carattere non distruttivo: sul campione rimane solo una piccola impronta</li>
 <li>Altre proprietà meccaniche possono essere dedotte (seppur approssimativamente) dalle misure di durezza (per esempio la resistenza a rottura)</li>
 </ol>
-<p>Di seguito si riportano le 3 scale di durezza più comuni per materiali metallici (compresi gli acciai), soffermandosi maggiormente sulla scala Vickers, adottata nelle misure del presente esperimento. Si illustra brevemente anche la scala Mohs, in quanto storicamente è stato il primo tentativo di comparare le diverse durezze dei materiali e tutt’ora viene utilizzata in certi ambiti.</p>
+<p>Di seguito si riportano le tre scale di durezza più comuni per materiali metallici (compresi gli acciai), soffermandosi maggiormente sulla scala Vickers, adottata nelle misure del presente esperimento. Si illustra brevemente anche la scala Mohs, in quanto storicamente è stato il primo tentativo di comparare le diverse durezze dei materiali e tutt’ora viene utilizzata in alcuni ambiti.</p>
 <section id="scala-mohs" class="level3">
 <h3 class="anchored" data-anchor-id="scala-mohs">Scala Mohs</h3>
-<p>La scala di Mohs è un sistema ideato nel 1812 dal mineralogista tedesco Friedrich Mohs per classificare i materiali in base alla loro durezza, intesa come resistenza alla graffiatura. Si tratta di un metodo empirico e comparativo, che non fornisce un valore numerico assoluto, ma piuttosto consente di stabilire se un materiale è più o meno duro rispetto a un altro.</p>
-<p>La scala è composta da dieci livelli, ognuno rappresentato da un minerale di riferimento, ordinati dal più tenero (il talco, al livello 1) al più duro (il diamante, al livello 10). Per esempio, il quarzo si trova al livello 7, e può graffiare tutti i materiali con durezza inferiore, ma non quelli più duri di lui.</p>
-<p>Questo metodo è ancora oggi largamente utilizzato in geologia e mineralogia, dove è utile per un’identificazione rapida e pratica dei minerali sul campo o in laboratorio. Tuttavia, nel settore metallurgico e industriale, la scala Mohs ha un impiego molto più limitato, perché non permette misurazioni quantitative o confronti precisi. In quei contesti, infatti, si preferiscono metodi come Rockwell, Vickers o Brinell, che restituiscono valori numerici affidabili e ripetibili.</p>
+<p>La <strong>scala Mohs</strong> è un sistema ideato nel 1812 dal mineralogista tedesco <em>Friedrich Mohs</em> per classificare i materiali in base alla loro durezza, intesa come resistenza alla graffiatura. Si tratta di un metodo empirico e comparativo, che non fornisce un valore numerico assoluto, ma piuttosto consente di stabilire se un materiale è più o meno duro rispetto a un altro.</p>
+<p>La scala è composta da dieci livelli, ognuno rappresentato da un minerale di riferimento, ordinati dal più tenero (il talco, al livello 1) al più duro (il diamante, al livello 10). Per esempio, il quarzo si trova al livello 7, e può graffiare tutti i materiali con durezza inferiore, ma non quelli più duri.</p>
+<p>Questo metodo è ancora oggi largamente utilizzato in geologia e mineralogia, dove è utile per un’identificazione rapida e pratica dei minerali sul campo o in laboratorio. Tuttavia, come anticipato, nel settore metallurgico e industriale la scala Mohs ha un impiego molto più limitato, perché non permette misurazioni quantitative o confronti precisi. In quei contesti, infatti, si preferiscono metodi come Rockwell, Vickers o Brinell, che restituiscono valori numerici affidabili e ripetibili.</p>
 <p>In sintesi, la scala di Mohs è uno strumento semplice ed efficace per valutare la durezza relativa tra materiali, ma non è adatta quando serve un dato tecnico rigoroso o confrontabile in ambito industriale.</p>
 </section>
 <section id="scala-rockwell" class="level3">
 <h3 class="anchored" data-anchor-id="scala-rockwell">Scala Rockwell</h3>
-<p>La prova Rockwell è un metodo basato sulla <strong>misura della profondità residua</strong> di penetrazione dopo l’applicazione di carichi normalizzati. È molto diffusa per la sua rapidità e semplicità.</p>
+<p>La <strong>prova Rockwell</strong> è un metodo per misurare la durezza dei materiali basato sulla misura della profondità residua di penetrazione di un penetratore standardizzato, dopo l’applicazione sequenziale di un carico preliminare e uno principale, secondo procedure normalizzate.</p>
 <p>La procedura prevede 3 fasi:</p>
 <ul>
 <li>preparazione dei campioni</li>
-<li>Applicazione di un <strong>pre-carico</strong> (10 kgf) per stabilizzare il contatto;</li>
+<li>Applicazione di un <strong>precarico</strong> per stabilizzare il contatto;</li>
 <li>Applicazione e successiva rimozione del <strong>carico principale</strong>, dopo cui si misura la profondità <span class="math inline">\(h\)</span> dell’impronta residua.</li>
 </ul>
-<p>Il valore di durezza Rockwell è calcolato mediante la formula:</p>
+<p>Il valore di durezza Rockwell si calcola mediante la formula:</p>
 <p><span class="math display">\[
 HR = N - \frac{h}{s}
 \]</span></p>
-<p>dove: - <span class="math inline">\(HR\)</span> è il valore di durezza, - <span class="math inline">\(h\)</span> è la profondità residua dell’impronta (in mm), - <span class="math inline">\(s = 0.002 \, \text{mm}\)</span> è il coefficiente di scala, - <span class="math inline">\(N\)</span> è una costante che dipende dalla scala (es. <span class="math inline">\(N = 100\)</span> per la scala HRC).</p>
-<p>Per la scala Rockwell C:</p>
+<p>dove:</p>
+<ul>
+<li><span class="math inline">\(HR\)</span> è il valore di durezza,</li>
+<li><span class="math inline">\(h\)</span> è la profondità residua dell’impronta (mm),</li>
+<li><span class="math inline">\(s = 0.002 \, \text{mm}\)</span> è il coefficiente di scala,</li>
+<li><span class="math inline">\(N\)</span> è una costante che dipende dalla scala (es. <span class="math inline">\(N = 100\)</span> per la scala HRC).</li>
+</ul>
+<p>Per la scala Rockwell C per esempio:</p>
 <p><span class="math display">\[
 HRC = 100 - \frac{h}{0.002} = 100 - 500h
 \]</span></p>
-<p>Le diverse scale Rockwell si distinguono principalmente per: - tipo di <strong>penetratore</strong> (cono in diamante o sfera di diverse dimensioni), - <strong>carico totale</strong> (da 60 a 150 kgf),</p>
+<p>Le diverse scale Rockwell si distinguono per:</p>
+<ul>
+<li>tipo di <strong>penetratore</strong> (cono in diamante o sfera di diverse dimensioni),</li>
+<li><strong>carico appplicato</strong></li>
+</ul>
+<p>Per riportare il valore di durezza di un materiale si usa la seguente sigla: <span class="math display">\[
+HRxx\ yy
+\]</span></p>
+<ul>
+<li><span class="math inline">\(HR\)</span>: prova Rockwell<br>
+</li>
+<li><span class="math inline">\(xx\)</span>: scala utilizzata (per es. C)<br>
+</li>
+<li><span class="math inline">\(yy\)</span>: valore di durezza rilevato sulla scala C</li>
+</ul>
+<p>La prova Rockwell rappresenta un metodo molto semplice e molto utilizzato in quanto non richiede particolari conoscenze da parte dell’operatore. Questo perchè si basa su una misura determinata automaticamente dalla macchina (la profondità dell’impronta).</p>
 <p>La procedura, le condizioni operative, la scelta della scala e le modalità di taratura sono dettagliatamente definite nella norma internazionale <strong>UNI EN ISO 6508-1:2016</strong></p>
 </section>
 <section id="scala-brinell" class="level3">
 <h3 class="anchored" data-anchor-id="scala-brinell">Scala Brinell</h3>
-<p>La <strong>prova Brinell</strong> è un metodo ottico che misura la durezza di un materiale valutando la resistenza all’indentazione provocata da una <strong>sfera in acciaio o carburo di tungsteno</strong> sottoposta a un carico statico. E’ una prova robusta che può essere applicata ad un ampio intervallo di durezze.</p>
-<p>Dopo l’applicazione del carico, si misura il <strong>diametro dell’impronta</strong> residua. La durezza Brinell si calcola tramite:</p>
+<p>La <strong>prova Brinell</strong> è un metodo che si basa sulla misura del diametro dell’impronta di penetrazione provocata da una <strong>sfera in acciaio o carburo di tungsteno</strong> sottoposta a un carico statico. E’ una prova robusta che può essere applicata ad un ampio intervallo di durezze.</p>
+<p>Dopo l’applicazione del carico, si misura il <strong>diametro dell’impronta</strong> residua. La durezza Brinell si calcola mediante la formula:</p>
 <p><span class="math display">\[
 HBW = \frac{2F}{\pi D \left( D - \sqrt{D^2 - d^2} \right)}
 \]</span></p>
 <p>dove:</p>
 <ul>
-<li><span class="math inline">\(F\)</span>: carico applicato (kgf)<br>
-</li>
-<li><span class="math inline">\(D\)</span>: diametro della sfera (mm)<br>
-</li>
+<li><span class="math inline">\(F\)</span>: carico applicato (kgf)</li>
+<li><span class="math inline">\(D\)</span>: diametro della sfera (mm)</li>
 <li><span class="math inline">\(d\)</span>: diametro medio dell’impronta (mm)</li>
 </ul>
-<p>La procedura, le condizioni operative, la scelta della scala e le modalità di taratura sono dettagliatamente definite nella norma internazionale <strong>UNI EN ISO 6506-1</strong></p>
+<p>Per riportare il valore di durezza di un materiale si usa la seguente sigla:</p>
+<p><span class="math display">\[
+HBW\ xx/yy/zz
+\]</span> dove:</p>
+<ul>
+<li><span class="math inline">\(HBW\)</span>: prova Brinell con sfera in carburo di tungsteno (HB se in acciaio)</li>
+<li><span class="math inline">\(xx\)</span>: diametro della sfera (mm)<br>
+</li>
+<li><span class="math inline">\(yy\)</span>: carico applicato (kgf)</li>
+<li><span class="math inline">\(zz\)</span>: tempo di applicazione del carico (s)</li>
+</ul>
+<p>La prova Brinell si caratterizza per essere una prova robusta che può essere applicata ad un ampio intervallo di durezze. La procedura, le condizioni operative, la scelta della scala e le modalità di taratura sono dettagliatamente definite nella norma internazionale <strong>UNI EN ISO 6506-1</strong></p>
 </section>
 <section id="scala-vickers" class="level3">
 <h3 class="anchored" data-anchor-id="scala-vickers">Scala Vickers</h3>
-<p>La prova Vickers è un metodo ottico per la determinazione della durezza dei materiali metallici, basato sulla misurazione delle dimensioni di un’impronta ottenuta tramite un penetratore piramidale in diamante. Il penetratore ha una geometria a base quadrata con un angolo di 136° tra le facce opposte. Durante la prova, si applica un carico statico definito, mantenuto per un determinato intervallo di tempo. Una volta rimosso il carico, si osserva l’impronta lasciata sulla superficie del campione.</p>
+<p>La <strong>prova Vickers</strong> è un metodo di prova basato sulla misurazione delle dimensioni di un’impronta ottenuta tramite un penetratore piramidale in diamante. Il penetratore ha una geometria a base quadrata con un angolo di 136° tra le facce opposte. Durante la prova, si applica un carico statico definito, mantenuto per un determinato intervallo di tempo. Una volta rimosso il carico, si osserva l’impronta lasciata sulla superficie del campione.</p>
 <p>La durezza viene determinata misurando otticamente le due diagonali dell’impronta, generalmente tramite un microscopio ottico con reticolo graduato o un sistema digitale di acquisizione. Il valore di durezza Vickers si calcola come rapporto tra il carico applicato e l’area della superficie dell’impronta, secondo la seguente formula:</p>
 <p><span class="math display">\[
 HV = \frac{1.854 \cdot F}{d^2}
 \]</span></p>
-<p>dove <span class="math inline">\(F\)</span> è il carico applicato in kgf e <span class="math inline">\(d\)</span> è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.</p>
+<p>dove:</p>
+<ul>
+<li><span class="math inline">\(F\)</span> è il carico applicato in kgf</li>
+<li><span class="math inline">\(d\)</span> è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.</li>
+</ul>
 <p>Trattandosi di una misura ottica, la preparazione del campione è un aspetto fondamentale. La superficie da testare deve essere accuratamente levigata e lucidata, al fine di permettere una lettura chiara e precisa dell’impronta. Per questo motivo, la prova Vickers è particolarmente indicata per materiali metallici omogenei e per applicazioni su sezioni sottili o microstrutture, come nel caso delle microdurezze.</p>
-<p>La scala Vickers è unica nella geometria del penetratore, ma varia in funzione del carico applicato, indicato accanto alla sigla HV. Ad esempio, la sigla <strong>HV5</strong> indica una prova eseguita con un carico di 5 kgf, <strong>HV10</strong> con 10 kgf, e così via. Questa specifica è fondamentale perché la dimensione dell’impronta e la risposta del materiale possono variare in base alla forza impiegata. I risultati ottenuti con carichi diversi <strong>non sono sempre direttamente confrontabili</strong>, specialmente su materiali eterogenei o trattati superficialmente.</p>
+<p>La scala Vickers è unica nella geometria del penetratore, ma varia in funzione del carico applicato, indicato accanto alla sigla HV. Questa specifica è fondamentale perché la dimensione dell’impronta e la risposta del materiale possono variare in base alla forza impiegata. I risultati ottenuti con carichi diversi <strong>non sono sempre direttamente confrontabili</strong>, specialmente su materiali eterogenei o trattati superficialmente.</p>
+<p>Per riportare il valore di durezza di un materiale si usa la seguente sigla:</p>
+<p><span class="math display">\[
+HV xx/yy
+\]</span></p>
+<p>dove:</p>
+<ul>
+<li><span class="math inline">\(HV\)</span>: prova Vickers con penetratore a punta di diamante piramidale<br>
+</li>
+<li><span class="math inline">\(xx\)</span>: carico applicato in kgf<br>
+</li>
+<li><span class="math inline">\(yy\)</span>: tempo di applicazione del carico in secondi (opzionale, spesso non indicato)</li>
+</ul>
 <p>Tutti i dettagli tecnici, i criteri di esecuzione e le tolleranze della prova sono regolati dalla norma <strong>UNI EN ISO 6507-1</strong>, che rappresenta il riferimento principale per l’applicazione corretta del metodo Vickers.</p>
+<p>In figura le caratteristiche principali che caratterizzano le prove Brinell e Vickers.</p>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/brinell_vickers.jpg" class="img-fluid figure-img"></p>
+<figcaption>Sistemi di prova per la durezza, Scienza ed ingegneria dei materiali, Callister &amp; Rethwisch, <i>IV edizione</i>, p.&nbsp;167</figcaption>
+</figure>
+</div>
+</div>
 </section>
 </section>
-<section id="sec-t-test" class="level2">
-<h2 class="anchored" data-anchor-id="sec-t-test">Test di student accoppiato</h2>
-<p>Nel caso di test di Student a due campioni, quando essi <strong>hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili</strong>, è opportuno accoppiarli e effettuare il test di Student accoppiato</p>
+<section id="test-di-student" class="level2">
+<h2 class="anchored" data-anchor-id="test-di-student">Test di student</h2>
+<p>Il <strong>test di Student</strong>, o t-test, è un test statistico utilizzato per confrontare le medie di due gruppi e verificare se le differenze osservate siano statisticamente significative. Viene quindi impiegato quando si hanno due campioni e si vuole determinare se la differenza tra le medie rilevata possa essere attribuita al caso (effetto aleatorio) oppure ad un effetto reale (deterministico).</p>
+<p>Esistono diverse varianti del t-test:</p>
+<ul>
+<li>ad uno due lati</li>
+<li>ad uno o due campioni</li>
+<li>t test accoppiato</li>
+</ul>
+<p>In questa attività si utilizza il test accoppiato, che viene descritto nel seguito.</p>
+<section id="test-di-student-per-campioni-indipendenti" class="level3">
+<h3 class="anchored" data-anchor-id="test-di-student-per-campioni-indipendenti">Test di Student per campioni indipendenti</h3>
+<p>Nel caso di test di Student a due campioni, quando essi <strong>hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili</strong>, è opportuno accoppiarli e effettuare il test di Student accoppiato.</p>
 <p>Ogni misura è esprimibile come: <span class="math display">\[
 y_{ij}=\mu_i+\beta_j+\varepsilon_{ij};\hspace{9pt} \left\{ \begin{array}{l}i=1,2\\j=1,2,\dots ,n\end{array} \right.
-\]</span> Se definisco <span class="math inline">\(d_j=y_{1j} - y_{2j}\)</span>, ricordando le proprietà dell’operatore <span class="math inline">\(E(\cdot)\)</span>, risulta <span class="math inline">\(\mu_d = \mu_1 - \mu_2\)</span>. Quindi posso riformulare una coppia di ipotesi equivalenti:</p>
-<p><span class="math display">\[\begin{eqnarray}
+\]</span> dove:</p>
+<ul>
+<li><span class="math inline">\(i\)</span> identifica il campione</li>
+<li><span class="math inline">\(j\)</span> identifica la singola misura di un campione</li>
+</ul>
+<p>Se si definisce <span class="math inline">\(d_j=y_{1j} - y_{2j}\)</span>, ricordando le proprietà dell’operatore <span class="math inline">\(E(\cdot)\)</span>, risulta <span class="math inline">\(\mu_d = \mu_1 - \mu_2\)</span>. Quindi si può formulare la seguente coppia di ipotesi: <span class="math display">\[
+\begin{eqnarray}
 H_0 :~&amp; \mu_d = 0 \\
 H_1 :~&amp; \mu_d \neq 0
-\end{eqnarray}\]</span></p>
-<p>Quindi il test accoppiato è un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
+\end{eqnarray}
+\]</span> Il test accoppiato è quindi evidentemente un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
 </section>
 </section>
-<section id="esperimento" class="level1">
-<h1>Esperimento</h1>
-<section id="descrizione-dellattrezzatura" class="level2">
-<h2 class="anchored" data-anchor-id="descrizione-dellattrezzatura">Descrizione dell’attrezzatura</h2>
-<p>Le attrezzature e i materiali necessari per eseguire l’esperimento sono:</p>
+<section id="taratura" class="level2">
+<h2 class="anchored" data-anchor-id="taratura">Taratura</h2>
+<p>Una <strong>misura</strong>, che è il risultato di una misurazione, rappresenta un parametro di un sistema considerato in un determinato stato.</p>
+<p>Esistono misurazioni dirette (ottenute per confronto con un campione noto) e misurazioni indirette, ottenute misurando grandezze secondarie collegate a quella di interesse mediante un modello (che rappresenta lo strumento di misura). Tale modello è un insieme di relazioni tra parametri descrivente le interazioni di un sistema. Può essere analitico o numerico, inoltre deve essere costruito sulla base della misura stessa: non deve essere necessariamente esaustivo né basato sulla comprensione fisica del sistema (cioè può anche essere empirico)</p>
+<p>Nel caso di misurazione indiretta, lo strumento di misura è basato su un trasduttore: un dispositivo che trasforma una grandezza fisica in ingresso in un’altra grandezza.</p>
+<p>E’ importante distingure tra modelli statici (cioè che non tengono conto delle relazioni differenziali nel tempo delle grandezze del sistema) e modelli dinamici (che al contrario tengono conto dell’evoluzione nel tempo del sistema). Questa attività fa riferimento al primo.</p>
+<p>Nel caso di misurazioni indirette, è fondamentale disporre di un modello che descriva il comportamento del trasduttore, cioè la relazione tra uscita e ingresso. Ogni modello dipende da uno o più parametri numerici che devono essere identificati, questa operazione di identificazione dei parametri del modello di misura si chiama <strong>taratura</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Taratura">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Taratura
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La <strong>taratura</strong> punta a definire la correlazione <span class="math inline">\(y=f(m)\)</span> tra l’ingresso misurando <span class="math inline">\(m\)</span> e l’uscita del trasduttore <span class="math inline">\(y\)</span>, e la relativa incertezza. La <span class="math inline">\(f(\cdot)\)</span> è detta caratteristica statica dello strumento.</p>
+</div>
+</div>
+<p>Uno strumento fornisce la misura mediante inversione della caratteristica statica: <span class="math inline">\(m=f^{-1}(y)\)</span></p>
+<p>Perché la <span class="math inline">\(f(\cdot)\)</span> sia nota è necessario identificarne i parametri mediante <strong>regressione</strong> che viene effettuata a partire da una serie di coppie <span class="math inline">\((m_i,y_i)\)</span> ottenute:</p>
 <ul>
-<li>10 campioni di acciai di varia composizione (non nota)</li>
-<li>carta abrasiva</li>
-<li>etanolo</li>
-<li>carta assorbente</li>
-<li>Durometro Vickers</li>
+<li>da una serie di misurandi noti</li>
+<li>da una serie di misurazioni ottenute con uno strumento di qualità migliore di quello in taratura (questo perchè l’incertezza sui parametri della regressione non dipende dall’incertezza su queste misurazioni ma sulla variabilità dei dati raccolti)</li>
+</ul>
+<p>La taratura statica si sviluppa quindi su quattro passaggi:</p>
+<ol type="1">
+<li>Sviluppo del modello dello strumento: analisi dei principi fisici per definire la caratteristica statica</li>
+<li>Raccolta dei dati di taratura: campagna sperimentale per coppie <span class="math inline">\((m_i, y_i)\)</span> in ordine casuale</li>
+<li>Regressione: identificazione dei parametri del modello</li>
+<li>Validazione del modello: verifica adeguatezza mediante analisi dei residui</li>
+</ol>
+<p>La taratura deve anche definire l’incertezza dello strumento, dovuta al modello (la forma della caratteristica statica), ai parametri del modello e alla stima del misurando (dovuta a ingressi di disturbo).</p>
+</section>
+</section>
+<section id="parte-sperimentale" class="level1">
+<h1>Parte sperimentale</h1>
+<section id="obiettivi" class="level2">
+<h2 class="anchored" data-anchor-id="obiettivi">Obiettivi</h2>
+<p>Gli obiettivi principali di questa attività di laboratorio sono due:</p>
+<ul>
+<li><p>Apprendere la tecnica di misurazione della durezza mediante un durometro a lettura ottica.</p></li>
+<li><p>Raccogliere i dati necessari per lo svolgimento delle due analisi statistiche introdotte in precedenza:</p>
+<ul>
+<li>T-test: valutare se le misurazioni ottenute con indentatore integro differiscono in modo statisticamente significativo da quelle ottenute con indentatore danneggiato.</li>
+<li>Taratura di un modello analitico: mettere a punto una relazione tra la stima della durezza fornita dal durometro (basata sulla profondità di penetrazione dell’indentatore) e il valore reale di durezza misurato.</li>
+</ul></li>
+</ul>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    title["Attività di laboratorio"]
+
+    title --&gt; A(["Pianificazione della campagna di misure per t-test:&lt;br&gt;creazione della tabella di raccolta dati"])
+    title --&gt; B(["Pianificazione della campagna di misure per taratura:&lt;br&gt;creazione della tabella di raccolta dati"])
+    
+    A --&gt; E([Raccolta delle misure in laboratorio])
+    B --&gt; E
+    
+    E --&gt; F([Registrazione dei dati raccolti per t-test])
+    E --&gt; G([Registrazione dei dati raccolti per taratura])
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Di seguito sono elencate le attrezzature necessarie e le fasi operative da seguire per la raccolta delle misure. La sequenza è stata organizzata in modo da ottimizzare i tempi e ridurre al minimo le riconfigurazioni strumentali.</p>
+</section>
+<section id="descrizione-attrezzature" class="level2">
+<h2 class="anchored" data-anchor-id="descrizione-attrezzature">Descrizione attrezzature</h2>
+<p>Le attrezzature e i materiali necessari per eseguire le misure Vickers in laboratorio sono le seguenti:</p>
+<ul>
+<li>10 campioni di acciai ignoti (composizione non nota, trattamenti subiti non noti, ecc.)</li>
+<li>Carte abrasive: Non sono prescritte grane specifiche nelle normative, ma si consiglia di utilizzare una sequenza di abrasivi da grana 120 a 1200 per garantire una superficie liscia e priva di difetti</li>
+<li>detergente per superfici metalliche</li>
+<li>panno in microfibra o tessuto morbido che non rilasci fibre</li>
+<li>durometro per misurazione durezza VIckers</li>
 <li>penetatore Vickers danneggiato</li>
 <li>penetratore Vickers integro</li>
-<li>10 campioni di acciaio di composizione non nota</li>
 </ul>
-</section>
-<section id="descrizione-delle-modalità-operative-dellesperimento" class="level2">
-<h2 class="anchored" data-anchor-id="descrizione-delle-modalità-operative-dellesperimento">Descrizione delle modalità operative dell’esperimento</h2>
-<p>L’esperimento si articola nelle seguenti fasi:</p>
-<ol type="1">
-<li><p>Preparazione del campione: il campione deve essere accuratamente lucidato per ottenere una superficie liscia e priva di ossidazioni o impurità. In seguito si pulisce con etanolo per rimuovere polveri o residui.</p></li>
-<li><p>Configurazione del durometro: si installa sul durometro il penetratore Vickers integro e si impostano i parametri della prova HV 30 come da normativa UNI EN ISO 6507-1 (***sono già impostati basta richiamare la memoria).</p></li>
-<li><p>Esecuzione delle 10 misurazioni relative ai 10 campioni</p></li>
-<li><p>Cambio del penetratore: si rimuove il penetratore integro e si installa quello danneggiato.</p></li>
-<li><p>Esecuzione delle 10 misurazioni relative ai 10 campioni</p></li>
-</ol>
 </section>
 <section id="progettazione-della-campagna-di-misure" class="level2">
 <h2 class="anchored" data-anchor-id="progettazione-della-campagna-di-misure">Progettazione della campagna di misure</h2>
-<p>Decidiamo di raccogliere 10 misure di durezza a 30&nbsp;kgf per ogni indentatone su 10 campioni di metallo ignoto. Su ogni campione vengono realizzate due indentazioni con entrambi i penetratori.</p>
-</section>
-<section id="raccolta-dei-dati" class="level2">
-<h2 class="anchored" data-anchor-id="raccolta-dei-dati">Raccolta dei dati</h2>
+<p>Per eseguire le analisi statistiche volte ad affrontare le due tematiche descritte in precedenza è necessario effettuare le misure di durezza opportune. Di seguito vengono riportate le misure necessarie per entrambe le analisi, insieme alle motivazioni della loro scelta.</p>
+<section id="misure-necessarie-per-test-di-student" class="level3">
+<h3 class="anchored" data-anchor-id="misure-necessarie-per-test-di-student">Misure necessarie per Test di student</h3>
+<p>Il test statistico più adatto ad attribuire un valore alla probabilità di errore nell’assumere falsa l’ipotesi nulla (<span class="math inline">\(p\)</span>-value), secondo cui l’indentatore danneggiato non è responsabile delle deviazioni osservate nelle misurazioni, è il Test di Student accoppiato.</p>
+<p>Sebbene si possano confrontare due campioni di misure rilevate sullo stesso materiale utilizzando i due intenditori, in quel caso sarebbe necessario un test di Student a due campioni indipendenti. Tuttavia, gli effetti stocastici nelle misure ridurrebbero la potenza del test. Con il test di Student accoppiato, invece, le differenze tra le misure eliminano gli effetti stocastici comuni, migliorando la potenza del test (a condizione che le stesse siano rappresentative dello stesso misurando e siano raccolte a due a due in condizioni molto simili).</p>
+<p>Per l’esperimento si scelgono 10 campioni di acciaio ignoto, misurando la durezza prima con l’indentatore integro e poi con l’indentatore danneggiato (cercando di estrapolare visivamente la posizione del vertice danneggaito dell’impronta).</p>
+<p>Il durometro presente in laboratorio, oltre a fornire la misura di durezza calcolata secondo normativa (utilizzando il valore del carico e delle diagonali lasciate dall’impronta dell’indentatore), fornisce anche una stima della durezza basata sulla profondità dell’impronta lasciata nel materiale. Per ogni misura si raccoglie anche il valore di questa stima, che sarà utile per l’analisi successiva.</p>
+<p>Infine, in quanto l’indentatore danneggiato permette di misurare con certezza solo una delle due diagonali (l’altra termina sullo spigolo danneggiato) si effettuano delle ulteriori misurazioni utilizzando per l’indentatore danneggiato due volte il valore della diagonale visibile. Anche queste misure saranno utili per l’analisi successiva.</p>
+<p>In sintesi si eseguiranno 30 misurazioni (indentatore integro, indentatore danneggiato, indentatore danneggiato usando due volte la diagonale visibile) e per ogni misura si rileva anche il valore di stima della macchina.</p>
+<p>Di seguito la tabella che servirà per la raccolta dei dati, organizzata tenendo conto di quanto detto sopra (per le misurazioni si sceglie di adottare la scala HV30).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">HV30_OK=</span><span class="fu">c</span>(<span class="dv">679</span>, <span class="dv">673</span>, <span class="dv">635</span>, <span class="dv">273</span>, <span class="dv">275</span>, <span class="dv">279</span>, <span class="dv">164</span>, <span class="dv">658</span>, <span class="dv">682</span>, <span class="dv">294</span>),</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">HV30_NOK=</span><span class="fu">c</span>(<span class="dv">667</span>, <span class="dv">660</span>,<span class="dv">647</span>, <span class="dv">267</span>, <span class="dv">271</span>, <span class="dv">284</span>,<span class="dv">163</span>,<span class="dv">645</span>, <span class="dv">653</span>, <span class="dv">303</span>),</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">stima_OK =</span> <span class="fu">c</span>(<span class="dv">502</span>, <span class="dv">551</span>, <span class="dv">555</span>, <span class="dv">200</span>, <span class="dv">139</span>, <span class="dv">208</span>, <span class="dv">151</span>, <span class="dv">585</span>, <span class="dv">604</span>, <span class="dv">262</span>),</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">stima_NOK =</span> <span class="fu">c</span>(<span class="dv">592</span>, <span class="dv">588</span>, <span class="dv">584</span>, <span class="dv">217</span>, <span class="dv">223</span>, <span class="dv">222</span>, <span class="dv">157</span>, <span class="dv">611</span>, <span class="dv">616</span>, <span class="dv">263</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sample =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), <span class="at">.before =</span> <span class="dv">1</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_a<span class="ot">&lt;-</span><span class="fu">tibble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">material=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="co">#materiale</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">HV30_OK=</span><span class="cn">NA</span>,    <span class="co">#misura effettiva, indentatore integro   </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">HV30_NOK=</span><span class="cn">NA</span>,   <span class="co">#misura effettiva, indentatore danneggiato        </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">stima_OK=</span><span class="cn">NA</span>,   <span class="co">#stima della macchina, indentatore integro</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">stima_NOK=</span><span class="cn">NA</span>,  <span class="co">#stima della macchina, indentaore danneggiato</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">HV30_dd=</span><span class="cn">NA</span>,    <span class="co">#misura effettiva usando due volte la diagonale visibile, indentatore danneggiato</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stima_dd=</span><span class="cn">NA</span>,   <span class="co">#stima della macchina, indentatore danneggiato per misura con doppia diagonale</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)               </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df_a,<span class="st">"misure_HV_30.csv"</span>) <span class="co">#per avere la tabella in formato .csv così da poter essere riempita dallo sperimentatore</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df_a, <span class="at">caption =</span> <span class="st">"Tabella di raccolta dati per T-test"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
+<caption>Tabella di raccolta dati per T-test</caption>
 <thead>
 <tr class="header">
-<th style="text-align: right;">sample</th>
-<th style="text-align: right;">HV30_OK</th>
-<th style="text-align: right;">HV30_NOK</th>
-<th style="text-align: right;">stima_OK</th>
-<th style="text-align: right;">stima_NOK</th>
+<th style="text-align: right;">material</th>
+<th style="text-align: left;">HV30_OK</th>
+<th style="text-align: left;">HV30_NOK</th>
+<th style="text-align: left;">stima_OK</th>
+<th style="text-align: left;">stima_NOK</th>
+<th style="text-align: left;">HV30_dd</th>
+<th style="text-align: left;">stima_dd</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">679</td>
-<td style="text-align: right;">667</td>
-<td style="text-align: right;">502</td>
-<td style="text-align: right;">592</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">673</td>
-<td style="text-align: right;">660</td>
-<td style="text-align: right;">551</td>
-<td style="text-align: right;">588</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">635</td>
-<td style="text-align: right;">647</td>
-<td style="text-align: right;">555</td>
-<td style="text-align: right;">584</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">273</td>
-<td style="text-align: right;">267</td>
-<td style="text-align: right;">200</td>
-<td style="text-align: right;">217</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">275</td>
-<td style="text-align: right;">271</td>
-<td style="text-align: right;">139</td>
-<td style="text-align: right;">223</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">279</td>
-<td style="text-align: right;">284</td>
-<td style="text-align: right;">208</td>
-<td style="text-align: right;">222</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">164</td>
-<td style="text-align: right;">163</td>
-<td style="text-align: right;">151</td>
-<td style="text-align: right;">157</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">658</td>
-<td style="text-align: right;">645</td>
-<td style="text-align: right;">585</td>
-<td style="text-align: right;">611</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">682</td>
-<td style="text-align: right;">653</td>
-<td style="text-align: right;">604</td>
-<td style="text-align: right;">616</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">294</td>
-<td style="text-align: right;">303</td>
-<td style="text-align: right;">262</td>
-<td style="text-align: right;">263</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Converto la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un’unica colonna <code>durezza</code>:</p>
+</section>
+<section id="misure-necessarie-per-taratura" class="level3">
+<h3 class="anchored" data-anchor-id="misure-necessarie-per-taratura">Misure necessarie per taratura</h3>
+<p>Per indagare la relazione tra la misura di durezza stimata dalla sola penetrazione dell’indentore (fornita dal durometro utilizzato in laboratorio) e la durezza misurata tenendo conto delle diagonali dell’impronta dell’indentatore (come indicato dalla UNI EN ISO 6507-1) è necessario sviluppare una campagna sperimentale atta a fornire le coppie di valori rappresentanti il misurando (durezza effettiva del materiale) e l’uscita dello strumento (la stima fornita dal durometro). Tali coppie di misure vanno raccolte in ordine casuale, per mitigare l’effetto degli ingressi modificanti.</p>
+<p>È quindi necessario raccogliere, per ciascuna scala di misura tra quelle scelte (HV5, HV10, HV20, HV30, HV50) e per ciascuono dei sei materiali scelti per eseguire la taratura (con durezza diversa), sia la durezza reale sia quella stimata.</p>
+<p>Di seguito la tabella che servirà per la raccolta dei dati, organizzata tenendo conto di quanto detto sopra.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>sample, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep=</span><span class="st">"_"</span>, </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"misura"</span>,<span class="st">"ok"</span>), </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to=</span><span class="st">"durezza"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ok=</span><span class="fu">ifelse</span>(ok<span class="sc">==</span><span class="st">"OK"</span>,<span class="st">"integro"</span>,<span class="st">"rotto"</span>))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_b<span class="ot">&lt;-</span><span class="fu">expand.grid</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Scale=</span><span class="fu">c</span>(<span class="st">"HV5"</span>,<span class="st">"HV10"</span>,<span class="st">"HV20"</span>,<span class="st">"HV30"</span>,<span class="st">"HV50"</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Material=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)<span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Material,<span class="at">.before =</span> Scale)<span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">StdOrder =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">RunOrder =</span> <span class="fu">sample</span>(<span class="fu">n</span>()),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.before=</span>Material</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">%&gt;%</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Estimated=</span><span class="cn">NA</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hardness=</span><span class="cn">NA</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">%&gt;%</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(RunOrder)<span class="sc">%&gt;%</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(df_b,<span class="st">"misure_per_taratura.csv"</span>)  <span class="co">#serve per avere la tabella in formato .csv così da poter essere riempita dallo speriementatore</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df_b, <span class="at">caption =</span> <span class="st">"Tabella di raccolta dati per taratura"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Tabella di raccolta dati per taratura</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">StdOrder</th>
+<th style="text-align: right;">RunOrder</th>
+<th style="text-align: right;">Material</th>
+<th style="text-align: left;">Scale</th>
+<th style="text-align: left;">Estimated</th>
+<th style="text-align: left;">Hardness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="fasi-da-seguire-in-laboratorio-per-la-raccolta-delle-misure" class="level2">
+<h2 class="anchored" data-anchor-id="fasi-da-seguire-in-laboratorio-per-la-raccolta-delle-misure">Fasi da seguire in laboratorio per la raccolta delle misure</h2>
+<p>Per la raccolta delle misure sono necessarie le seguenti fasi:</p>
+<ol type="1">
+<li>Scelta di 10 campioni di acciai ignoti</li>
+<li>Preparazione dei campioni:</li>
+</ol>
+<ul>
+<li>I campioni devono essere accuratamente lucidati per ottenere una superficie liscia e priva di ossidazioni o impurità. Non sono prescritte grane specifiche nelle normative, ma si consiglia di utilizzare una sequenza di abrasivi da grana 120 a 1200. Se possibile lucidare a specchio</li>
+<li>Pulizia con panno morbido e detergente per metallo per rimuovere polveri o residui.</li>
+</ul>
+<div style="text-align:center">
+<div id="Preparazione_campioni" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/preparazione_campioni.jpg" class="un img-fluid figure-img" style="width:20.0%"></p>
+<figcaption>Campione prima e dopo preparazione superficiale</figcaption>
+</figure>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Numerazione dei campioni: Indentificare i campioni numerandoli da 1 a 10</li>
+</ol>
+<div style="text-align:center">
+<div id="Campioni" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/campioni.jpg" class="img-fluid figure-img" style="width:25.0%"></p>
+<figcaption>Campioni numerati</figcaption>
+</figure>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Montaggio indentatore Vickers danneggiato sulla macchina</li>
+<li>Accensione durometro</li>
+<li>Selezione dei parametri per la prova HV30</li>
+<li>Impostare la messa a fuoco della lente (solo se necessario).</li>
+<li>Esecuzione delle misure previste dalla tabella di raccolta dati per T-test <code>df_a</code> relative all’indetatore danneggiato, estrapolando visivamente la posizione del vertice danneggiato</li>
+</ol>
+<div style="text-align:center">
+<div id="Estrapolazione" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/estrapolazione.jpg" class="img-fluid figure-img" style="width:20.0%"></p>
+<figcaption>Estrapolazione visiva della posizione del vertice danneggiato</figcaption>
+</figure>
+</div>
+</div>
+<ol start="10" type="1">
+<li>Esecuzione delle misure previste dalla tabella di raccolta dati per T-test <code>df_a</code> relative all’indentatore danneggiato, doppia misura della diagonale visibile.</li>
+<li>Cambio indetatore, montaggio indentatore Vickers integro</li>
+<li>Esecuzione delle misure previste dalla tabella di raccolta dati per T-test <code>df_a</code> relative all’indetatore integro</li>
+<li>Esecuzione delle misure previste dalla tabella di raccolta dati per taratura<code>df_b</code> cambiando coerentemente il metodo di prova (HV5, HV10, HV20, HV30, HV50) selezionando i parametri corretti</li>
+<li>Spegnimento durometro</li>
+</ol>
+<p>Per eseguire le fasi che richiedono l’uso del durometro è possibile consultare il manuale d’uso del durometro EMCO TEST M4U 025 presente in laboratorio, tuttavia al fine di agevolare il procedimento si riportano sinteticamente le operazioni necessarie (valide per il durometro EMCO TEST M4U 02).</p>
+<div style="text-align:center">
+<div id="Durometro" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/durometro.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Durometro EMCO TEST M4U 02</figcaption>
+</figure>
+</div>
+</div>
+<section id="montaggio-e-smontaggio-indentatore" class="level3">
+<h3 class="anchored" data-anchor-id="montaggio-e-smontaggio-indentatore">Montaggio e smontaggio indentatore</h3>
+<p>Per montare l’indentatore sulla macchina:</p>
+<ol type="1">
+<li>Inserire l’indentatore dalla parte del gambo nell’apposito supporto a T.</li>
+</ol>
+<div style="text-align:center">
+<div id="supporto_a_T" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/supportoT.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Supporto a T</figcaption>
+</figure>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Inserire l’indentatore nella sede della macchina</li>
+<li>Serrare il grano con la chiave esagonale apposita</li>
+</ol>
+<div style="text-align:center">
+<div id="chiave_esagonale" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/chiave_esagonale.jpg" class="img-fluid figure-img" style="width:25.0%"></p>
+<figcaption>Serraggio con chiave esagonale</figcaption>
+</figure>
+</div>
+</div>
+<p>Per lo smontaggio seguire a ritroso le fasi sopra riportate.</p>
+<p>Gli indentatori e gli utensili necessari sono presenti nell’apposita scatola, contrassegnati con la sigla HV e HV-rotto.</p>
+<div style="text-align:center">
+<div id="indentatore" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/indentatore.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Indentatore e relativa custodia</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="accensione-messa-a-fuoco-e-selezione-dei-parametri" class="level3">
+<h3 class="anchored" data-anchor-id="accensione-messa-a-fuoco-e-selezione-dei-parametri">Accensione, messa a fuoco e selezione dei parametri</h3>
+<p>Per accendere la macchina:</p>
+<ol type="1">
+<li>Azionare la chiave presente sul retro della stessa.</li>
+<li>Verificare che l’interruttore dedicato all’illuminazione per la lettura dell’impronta sia impostato su On</li>
+<li>Ad accensione avvenuta il display mostra un messaggio che chiede all’operatore se l’indentatore e l’ottica siano stati montati. Premere il tasto rosso <span style="color:red;">f</span> per confermare.</li>
+</ol>
+<p>Per impostare la messa a fuoco dell’immagine (da eseguire solo se necessario):</p>
+<ol type="1">
+<li>Premere il tasto Code seguito da 1470, confermare con il tasto <span style="color:red;">f</span></li>
+<li>Compare la scritta <strong>SERVICE MODUS</strong> , premere il tasto <span class="math inline">\(+/-\)</span> che cancella la posizione di fuoco precedente, confermare con <span style="color:red;">f</span></li>
+<li>Premere il tasto Code</li>
+<li>Esegure una misura di durezza tramite il tasto <span class="math inline">\(\begin{array}{c}\downarrow \\ - \\ \uparrow\end{array}\)</span></li>
+<li>Una volta che il durometro passa all’ottica stabilire la posizione di fuoco attraverso i tasti <span class="math inline">\(\leftarrow\)</span> e <span class="math inline">\(\rightarrow\)</span>.</li>
+<li>Misurare le diagonali e confermare con il tasto <span style="color:red;">f</span>, in questo modo viene anche memorizzata la nuova posizione di fuoco.</li>
+</ol>
+<p>Per selezionare i parametri e il tipo di prova di durezza, il durometro prevede una sezione in cui è possibile impostare diverse specifiche . Tuttavia, non è necessario modificare alcun parametro, eccetto il primo, poiché la sua impostazione richiama automaticamente i parametri per le prove previste dalla presente attività (secondo normativa). Quindi, per selezionare il giusto metodo di prova:</p>
+<ol type="1">
+<li>Premere il tasto Code seguito da 1234, confermare con il tasto <span style="color:red;">f</span>. Si apre la sezione parametri</li>
+</ol>
+<div style="text-align:center">
+<div id="parametri" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/parametri.jpg" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Sezione di impostazione parametri</figcaption>
+</figure>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Inserire il numero relativo al metodo di prova da eseguire in modo da impostare il parametro n.&nbsp;1, questo numero è presente nella colonna CODE della tabella posta sul lato destro della macchina. Confermare con <span style="color:red;">f</span>. <strong>IMPORTANTE: Non modificare nessun altro parametro!</strong></li>
+</ol>
+<div style="text-align:center">
+<div id="tabella" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/tabella.jpg" class="img-fluid figure-img" style="width:40.0%"></p>
+<figcaption>Tabella codici di prova sul lato del durometro</figcaption>
+</figure>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Premere nuovamente code</li>
+<li>Accertarsi che nella schermata principale sia ora comparso il metodo di prova corretto.</li>
+</ol>
+<p>Si raccomanda di accertarsi che sulla macchina sia montata la lente specificata nei parametri della prova. Come detto in precedenza il significato di tutti i codici relativi ai parametri e i parametri stessi sono illustrati nel manuale d’uso presente in laboratorio .</p>
+<p>In quanto le istruzioni sopra riportate sono una sintesi valida per le operazioni richieste nella presente attività per eventuali dubbi si faccia riferimento al responsabile di laboratorio.</p>
+</section>
+<section id="misurazione" class="level3">
+<h3 class="anchored" data-anchor-id="misurazione">Misurazione</h3>
+<p>Per eseguire una misura di durezza:</p>
+<ol type="1">
+<li>Poggiare il provino sul piano di supporto della macchina</li>
+<li>Ruotare il volantino portando in adesione il provino con l’elemento di contatto del durometro</li>
+</ol>
+<div style="text-align:center">
+<div id="provino" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/contatto.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Provino a contatto</figcaption>
+</figure>
+</div>
+</div>
+<ol type="1">
+<li>Premere il tasto <span class="math inline">\(\begin{array}{c}\downarrow \\ - \\ \uparrow\end{array}\)</span> che avvia il ciclo di misura</li>
+<li>Attendere la fine della prova, quindi che compaia l’immagine dell imnpronta sullo schermo, annotare la stima fornita dalla macchina.</li>
+<li>Azzerare la posizione del regolo portando a contatto i due corsoi del calibro, premere il tasto <span style="color:red;">f</span> (solo per prima misura dopo accensione)</li>
+</ol>
+<div style="text-align:center">
+<div id="zeroregolo" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/zeroregolo.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Azzeramento del regolo</figcaption>
+</figure>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Allineare la linea presente su uno dei due corsoi con una delle diagonali dell’impronta, in modo da fissare l’orientamento corretto per la misurazione</li>
+</ol>
+<div style="text-align:center">
+<div id="orientamento" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/orientamento.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Orientamento regolo</figcaption>
+</figure>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Mantendendo l’orientamento ottenuto al punto precedente regolare attraverso i due pomelli presenti sul calibro la posizione dei due corsoi, in modo che le linee presenti sugli stessi combacino con i vertici della diagonale opposta a quella usata da riferimento al punto 4. Confermare con il tasto <span style="color:red;">f</span>.</li>
+</ol>
+<div style="text-align:center">
+<div id="misura" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/misura.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Misura della diagonale</figcaption>
+</figure>
+</div>
+</div>
+<ol start="6" type="1">
+<li>Ripetere i punti 4,5 per l’altra diagonale</li>
+<li>Annotare la misura che compare a display</li>
+<li>Premere il tasto <span style="color:red;">f</span></li>
+</ol>
+<p>Per le misure che prevedono di usare due volte la stessa diagonale (quella chiaramente visibile dell’indentatore rotto) rilevare due volte la stessa diagonale (dopo aver effettuato i passi 4. e 5 premere nuovamente il tasto f senza cambiare la posizione dei corsoi)</p>
+<p>In quanto le istruzioni sopra riportate sono una sintesi valida per le operazioni richieste nella presente attività per eventuali dubbi si faccia riferimento al responsabile di laboratorio.</p>
+</section>
+</section>
+</section>
+<section id="elaborazione-dei-dati" class="level1">
+<h1>Elaborazione dei dati</h1>
+<section id="analisi-differenze-indentatore-rottoindentore-integro" class="level2">
+<h2 class="anchored" data-anchor-id="analisi-differenze-indentatore-rottoindentore-integro">Analisi differenze indentatore rotto/indentore integro</h2>
+<p>Si importano i dati raccolti in laboratiorio per le misure riguardanti il ttest (<code>df_a</code>)</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_a<span class="sc">$</span>stima_OK<span class="ot">=</span><span class="fu">c</span>(<span class="dv">591</span>,<span class="dv">205</span>,<span class="dv">209</span>,<span class="dv">262</span>,<span class="dv">318</span>,<span class="dv">578</span>,<span class="dv">206</span>,<span class="dv">156</span>,<span class="dv">624</span>,<span class="dv">581</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_a<span class="sc">$</span>HV30_NOK <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">676</span>,<span class="dv">259</span>,<span class="dv">259</span>,<span class="dv">306</span>,<span class="dv">352</span>,<span class="dv">660</span>,<span class="dv">244</span>,<span class="dv">164</span>,<span class="dv">659</span>,<span class="dv">625</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_a<span class="sc">$</span>HV30_OK<span class="ot">=</span><span class="fu">c</span>(<span class="dv">662</span>,<span class="dv">242</span>,<span class="dv">262</span>,<span class="dv">302</span>,<span class="dv">330</span>,<span class="dv">641</span>,<span class="dv">244</span>,<span class="dv">165</span>,<span class="dv">668</span>,<span class="dv">651</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_a<span class="sc">$</span>stima_NOK <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">612</span>,<span class="dv">212</span>,<span class="dv">217</span>,<span class="dv">307</span>,<span class="dv">339</span>,<span class="dv">629</span>,<span class="dv">216</span>,<span class="dv">157</span>,<span class="dv">615</span>,<span class="dv">596</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df_a<span class="sc">$</span>HV30_dd<span class="ot">=</span><span class="fu">c</span>(<span class="dv">648</span>,<span class="dv">256</span>,<span class="dv">253</span>,<span class="dv">297</span>,<span class="dv">351</span>,<span class="dv">652</span>,<span class="dv">247</span>,<span class="dv">166</span>,<span class="dv">659</span>,<span class="dv">635</span>)      </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df_a<span class="sc">$</span>stima_dd<span class="ot">=</span><span class="fu">c</span>(<span class="dv">612</span>,<span class="dv">219</span>,<span class="dv">218</span>,<span class="dv">297</span>,<span class="dv">337</span>,<span class="dv">621</span>,<span class="dv">218</span>,<span class="dv">157</span>,<span class="dv">618</span>,<span class="dv">596</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(df_a)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: right;">sample</th>
+<th style="text-align: right;">material</th>
+<th style="text-align: right;">HV30_OK</th>
+<th style="text-align: right;">HV30_NOK</th>
+<th style="text-align: right;">stima_OK</th>
+<th style="text-align: right;">stima_NOK</th>
+<th style="text-align: right;">HV30_dd</th>
+<th style="text-align: right;">stima_dd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">662</td>
+<td style="text-align: right;">676</td>
+<td style="text-align: right;">591</td>
+<td style="text-align: right;">612</td>
+<td style="text-align: right;">648</td>
+<td style="text-align: right;">612</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: right;">259</td>
+<td style="text-align: right;">205</td>
+<td style="text-align: right;">212</td>
+<td style="text-align: right;">256</td>
+<td style="text-align: right;">219</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">262</td>
+<td style="text-align: right;">259</td>
+<td style="text-align: right;">209</td>
+<td style="text-align: right;">217</td>
+<td style="text-align: right;">253</td>
+<td style="text-align: right;">218</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">302</td>
+<td style="text-align: right;">306</td>
+<td style="text-align: right;">262</td>
+<td style="text-align: right;">307</td>
+<td style="text-align: right;">297</td>
+<td style="text-align: right;">297</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">330</td>
+<td style="text-align: right;">352</td>
+<td style="text-align: right;">318</td>
+<td style="text-align: right;">339</td>
+<td style="text-align: right;">351</td>
+<td style="text-align: right;">337</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">641</td>
+<td style="text-align: right;">660</td>
+<td style="text-align: right;">578</td>
+<td style="text-align: right;">629</td>
+<td style="text-align: right;">652</td>
+<td style="text-align: right;">621</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">244</td>
+<td style="text-align: right;">244</td>
+<td style="text-align: right;">206</td>
+<td style="text-align: right;">216</td>
+<td style="text-align: right;">247</td>
+<td style="text-align: right;">218</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: right;">164</td>
+<td style="text-align: right;">156</td>
+<td style="text-align: right;">157</td>
+<td style="text-align: right;">166</td>
+<td style="text-align: right;">157</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">668</td>
+<td style="text-align: right;">659</td>
+<td style="text-align: right;">624</td>
+<td style="text-align: right;">615</td>
+<td style="text-align: right;">659</td>
+<td style="text-align: right;">618</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">651</td>
+<td style="text-align: right;">625</td>
+<td style="text-align: right;">581</td>
+<td style="text-align: right;">596</td>
+<td style="text-align: right;">635</td>
+<td style="text-align: right;">596</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Si considerano dapprima solo le misure raccolte usando le due diagonali diverse (le prime 4 colonne della tabella <code>df_a</code>).Si converte altresì la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un’unica colonna <code>durezza</code>:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="ot">&lt;-</span> df_a <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(material<span class="sc">:</span>stima_NOK)<span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>material, </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep=</span><span class="st">"_"</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"misura"</span>,<span class="st">"ok"</span>), </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to=</span><span class="st">"durezza"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ok=</span><span class="fu">ifelse</span>(ok<span class="sc">==</span><span class="st">"OK"</span>,<span class="st">"integro"</span>,<span class="st">"rotto"</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> <span class="fu">head</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">material</th>
 <th style="text-align: left;">misura</th>
 <th style="text-align: left;">ok</th>
 <th style="text-align: right;">durezza</th>
@@ -502,106 +1330,105 @@ H_1 :~&amp; \mu_d \neq 0
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">HV30</td>
 <td style="text-align: left;">integro</td>
-<td style="text-align: right;">679</td>
+<td style="text-align: right;">662</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">HV30</td>
 <td style="text-align: left;">rotto</td>
-<td style="text-align: right;">667</td>
+<td style="text-align: right;">676</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">stima</td>
 <td style="text-align: left;">integro</td>
-<td style="text-align: right;">502</td>
+<td style="text-align: right;">591</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">stima</td>
 <td style="text-align: left;">rotto</td>
-<td style="text-align: right;">592</td>
+<td style="text-align: right;">612</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">HV30</td>
 <td style="text-align: left;">integro</td>
-<td style="text-align: right;">673</td>
+<td style="text-align: right;">242</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: left;">HV30</td>
 <td style="text-align: left;">rotto</td>
-<td style="text-align: right;">660</td>
+<td style="text-align: right;">259</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Confrontiamo tutti i dati: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale <strong>maschera</strong> le variabilità delle misure.</p>
+<p>Si confrontano tutti i dati con un boxplot: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale <strong>maschera</strong> le variabilità delle misure.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>misura, <span class="at">y=</span>durezza, <span class="at">color=</span>ok)) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Misura"</span>, <span class="at">y=</span><span class="st">"Durezza"</span>, <span class="at">color=</span><span class="st">"Penetratore"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>misura, <span class="at">y=</span>durezza, <span class="at">color=</span>ok)) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Misura"</span>, <span class="at">y=</span><span class="st">"Durezza"</span>, <span class="at">color=</span><span class="st">"Penetratore"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Osserviamo la relazione tra stima e durezza, separatamente per penetratore: sembrano essere differenti sia l’intercetta che la pendenza.</p>
+<p>Si osserva la relazione tra stima e durezza, separatamente per penetratore: sembrano essere differenti sia l’intercetta che la pendenza.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> misura, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>HV30, <span class="at">y=</span>stima, <span class="at">color=</span>ok)) <span class="sc">+</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x) <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">"penetratore"</span>) </span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> misura, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>HV30, <span class="at">y=</span>stima, <span class="at">color=</span>ok)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">"penetratore"</span>) </span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Osserviamo invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla retta diagonale con equazione <span class="math inline">\(y=x\)</span>. Si osserva che i punti corrispondenti al <code>HV30</code> effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è significativamente al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l’indentatore rotto che per quello integro.</p>
+<p>Si osserva invece la relazione tra le misure fatte con indentatore rotto e indentatore integro: se non ci fosse differenza sarebbero allineate sulla retta diagonale con equazione <span class="math inline">\(y=x\)</span>. Si osserva che i punti corrispondenti al HV30 effettivamente hanno una regressione che corrisponde alla diagonale, mentre per i punti corrispondenti alla stima la regressione è al di sopra della diagonale e i punti sono consistentemente al di sopra di essa, cioè la stima dà una durezza maggiore per l’indentatore rotto che per quello integro.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> ok, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>integro, <span class="at">y=</span>rotto, <span class="at">color=</span>misura)) <span class="sc">+</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> ok, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>integro, <span class="at">y=</span>rotto, <span class="at">color=</span>misura)) <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope=</span><span class="dv">1</span>, <span class="at">intercept=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">lty=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
 </div>
-</section>
-<section id="analisi-e-discussione" class="level2">
-<h2 class="anchored" data-anchor-id="analisi-e-discussione">Analisi e discussione</h2>
-<p>Effettuo i T-test per <code>HV30</code> e per <code>stima</code>, in un colpo solo: prima separo su due colonne le misure per penetratori integri e rotti, poi spezzo la tabella in due con <code>split</code>, e infine applico la funzione <code>t.test</code> a ciascun sottoinsieme mediante <code>reduce</code>, usando <code>tidy</code> per trasformare il risultato di ciascun test in una tibble:</p>
+<section id="discussione-risultati" class="level3">
+<h3 class="anchored" data-anchor-id="discussione-risultati">Discussione risultati</h3>
+<p>Si effettuano i T-test per HV30 e per stima, in un colpo solo: prima si separano su due colonne le misure per penetratori integri e rotti, poi si spezza la tabella in due con split, e infine si applica la funzione t.test a ciascun sottoinsieme mediante reduce, usando tidy per trasformare il risultato di ciascun test in una tibble:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> ok, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(<span class="sc">~</span>misura) <span class="sc">%&gt;%</span> {</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">reduce2</span>(., <span class="fu">names</span>(.), \(acc, d, n) {</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(d<span class="sc">$</span>integro, d<span class="sc">$</span>rotto, <span class="at">paired =</span> T)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">bind_rows</span>(acc, <span class="fu">tidy</span>(t) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">group=</span>n, <span class="at">.before=</span><span class="dv">1</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">.init=</span><span class="fu">tibble</span>())</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(p.value, <span class="at">.after=</span><span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">significant =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>, </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(statistic, conf.low, conf.high, p.value), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>method, <span class="sc">-</span>alternative) <span class="sc">%&gt;%</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dfv <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> ok, <span class="at">values_from =</span> durezza) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(<span class="sc">~</span>misura) <span class="sc">%&gt;%</span> {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">reduce2</span>(., <span class="fu">names</span>(.), \(acc, d, n) {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(d<span class="sc">$</span>integro, d<span class="sc">$</span>rotto, <span class="at">paired =</span> T)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">bind_rows</span>(acc, <span class="fu">tidy</span>(t) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">group=</span>n, <span class="at">.before=</span><span class="dv">1</span>))</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    }, <span class="at">.init=</span><span class="fu">tibble</span>())</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(p.value, <span class="at">.after=</span><span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">significant =</span> p.value <span class="sc">&lt;</span> <span class="fl">0.05</span>, </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(<span class="fu">c</span>(statistic, conf.low, conf.high, p.value), <span class="sc">~</span><span class="fu">round</span>(., <span class="dv">3</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>method, <span class="sc">-</span>alternative) <span class="sc">%&gt;%</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -629,30 +1456,30 @@ H_1 :~&amp; \mu_d \neq 0
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">HV30</td>
-<td style="text-align: right;">5.2</td>
-<td style="text-align: right;">1.34</td>
+<td style="text-align: right;">-3.7</td>
+<td style="text-align: right;">-0.790</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">-3.579</td>
-<td style="text-align: right;">13.979</td>
-<td style="text-align: right;">0.213</td>
+<td style="text-align: right;">-14.300</td>
+<td style="text-align: right;">6.900</td>
+<td style="text-align: right;">0.450</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">stima</td>
-<td style="text-align: right;">-31.6</td>
-<td style="text-align: right;">-3.21</td>
+<td style="text-align: right;">-17.0</td>
+<td style="text-align: right;">-2.879</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">-53.870</td>
-<td style="text-align: right;">-9.330</td>
-<td style="text-align: right;">0.011</td>
+<td style="text-align: right;">-30.358</td>
+<td style="text-align: right;">-3.642</td>
+<td style="text-align: right;">0.018</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Il risultato ottenuto suggerisce di accettare l’ipotesi nulla per il gruppo <code>HV30</code>: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro <strong>se per la diagonale mancante (a causa del danno), si estrapola visivamente la lunghezza</strong>.</p>
-<p>Viceversa, per il gruppo <code>stima</code> l’ipotesi nulla viene rifiutata con una probabilità di errore molto bassa: il penetratore danneggiato produce misure significativamente più alte rispetto a quello integro, perché in questo caso il sistema di calcolo è basato sulla misura della penetrazione e non sulla lunghezza della diagonale, e la prima evidentemente risente del danno.</p>
+<p>Il risultato ottenuto suggerisce di accettare l’ipotesi nulla per il gruppo HV30: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro se per la diagonale mancante (a causa del danno), si estrapola visivamente la lunghezza.</p>
+<p>Viceversa, per il gruppo stima l’ipotesi nulla viene rifiutata con una probabilità di errore molto bassa: il penetratore danneggiato produce misure significativamente più alte rispetto a quello integro, perché in questo caso il sistema di calcolo è basato sulla misura della penetrazione e non sulla lunghezza della diagonale, e la prima evidentemente risente del danno.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Conclusione">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -667,6 +1494,508 @@ Conclusione
 <p>Viceversa, la misura basata sulla penetrazione è completamente oggettiva e risente quindi della integrità del penetratore: tanto più la geometria reale si discosta dalla geometria nominale per la quale è nota la relazione tra altezza della piramide e area della base, tanto più la misura è errata.</p>
 </div>
 </div>
+<p>Avendo a disposizione anche le misure raccolte con doppia diagonale, ci si chiede se, utilizzando un indentatore danneggiato, sia preferibile usare due volte la stessa diagonale oppure estrapolare la posizione del vertice danneggiato.</p>
+<p>Per rispondere a questa domanda, si effettua un test tra le misure ottenute con doppia diagonale e quelle ottenute con indentatore integro.</p>
+<p>Se il <em>p</em>-value di questo test risulta maggiore rispetto a quello del confronto tra le misure con indentatore danneggiato e quelle reali, allora è preferibile utilizzare due volte la stessa diagonale.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(df_a<span class="sc">$</span>HV30_OK,df_a<span class="sc">$</span>HV30_dd,<span class="at">paired =</span> T)<span class="sc">%&gt;%</span><span class="fu">tidy</span>()<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 16%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">parameter</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+<th style="text-align: left;">method</th>
+<th style="text-align: left;">alternative</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.0758987</td>
+<td style="text-align: right;">0.9411601</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">-8.641484</td>
+<td style="text-align: right;">9.241484</td>
+<td style="text-align: left;">Paired t-test</td>
+<td style="text-align: left;">two.sided</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Conclusione">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Conclusione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quindi, se si ha a disposizione solo l’indentatore danneggiato, è preferibile utilizzare due volte la stessa diagonale. Ovviamente, questa conclusione è valida solo per l’indentatore e per il campo di applicazione specifico considerato.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="analisi-per-taratura" class="level2">
+<h2 class="anchored" data-anchor-id="analisi-per-taratura">Analisi per taratura</h2>
+<p>Si importano i dati raccolti in laboratiorio per le misure riguardanti la taratura (<code>df_b</code>)</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df_b<span class="ot">&lt;-</span>df_b<span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(StdOrder) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Load =</span> <span class="fu">str_extract</span>(Scale, <span class="st">"HV(</span><span class="sc">\\</span><span class="st">d+)"</span>, <span class="at">group=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(), <span class="at">.after=</span>Scale) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Estimated=</span><span class="fu">c</span>(<span class="dv">692</span>,<span class="dv">690</span>,<span class="dv">516</span>,<span class="dv">634</span>,<span class="dv">630</span>,<span class="dv">343</span>,<span class="dv">310</span>,<span class="dv">262</span>,<span class="dv">318</span>,<span class="dv">370</span>,<span class="dv">223</span>,<span class="dv">217</span>,<span class="dv">185</span>,<span class="dv">218</span>,<span class="dv">209</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                <span class="dv">610</span>,<span class="dv">641</span>,<span class="dv">481</span>,<span class="dv">589</span>,<span class="dv">680</span>,<span class="dv">304</span>,<span class="dv">290</span>,<span class="dv">238</span>,<span class="dv">297</span>,<span class="dv">340</span>,<span class="dv">235</span>,<span class="dv">229</span>,<span class="dv">173</span>,<span class="dv">212</span>,<span class="dv">205</span>),</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Hardness=</span><span class="fu">c</span>(<span class="dv">709</span>,<span class="dv">709</span>,<span class="dv">668</span>,<span class="dv">680</span>,<span class="dv">656</span>,<span class="dv">351</span>,<span class="dv">341</span>,<span class="dv">333</span>,<span class="dv">330</span>,<span class="dv">341</span>,<span class="dv">294</span>,<span class="dv">254</span>,<span class="dv">261</span>,<span class="dv">251</span>,<span class="dv">241</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="dv">671</span>,<span class="dv">675</span>,<span class="dv">642</span>,<span class="dv">646</span>,<span class="dv">627</span>,<span class="dv">308</span>,<span class="dv">317</span>,<span class="dv">296</span>,<span class="dv">294</span>,<span class="dv">295</span>,<span class="dv">308</span>,<span class="dv">286</span>,<span class="dv">265</span>,<span class="dv">261</span>,<span class="dv">249</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Material=</span><span class="fu">factor</span>(Material))</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df_b))</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">StdOrder</th>
+<th style="text-align: right;">RunOrder</th>
+<th style="text-align: left;">Material</th>
+<th style="text-align: left;">Scale</th>
+<th style="text-align: right;">Load</th>
+<th style="text-align: right;">Estimated</th>
+<th style="text-align: right;">Hardness</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">692</td>
+<td style="text-align: right;">709</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">690</td>
+<td style="text-align: right;">709</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">516</td>
+<td style="text-align: right;">668</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">634</td>
+<td style="text-align: right;">680</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">630</td>
+<td style="text-align: right;">656</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">351</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Si visualizzano le regressioni dei modelli lineari effettuati separatamente per ogni scala. Si noti che è stata scelta intercetta nulla e modello lineare in quanto quella cercata è una correlazione tra due entità che rappresentano la stessa grandezza.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Hardness, <span class="at">y=</span>Estimated, <span class="at">group=</span>Scale, <span class="at">color=</span>Scale)) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape=</span>Material)) <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">formula=</span>y<span class="sc">~</span>x<span class="dv">-1</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si effettua una ANOVA per verificare se la scala effettivamente sia un fattore che incide sul modello da regredire.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df_b.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Hardness<span class="sc">~</span>Estimated <span class="sc">+</span> Scale, <span class="at">data =</span> df_b)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(df_b.lm)<span class="sc">%&gt;%</span><span class="fu">tidy</span>()<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">sumsq</th>
+<th style="text-align: right;">meansq</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Estimated</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">902412.55</td>
+<td style="text-align: right;">902412.549</td>
+<td style="text-align: right;">780.942643</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Scale</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">34179.39</td>
+<td style="text-align: right;">8544.848</td>
+<td style="text-align: right;">7.394663</td>
+<td style="text-align: right;">0.0004976</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">27733.02</td>
+<td style="text-align: right;">1155.543</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Si verifica che i residui non abbiano pattern in funzione del Run Order e in funzione dei fattori</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(df_b.lm) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Scale, <span class="at">y=</span>resid)) <span class="sc">+</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(df_b.lm) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Material, <span class="at">y=</span>resid)) <span class="sc">+</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(df_b.lm) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>RunOrder, <span class="at">y=</span>resid)) <span class="sc">+</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-15-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si verifica che i residui abbiano distribuzione normale:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(df_b.lm) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample=</span>resid)) <span class="sc">+</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(df_b.lm) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(resid) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro.test</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  .
+W = 0.95792, p-value = 0.2738</code></pre>
+</div>
+</div>
+<p>La anova appena condotta risulta quindi valida e suggerisce di effettuare una regressione distinta per ogni scala ricavando per ognuna il valore della pendenza:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Scale) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">slope =</span> <span class="fu">lm</span>(Hardness<span class="sc">~</span>Estimated <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">coefficients</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scale</th>
+<th style="text-align: right;">slope</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HV5</td>
+<td style="text-align: right;">1.073691</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HV10</td>
+<td style="text-align: right;">1.062934</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HV20</td>
+<td style="text-align: right;">1.317666</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HV30</td>
+<td style="text-align: right;">1.080766</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HV50</td>
+<td style="text-align: right;">0.974963</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Per ogni scala di durezza si riportano i valori della pendenza, i valori dell’intervallo di confidenza al 95% sul valore della pendenza e il range massimo dei residui (che risulta abbastanza importante).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_b <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(<span class="sc">~</span>Scale) <span class="sc">%&gt;%</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dfr</span>(<span class="sc">~</span>{</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    d.lm <span class="ot">&lt;-</span> <span class="fu">lm</span>(Hardness <span class="sc">~</span> Estimated <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> .x)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">Scale =</span> <span class="fu">unique</span>(.x<span class="sc">$</span>Scale),</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">Slope =</span> <span class="fu">coef</span>(d.lm),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">Residual_min =</span> <span class="fu">min</span>(<span class="fu">residuals</span>(d.lm)),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">Residual_max =</span> <span class="fu">max</span>(<span class="fu">residuals</span>(d.lm)),</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">CI_low =</span> <span class="fu">confint</span>(d.lm)[<span class="dv">1</span>, <span class="dv">1</span>],</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">CI_high =</span> <span class="fu">confint</span>(d.lm)[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  })<span class="sc">%&gt;%</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scale</th>
+<th style="text-align: right;">Slope</th>
+<th style="text-align: right;">Residual_min</th>
+<th style="text-align: right;">Residual_max</th>
+<th style="text-align: right;">CI_low</th>
+<th style="text-align: right;">CI_high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">HV5</td>
+<td style="text-align: right;">1.073691</td>
+<td style="text-align: right;">-33.99390</td>
+<td style="text-align: right;">55.68271</td>
+<td style="text-align: right;">0.9777060</td>
+<td style="text-align: right;">1.169675</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HV10</td>
+<td style="text-align: right;">1.062934</td>
+<td style="text-align: right;">-24.42458</td>
+<td style="text-align: right;">42.58807</td>
+<td style="text-align: right;">1.0026906</td>
+<td style="text-align: right;">1.123178</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HV20</td>
+<td style="text-align: right;">1.317666</td>
+<td style="text-align: right;">-17.60441</td>
+<td style="text-align: right;">37.04385</td>
+<td style="text-align: right;">1.2506058</td>
+<td style="text-align: right;">1.384725</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">HV30</td>
+<td style="text-align: right;">1.080766</td>
+<td style="text-align: right;">-26.98758</td>
+<td style="text-align: right;">31.87755</td>
+<td style="text-align: right;">1.0266411</td>
+<td style="text-align: right;">1.134891</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HV50</td>
+<td style="text-align: right;">0.974963</td>
+<td style="text-align: right;">-36.48741</td>
+<td style="text-align: right;">49.13259</td>
+<td style="text-align: right;">0.8777659</td>
+<td style="text-align: right;">1.072160</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Va verificata l’assenza di pattern per i residui e la normalità degli stessi.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modelli per ciascuna scala</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>df_models <span class="ot">&lt;-</span> df_b <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_split</span>(Scale) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_names</span>(<span class="fu">map_chr</span>(., <span class="sc">~</span> <span class="fu">unique</span>(.x<span class="sc">$</span>Scale))) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> {</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Hardness <span class="sc">~</span> Estimated <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> .x)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    .x <span class="sc">%&gt;%</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">add_residuals</span>(mod) <span class="sc">%&gt;%</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">list</span>(mod))</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Unione in unico dataframe</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>df_resid <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df_models, <span class="at">.id =</span> <span class="st">"Scale"</span>)</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Residui vs Scale</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_resid, <span class="fu">aes</span>(<span class="at">x =</span> Scale, <span class="at">y =</span> resid)) <span class="sc">+</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Residui vs Scale"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Residui vs Material</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_resid, <span class="fu">aes</span>(<span class="at">x =</span> Material, <span class="at">y =</span> resid)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Residui vs Material"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Residui vs RunOrder</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_resid, <span class="fu">aes</span>(<span class="at">x =</span> RunOrder, <span class="at">y =</span> resid)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Residui vs RunOrder"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># QQ-plot per ogni scala</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_resid, <span class="fu">aes</span>(<span class="at">sample =</span> resid)) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>() <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Scale, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"QQ-plot dei residui per scala"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shapiro-Wilk per ogni scala</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df_shapiro <span class="ot">&lt;-</span> df_resid <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Scale) <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(resid)<span class="sc">$</span>p.value,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">W =</span> <span class="fu">shapiro.test</span>(resid)<span class="sc">$</span>statistic</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df_shapiro)<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  Scale p_value     W
+  &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt;
+1 1      0.210  0.866
+2 2      0.992  0.991
+3 3      0.379  0.901
+4 4      0.983  0.988
+5 5      0.0636 0.804</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Scale</th>
+<th style="text-align: right;">p_value</th>
+<th style="text-align: right;">W</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">0.2098494</td>
+<td style="text-align: right;">0.8657677</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0.9921061</td>
+<td style="text-align: right;">0.9913004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">0.3787054</td>
+<td style="text-align: right;">0.9008042</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">0.9830883</td>
+<td style="text-align: right;">0.9877855</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">0.0636429</td>
+<td style="text-align: right;">0.8038556</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 </section>
@@ -674,236 +2003,242 @@ Conclusione
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiato!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiato!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/mmt-unitn\.github\.io\/InDaLab\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mmt-unitn\.github\.io\/InDaLab\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -911,185 +2246,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 

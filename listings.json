@@ -2,13 +2,16 @@
   {
     "listing": "/experiments.html",
     "items": [
-      "/experiments/001-durezza/index.html",
-      "/experiments/002-resistenza/index.html"
+      "/experiments/003-fotocatalisi/index.html",
+      "/experiments/002-resistenza/index.html",
+      "/experiments/001-durezza/index.html"
     ]
   },
   {
     "listing": "/slides.html",
     "items": [
+      "/slides/003-fotocatalisi.html",
+      "/slides/002-durezza.html",
       "/slides/001-tesi.html"
     ]
   }
