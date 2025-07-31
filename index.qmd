@@ -11,3 +11,5 @@ Alla pagina [Esperimenti](/experiments.qmd) trovate gli esperimenti proposti org
 Alla pagina [Presentazioni](/slides.qmd) trovate alcune presentazioni utili a illustrare vari concetti.
 
 Questo sito ed i contenuti in esso proposti sono sviluppati come tesi di laurea triennale in Ingegneria Industriale.
+
+Si informa che, all’interno della descrizione dell’attività, sono inclusi blocchi di codice R utilizzati a supporto delle analisi effettuate.
