@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it-IT" xml:lang="it-IT"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.30">
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0829b0b756d6a27eb117278c0ab9cd09.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5e6e3c0497e104ca73a5fdafdcabb1a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-cff5071f0ce7f043469e112f942eff41.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -146,6 +146,9 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="https://keystoneacademic-res.cloudinary.com/image/upload/c_pad,w_640,h_304/dpr_auto/f_auto/q_auto/v1/element/14/147138_logoUnitrento_1000px.png" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">InDaLab</span>
     </a>
@@ -201,6 +204,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#test-di-student-per-campioni-indipendenti" id="toc-test-di-student-per-campioni-indipendenti" class="nav-link" data-scroll-target="#test-di-student-per-campioni-indipendenti">Test di Student per campioni indipendenti</a></li>
   </ul></li>
+  </ul></li>
+  <li><a href="#esperimento" id="toc-esperimento" class="nav-link" data-scroll-target="#esperimento">Esperimento</a>
+  <ul class="collapse">
   <li><a href="#taratura" id="toc-taratura" class="nav-link" data-scroll-target="#taratura">Taratura</a></li>
   </ul></li>
   <li><a href="#parte-sperimentale" id="toc-parte-sperimentale" class="nav-link" data-scroll-target="#parte-sperimentale">Parte sperimentale</a>
@@ -228,7 +234,7 @@ window.Quarto = {
   <li><a href="#analisi-per-taratura" id="toc-analisi-per-taratura" class="nav-link" data-scroll-target="#analisi-per-taratura">Analisi per taratura</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Altri Formati</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -255,7 +261,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">30 luglio 2025</p>
+      <p class="date">4 agosto 2025</p>
     </div>
   </div>
   
@@ -349,7 +355,6 @@ Essa rappresenta la capacità di un materiale ad opporsi alla formazione di impr
 <p><span class="math display">\[
 HR = N - \frac{h}{s}
 \]</span></p>
-<p>dove:</p>
 <ul>
 <li><span class="math inline">\(HR\)</span> è il valore di durezza,</li>
 <li><span class="math inline">\(h\)</span> è la profondità residua dell’impronta (mm),</li>
@@ -455,27 +460,34 @@ HV xx/yy
 <section id="test-di-student-per-campioni-indipendenti" class="level3">
 <h3 class="anchored" data-anchor-id="test-di-student-per-campioni-indipendenti">Test di Student per campioni indipendenti</h3>
 <p>Nel caso di test di Student a due campioni, quando essi <strong>hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili</strong>, è opportuno accoppiarli e effettuare il test di Student accoppiato.</p>
-<p>Ogni misura è esprimibile come: <span class="math display">\[
+<p>Ogni misura è esprimibile come:</p>
+<p><span class="math display">\[
 y_{ij}=\mu_i+\beta_j+\varepsilon_{ij};\hspace{9pt} \left\{ \begin{array}{l}i=1,2\\j=1,2,\dots ,n\end{array} \right.
-\]</span> dove:</p>
+\]</span></p>
+<p>dove:</p>
 <ul>
 <li><span class="math inline">\(i\)</span> identifica il campione</li>
 <li><span class="math inline">\(j\)</span> identifica la singola misura di un campione</li>
 </ul>
-<p>Se si definisce <span class="math inline">\(d_j=y_{1j} - y_{2j}\)</span>, ricordando le proprietà dell’operatore <span class="math inline">\(E(\cdot)\)</span>, risulta <span class="math inline">\(\mu_d = \mu_1 - \mu_2\)</span>. Quindi si può formulare la seguente coppia di ipotesi: <span class="math display">\[
+<p>Se si definisce <span class="math inline">\(d_j=y_{1j} - y_{2j}\)</span>, ricordando le proprietà dell’operatore <span class="math inline">\(E(\cdot)\)</span>, risulta <span class="math inline">\(\mu_d = \mu_1 - \mu_2\)</span>. Quindi si può formulare la seguente coppia di ipotesi:</p>
+<p><span class="math display">\[
 \begin{eqnarray}
 H_0 :~&amp; \mu_d = 0 \\
 H_1 :~&amp; \mu_d \neq 0
 \end{eqnarray}
-\]</span> Il test accoppiato è quindi evidentemente un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
+\]</span></p>
+<p>Il test accoppiato è quindi evidentemente un test a un campione, con il vantaggio che <strong>gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test</strong></p>
 </section>
 </section>
+</section>
+<section id="esperimento" class="level1">
+<h1>Esperimento</h1>
 <section id="taratura" class="level2">
 <h2 class="anchored" data-anchor-id="taratura">Taratura</h2>
 <p>Una <strong>misura</strong>, che è il risultato di una misurazione, rappresenta un parametro di un sistema considerato in un determinato stato.</p>
 <p>Esistono misurazioni dirette (ottenute per confronto con un campione noto) e misurazioni indirette, ottenute misurando grandezze secondarie collegate a quella di interesse mediante un modello (che rappresenta lo strumento di misura). Tale modello è un insieme di relazioni tra parametri descrivente le interazioni di un sistema. Può essere analitico o numerico, inoltre deve essere costruito sulla base della misura stessa: non deve essere necessariamente esaustivo né basato sulla comprensione fisica del sistema (cioè può anche essere empirico)</p>
 <p>Nel caso di misurazione indiretta, lo strumento di misura è basato su un trasduttore: un dispositivo che trasforma una grandezza fisica in ingresso in un’altra grandezza.</p>
-<p>E’ importante distingure tra modelli statici (cioè che non tengono conto delle relazioni differenziali nel tempo delle grandezze del sistema) e modelli dinamici (che al contrario tengono conto dell’evoluzione nel tempo del sistema). Questa attività fa riferimento al primo.</p>
+<p>E’ importante distinguere tra modelli statici (cioè che non tengono conto delle relazioni differenziali nel tempo delle grandezze del sistema) e modelli dinamici (che al contrario tengono conto dell’evoluzione nel tempo del sistema). Questa attività fa riferimento al primo.</p>
 <p>Nel caso di misurazioni indirette, è fondamentale disporre di un modello che descriva il comportamento del trasduttore, cioè la relazione tra uscita e ingresso. Ogni modello dipende da uno o più parametri numerici che devono essere identificati, questa operazione di identificazione dei parametri del modello di misura si chiama <strong>taratura</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Taratura">
 <div class="callout-header d-flex align-content-center">
@@ -733,18 +745,18 @@ Taratura
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV30</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV20</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">29</td>
+<td style="text-align: right;">16</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">HV30</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV5</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
@@ -757,218 +769,218 @@ Taratura
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">HV30</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">HV30</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">17</td>
 <td style="text-align: right;">26</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">HV10</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV5</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV30</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">11</td>
 <td style="text-align: right;">29</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">19</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">HV5</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">30</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">21</td>
 <td style="text-align: right;">5</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV30</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
@@ -1586,7 +1598,7 @@ Conclusione
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV5</td>
 <td style="text-align: right;">5</td>
@@ -1595,7 +1607,7 @@ Conclusione
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">21</td>
+<td style="text-align: right;">23</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV10</td>
 <td style="text-align: right;">10</td>
@@ -1604,7 +1616,7 @@ Conclusione
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV20</td>
 <td style="text-align: right;">20</td>
@@ -1613,7 +1625,7 @@ Conclusione
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">27</td>
+<td style="text-align: right;">30</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV30</td>
 <td style="text-align: right;">30</td>
@@ -1622,7 +1634,7 @@ Conclusione
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">28</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV50</td>
 <td style="text-align: right;">50</td>
@@ -1631,7 +1643,7 @@ Conclusione
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">HV5</td>
 <td style="text-align: right;">5</td>
@@ -2074,7 +2086,7 @@ W = 0.95792, p-value = 0.2738</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/mmt-unitn\.github\.io\/InDaLab\/");
+        var filterRegex = new RegExp("https:\/\/mmt-unitn\.github\.io\/InDaLab");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
