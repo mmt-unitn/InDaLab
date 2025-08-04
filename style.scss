@@ -1,0 +1,311 @@
+/*-- scss:defaults --*/
+
+/*-- scss:colors --*/
+// Change the $base-color variable: the other colors are automatically selected 
+// as ternay colors triplet (i.e. with equally spaced hues)
+$base-color: #86c109;
+$base-color-dark: scale-color($base-color, $lightness: -30%);
+$base-color-light: scale-color($base-color, $lightness: +30%);
+
+$alt-color-1: adjust-color($base-color, $hue: -120deg, $space: hsl);
+// $alt-color-1: #C10986;
+$alt-color-1-dark: scale-color($alt-color-1, $lightness: -30%);
+$alt-color-1-light: scale-color($alt-color-1, $lightness: +30%);
+@debug "ac1: #{$alt-color-1}";
+
+$alt-color-2: adjust-color($base-color, $hue: 120deg, $space: hsl);
+// $alt-color-2: #0986C1;
+$alt-color-2-dark: scale-color($alt-color-2, $lightness: -30%);
+$alt-color-2-light: scale-color($alt-color-2, $lightness: +30%);
+@debug "ac2: #{$alt-color-2}";
+
+$red: scale-color(#FF0000, $lightness: -20%);
+$green: scale-color(#00FF00, $lightness: -20%);
+$blue: scale-color(#0000FF, $lightness: -20%);
+
+$body-bg: white;
+$body-color: #776666;
+$navbar-bg: $base-color;
+
+/*--- pages --*/
+$link-color: $alt-color-2;
+$link-hover-color: $alt-color-1;
+$headings-color: $base-color;
+$math-color: $alt-color-2;
+$code-color: $alt-color-1-dark;
+
+/*-- font sizes --*/
+$h1-font-size:          2.4rem !default;
+$h2-font-size:          1.6rem !default;
+$h3-font-size:          1.2rem !default;
+$code-block-font-size:  0.95em;
+$headings-font-weight:  500 !default;
+
+/*-- presentations --*/
+$presentation-font-size-root: 30px;
+$presentation-heading-color: $base-color;
+
+
+/*-- scss:rules --*/
+
+h1, h2 {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+  color: $navbar-bg;
+}
+
+h1.title {
+  font-size: $h1-font-size*1.3;
+  font-weight: $headings-font-weight*2;
+}
+
+/*-- Links --*/
+#quarto-content .level1 a {
+  color: $link-color;
+  text-decoration: underline;
+  text-decoration-color: $link-hover-color;
+}
+
+#quarto-content .level1 a:hover {
+  color: $link-hover-color;
+  text-decoration: underline;
+  text-decoration-color: $link-color;
+}
+
+.nav-link:hover {
+  color: $alt-color-1 !important;
+}
+
+/*-- Navbar --*/
+
+.navbar {
+  --bs-navbar-padding-y: 0px !important;
+  --bs-navbar-brand-padding-y: 0px !important;
+}
+
+.navbar-brand-container {
+  max-width: 100%;
+}
+
+.navbar-title {
+  font-size: $h2-font-size;
+  font-weight: $headings-font-weight*2;
+  margin: 0px 0px 0px 15px;
+}
+
+.navbar-title:hover {
+  color: $alt-color-1 !important;
+}
+
+.navbar-logo {
+  max-height: 75px;
+}
+
+.menu-text {
+  font-size: $h3-font-size;
+  font-weight: $headings-font-weight;
+}
+
+.dropdown-item:hover {
+  background-color: $link-color;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.alert {
+  margin: 10px;
+}
+
+.math {
+  color: $math-color;
+  font-size: 1em;
+}
+
+code {
+  color: $code-color;
+  font-size: 95%;
+}
+
+strong {
+  color: $headings-color;
+}
+
+figcaption {
+  text-align: center;
+  font-style: italic;
+}
+
+.quarto-title-meta,.quarto-title-meta-author {
+  color: scale-color($body-color, $lightness: +50%);
+  font-size: 0.8em;
+}
+
+.quarto-title-meta-heading {
+  font-weight: bold !important;
+}
+
+.quarto-title-meta-contents {
+  font-style: italic;
+}
+
+div.abstract {
+  font-style: italic;
+}
+
+.thatsall {
+  margin-top: 75px;
+  padding-bottom: 0px;
+  line-height: 0;
+  font-style: italic;
+  text-align: right;
+  border-bottom: 1px solid #aaa;
+}
+
+
+/*-- RevealJS settings --*/
+
+.reveal a {
+  color: $link-color;
+  text-decoration: underline;
+  text-decoration-color: $link-hover-color;
+}
+
+.reveal a:hover {
+  color: $link-hover-color;
+  text-decoration: underline;
+  text-decoration-color: $link-color;
+}
+
+.reveal p.subtitle {
+  font-size: 150%;
+  color: $presentation-heading-color;
+}
+
+.reveal strong {
+  color: $presentation-heading-color;
+}
+
+.reveal aside{
+  font-style: italic;
+}
+
+.reveal figcaption {
+  font-style: italic;
+  text-align: center;
+}
+
+.reveal .theorem {
+  background-color: #f9f9ff;
+  border: 1px solid #888888;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 43px 0px 10px 0px;
+}
+
+.reveal .theorem .title {
+  font-weight: normal;
+  border: 1px solid #888888 !important;
+  border-radius: 5px;
+  margin-top: -32px;
+  margin-left: 30px;
+  background-color: white;
+  padding: 0px 10px 0px 10px;
+  width: fit-content;
+}
+
+.reveal .theorem .title p {
+  margin: 0px;
+}
+
+.quarto-title-author-name {
+  font-size: 80%;
+  font-weight: bold;
+}
+
+.quarto-title-affiliation {
+  font-style: italic;
+}
+
+.reveal p.date {
+  font-size: 50%;
+  font-style: italic;
+  color: #aa9999;
+}
+
+.reveal h1:not(.title) {
+  background-image: linear-gradient(to right, $body-bg, scale-color($alt-color-2, $lightness: +80%));
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  //border-bottom: 3px solid $alt-color-2-light;
+  box-shadow: 3px 3px 3px scale-color($alt-color-2, $lightness: +70%);
+}
+
+.reveal .title {
+  border-bottom: 6px;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+  border-bottom-style: solid;
+  border-bottom-color: $presentation-heading-color;  
+}
+
+.reveal p.subtitle {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+  color: complement($presentation-heading-color, $space: null);  
+}
+
+.reveal h2 {
+  border-bottom: 4px;
+  border-bottom-style: solid;
+  border-bottom-color: $presentation-heading-color;
+}
+
+.reveal .math {
+  color: $math-color;
+}
+
+.reveal code {
+  color: $code-color;
+  font-size: 95%;
+}
+
+.reveal .cell-output-stdout {
+  font-size: 66%;
+}
+
+.reveal .bblue {
+  font-weight: bold;
+  color: $blue;
+}
+
+.reveal .bgreen {
+  font-weight: bold;
+  color: $green;
+}
+
+.reveal .ul {
+  text-decoration: underline;
+}
+
+.reveal .smaller {
+  font-size: 75%;
+}
+
+.reveal .tiny {
+  font-size: 50%;
+}
+
+.sourceCode {
+  font-size: 90%;
+}
+
+.reveal div.callout.callout-style-default {
+  border-right: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 10px;
+}

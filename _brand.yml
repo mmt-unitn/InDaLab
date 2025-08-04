@@ -1,0 +1,16 @@
+logo: 
+  medium: https://keystoneacademic-res.cloudinary.com/image/upload/c_pad,w_640,h_304/dpr_auto/f_auto/q_auto/v1/element/14/147138_logoUnitrento_1000px.png
+  
+typography:
+  fonts:
+    - family: Open Sans
+      source: google
+    - family: Rubik
+      source: google
+    - family: IBM Plex Mono
+      source: google
+  base: Open Sans
+  headings:
+    family: Rubik
+    weight: 400
+  monospace: IBM Plex Mono

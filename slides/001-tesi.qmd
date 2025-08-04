@@ -8,36 +8,7 @@ categories:
   - tesi
 abstract: >
   Descrizione del tema di tesi proposto
-format: 
-  revealjs:
-    # theme: dark
-    # theme: beige
-    # theme: blood
-    # theme: dark
-    # theme: default
-    # theme: league
-    theme: [moon, ../slides.scss]
-    # theme: night
-    # theme: serif
-    # theme: simple
-    # theme: sky
-    # theme: solarized
-    width: 1280
-    height: 720
-    margin: 0.1
-    slide-number: true
-    code-line-numbers: true
-    code-annotations: below
-    preview-links: auto
-    chalkboard: true
-    footer: "[Home](/slides.qmd)"
-    fig-width: 5
-    fig-height: 4
-    fig-dpi: 300
-    email-obfuscation: javascript
-    pdf-separate-fragments: true
-    link-external-icon: true
-    lang: it-IT
+format: revealjs
 ---
 
 ## Contesto

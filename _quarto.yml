@@ -4,18 +4,54 @@ execute:
   freeze: auto
 website:
   title: "InDaLab"
-  site-url: "https://mmt-unitn.github.io/InDaLab/"
+  site-url: "https://mmt-unitn.github.io/InDaLab"
   navbar:
     left:
       - text: "Esperimenti"
-        href: "experiments.qmd"
+        href: experiments.qmd
       - text: "Presentazioni"
-        href: "slides.qmd"
+        href: slides.qmd
     right:
       - icon: github
         href: "https://github.com/mmt-unitn/InDaLab"
 format:
   html:
-    lang: it
-    theme: materia
+    toc: true
+    email-obfuscation: javascript
+    lang: it-IT
+    theme: 
+      - materia
+      - style.scss
+  revealjs:
+    theme: 
+      - default
+      - style.scss
+    # theme: dark
+    # theme: beige
+    # theme: blood
+    # theme: dark
+    # theme: default
+    # theme: league
+    # theme: [default, ../slides.scss]
+    # theme: night
+    # theme: serif
+    # theme: simple
+    # theme: sky
+    # theme: solarized
+    width: 1280
+    height: 720
+    margin: 0.1
+    slide-number: true
+    code-line-numbers: true
+    code-annotations: below
+    preview-links: auto
+    chalkboard: true
+    footer: "[Home](/slides.qmd)"
+    fig-width: 5
+    fig-height: 4
+    fig-dpi: 300
+    email-obfuscation: javascript
+    pdf-separate-fragments: true
+    link-external-icon: true
+    lang: it-IT
     
