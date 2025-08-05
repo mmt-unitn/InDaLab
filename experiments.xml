@@ -10,7 +10,7 @@
 <atom:link href="https://mmt-unitn.github.io/InDaLab/experiments.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.30</generator>
-<lastBuildDate>Sun, 03 Aug 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 04 Aug 2025 22:00:00 GMT</lastBuildDate>
 <item>
   <title>Degradazione fotocatalitica di soluzioni di blu di metilene</title>
   <dc:creator>Tommaso Stefani</dc:creator>
@@ -2315,7 +2315,7 @@ Conclusione
  ]]></description>
   <category>materiali</category>
   <guid>https://mmt-unitn.github.io/InDaLab/experiments/003-fotocatalisi/</guid>
-  <pubDate>Sun, 03 Aug 2025 22:00:00 GMT</pubDate>
+  <pubDate>Mon, 04 Aug 2025 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Misura di durezza superficiale</title>
@@ -5238,7 +5238,7 @@ font-style: inherit;">kable</span>()</span></code></pre></div>
  ]]></description>
   <category>materiali</category>
   <guid>https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/</guid>
-  <pubDate>Sun, 03 Aug 2025 22:00:00 GMT</pubDate>
+  <pubDate>Mon, 04 Aug 2025 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Esempio: resistenza di un filato</title>
