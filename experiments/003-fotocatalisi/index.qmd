@@ -9,7 +9,7 @@ draft: false
 categories: 
   - materiali
 abstract: >
-  In questa attività si conducono esperimenti di degradazione fotocatalitica di soluzioni di blu di metilene
+    In questa attività si conducono reazioni fotocatalitiche di degradazione di soluzioni acquose di blu di metilene. L’obiettivo dell’esperienza è confermare la cinetica di una reazione del primo ordine e determinare la costante k dell’equazione cinetica, per poi elaborare un modello empirico che la correli a quattro parametri presi in considerazione: concentrazione di blu di metilene, concentrazione del catalizzatore, temperatura della soluzione e intensità della radiazione UV incidente.
 ---
 
 ```{r}
@@ -47,8 +47,7 @@ I parametri che si considerano sono:
 
 ## Blu di metilene e meccanismo di reazione
 
-Il **blu di metilene (MB)** è un colorante organico ampiamente utilizzato come molecola sonda per testare l’efficienza di
-processi di decontaminazione di effluenti acquosi, in quanto presenta:
+Il **blu di metilene (MB)** è un colorante organico ampiamente utilizzato come molecola sonda per testare l’efficienza di processi di decontaminazione di effluenti acquosi, in quanto presenta:
 
 - Colore intenso (blu brillante),
 - Facilità di solubilizzazione in acqua,
@@ -204,8 +203,8 @@ La procedura di misura è la seguente:
 
 Si vuole indagare la relazione sperimentale che lega la $k$ dell'equazione cinetica con i seguenti 4 parametri:
 
-* concentrazione di $TiO_2$ in g/l -> fattore A (quantitativo)
-* concentrazione di $MB$ in g/l -> fattore B(quantitativo)
+* concentrazione di $TiO_2$ in g/L -> fattore A (quantitativo)
+* concentrazione di $MB$ in mg/L -> fattore B(quantitativo)
 * temperatura della soluzione in °C -> fattore C (quantitativo)
 * intensità luminosa (numero di lampade UV utilizzate) -> fattore D (qualitativo)
 
@@ -214,9 +213,9 @@ Si sviluppa il piano fattoriale che specifica quali siano le prove (e quindi la 
 ```{r}
 dm<-fp_design_matrix(4)%>%
   fp_add_names(A="Catalizzatore",B="MB",C="Temperatura",D="Intensità_luminosa")%>%
-  fp_add_scale(A=c(0.2,0.4),B=c(0.004,0.008),C=c(8,22),D=c(3,6))
+  fp_add_scale(A=c(0.2,0.4),B=c(4,8),C=c(8,22),D=c(3,6))
 #eventualmnete se le prove sono troppe frazionare il piano
-kable(dm)
+kable(dm,caption = "piano fattoriale")
 ```
 
 Le prove si identificano tramite la notazione di *Yates*. Si raccomanda di nominare i file ottenuti dallo spettrofotometro in maniera tale da poter poi implementare un codice che permetta di importare in dati in modo "automatico".
@@ -236,12 +235,12 @@ file_cali <- list.files("data/calibrazione", full.names = TRUE)
 data_cali <- map_dfr(file_cali, function(file) {
   read.csv(file, skip = 42, header = TRUE) %>%
     rename(Wavelength_nm = Wavelength..nm.)%>%
-    mutate(Concentration_ppm = parse_number(sub("\\.txt$", "", basename(file))))
+    mutate(Concentration_mgL = parse_number(sub("\\.txt$", "", basename(file))))
 }) %>%
-  arrange(Concentration_ppm)%>%
-  relocate(Concentration_ppm,.before= Wavelength_nm)
+  arrange(Concentration_mgL)%>%
+  relocate(Concentration_mgL,.before= Wavelength_nm)
 
-kable(head(data_cali),caption="Tabella con i dati degli spettri relativi a soluzioni a diversa concentrazione di MB")
+kable(head(data_cali),caption="`data_cali`: dati degli spettri relativi a soluzioni a diversa concentrazione nota di MB")
 ```
 
 `data_prove` contiene i dati degli spettri raccolti dalle provette prelevate a diversi tempi durante lo svolgimento della reazione, per tutte le prove effettuate.
@@ -250,76 +249,64 @@ Poiché sono state svolte più prove e per ciascuna prova si hanno piu file che 
 
 Questa tibble avrà quattro colonne:
 
-* tempo_min: il tempo di prelievo in minuti alla quale è stata prelevata una provetta di soluzione durante la reazione
-* prova: la sigla di yates che identifica la prova
+* time_min: il tempo di prelievo in minuti alla quale è stata prelevata una provetta di soluzione durante la reazione
+* .treat: la sigla di yates che identifica la prova
 * Absorbance: il valore dell’assorbanza misurata per una specifica lunghezza d'onda,
 * Wavelength_nm: la lunghezza d’onda corrispondente alla misura.
 
 Esistono molti modi per importare i dati come appena spiegato, uno di questi puo essere facendo uso del codice seguente.
 
 ```{r}
-#list.dirs() crea una lista di stinghe rappresentanti i percorsi delle cartelle o dei files contenuti subito dentro la cartella
-#data come argomento (se recursive=F)
 
-# keep() restituisce un vettore che contiene solo gli elementi del vettore originario in posizione TRUE rispetto ad un vettore
-#logico passato come argomento.
-
-#str_detect() restituisce un vettore logico ottenuto sulla base di un criterio dato come argomento , nel nostro caso
-#restituisce true se il basename , che è la parte finale del percorso, inizia (^) con la parola prova.
+# cartelle_prove contiene la lista dei percorsi delle cartelle contentente i file dei vari trattamenti 
 
 cartelle_prove <- list.dirs("data/", recursive = FALSE, full.names = TRUE)%>%
    keep(~ str_detect(basename(.), "^prova"))   
 
+# read.file carica i dati relativi allo spettro di una singola provetta
 
-# cartelle_prove è quindi un vettore che contiene i percorsi come "data/prova_(1)_7725" delle cartelle che contengono
-#i file delle SOLE prove.
-  
-#La funzione leggi_prova unisce tutti i file contenuti dentro una SINGOLA cartella di prova, estrae il tempo dal nome di 
-#ogni file, importa i dati saltando le intestazioni, aggiunge le colonne tempo e prova, e unisce tutto in un unica tibble.
-#La tibble che restituisce quindi contiene tutti i dati relativi ad un'unica prova, e quindi gli spettri a diversi tempi della
-#stessa prova.
-
-leggi_prova <- function(cartella) {
-  files <- list.files(cartella, pattern = "\\.txt$", full.names = TRUE) #lista di tutti i path dei  file .txt contenuti nella cartella passata   
-  nome_prova <- str_extract(basename(cartella), "(?<=prova_)[^_]+")  #nome della prova che stiamo caricando nella notazione di yates
-  leggi_file <- function(file) {
-    tempo <- str_extract(file, "_-?\\d+min") %>% str_remove_all("_|min") %>% as.numeric()  #per avere il tempo numerico
-    read.csv(file, skip = 42,header = T) %>%
-      rename(Wavelength_nm = Wavelength..nm.) %>%
-      mutate(
-        .treat = nome_prova,
-        tempo_min = tempo
+read.file<-function(file){
+  time <- str_extract(file, "_-?\\d+min") %>% str_remove_all("_|min") %>% as.numeric()
+  read.csv(file, skip = 42,header = T) %>%
+    rename(Wavelength_nm = Wavelength..nm.) %>%
+    mutate(
+      .treat = str_extract(basename(file), "(?<=prova_)[^_]+"),
+      time_min = time
       ) %>%
-      tibble()
-  }
-  
-  map_dfr(files, leggi_file)  # per ottenere un'unica tibble 
+    tibble()
 }
 
-# Per unire tutte le prove usiamo map_dfr che restituisce un'unico data.frame che contiene tutti i datti di tutte le prove
+# read.treat carica i dati relativi agli spettri di un trattamento (quindi gli spettri delle provette prelevate a diversi tempi di uno stesso trattamento)
 
-data_prove <- map_dfr(cartelle_prove, leggi_prova) %>% 
+read.treat<-function(directory){
+  files<-list.files(directory, pattern = "\\.txt$", full.names = TRUE)
+  map(files,~read.file(.))%>%
+    bind_rows()
+}
+
+data_prove<-map(cartelle_prove,~read.treat(.))%>%
+  bind_rows()%>%
   mutate(.treat = factor(.treat, levels = dm %>% pull(.treat)))%>%
-  arrange(.treat,tempo_min)%>%
-  relocate(.treat,tempo_min,.before = Wavelength_nm)
+  arrange(.treat,time_min)%>%
+  relocate(.treat,time_min,.before = Wavelength_nm)
 
-kable(head(data_prove))
+kable(head(data_prove),caption = "`data_prove`: dati degli spettri relativi a tutte le provette prelevate a diversi tempi per tutti i trattamenti")
 
 ```
 
-## Calibrazione
+## Calibrazione del modello che lega la concentrazione di MB all'assorbanza 
 
-Si possono graficare gli spettri delle soluzioni a diversa concentrazione di MB:
+Si graficano gli spettri delle soluzioni a diversa concentrazione di MB:
 
 ```{r}
 data_cali%>%
-  ggplot(aes(x=Wavelength_nm,y=Absorbance,color = factor(Concentration_ppm)))+
+  ggplot(aes(x=Wavelength_nm,y=Absorbance,color = factor(Concentration_mgL)))+
   geom_line()+
   labs(
     title = "Spettri di assorbimento per diverse concentrazioni di MB",
     x = "Lunghezza d'onda (nm)",
     y = "Assorbanza",
-    color = "Concentration (ppm)"
+    color = "Concentrazione di MB (mg/L)"
   )
 ```
 
@@ -327,58 +314,117 @@ Per trovare il coefficiente del modello che correla assorbanza con concentrazion
 
 ```{r}
 data_cali<-data_cali%>%
-  group_by(Concentration_ppm)%>%
+  group_by(Concentration_mgL)%>%
   summarise(Absorbance=max(Absorbance,na.rm=T))
-kable(data_cali, caption="Concentrazione MB vs Assorbanza")
+kable(data_cali, caption="Concentrazione MB (mg/L) vs Assorbanza")
 ```
 
-Si regredisce quindi il modello lineare ponendo nulla l'intercetta:
+I punti sperimentali su un grafico Assorbanza vs Concentrazione sono:
+
+```{r}
+data_cali%>%
+  ggplot(aes(x=Concentration_mgL,y=Absorbance))+
+  geom_point()+
+  labs(
+    title = "Assorbanza vs Concentrazione: punti sperimentali",
+    x = "Concentrazione MB (mg/L)",
+    y = "Assorbanza"
+  )
+```
+
+Si regredisce quindi il modello lineare che lega assorbanza con concentraizone di MB (in mg/L) ponendo nulla l'intercetta:
 
 
 ```{r}
-data_cali.lm<-lm(Absorbance ~ Concentration_ppm - 1, data = data_cali)
+data_cali.lm<-lm(Absorbance ~ Concentration_mgL - 1, data = data_cali)
 summary(data_cali.lm)
+```
+Si effettua l'analisi dei residui al fine di validare il modello (normalità e assenza di pattern):
 
-#sequenza di valori x (includendo lo 0)
-pl_data <- tibble(Concentration_ppm = seq(0, max(data_cali$Concentration_ppm), length.out = 100))
 
-# predizioni con intervallo di confidenza
+```{r}
+data_cali%>%
+  add_residuals(data_cali.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+
+
+data_cali%>%
+  add_residuals(data_cali.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line()+
+  labs(
+  title="Grafico quantile-quantile"
+  )
+
+data_cali%>%
+  add_residuals(data_cali.lm)%>%
+  ggplot(aes(x=Concentration_mgL,y=resid))+
+  labs(
+    title = "Residui vs Concentrazione",
+    x = "Concentrazione MB (mg/L)",
+    y = "Residui (Assorbanza)"
+  )+
+  geom_point()
+  
+data_cali%>%
+  add_residuals(data_cali.lm)%>%
+  add_predictions(data_cali.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  labs(
+    title = "Residui vs Predizioni",
+    x = "Predizioni (Assorbanza)",
+    y = "Residui (Assorbanza)"
+  )+
+  geom_point()
+```
+
+
+Si grafica l'andamento del modello regredito, insieme alla sua banda di confidenza al 95%.
+
+```{r}
+
+pl_data <- tibble(
+  Concentration_mgL = seq(0, max(data_cali$Concentration_mgL), length.out = 100)
+  )
+
 pred <- predict(data_cali.lm, pl_data, interval = "confidence")
 
-# Unisco le tabelle
 pl_data <- bind_cols(pl_data, as_tibble(pred))
 
 ggplot() +
-  geom_point(data = data_cali, aes(x = Concentration_ppm, y = Absorbance)) +
-  geom_line(data = pl_data, aes(x = Concentration_ppm, y = fit), color = "red") +
-  geom_ribbon(data = pl_data, aes(x = Concentration_ppm, ymin = lwr, ymax = upr), alpha = 0.3) +
-  labs(
-    title = "Assorbanza vs Concentrazione",
-    x = "Concentrazione (ppm)",
+  geom_point(data = data_cali, aes(x = Concentration_mgL, y = Absorbance)) +
+  geom_line(data = pl_data, aes(x = Concentration_mgL, y = fit), color = "red") +
+  geom_ribbon(data = pl_data, aes(x = Concentration_mgL, ymin = lwr, ymax = upr), alpha = 0.3) +
+   labs(
+    title = "Assorbanza vs Concentrazione: modello lineare e banda di confidenza al 95 %",
+    x = "Concentrazione MB (mg/L)",
     y = "Assorbanza"
-  ) +
+  )+
   expand_limits(x = 0, y = 0)
 
 coeff<-data_cali.lm$coefficients
 ```
 
+Ovviamente, con più che la concentrazione si avvicina al valore nullo la banda di confidenza si restringe.
 
 Il coefficiente che lega la concentrazione in ppm all'assorbanza è quindi `coeff`= `r coeff`. Per trovare il valore incognito di concentrazione di una soluzione di` MB basterà quindi moltiplicare il valore di picco del suo spettro per l'inverso del coefficiente appena trovato.
 
 
-## Spettri delle varie prove
 
+## Spettri delle varie prove
 
 Gli spettri delle soluzioni di ogni provetta (ogni provetta corrisponde ad un determinato tempo di prelievo per un determinato trattamento) si riportano di seguito:
 
 
 ```{r}
 data_prove%>%
-  ggplot(aes(x=Wavelength_nm,y=Absorbance,color = factor(tempo_min)))+
+  ggplot(aes(x=Wavelength_nm,y=Absorbance,color = factor(time_min)))+
   geom_line()+
   facet_wrap(~.treat,ncol=2)+
   labs(
-    title = "Spettri di assorbimento",
+    title = "Spettri di assorbimento di tutte le provette per tutti i trattamenti ",
     x = "Lunghezza d'onda (nm)",
     y = "Assorbanza",
     color = "Tempo (min)"
@@ -396,7 +442,7 @@ Si vuole innanzitutto verificare che le reazioni condotte siano effettivamente d
 #si aggiunge al dataframe delle prove la concentrazione corrispondente al tempo 0 per ogni prova, servirà in seguito
 
 data_C0 <- data_prove %>%
-  filter(tempo_min == 0) %>%
+  filter(time_min == 0) %>%
   group_by(.treat) %>%
   summarise(Abs = max(Absorbance, na.rm = TRUE)) %>%
   mutate(C0=(1/coeff)*Abs)%>%
@@ -406,26 +452,26 @@ data_C0 <- data_prove %>%
 data_prove <- data_prove %>%
   left_join(data_C0, by = ".treat")
 
-## si crea un data frame il quale contiene il valore della concentrazione per ogni tempo e per ogni prova (ricavato dal massimo dello spettro per un certo tempo
+## si crea un data frame il quale contiene il valore della concentrazione per ogni tempo e per ogni prova (ricavato dal massimo dello spettro per un certo tempo)
 
 data_prove_max <- data_prove %>%
-  group_by(.treat, tempo_min) %>%
+  group_by(.treat, time_min) %>%
   slice_max(order_by = Absorbance, n = 1, with_ties = FALSE) %>%
   ungroup()%>%
-  mutate(Concentration_ppm = (1/coeff)*Absorbance) 
-data_prove_max
+  mutate(Concentration_mgL = (1/coeff)*Absorbance) 
 
-## si plottano i punti sperimentali cosi ottenuti
 
-(data_prove_max_plot<-data_prove_max%>%
-  ggplot(aes(tempo_min,y=Concentration_ppm))+
+## si graficano i punti sperimentali ottenuti
+
+data_prove_max%>%
+  ggplot(aes(time_min,y=Concentration_mgL))+
   geom_point()+
   facet_wrap(~.treat)+
   labs(
     title = "Concentrazioni vs tempo",
     x = "Tempo (min)",
     y = "Concentrazione (ppm)"
-  ))
+  )
 ```
 Sembrerebbe che  dall'istante 0 (che corrisponde all'accensione delle lampade UV) l'andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.
 
@@ -435,35 +481,29 @@ $$
 \ln\left(\frac{C}{C_0}\right) = -kt
 $$
 
-Ciò suggerisce di eseguire delle regressioni per i vari trattamenti utilizzando un modello lineare $y~x$ in cui $y=\ln(\frac{C}{C_0})$ in modo da determinare il valore della costante $k$ per ogni trattamneto, unico parametro che descrive la velocità della reazione per il modello adottato.
-Eseguiamo quindi per ogni prova una regressione con un modello a decadimento esponenziale  dall'istante 0 per determinare il valore della tau, unico parametro che descrive la velocità della reazione per il modello adottato.
+Ciò suggerisce di eseguire delle regressioni per i vari trattamenti utilizzando un modello lineare $y \sim x$ in cui $y=\ln(\frac{C}{C_0})$ in modo da determinare il valore della costante $k$ per ogni trattamneto, unico parametro che descrive la velocità della reazione per il modello adottato.
+
+Si esegue quindi per ogni trattamento una regressione con un modello a decadimento esponenziale  dall'istante 0 per determinare il valore della costante *k*, unico parametro che descrive la velocità della reazione per il modello adottato.
+
 
 ```{r}
-models <- data_prove_max%>%   #dataframe separati per ogni trattamento
-  filter(tempo_min>=0)%>%
+# si filtrano i dati relativi a tempi >=0 e crea una tibble raggruppata per trattamento
+
+data_k <- data_prove_max %>%
+  filter(time_min >= 0) %>%          
   group_by(.treat) %>%
-  group_split()
+  nest() %>%                         # raggruppa i dati di ciascun trattamento in una colonna "data" (ne risulta una tibble nidificata)
+  mutate(
+    modello = map(data, ~ lm(-log(Concentration_mgL/C0) ~ time_min - 1, data = .x)),
+    k = map_dbl(modello, ~ coef(.x)[["time_min"]])
+  ) %>%
+  select(.treat, k)                  
 
-  
-nomi_prove <- data_prove_max%>%   # nomi delle prove 
-  filter(tempo_min >= 0) %>%
-  distinct(.treat) %>%
-  pull(.treat)
+kable(data_k, caption = "Coefficienti k dei trattamenti")
 
-# Crea la lista dei modelli
 
-modelli <- map(models, ~ lm(-log(Concentration_ppm/C0) ~ tempo_min -1,data=.x))
-
-# Assegna i nomi alla lista
-names(modelli) <- nomi_prove
-
-df_k<-tibble(
-  .treat = names(modelli),
-  k = map_dbl(modelli, ~ coef(.x)[["tempo_min"]])
-)
-
-kable(df_k,caption="Costante cinetica per ogni trattamento")
 ```
+
 Si graficano le curve cinetiche che si sono regredite per ogni reazione condotta:
 
 ```{r}
@@ -474,116 +514,144 @@ f <- function(t, k, C0) {
 }
 
 #Si aggiugono le k a data_prove_max
+
 data_prove_max <- data_prove_max %>%
-  left_join(df_k, by = ".treat")
+  left_join(data_k, by = ".treat")
 
-#Creiamo una sequenza continua di tempi da 0 al max tempo >= 0 (preso da data)
+#Si crea una sequenza continua di tempi da 0 al max tempo >= 0 (preso da data)
 
-tempo_range <- range(data_prove_max$tempo_min[data_prove_max$tempo_min >= 0])
+tempo_range <- range(data_prove_max$time_min[data_prove_max$time_min >= 0])
 tempi_seq <- seq(tempo_range[1], tempo_range[2], by = 0.1)
 
-#Generiamo un df con tempi continui per ogni prova e i parametri per calcolare la curva
+#Si geenera un df con tempi continui per ogni prova e i parametri per calcolare la curva
 
 df_curve <- data_prove_max  %>%       
   group_by(.treat) %>%
-  expand(tempo_min = tempi_seq) %>%   # crea tempi continui per ogni prova
+  expand(time_min = tempi_seq) %>%   # crea tempi continui per ogni prova
   left_join(., data_prove_max %>% distinct(.treat,k, C0), by = ".treat") %>%  
-  mutate(y_fit = f(tempo_min, k, C0)) %>%
+  mutate(y_fit = f(time_min, k, C0)) %>%
   ungroup()
 
-#Plot con punti sperimentali + curva 
+#Grafico con punti sperimentali e curva regredita
 data_prove_max %>%
-  filter(tempo_min >= 0) %>%
-  ggplot(aes(tempo_min, Concentration_ppm)) +
+  filter(time_min >= 0) %>%
+  ggplot(aes(time_min, Concentration_mgL)) +
   geom_point() +
   facet_wrap(~.treat) +
-  geom_line(data = df_curve, aes(tempo_min, y_fit), color = "blue") +
+  geom_line(data = df_curve, aes(time_min, y_fit), color = "blue") +
   labs(
-    title = "Concentrazioni vs tempo",
+    title = "Concentrazioni vs tempo, curva regredita",
     x = "tempo (min)",
-    y = "concentrazione (ppm)"
+    y = "concentrazione MB (mg/L)"
   )
 
 ```
-## Modello che lega k ai fattori
+## Modello che lega k ai fattori - ANOVA
 
-Ora inseriamo finalmente i valori delle k nel piano fattoriale iniziale:
+Si possono quindi inserire i valori delle k nel piano fattoriale iniziale:
 
 ```{r}
 dm <- dm %>%
   select(-Y) %>%
-  left_join(df_k %>% select(.treat, Y = k), by = ".treat")%>%
+  left_join(data_k %>% select(.treat, Y = k), by = ".treat")%>%
   filter(!is.na(Y))
-dm
+kable(dm,caption = "piano fattoriale con valori di risposta Y (costante k)")
 ```
-A questo punto possiamo, tramite il metodo di Daniel verificare se siano presenti effetti o interazioni non significative.
+
+In quanto il piano fattoriale utilizzato non prevede ripetizioni. attraverso il metodo di Daniel si verificano se siano presenti effetti o interazioni non significative.
 
 ```{r}
 #| warning: false
 dm.lm<-lm(Y~A*B*C, data=dm)
-anova(dm.lm)
 ```
+
+
 ```{r}
-dm.lm %>% 
+p<-dm.lm %>% 
   effects() %>% 
   tail(-1) %>%
-  gghalfnorm(labs = names(.), nlab=3)
+  gghalfnorm(labs = names(.), nlab = 3)
+
+p + ggtitle("Grafico di Daniel")
 ```
-Si esegue un nuovo modello lineare escludendo gli effetti meno significativi, si effettua quindi l'analisi Anova.
+Si esegue un nuovo modello lineare escludendo gli effetti meno significativi, si effettua quindi l'analisi ANOVA (eliminando degli effetti e delle interazioni si è reso il piano implicitamente ripetuto).
 
 ```{r}
 dm.lm<-lm(Y~A,data=dm) 
 anova(dm.lm)
 ```
-Si verificano i residui:
+Per ritenere validi i risultati forniti dall'analisi ANOVA va effettuata in utlimo l'analisi dei residui:
 
-* Verifica di normalità
+### Verifica di normalità
 
 ```{r}
-dm%>%
-  add_residuals(dm.lm)%>%
-  ggplot(aes(sample=resid))+
-  geom_qq()+
-  geom_qq_line()
-
 dm%>%
   add_residuals(dm.lm)%>%
   pull(resid)%>%
   shapiro.test()
 
+
+dm%>%
+  add_residuals(dm.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line()+
+   labs(
+    title = "Grafico quantile-quantile"
+  )
 ```
-* Verifica assenza di pattern
+### Assenza di pattern
 
 ```{r}
 dm%>%
   add_residuals(dm.lm)%>%
   ggplot(aes(x=A,y=resid))+
-  geom_point()
+  geom_point()+
+  labs(
+    title = "Residui vs fattore A",
+    x = "A",
+    y = "Residui"
+  )
 
 dm%>%
   add_residuals(dm.lm)%>%
   ggplot(aes(x=RunOrder,y=resid))+
-  geom_point()
+  geom_point()+
+   labs(
+    title = "Residui vs RunOrder",
+    x = "RunOrder",
+    y = "Residui"
+  )
 
 dm%>%
   add_residuals(dm.lm)%>%
   add_predictions(dm.lm)%>%
   ggplot(aes(x=pred,y=resid))+
-  geom_point()
+  geom_point()+
+   labs(
+    title = "Residui vs Predizioni",
+    x = "Predizioni",
+    y = "Residui"
+  )
 ```
+### Superficie di risposta
 
+Dopo aver validato il modello tramite l'analisi dei residui si può riportare la superficie di risposta ottenuta (in coded unit). Essa rappreseta come varia la costante *k* al variare dei fattori (quelli significativi). 
 
-
-Si riporta la superficie di risposta ottenuta:
+Per ottenere reazioni a decadimento più rapido bisognerà scegliere una combinazione dio fattori che massimizzi il valore della costante (e/o viceversa).
 
 ```{r}
 dm%>%add_predictions(dm.lm,var="k")%>%
   ggplot(aes(x=A,y=B,z=k))+
   geom_contour_filled()+
   facet_wrap(~C)+
-  labs(fill = "k")
+  labs(
+    fill = "k",
+    title = "Superficie di risposta per la costante k "
+    )
+  
 ```
 :::{.callout-note title="Conclusione"}
 
-Quindi, risulta che gli unici fattori che ha un impatto significativo sulla velocità di reazione (e quindi sulla costante$k$) sono **(devo fare le prove in laboratorio effettive)
+Quindi, risulta che gli unici fattori che hanno un impatto significativo sulla velocità di reazione (e quindi sulla costante$k$) sono 
 :::

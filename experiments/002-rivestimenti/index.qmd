@@ -1,0 +1,826 @@
+---
+title: "Rivestimenti protettivi sol-gel ibridi nanocompositi."
+author: "Tommaso Stefani"
+date: today
+format: html
+draft: false
+categories: 
+  - materiali
+abstract: >
+  In questa attività si realizzano dei rivestimenti sol-gel ibridi nanocompositi su un substrato di alluminio per identificare quali combinazioni di parametri garantisce le migliori prestazioni in termini di adesione e omogeneità del rivestimento (spessore uniforme).
+---
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  fig.align = "center",
+  # This for default device
+  out.width = "16cm",
+  # This two for high quality charts:
+  fig.dim = c(16, 9)*0.4
+)
+library(tidyverse)
+library(stringr)
+library(modelr)
+library(adas.utils)
+library(knitr)
+library(gghalfnorm)
+library(patchwork)
+```
+
+# Descrizione dell'attività
+
+In questa attività si studiano e realizzano rivestimenti sol-gel ibridi nanocompositi su substrati di alluminio, con l’obiettivo di individuare le combinazioni di parametri sperimentali che garantiscano le migliori prestazioni in termini di adesione e uniformità dello spessore del rivestimento.
+
+Questi rivestimenti rappresentano un’alternativa ai tradizionali trattamenti cromati o chimici più impattanti, rispondendo alla crescente esigenza di soluzioni **eco-friendly** e sostenibili nell’ambito dei materiali protettivi.
+
+In particolare si andrà a valutare l'impatto dei seguenti fattori:
+
+* ph della soluzione
+* rapporto inorganico/organico
+
+sui seguenti parametri assunti come risposta:
+ 
+ * forza di adesione
+ * spessore
+ * omogeneità (l'opposto della varianza) del rivestimento in termini di forza di adesione
+ * omogeneità (l'opposto della varianza) del rivestimento in termini di spessore
+ 
+Allo scopo si seguirà l'approcio statistico basato sul **central composite design (CCD)** il quale permette di verificare una eventuale curvatura della risposta.
+
+# Cenni teorici
+
+## Chimica dei rivestimenti sol–gel ibridi
+
+I rivestimenti sol–gel si basano sulla trasformazione di precursori alchil- o trialcoxisilani in una rete solida di silice tramite **idrolisi e condensazione**.  
+Nel caso dei rivestimenti ibridi organico-inorganici, i precursori più comuni sono:  
+
+- **TEOS (tetraetilortosilicato, $Si(OC_2H_5)_4$)**: componente inorganica, responsabile della formazione della rete $Si–O–Si$.  
+- **GPTMS (3-glicidossipropiltrimetossisilano, $C_9H_{20}O_5Si$)**: componente organica, che conferisce funzionalità reattive e flessibilità alla rete.
+
+### Idrolisi dei precursori
+L’idrolisi di TEOS o GPTMS avviene in presenza di acqua e di un catalizzatore acido o basico, trasformando i gruppi alchossilici in gruppi silanolici ($Si–OH$):
+
+$$
+Si(OR)_4 + 4 H_2O \rightarrow Si(OH)_4 + 4 ROH
+$$
+
+dove $R$ può essere un gruppo etilico (nel TEOS) o metilico (nel GPTMS).  
+
+### Condensazione e formazione della rete
+I gruppi silanolici generati reagiscono tra loro formando legami silossanici ($Si–O–Si$) e liberando acqua o alcol:
+
+$$
+Si–OH + HO–Si \rightarrow Si–O–Si + H_2O
+$$
+
+oppure
+
+$$
+Si–OH + Si–OR \rightarrow Si–O–Si + ROH
+$$
+
+Queste reazioni di **condensazione** portano alla formazione di una rete tridimensionale solida, responsabile delle proprietà barriera e meccaniche del rivestimento.
+
+### Formazione del rivestimento ibrido
+
+Nel caso di GPTMS, il gruppo organico epossidico può ulteriormente reagire con gruppi amminici o idrossilici presenti nell’ambiente, creando un **reticolo ibrido organico-inorganico**:
+
+$$
+R–CH–(epossido) + R'–OH \rightarrow R–CH–OH–R'
+$$
+
+Questo legame organico conferisce flessibilità e migliora l’adesione al substrato metallico.  
+
+### Sintesi controllata
+
+La **composizione e le condizioni di processo** (rapporto $TEOS/GPTMS$, pH, temperatura di essiccazione ecc.) influenzano profondamente:
+
+- la densità della rete $Si–O–Si$;  
+- la distribuzione dei gruppi organici;  
+- la resistenza all’adesione, lo spessore e lan resistenza alla corrosione del rivestimento finale.
+
+## Central composite design - CCD
+
+Il **Central Composite Design (CCD)** è una metodologia di progettazione sperimentale molto utilizzata nelle analisi di ottimizzazione dei processi chimici e dei materiali, particolarmente indicata quando si sospettano effetti non lineari. Questo disegno sperimentale permette di valutare preventivamente la **curvature** del modello di risposta, aggiungendo punti centrali replicati che migliorano la stima della variabilità sperimentale e la riproducibilità dei risultati.  
+
+Grazie alla sua struttura preventiva, il CCD permette di prevedere il comportamento del sistema nei valori intermedi delle variabili, senza la necessità di testare ogni possibile combinazione sperimentale, migliorando così l’efficienza e l’affidabilità dell’ottimizzazione del processo.
+
+
+# Parte sperimentale
+
+****devo andare in laboratorio per farla****
+
+# Elaborazione dei dati
+
+## Analisi ANOVA con CCD 
+
+### Piano fattoriale
+
+Si crea il piano fattoriale $2 \cdot 2^2$ con l'aggiunta di un punto centrale ripetuto 5 volte (per vereificare la presenza o meno di curvatura della risposta).Si ha quindi un piano fattoriale a *central composite design*. Si sottolinea che per fare analisi statistica è necessario ripetere tutti i punti (compreso quello centrale) almeno 2 volte.
+
+In quanto si vuole valutare la risposta in termini di adesione e di spessore sono presenti entrambe nel piano. Inoltre entrambe sono ripetute 4 volte perche si desidera valutare l'omogeneità della risposta.
+
+```{r}
+dm<-fp_design_matrix(2,rep=2)%>%
+  fp_add_names(A="ph",B="inorganico/organico")%>%
+  fp_add_scale(A=c(0,3),B=c(1,4))%>%
+  fp_augment_center(rep=5)%>%
+  rename(
+    ades1=Y
+  )%>%
+  add_column(
+    ades2=NA,
+    ades3=NA,
+    ades4=NA,
+    spes1=NA,
+    spes2=NA,
+    spes3=NA,
+    spes4=NA
+  )
+
+kable(dm,caption = "piano fattoriale con design centrale")
+
+```
+
+### Raccolta dati
+
+Si inseriscono i dati rilevati in laboratorio:
+
+```{r}
+set.seed(0)
+dm$ades1=runif(nrow(dm))
+dm$ades2=rnorm(nrow(dm))
+dm$ades3=rnorm(nrow(dm))
+dm$ades4=rnorm(nrow(dm))
+dm$spes1=rnorm(nrow(dm))
+dm$spes2=rnorm(nrow(dm))
+dm$spes3=rnorm(nrow(dm))
+dm$spes4=rnorm(nrow(dm))
+
+kable(dm,caption="piano fattoriale con dati raccolti in laboratorio")
+```
+
+A questo punto aggiungiamo le due colonne media e varianza per le due grandezze adesione e spessore e rimuoviamo le altre in quanto non interessano più.
+
+```{r}
+dm<-dm %>% 
+  rowwise() %>% # opera per righe
+  mutate(
+    ades_media = mean(c(ades1,ades2,ades3,ades4)),
+    ades_var=var(c(ades1,ades2,ades3,ades4)),
+    spes_media=mean(c(spes1,spes2,spes3,spes4)),
+    spes_var=var(c(spes1,spes2,spes3,spes4))
+  ) %>% 
+  ungroup() %>% 
+  select(-(ades1:spes4)) 
+
+kable(dm,caption="piano fattoriale media e varianza delle grandezze adesione e spessore")
+```
+
+### Analisi ANOVA
+
+E' evidente che la risposta si riferisce a 4 grandezze, quindi bisogna fare 4 analisi anova.
+
+```{r}
+dm_ades.lm<-lm(ades_media ~ A*B+I(A^2), data = dm)
+dm_ades_var.lm<-lm(ades_var ~ A*B+I(A^2), data = dm)
+dm_spes.lm<-lm(spes_media ~ A*B+I(A^2), data = dm)
+dm_spes_var.lm<-lm(spes_var ~ A*B+I(A^2), data = dm)
+
+anova(dm_ades.lm)%>%kable(caption = "Tabella ANOVA per ades_media")
+anova(dm_ades_var.lm)%>%kable(caption = "Tabella ANOVA per ades_var")
+anova(dm_spes.lm)%>%kable(caption = "Tabella ANOVA per spes_media")
+anova(dm_spes_var.lm)%>%kable(caption = "Tabella ANOVA per spes_var")
+```
+
+#### Analisi dei residui per l'adesione
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  add_predictions(dm_ades.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+  )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui dell'adesione")
+
+dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+dm%>%
+  add_residuals(dm_ades.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+#### Analisi dei residui per la varianza dell' adesione
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  add_predictions(dm_ades_var.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+  )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui della varianza dell' adesione")
+
+dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+#### Analisi dei residui per lo spessore
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  add_predictions(dm_spes.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+   )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui dello spessore")
+
+dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+dm%>%
+  add_residuals(dm_spes.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+#### Analisi dei residui per la varianza dello spessore
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  add_predictions(dm_spes_var.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+  )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui della varianza spessore")
+
+dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+Tutti i modelli risultano verificati
+
+### Analisi ANOVA senza termine quadratico
+
+Per nessuna delle risposte risulta significativo il termine quadratico quindi ripetiamo l'analisi anova non considerando i termini quadratici.
+
+```{r}
+dm_ades.lm<-lm(ades_media ~ A*B, data = dm)
+dm_ades_var.lm<-lm(ades_var ~ A*B, data = dm)
+dm_spes.lm<-lm(spes_media ~ A*B, data = dm)
+dm_spes_var.lm<-lm(spes_var ~ A*B, data = dm)
+anova(dm_ades.lm)%>%kable(caption = "Tabella ANOVA per ades_media")
+anova(dm_spes_var.lm)%>%kable(caption = "Tabella ANOVA per ades_var")
+anova(dm_spes.lm)%>%kable(caption = "Tabella ANOVA per spes_media")
+anova(dm_spes_var.lm)%>%kable(caption = "Tabella ANOVA per spes_var")
+```
+Si verificano come usuale i residui al fine di validare i modelli.
+
+#### Analisi dei residui per l'adesione
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_ades.lm)%>%
+  add_predictions(dm_ades.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+  )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui dell'adesione")
+
+dm%>%
+  add_residuals(dm_ades.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+dm%>%
+  add_residuals(dm_ades.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+
+#### Analisi dei residui per la varianza dell' adesione
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  add_predictions(dm_ades_var.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+  )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui della varianza dell' adesione")
+
+dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+
+dm%>%
+  add_residuals(dm_ades_var.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+
+#### Analisi dei residui per lo spessore
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_spes.lm)%>%
+  add_predictions(dm_spes.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+  )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui dello spessore")
+
+dm%>%
+  add_residuals(dm_spes.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+dm%>%
+  add_residuals(dm_spes.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+
+#### Analisi dei residui per la varianza dello spessore
+
+Si verificano i residui in termini di assenza di pattern e normalità.
+
+
+```{r}
+p1<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(x=A,y=resid))+
+  geom_point()+
+   labs(
+    x = "ph",
+    y = "Residui"
+  )
+
+p2<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(x=B,y=resid))+
+  geom_point()+
+   labs(
+    x = "inorganico/organico",
+    y = "Residui"
+  )
+
+p3<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(x=RunOrder,y=resid))+
+  geom_point()+
+   labs(
+    x = "RunOrder",
+    y = "Residui"
+  )
+
+p4<-dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  add_predictions(dm_spes_var.lm)%>%
+  ggplot(aes(x=pred,y=resid))+
+  geom_point()+
+   labs(
+    x = "Predizioni",
+    y = "Residui"
+  )
+
+p1 / p2 / p3/ p4 + plot_annotation(title = "Residui della varianza spessore")
+
+dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  ggplot(aes(sample=resid))+
+  geom_qq()+
+  geom_qq_line(color="red")
+
+dm%>%
+  add_residuals(dm_spes_var.lm)%>%
+  pull(resid)%>%
+  shapiro.test()
+```
+## Superfici di riposta
+
+Si puo ora visualizzare tramite un grafico a superficie di riposta (i fattori sono in coded unit) come diverse combinazioni dei due fattori considerati abbiano effetto in termini di:
+
+* adesione
+* spessore
+* disomogeneità (varianza) dell'adesione su diversi punti del campione
+* disomogeneità (varianza) dello spessore su diversi punti del campione
+
+```{r}
+grid <- expand.grid(
+  A = seq(min(dm$A), max(dm$A), length.out = 10),
+  B = seq(min(dm$B), max(dm$B), length.out = 10)
+)
+
+grid$pred_ades <- predict(dm_ades.lm, newdata = grid)
+grid$pred_ades_var <- predict(dm_ades_var.lm, newdata = grid)
+grid$pred_spes <- predict(dm_spes.lm, newdata = grid)
+grid$pred_spes_var <- predict(dm_spes_var.lm, newdata = grid)
+
+ggplot(grid, aes(x = A, y = B, z = pred_ades)) +
+  geom_contour_filled()+
+  labs(
+    title="Superficie di riposta per l'adesione",
+    x="ph",
+    y="inorganico/organico",
+    fill="adesione"
+  )
+ggplot(grid, aes(x = A, y = B, z = pred_ades_var)) +
+  geom_contour_filled()+
+  labs(
+    title="Superficie di riposta per la varianza dell'adesione",
+    x="ph",
+    y="inorganico/organico",
+    fill="varianza dell'adesione"
+  )
+ggplot(grid, aes(x = A, y = B, z = pred_spes)) +
+  geom_contour_filled()+
+  labs(
+    title="Superficie di riposta per lo spessore",
+    x="ph",
+    y="inorganico/organico",
+    fill="spessore"
+  )
+ggplot(grid, aes(x = A, y = B, z = pred_spes_var)) +
+  geom_contour_filled()+
+  labs(
+    title="Superificie di riposta per la varianza dello spessore",
+    x="ph",
+    y="inorganico/organico",
+    fill="varianza dello spessore"
+  )
+
+
+```
+Potrebbe essere di interesse osservare quali combinazioni dei fattori garantiscono una certa varianza e un certo valore `soglia` di adesione e spessore. I seguenti grafici permettono di visualizzare quali combinazioni di fattori garantiscano una varianza sotto un certo valore (in questo caso assunto arbitrariamente) e i relativi valori di adesione e spessore.
+
+```{r}
+
+soglia <- 0.6
+
+centro_maggiore <- grid %>%
+  filter(pred_ades_var > soglia) %>%
+  summarise(
+    x = mean(A),
+    y = mean(B)
+  )
+
+centro_minore<-grid %>%
+  filter(pred_ades_var < soglia) %>%
+  summarise(
+    x = mean(A),
+    y = mean(B)
+  )
+
+x_label <- min(grid$A)
+y_label <- max(grid$B)
+
+ggplot(grid, aes(x = A, y = B, z = pred_ades)) +
+  geom_contour_filled() +                     
+  geom_contour_filled(aes(z = pred_ades_var),   
+                      breaks = c(soglia, max(grid$pred_ades_var)),
+                      alpha = 0.5,
+                      fill="black") +
+  geom_contour(aes(z=pred_ades_var), breaks = c(soglia, max(grid$pred_ades_var)))+
+  metR::geom_label_contour(aes(z=pred_ades_var),breaks = soglia)+
+  labs(
+    title ="Superficie di riposta dell'adesione con varianza",
+       x = "ph",
+       y = "inorganico/organico",
+       fill = "adesione"
+       )+
+  annotate("label",
+           x = centro_maggiore$x,
+           y = centro_maggiore$y,
+           label = paste("Varianza >", soglia),
+           fill = "white")+
+  annotate("label",
+           x = centro_minore$x,
+           y = centro_minore$y,
+           label = paste("Varianza <", soglia),
+           fill = "white")
+  
+  
+
+```
+
+```{r}
+
+soglia <- 0.9
+
+centro_maggiore <- grid %>%
+  filter(pred_spes_var > soglia) %>%
+  summarise(
+    x = mean(A),
+    y = mean(B)
+  )
+
+centro_minore<-grid %>%
+  filter(pred_spes_var < soglia) %>%
+  summarise(
+    x = mean(A),
+    y = mean(B)
+  )
+
+x_label <- min(grid$A)
+y_label <- max(grid$B)
+
+ggplot(grid, aes(x = A, y = B, z = pred_spes)) +
+  geom_contour_filled() +                     
+  geom_contour_filled(aes(z = pred_spes_var),   
+                      breaks = c(soglia, max(grid$pred_spes_var)),
+                      alpha = 0.5,
+                      fill="black") +
+  geom_contour(aes(z=pred_spes_var), breaks = c(soglia, max(grid$pred_spes_var)))+
+  metR::geom_label_contour(aes(z=pred_spes_var),breaks = soglia)+
+  labs(
+    title ="Superficie di riposta dello spessore con varianza",
+       x = "ph",
+       y = "inorganico/organico",
+       fill = "spessore"
+       )+
+  annotate("label",
+           x = centro_maggiore$x,
+           y = centro_maggiore$y,
+           label = paste("Varianza >", soglia),
+           fill = "white")+
+  annotate("label",
+           x = centro_minore$x,
+           y = centro_minore$y,
+           label = paste("Varianza <", soglia),
+           fill = "white")
+  
+  
+
+```
+
+
+
+
+
+

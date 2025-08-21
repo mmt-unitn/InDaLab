@@ -11,7 +11,7 @@ draft: false
 categories: 
   - materiali
 abstract: >
-  In questa attività si conducono misure di durezza superficiale
+ In questa attività si conducono misure di durezza superficiale. Vengono raccolti, trattati e presentati i dati ottenuti durante le prove di durezza svolte nel laboratorio di metallurgia. In particolare, per rispondere a due obiettivi specifici descritti di seguito, si svolgono due tipi di analisi statistiche: il test di Student accoppiato e la taratura statica di uno strumento di misura
 ---
 
 ```{r}
@@ -29,6 +29,7 @@ library(stringr)
 library(modelr)
 library(knitr)
 library(broom)
+library(patchwork)
 ```
 
 # Descrizione dell'attività
@@ -253,7 +254,6 @@ $$
 
 Il test accoppiato è quindi evidentemente un test a un campione, con il vantaggio che **gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test**
 
-# Esperimento
 
 ## Taratura
 
@@ -300,22 +300,6 @@ Gli obiettivi principali di questa attività di laboratorio sono due:
 
   - T-test: valutare se le misurazioni ottenute con indentatore integro differiscono in modo statisticamente significativo da quelle ottenute con indentatore danneggiato.
   - Taratura di un modello analitico: mettere a punto una relazione tra la stima della durezza fornita dal durometro (basata sulla profondità di penetrazione dell’indentatore) e il valore reale di durezza misurato.
-  
-```{mermaid}
-flowchart TD
-    title["Attività di laboratorio"]
-
-    title --> A(["Pianificazione della campagna di misure per t-test:<br>creazione della tabella di raccolta dati"])
-    title --> B(["Pianificazione della campagna di misure per taratura:<br>creazione della tabella di raccolta dati"])
-    
-    A --> E([Raccolta delle misure in laboratorio])
-    B --> E
-    
-    E --> F([Registrazione dei dati raccolti per t-test])
-    E --> G([Registrazione dei dati raccolti per taratura])
-```
-
-
 
 Di seguito sono elencate le attrezzature necessarie e le fasi operative da seguire per la raccolta delle misure.
 La sequenza è stata organizzata in modo da ottimizzare i tempi e ridurre al minimo le riconfigurazioni strumentali.
@@ -563,7 +547,7 @@ df_a$stima_NOK = c(612,212,217,307,339,629,216,157,615,596)
 df_a$HV30_dd=c(648,256,253,297,351,652,247,166,659,635)      
 df_a$stima_dd=c(612,219,218,297,337,621,218,157,618,596)
 
-kable(df_a)
+kable(df_a,caption = "dati per analisi differenze indentatore rotto/integro")
 ```
 
 Si considerano dapprima solo le misure raccolte usando le due diagonali diverse (le prime 4 colonne della tabella `df_a`).Si converte altresì la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un'unica colonna `durezza`:
@@ -576,7 +560,7 @@ dfv <- df_a %>%
                names_to = c("misura","ok"), 
                values_to="durezza") %>% 
   mutate(ok=ifelse(ok=="OK","integro","rotto"))
-dfv %>% head() %>% kable()
+dfv %>% head() %>% kable(caption="dati per analisi differenze indentatore rotto/integro - formato tidy")
 ```
 
 Si confrontano tutti i dati con un boxplot: non si evidenzia nessuna differenza significativa, perché la variabilità del materiale **maschera** le variabilità delle misure.
@@ -585,7 +569,7 @@ Si confrontano tutti i dati con un boxplot: non si evidenzia nessuna differenza 
 dfv %>% 
   ggplot(aes(x=misura, y=durezza, color=ok)) +
   geom_boxplot() +
-  labs(x="Misura", y="Durezza", color="Penetratore")
+  labs(x="Misura", y="Durezza", color="Penetratore",title="Boxplot")
 ```
 Si osserva la relazione tra stima e durezza, separatamente per penetratore: sembrano essere differenti sia l'intercetta che la pendenza.
 
@@ -595,7 +579,11 @@ dfv %>%
   ggplot(aes(x=HV30, y=stima, color=ok)) + 
   geom_point() + 
   geom_smooth(method="lm", formula=y~x) +
-  labs(color="penetratore") 
+  labs(
+    color="Penetratore",
+    title = "Stima vs Durezza",
+    y="Stima"
+    ) 
 ```
 
 
@@ -607,15 +595,19 @@ dfv %>%
   ggplot(aes(x=integro, y=rotto, color=misura)) + 
   geom_abline(slope=1, intercept=0, color="red", lty=2) +
   geom_point() + 
-  geom_smooth(method="lm", formula=y~x)
+  geom_smooth(method="lm", formula=y~x)+
+  labs(
+    title="Indentatore rotto vs integro",
+    x="Integro",
+    y="Rotto")
 ```
 
 ### Discussione risultati
 
-Si effettuano i T-test per HV30 e per stima, in un colpo solo: prima si separano su due colonne le misure per penetratori integri e rotti, poi si spezza la tabella in due con split, e infine si applica la funzione t.test a ciascun sottoinsieme mediante reduce, usando tidy per trasformare il risultato di ciascun test in una tibble:
+Si effettuano i T-test per HV30 e per stima, in un unico passaggio: prima si separano su due colonne le misure per penetratori integri e rotti, poi si spezza la tabella in due con split, e infine si applica la funzione t.test a ciascun sottoinsieme mediante reduce, usando tidy per trasformare il risultato di ciascun test in una tibble:
 
 ```{r}
-dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>% 
+dfv_t<-dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>% 
   split(~misura) %>% {
     reduce2(., names(.), \(acc, d, n) {
       t <- t.test(d$integro, d$rotto, paired = T)
@@ -626,12 +618,46 @@ dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>%
   mutate(
     significant = p.value < 0.05, 
     across(c(statistic, conf.low, conf.high, p.value), ~round(., 3))) %>%
-  select(-method, -alternative) %>%
-  kable()
+  select(-method, -alternative)
+
+kable(dfv_t,caption="t_test per i gruppi HV30 e stima")
 ```
 
+Va verficata la normalità delle differenze dei campioni utilizzati nei ttest
 
-Il risultato ottenuto suggerisce di accettare l’ipotesi nulla per il gruppo HV30: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro se per la diagonale mancante (a causa del danno), si estrapola visivamente la lunghezza.
+```{r}
+dfv %>% 
+  pivot_wider(names_from = ok, values_from = durezza)%>%
+  rowwise()%>%
+  mutate(
+    diff=integro-rotto
+  )%>%
+  ungroup()%>%
+  ggplot(aes(sample=diff,colour = misura))+
+  geom_qq()+
+  geom_qq_line()+
+  labs(
+    x="Quantili teorici",
+    y="Quantili reali",
+    color="Misura",
+    title="Grafici quantile-quantile"
+  )
+
+dfv %>% 
+  pivot_wider(names_from = ok, values_from = durezza) %>% 
+  rowwise() %>% 
+  mutate(diff = integro - rotto) %>% 
+  ungroup() %>% 
+  group_by(misura) %>% 
+  group_map(~ broom::tidy(shapiro.test(.x$diff))) %>% 
+  bind_rows()%>%
+  kable()
+  
+```
+
+Le ipotesi alla base dei test sono verificate.
+
+Il risultato ottenuto (`dfv_t`) suggerisce di accettare l’ipotesi nulla per il gruppo HV30: non c’è differenza a livello statistico nell’utilizzare un penetratore o l’altro se per la diagonale mancante (a causa del danno), si estrapola visivamente la lunghezza.
 
 Viceversa, per il gruppo stima l’ipotesi nulla viene rifiutata con una probabilità di errore molto bassa: il penetratore danneggiato produce misure significativamente più alte rispetto a quello integro, perché in questo caso il sistema di calcolo è basato sulla misura della penetrazione e non sulla lunghezza della diagonale, e la prima evidentemente risente del danno.
 
@@ -650,10 +676,30 @@ Se il *p*-value di questo test risulta maggiore rispetto a quello del confronto 
 ```{r}
 t.test(df_a$HV30_OK,df_a$HV30_dd,paired = T)%>%tidy()%>%kable()
 ```
+Si verifica anche per il test appena effettuato che il campione delle differenze sia normale
+
+
+```{r}
+#| warning: false
+shapiro.test(df_a$HV30_OK-df_a$HV30_dd)
+
+df_a%>%
+  ggplot(aes(sample=df_a$HV30_OK-df_a$HV30_dd))+
+  geom_qq()+
+  geom_qq_line(color="red")+
+  labs(
+    title="Grafico quantile - quantile",
+    x="Quantili teorici",
+    y="Quantili reali"
+  )
+```
+Il test rispetta le ipotesi.
+
 :::{.callout-note title="Conclusione"}
 
 Quindi, se si ha a disposizione solo l'indentatore danneggiato, è preferibile utilizzare due volte la stessa diagonale. Ovviamente, questa conclusione è valida solo per l'indentatore e per il campo di applicazione specifico considerato.
 :::
+
 ## Analisi per taratura
 
 Si importano i dati raccolti in laboratiorio per le misure riguardanti la taratura (`df_b`) 
@@ -671,8 +717,10 @@ df_b<-df_b%>%
   ) %>%
   mutate(Material=factor(Material))
 
-kable(head(df_b))
+kable(head(df_b),caption = "Dati per analisi di taratura")
 ```
+
+
 Si visualizzano le regressioni dei modelli lineari effettuati separatamente per ogni scala. Si noti che è stata scelta intercetta nulla e modello lineare in quanto quella cercata è una correlazione tra due entità che rappresentano la stessa grandezza.
 
 ```{r}
@@ -680,30 +728,68 @@ Si visualizzano le regressioni dei modelli lineari effettuati separatamente per 
 df_b %>%
   ggplot(aes(x=Hardness, y=Estimated, group=Scale, color=Scale)) + 
   geom_point(aes(shape=Material)) + 
-  geom_smooth(method="lm", formula=y~x-1)
+  geom_smooth(method="lm", formula=y~x-1)+
+  labs(
+    y="Stima",
+    x="Durezza",
+    color="Scala",
+    shape="Materiale"
+  )
 ```
 Si effettua una ANOVA per verificare se la scala effettivamente sia un fattore che incide sul modello da regredire.
 
 ```{r}
-df_b.lm <- lm(Hardness~Estimated + Scale, data = df_b)
+df_b.lm <- lm(Estimated~Hardness + Scale, data = df_b)
 
-anova(df_b.lm)%>%tidy()%>%kable()
+anova(df_b.lm)%>%tidy()%>%kable(caption="Tabella ANOVA")
 ```
 
-Si verifica che i residui non abbiano pattern in funzione del Run Order e in funzione dei fattori 
+Si verifica che i residui non presentino pattern.
+
 ```{r}
-df_b %>% 
+p1<-df_b %>% 
   add_residuals(df_b.lm) %>%
   ggplot(aes(x=Scale, y=resid)) + 
-  geom_point()
-df_b %>% 
+  geom_point()+
+  labs(
+    title="Residui vs Scala",
+    x="Scala",
+    y="Residui"
+  )
+
+p2<-df_b %>% 
   add_residuals(df_b.lm) %>%
-  ggplot(aes(x=Material, y=resid)) + 
-  geom_point()
-df_b %>% 
+  ggplot(aes(x=Hardness, y=resid)) + 
+  geom_point()+
+  labs(
+    title="Residui vs Durezza",
+    x="Durezza",
+    y="Residui"
+  )
+
+
+p3<-df_b %>% 
   add_residuals(df_b.lm) %>%
   ggplot(aes(x=RunOrder, y=resid)) + 
-  geom_point()
+  geom_point()+
+  labs(
+    title="Residui vs RunOrder",
+    x="RunOrder",
+    y="Residui"
+  )
+
+p4<-df_b %>% 
+  add_residuals(df_b.lm) %>%
+  add_predictions(df_b.lm)%>%
+  ggplot(aes(x=pred, y=resid)) + 
+  geom_point()+
+  labs(
+    title="Residui vs Predizioni",
+    x="Predizioni",
+    y="Residui"
+  )
+
+(p1+p2)/(p3+p4)
 ```
 
 Si verifica che i residui abbiano distribuzione normale:
@@ -713,7 +799,10 @@ df_b %>%
   add_residuals(df_b.lm) %>%
   ggplot(aes(sample=resid)) + 
   geom_qq() + 
-  geom_qq_line()
+  geom_qq_line()+
+  labs(
+    title="Grafico quantile-quantile"
+  )
 
 df_b %>%
   add_residuals(df_b.lm) %>%
@@ -724,10 +813,11 @@ df_b %>%
 La anova appena condotta risulta quindi valida e suggerisce di effettuare una regressione distinta per ogni scala ricavando per ognuna il valore della pendenza:
 
 ```{r}
-df_b %>%
+df_slope<-df_b %>%
   group_by(Scale) %>%
-  summarise(slope = lm(Hardness~Estimated - 1) %>% coefficients())%>%
-  kable()
+  summarise(slope = lm(Estimated~Hardness - 1) %>% coefficients())
+
+df_slope%>%kable(caption="Pendenza della caratteristica lineare di ogni scala")
 ```
 
 Per ogni scala di durezza si riportano i valori della pendenza, i valori dell'intervallo di confidenza al 95% sul valore della pendenza e il range massimo dei residui (che risulta abbastanza importante).
@@ -736,7 +826,7 @@ Per ogni scala di durezza si riportano i valori della pendenza, i valori dell'in
 df_b %>%
   split(~Scale) %>%
   map_dfr(~{
-    d.lm <- lm(Hardness ~ Estimated - 1, data = .x)
+    d.lm <- lm(Estimated ~ Hardness - 1, data = .x)
     tibble(
       Scale = unique(.x$Scale),
       Slope = coef(d.lm),
@@ -749,9 +839,7 @@ df_b %>%
   kable()
 ```
 
-Va verificata l'assenza di pattern per i residui e la normalità degli stessi.
-
-
+Va verificata come al solito l'assenza di pattern per i residui e la normalità degli stessi per il modello adottato.
 
 ```{r}
 #| warning: false
@@ -761,38 +849,50 @@ df_models <- df_b %>%
   group_split(Scale) %>%
   set_names(map_chr(., ~ unique(.x$Scale))) %>%
   map(~ {
-    mod <- lm(Hardness ~ Estimated - 1, data = .x)
+    mod <- lm(Estimated ~ Hardness - 1, data = .x)
     .x %>%
       add_residuals(mod) %>%
+      add_predictions(mod)%>%
       mutate(model = list(mod))
   })
 
 # Unione in unico dataframe
 df_resid <- bind_rows(df_models, .id = "Scale")
 
-#Residui vs Scale
-ggplot(df_resid, aes(x = Scale, y = resid)) +
+p5<-ggplot(df_resid, aes(x = Hardness, y = resid)) +
   geom_point() +
-  labs(title = "Residui vs Scale")
+  labs(
+    title = "Residui vs Durezza",
+    x="Durezza",
+    y="Residui"
+    )
 
-#Residui vs Material
-ggplot(df_resid, aes(x = Material, y = resid)) +
+p6<-ggplot(df_resid, aes(x = pred, y = resid)) +
   geom_point() +
-  labs(title = "Residui vs Material")
+  labs(
+    title = "Residui vs Predizioni",
+    x="Predizioni",
+    y="Residui"
+       )
 
-#Residui vs RunOrder
-ggplot(df_resid, aes(x = RunOrder, y = resid)) +
+p7<-ggplot(df_resid, aes(x = RunOrder, y = resid)) +
   geom_point() +
-  labs(title = "Residui vs RunOrder")
+  labs(
+    title = "Residui vs RunOrder",
+    x="RunOrder",
+    y="Residui"
+    )
 
-# QQ-plot per ogni scala
+p1+p2+p3
+
+
 ggplot(df_resid, aes(sample = resid)) +
   geom_qq() +
   geom_qq_line() +
   facet_wrap(~ Scale, scales = "free") +
-  labs(title = "QQ-plot dei residui per scala")
+  labs(title = "QQ-plot dei residui per ogni scala")
 
-# Shapiro-Wilk per ogni scala
+
 df_shapiro <- df_resid %>%
   group_by(Scale) %>%
   summarise(
@@ -800,7 +900,49 @@ df_shapiro <- df_resid %>%
     W = shapiro.test(resid)$statistic
   )
 
-print(df_shapiro)%>%kable()
+df_shapiro%>%kable(caption="Valori del p_value e della statistica del test di shapiro (W) per ogni scala")
 
 ```
+:::{.callout-note title="Conclusione"}
+Il modello risulta valido. Quindi per le varie scale si possono assumere i valori della pendenza (slope) contenuti in`df_slope`.
+:::
+
+```{r}
+df_slope%>%kable(caption="Pendenza della caratteristica lineare di ogni scala")
+
+```
+Si graficano le varie caratteristiche con il loro intervallo di confidenza
+
+```{r}
+
+pred_data <- df_b %>%
+  split(~Scale) %>%
+  map_dfr(~{
+    d.lm <- lm(Estimated ~ Hardness - 1, data = .x)
+    
+    # griglia di valori per Hardness
+    newdat <- tibble(Hardness = seq(min(.x$Hardness), max(.x$Hardness), length.out = 100))
+    
+    # predizioni con intervallo di confidenza
+    preds <- as.data.frame(predict(d.lm, newdata = newdat, interval = "confidence"))
+    
+    bind_cols(
+      tibble(Scale = unique(.x$Scale)),
+      newdat,
+      preds
+    )
+  })
+
+ggplot(pred_data, aes(x = Hardness, y = fit)) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.2) +
+  geom_line(color = "blue", size = 1) +
+  facet_wrap(~Scale) +
+  labs(
+    title = "Caratteristica stima-durezza di ogni scala",
+    x = "Durezza",
+    y = "Stima"
+  ) 
+
+```
+
 
