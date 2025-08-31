@@ -1,0 +1,550 @@
+---
+title: "Rivestimenti protettivi sol-gel ibridi nanocompositi."
+author: "Tommaso Stefani"
+date: today
+draft: false
+categories: 
+  - tesi
+abstract: >
+   In questa attività si realizzano dei rivestimenti sol-gel ibridi nanocompositi su un substrato di alluminio per identificare quali combinazioni di parametri garantisce le migliori prestazioni in termini di adesione e omogeneità del rivestimento (spessore uniforme).
+format: revealjs
+---
+
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  fig.align = "center",
+  # This for default device
+  out.width = "16cm",
+  # This two for high quality charts:
+  fig.dim = c(16, 9)*0.4
+)
+library(tidyverse)
+library(stringr)
+library(modelr)
+library(adas.utils)
+library(knitr)
+library(gghalfnorm)
+library(patchwork)
+```
+
+# Descrizione dell'attività {.centered-slide}
+
+## Premessa
+
+* I dati riportati nel presente documento sono interamente generati a scopo didattico e **non derivano da esperimenti reali**. 
+
+* L’obiettivo principale è illustrare l’approccio sperimentale e statistico nell’analisi di rivestimenti sol-gel ibridi su substrati di legno di larice, mostrando come variano le proprietà di adesione e durezza in funzione dei parametri di sintesi.
+
+* Ogni valore numerico deve essere interpretato come un **esempio illustrativo e non come un dato sperimentale reale**.
+
+* Ogni risultato riportato **non ha valore scientifico ma solo scopo esplicativo**.
+
+## Descrizione dell'attività
+
+* In questa attività si studiano e realizzano **rivestimenti sol-gel ibridi nanocompositi su substrati di legno di larice**.
+
+* L’obiettivo è quello di individuare le combinazioni dei **parametri di sintesi** che garantiscano le migliori prestazioni in termini di adesione, durezza e uniformità dei valori di durezza sulla superficie del rivestimento.
+
+* Per materiali quali l'acciaio questi rivestimenti rappresentano un’alternativa ai tradizionali trattamenti cromati o chimici più impattanti, rispondendo alla crescente esigenza di soluzioni **eco-friendly** e sostenibili nell’ambito dei materiali protettivi.
+
+## Descrizione dell'attività
+
+* In questa attività si andrà a valutare l'impatto dei seguenti fattori:
+
+  * ph della soluzione di $HCl$
+  * rapporto inorganico/organico
+
+* sui seguenti parametri assunti come risposta:
+ 
+  * forza di adesione
+  * durezza
+  * omogeneità (l'opposto della varianza) del rivestimento in termini di durezza
+
+* Si seguirà l'approcio statistico basato sul **central composite design (CCD)** il quale permette di verificare una eventuale curvatura della risposta.
+
+# Cenni teorici {.centered-slide}
+
+## Chimica dei rivestimenti sol–gel ibridi
+
+* I rivestimenti sol–gel si basano sulla trasformazione di precursori alchil- o trialcoxisilani in una rete solida di silice tramite **idrolisi e condensazione**. 
+
+* Nel caso dei rivestimenti ibridi organico-inorganici, i precursori più comuni sono:  
+
+  - **TEOS (tetraetilortosilicato, $Si(OC_2H_5)_4$)**: componente inorganica, responsabile della formazione della rete $Si–O–Si$.  
+  - **GPTMS (3-glicidossipropiltrimetossisilano, $C_9H_{20}O_5Si$)**: componente organica, che conferisce funzionalità reattive e flessibilità alla rete.
+
+### Idrolisi dei precursori
+
+L’idrolisi di TEOS o GPTMS avviene in presenza di acqua e di un catalizzatore acido o basico, trasformando i gruppi alchossilici in gruppi silanolici ($Si–OH$):
+
+$$
+Si(OR)_4 + 4 H_2O \rightarrow Si(OH)_4 + 4 ROH
+$$
+
+dove $R$ può essere un gruppo etilico (nel TEOS) o metilico (nel GPTMS).  
+
+## Chimica dei rivestimenti sol–gel ibridi
+
+### Condensazione e formazione della rete
+I gruppi silanolici generati reagiscono tra loro formando legami silossanici ($Si–O–Si$) e liberando acqua o alcol:
+
+$$
+Si–OH + HO–Si \rightarrow Si–O–Si + H_2O
+$$
+
+oppure
+
+$$
+Si–OH + Si–OR \rightarrow Si–O–Si + ROH
+$$
+
+Queste reazioni di **condensazione** portano alla formazione di una rete tridimensionale solida, responsabile delle proprietà barriera e meccaniche del rivestimento.
+
+## Chimica dei rivestimenti sol–gel ibridi
+
+### Formazione del rivestimento ibrido
+
+Nel caso di GPTMS, il gruppo organico epossidico può ulteriormente reagire con gruppi amminici o idrossilici presenti nell’ambiente, creando un **reticolo ibrido organico-inorganico**:
+
+$$
+R–CH–(epossido) + R'–OH \rightarrow R–CH–OH–R'
+$$
+
+Questo legame organico conferisce flessibilità e migliora l’adesione al substrato metallico.  
+
+## Chimica dei rivestimenti sol–gel ibridi
+
+### Sintesi controllata
+
+La **composizione e le condizioni di processo** (rapporto $TEOS/GPTMS$, pH, temperatura di essiccazione ecc.) influenzano profondamente:
+
+- la densità della rete $Si–O–Si$;  
+- la distribuzione dei gruppi organici;  
+- la resistenza all’adesione, lo spessore e lan resistenza alla corrosione del rivestimento finale.
+
+## Central composite design - CCD
+
+Il **Central Composite Design (CCD)** è una metodologia di progettazione sperimentale molto utilizzata nelle analisi di ottimizzazione dei processi chimici e dei materiali, particolarmente indicata quando si sospettano effetti non lineari. Questo disegno sperimentale permette di valutare preventivamente la **curvature** del modello di risposta, aggiungendo punti centrali replicati che migliorano la stima della variabilità sperimentale e la riproducibilità dei risultati.  
+
+Grazie alla sua struttura preventiva, il CCD permette di prevedere il comportamento del sistema nei valori intermedi delle variabili, senza la necessità di testare ogni possibile combinazione sperimentale, migliorando così l’efficienza e l’affidabilità dell’ottimizzazione del processo.
+
+
+# Parte sperimentale {.centered-slide}
+
+## Apparecchiatura
+
+::: {.columns}
+
+::: {.column width="50%"}
+* metiltrietossisilano $CH_3Si(C_2H_5O)_3$ (precursore organico - MTES)
+* tetraetilsilicato $Si(OC_2H_5)_4$ (precursore inorganico - TEOS)
+* etanolo $CH_3CH_2OH$
+* soluzione $HCl$ con ph 1
+* soluzione $HCl$ con ph 4
+* palloncino con tappo da 100 ml
+* pipetta
+:::
+
+::: {.column width="50%"}
+* propipetta
+* agitatore magnetico
+* substrati di alluminio
+* matite per test della matita
+* lente per test dell'adesione
+* scotch per test dell'adesione
+* taglierino a griglia per test dell adesione
+:::
+
+:::
+
+## Procedimento
+
+Si riporta lo svolgimento necessario per condurre una prova.
+
+Per la preparazione del sol-gel:
+
+1. Posizionare il palloncino sotto cappa aspirante, fissandolo con un supporto adatto (asta + morsetto).
+2. Collocare l’agitatore magnetico sotto il pallone e inserire al suo interno una barretta magnetica.
+
+3. Si inserisce la quantità di MTES prevista dalla prova e 15 ml di M (quantità fissa per tutte le prove).
+4. Si lascia agitare per 5 minuti verificando che non vi siano precipitazioni o reazioni non previste.
+5. Si aggiungono 1,3 ml (quantità fissa) di soluzione di $HCl$ con ph previsto dalla prova.
+6. Si lascia agitare per 5 minuti verificando che non vi siano precipitazioni o reazioni non previste.
+7. Si aggiuge la quantità di TEOS prevista dalla prova
+8. Si lascia agitare per 30 minuti.
+
+## Procedimento
+
+Per applicare il sol-gel al substrato scelto:
+
+1. Si scelglie un campione che permetta di eseguire tutte le misure previste dal piano fattoriale.
+2. Si prepara il campione pulendo con etanolo
+3. Si applica il sol-gel tramite pennello (si possono utilizzare anche altre metodologie) stendendo uno strato uniforme e ponendo attenzione ad applicarlo in maniera uguale ai campioni delle altre prove.
+4. Si lascia asciugare fino a solidificazione.
+
+## Procedimento
+
+Per le misure di adesione (secondo **UNI EN ISO 2409**):
+
+1. Preparazione del campione: assicurarsi che la superficie rivestita sia asciutta e pulita.
+
+2. Esecuzione della grigliatura: con un apposito taglierino o strumento, incidere sulla superficie una serie di tagli paralleli e perpendicolari, formando una griglia (il numero e la distanza dipendono dallo spessore del rivestimento).
+
+3. Applicazione del nastro adesivo: applicare sopra la griglia un pezzo di nastro adesivo standardizzato (scotch), premendolo bene per garantire il contatto.
+
+4. Rimozione del nastro: staccare il nastro con un movimento rapido e deciso.
+
+5. Valutazione: confrontare la superficie incisa con le classificazioni previste dalla norma UNI EN ISO 2409, che vanno da 0 (adesione ottima, nessun distacco) a 5 (adesione scarsa, ampi distacchi).
+
+
+4. Allineare la linea presente su uno dei due corsoi con una delle diagonali dell'impronta, in modo da fissare l'orientamento corretto per la misurazione 
+
+## Procedimento
+
+<div style="text-align:center">
+![classi di adesione previste da UNI EN ISO 2409](images/classi_adesione.jpg){width=50%}
+</div>
+
+## Procedimento
+
+Per le misure di durezza:
+
+Per le misure di durezza (secondo **UNI 10782**):
+
+1. Preparazione del campione: pulire e asciugare la superficie da testare.
+
+2. Scelta delle matite: utilizzare una serie di matite normalizzate con durezza progressiva (da 8B, molto morbida, a 8H, molto dura).
+
+3. Preparazione delle punte: appuntire le matite e spianare la punta a 90° su carta abrasiva per avere una superficie piatta e uniforme.
+
+4. Esecuzione del test: posizionare la matita sul rivestimento con un angolo di circa 45° e spingerla in avanti esercitando una pressione costante.
+
+5. Valutazione: individuare la matita più dura che non incide o non scalfisce il film superficiale.
+
+6. Risultato: la durezza del rivestimento viene classificata con il grado della matita corrispondente (es. “HB”, “F”, “2H”).
+
+## Calcolo delle quantità di MTES e di TEOS
+
+Nel calcolo delle quantità si mantiene costante il numero di moli di TEOS, mentre la quantità di MTES viene variata in modo da rispettare il rapporto inorganico/organico stabilito. Una volta determinato il numero di moli di MTES necessario, questo viene convertito prima in grammi (tramite la massa molare) e successivamente in millilitri (tramite la densità).
+
+In questo modo, fissando il TEOS come riferimento, si ottengono i volumi corretti dei due precursori da introdurre nel pallone. Il rapporto inorganico/organico definisce quindi direttamente la quantità di MTES da aggiungere affinché il rapporto molare tra precursore inorganico e organico sia rispettato.
+
+## Informazioni di sicurezza
+
+
+* Metiltrietossisilano (MTES): infiammabile, irritante per occhi e vie respiratorie. Usare sotto cappa chimica.
+* Tetraetilsilicato (TEOS): infiammabile, irritante per occhi, pelle e vie respiratorie. Usare sotto cappa chimica.
+* Etanolo: altamente infiammabile. Tenere lontano da fiamme libere o superfici calde.
+* Soluzioni acide ($H_2O$ pH 1 e pH 4): corrosive (pH 1) o irritanti (pH 4). Manipolare con guanti e occhiali di protezione.
+* Scotch, matite, taglierino a griglia: rischi meccanici di taglio o scheggiature. Maneggiare con cautela.
+
+# Elaborazione dei dati
+
+Si specifica nuovamente che i dati utilizzati nel seguito **non derivano da esperimenti reali**, ma sono stati generati a titolo esemplificativo. **I risultati presentati nel documento non hanno quindi valore scientifico e non corrispondono ad evidenze sperimentali reali**.
+
+## Analisi ANOVA con CCD 
+
+### Piano fattoriale
+
+Si crea il piano fattoriale $2 \cdot 2^2$ con l'aggiunta di un punto centrale ripetuto 5 volte (per vereificare la presenza o meno di curvatura della risposta).Si ha quindi un piano fattoriale a *central composite design*. 
+
+In quanto si vuole valutare la risposta in termini di adesione e di durezza del rivestimento sono presenti entrambe nel piano. Inoltre le misure di durezza sono ripetute 4 volte in punti diversi del campione perchè si desidera valutare l'omogeneità della risposta in termini di durezza.
+
+## Piano fattoriale
+```{r}
+dm<-fp_design_matrix(2,rep=2)%>%
+  fp_add_names(A="ph",B="inorganico_organico")%>%
+  fp_add_scale(A=c(1,4),B=c(1,9))%>%
+  fp_augment_center(rep=5)%>%
+  rename(
+    ades=Y
+  )%>%
+  add_column(
+    dur1=NA,
+    dur2=NA,
+    dur3=NA,
+    dur4=NA 
+  )
+
+kable(head(dm,10),caption = "piano fattoriale con design centrale")
+
+```
+
+## Raccolta dati
+
+
+* Per quanto riguarda il test dell'adesione, si assegnano valori da **0** (classe 0) a **5** (classe 5).
+
+* Per quanto riguarda la misura della durezza, il test delle matite prevede di assegnare un livello di durezza tra i seguenti: **8B, 7B, 6B, 5B, 4B, 3B, 2B, B, HB, F, H, 2H, 3H, 4H, 5H, 6H, 7H, 8H**
+
+* Per consentire un’analisi statistica, a ogni classe di durezza viene assegnato un numero crescente, **da 1 per 8B a 18 per 8H**.
+
+## Raccolta dati
+
+Si importano i dati raccolti:
+
+```{r}
+set.seed(0)
+
+dm$ades=c(1,1,2,3,1,2,2,3,2,1,2,3,2)
+dm$dur1=c(9,9,10,10,9,9,10,11,9,10,10,10,10)
+dm$dur2=c(9,9,10,10,9,9,11,11,9,10,11,10,10)
+dm$dur3=c(9,10,10,10,8,9,10,10,10,10,10,11,10)
+dm$dur4=c(9,9,11,11,9,9,11,11,9,11,10,10,10)
+
+kable(head(dm,9),caption="piano fattoriale con dati raccolti in laboratorio")
+```
+
+## Raccolta dati
+
+Si aggiungono le due colonne media e varianza per la grandezza della durezza e si rimuovono le 4 colonne relative alle misure della durezza in quanto non interessano più.
+
+```{r}
+dm<-dm %>% 
+  rowwise() %>% # opera per righe
+  mutate(
+    dur_media=mean(c(dur1,dur2,dur3,dur4)),
+    dur_var=var(c(dur1,dur2,dur3,dur4))
+  ) %>% 
+  ungroup() %>% 
+  select(-(dur1:dur4)) 
+
+kable(head(dm,8),caption="piano fattoriale media e varianza delle grandezze adesione e spessore")
+```
+
+## Analisi ANOVA
+
+E' evidente che la risposta si riferisce a 3 grandezze:
+
+* adesione
+* durezza media
+* varianza della durezza
+
+Sarà quindi necessario effettuare 3 relative analisi anova. Nel modello lineare si inserisce un termine quadratico per verificare se vi sia un'eventuale curvatura della risposta ( il piano prevedeva punto centrale prorpio a questo scopo).
+
+## Analisi ANOVA
+
+```{r}
+dm_ades.lm<-lm(ades ~ A*B+I(A^2), data = dm)
+dm_dur.lm<-lm(dur_media ~ A*B+I(A^2), data = dm)
+dm_dur_var.lm<-lm(dur_var ~ A*B+I(A^2), data = dm)
+
+anova(dm_ades.lm)%>%kable(caption = "Tabella ANOVA per adesione")
+```
+## Analisi ANOVA
+```{r}
+anova(dm_dur.lm)%>%kable(caption = "Tabella ANOVA per media della durezza")
+```
+
+
+## Analisi ANOVA
+
+```{r}
+anova(dm_dur_var.lm)%>%kable(caption = "Tabella ANOVA per varianza della durezza")
+```
+
+Non si riporta l'analisi ma si sottolinea la necessità di effettuare l'analisi dei residui al fine di validare il modello lineare utilizzato per l'ANOVA
+
+## Analisi ANOVA senza termine quadratico e termini non significativi
+
+Per nessuna delle risposte risulta significativo il termine quadratico quindi ripetiamo l'analisi anova non considerando i termini quadratici e i termini non significativi  dell'analisi precedente.
+
+```{r}
+dm_ades.lm<-lm(ades ~ A+B, data = dm)
+dm_dur.lm<-lm(dur_media ~ B, data = dm)
+dm_dur_var.lm<-lm(dur_var ~ B, data = dm)
+
+anova(dm_ades.lm)%>%kable(caption = "Tabella ANOVA per l'adesione")
+```
+## Analisi ANOVA senza termine quadratico e termini non significativi
+```{r}
+anova(dm_dur.lm)%>%kable(caption = "Tabella ANOVA per la media della durezza")
+```
+
+## Analisi ANOVA senza termine quadratico e termini non significativi
+```{r}
+anova(dm_dur_var.lm)%>%kable(caption = "Tabella ANOVA per la varianza della durezza")
+```
+
+## Analisi ANOVA senza termine quadratico e termini non significativi
+
+Non si riporta l'analisi ma si sottolinea la necessità di effettuare l'analisi dei residui al fine di validare il modello lineare utilizzato per l'ANOVA
+
+## Superfici di riposta
+
+Si puo ora visualizzare tramite un grafico a superficie di riposta (i fattori sono in coded unit) come diverse combinazioni dei due fattori considerati abbiano effetto in termini di:
+
+* adesione
+* durezza
+* disomogeneità (varianza) della durezza in diversi punti del campione
+
+
+```{r}
+grid <- expand.grid(
+  A = seq(min(dm$A), max(dm$A), length.out = 10),
+  B = seq(min(dm$B), max(dm$B), length.out = 10)
+)
+
+grid$pred_ades <- predict(dm_ades.lm, newdata = grid)
+grid$pred_dur <- predict(dm_dur.lm, newdata = grid)
+grid$pred_dur_var <- predict(dm_dur_var.lm, newdata = grid)
+
+ggplot(grid, aes(x = A, y = B, z = pred_ades)) +
+  geom_contour_filled()+
+  labs(
+    title="Superficie di riposta per l'adesione",
+    x="ph",
+    y="inorganico/organico",
+    fill="adesione"
+  )
+
+```
+
+
+## Superfici di riposta
+::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+ggplot(grid, aes(x = A, y = B, z = pred_dur)) +
+  geom_contour_filled()+
+  labs(
+    title="Superficie di riposta per la durezza",
+    x="ph",
+    y="inorganico/organico",
+    fill="spessore"
+  )
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+ggplot(grid, aes(x = A, y = B, z = pred_dur_var)) +
+  geom_contour_filled()+
+  labs(
+    title="Superificie di riposta per la varianza della durezza",
+    x="ph",
+    y="inorganico/organico",
+    fill="varianza dello spessore"
+  )
+
+```
+:::
+:::
+## Superfici di riposta
+
+Potrebbe essere di interesse osservare quali combinazioni dei fattori garantiscono che la varianza della durezza sia al di sotto di un certo valore `soglia`  e determinati valori di durezza stessa.
+
+Il seguente grafico permette di visualizzare quali combinazioni di fattori garantiscano una varianza della durezza al di sotto un certo valore (in questo caso assunto arbitrariamente) e i relativi valori di durezza. In seguito i grafici oltre ad avere gli assi espressi in coded unit sono espressi in unità reali.
+
+```{r}
+
+soglia <- 0.25
+
+centro_maggiore <- grid %>%
+  filter(pred_dur_var > soglia) %>%
+  summarise(
+    x = mean(A),
+    y = mean(B)
+  )
+
+centro_minore<-grid %>%
+  filter(pred_dur_var < soglia) %>%
+  summarise(
+    x = mean(A),
+    y = mean(B)
+  )
+
+x_label <- min(grid$A)
+y_label <- max(grid$B)
+
+ggplot(grid, aes(x = A, y = B, z = pred_dur)) +
+  geom_contour_filled() +                     
+  geom_contour_filled(aes(z = pred_dur_var),   
+                      breaks = c(soglia, max(grid$pred_dur_var)),
+                      alpha = 0.5,
+                      fill="black") +
+  geom_contour(aes(z=pred_dur_var), breaks = c(soglia, max(grid$pred_dur_var)))+
+  metR::geom_label_contour(aes(z=pred_dur_var),breaks = soglia)+
+  labs(
+    title ="Superficie di riposta della durezza con varianza",
+       x = "ph",
+       y = "inorganico/organico",
+       fill = "adesione"
+       )+
+  annotate("label",
+           x = centro_maggiore$x,
+           y = centro_maggiore$y,
+           label = paste("Varianza >", soglia),
+           fill = "white")+
+  annotate("label",
+           x = centro_minore$x,
+           y = centro_minore$y,
+           label = paste("Varianza <", soglia),
+           fill = "white")+
+  scale_x_continuous(
+    name = "Coded unit ph",
+    sec.axis = sec_axis(
+      ~ scales::rescale(., to = range(dm$A_s)), 
+      name = "pH reale"
+    )
+  ) +
+  scale_y_continuous(
+    name = "Coded unit rapporto inorganico/organico",
+    sec.axis = sec_axis(
+      ~ scales::rescale(., to = range(dm$B_s)), 
+      name = "Rapporto inorganico/organico reale"
+    )
+  ) +
+  coord_equal()
+  
+  
+
+```
+
+## Conclusioni
+
+Dall’analisi dei risultati si osserva che **nel range considerato**:
+
+* **Adesione**: il fattore più influente risulta essere il rapporto inorganico/organico, mentre il pH ha un effetto minore:
+
+  * L’aumento del fattore ph produce un incremento dell’adesione
+  * Un'aumento del rapporto inorganico/organico produce una diminuzione dell'adesione (aumento della classe d'adesione). 
+
+Questi fattori presentano un effetto lineare nei range considerati. L’interazione tra i due fattori è statisticamente trascurabile in questo intervallo.
+
+## Conclusioni
+
+* **Durezza**: il parametro predominante è il rapporto inorganico/organico, con una risposta lineare: aumentando il rapporto si aumenta la durezza del rivestimento. 
+
+Il pH  e l'interazione tra i due fattori risultano non risultano statisticamente determinanti.
+
+
+## Conclusioni
+
+* **Omogeneità (varianza) della durezza**: aumentando il rapporto inorganico/organico si osserva una diminuzione dell’omogeneità del rivestimento (aumento della varianza). 
+
+Ph e interazione tra i due fattori risutlano statisticamente non determinanti.
+
+In sintesi, per ottimizzare le proprietà del rivestimento su substrati di legno (larice) operando sui fattori di sintesi nel range considerato è necessario bilanciare il rapporto inorganico/organico per massimizzare adesione e durezza, senza compromettere l’omogeneità del rivestimento.
+
+
+## Nota finale
+
+Si ribadisce che le conclusioni sopra riportate sono solo esemplificative (non hanno valore scientifico): sono la conseguenza dell'analisi effettuata su dati generati al fine unico di mostrare la metodologia di analisi.
+
+
+
+
+
+
+
+
+
+
+
+
+

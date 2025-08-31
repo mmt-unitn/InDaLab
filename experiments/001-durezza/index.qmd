@@ -246,11 +246,12 @@ dove:
 Se si definisce $d_j=y_{1j} - y_{2j}$, ricordando le proprietà dell'operatore $E(\cdot)$, risulta $\mu_d = \mu_1 - \mu_2$. Quindi si può formulare la seguente coppia di ipotesi:
 
 $$
-\begin{eqnarray}
-H_0 :~& \mu_d = 0 \\
-H_1 :~& \mu_d \neq 0
-\end{eqnarray}
+\begin{cases}
+H_0 : \mu_d = 0 \\
+H_1 : \mu_d \neq 0
+\end{cases}
 $$
+
 
 Il test accoppiato è quindi evidentemente un test a un campione, con il vantaggio che **gli effetti casuali tra coppie di osservazioni non influiscono sul risultato del test**
 
@@ -543,11 +544,11 @@ Si importano i dati raccolti in laboratiorio per le misure riguardanti il ttest 
 df_a$stima_OK=c(591,205,209,262,318,578,206,156,624,581)
 df_a$HV30_NOK = c(676,259,259,306,352,660,244,164,659,625)
 df_a$HV30_OK=c(662,242,262,302,330,641,244,165,668,651)
-df_a$stima_NOK = c(612,212,217,307,339,629,216,157,615,596)
+df_a$stima_NOK = c(620,212,217,307,339,629,216,157,622,596)
 df_a$HV30_dd=c(648,256,253,297,351,652,247,166,659,635)      
 df_a$stima_dd=c(612,219,218,297,337,621,218,157,618,596)
 
-kable(df_a,caption = "dati per analisi differenze indentatore rotto/integro")
+kable(df_a,caption = "Tabella di raccolta dati per T-test")
 ```
 
 Si considerano dapprima solo le misure raccolte usando le due diagonali diverse (le prime 4 colonne della tabella `df_a`).Si converte altresì la tabella in formato tidy, più maneggevole, riordinandola in modo da avere tutte le misure in un'unica colonna `durezza`:
@@ -857,39 +858,43 @@ df_models <- df_b %>%
   })
 
 # Unione in unico dataframe
-df_resid <- bind_rows(df_models, .id = "Scale")
+df_resid <- bind_rows(df_models)
+```
 
-p5<-ggplot(df_resid, aes(x = Hardness, y = resid)) +
+```{r}
+
+ggplot(df_resid, aes(x = Hardness, y = resid)) +
   geom_point() +
   labs(
     title = "Residui vs Durezza",
     x="Durezza",
     y="Residui"
-    )
+    )+
+  facet_wrap(~Scale)
 
-p6<-ggplot(df_resid, aes(x = pred, y = resid)) +
+ggplot(df_resid, aes(x = pred, y = resid)) +
   geom_point() +
   labs(
     title = "Residui vs Predizioni",
     x="Predizioni",
     y="Residui"
-       )
+       )+
+  facet_wrap(~Scale)
 
-p7<-ggplot(df_resid, aes(x = RunOrder, y = resid)) +
+ggplot(df_resid, aes(x = RunOrder, y = resid)) +
   geom_point() +
   labs(
     title = "Residui vs RunOrder",
     x="RunOrder",
     y="Residui"
-    )
-
-p1+p2+p3
+    )+
+  facet_wrap(~Scale)
 
 
 ggplot(df_resid, aes(sample = resid)) +
   geom_qq() +
   geom_qq_line() +
-  facet_wrap(~ Scale, scales = "free") +
+  facet_wrap(~ Scale) +
   labs(title = "QQ-plot dei residui per ogni scala")
 
 
@@ -914,6 +919,7 @@ df_slope%>%kable(caption="Pendenza della caratteristica lineare di ogni scala")
 Si graficano le varie caratteristiche con il loro intervallo di confidenza
 
 ```{r}
+#| warning: false
 
 pred_data <- df_b %>%
   split(~Scale) %>%
@@ -934,7 +940,7 @@ pred_data <- df_b %>%
   })
 
 ggplot(pred_data, aes(x = Hardness, y = fit)) +
-  geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.2) +
+  geom_ribbon(aes(ymin = lwr, ymax = upr), alpha = 0.3) +
   geom_line(color = "blue", size = 1) +
   facet_wrap(~Scale) +
   labs(
