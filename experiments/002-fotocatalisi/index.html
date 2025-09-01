@@ -1,0 +1,2243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it-IT" xml:lang="it-IT"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tommaso Stefani">
+
+<title>Degradazione fotocatalitica di soluzioni di blu di metilene – InDaLab</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0829b0b756d6a27eb117278c0ab9cd09.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-01092e789b051471b087d0602296619e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Nessun risultato",
+    "search-matching-documents-text": "documenti trovati",
+    "search-copy-link-title": "Copiare il link nella ricerca",
+    "search-hide-matches-text": "Nascondere i risultati aggiuntivi",
+    "search-more-match-text": "ci sono altri risultati in questo documento",
+    "search-more-matches-text": "ulteriori risultati in questo documento",
+    "search-clear-button-title": "Pulire",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancellare",
+    "search-submit-button-title": "Inviare",
+    "search-label": "Ricerca"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="https://keystoneacademic-res.cloudinary.com/image/upload/c_pad,w_640,h_304/dpr_auto/f_auto/q_auto/v1/element/14/147138_logoUnitrento_1000px.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">InDaLab</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Ricerca"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Attiva/disattiva la navigazione" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../experiments.html"> 
+<span class="menu-text">Esperimenti</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../slides.html"> 
+<span class="menu-text">Presentazioni</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/mmt-unitn/InDaLab"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">In questa pagina</h2>
+   
+  <ul>
+  <li><a href="#descrizione-dellattività" id="toc-descrizione-dellattività" class="nav-link active" data-scroll-target="#descrizione-dellattività">Descrizione dell’attività</a></li>
+  <li><a href="#cenni-teorici" id="toc-cenni-teorici" class="nav-link" data-scroll-target="#cenni-teorici">Cenni teorici</a>
+  <ul class="collapse">
+  <li><a href="#blu-di-metilene-e-meccanismo-di-reazione" id="toc-blu-di-metilene-e-meccanismo-di-reazione" class="nav-link" data-scroll-target="#blu-di-metilene-e-meccanismo-di-reazione">Blu di metilene e meccanismo di reazione</a></li>
+  <li><a href="#cinetica-della-reazione" id="toc-cinetica-della-reazione" class="nav-link" data-scroll-target="#cinetica-della-reazione">Cinetica della reazione</a></li>
+  <li><a href="#misura-della-concentrazione-tramite-uv-vis" id="toc-misura-della-concentrazione-tramite-uv-vis" class="nav-link" data-scroll-target="#misura-della-concentrazione-tramite-uv-vis">Misura della concentrazione tramite UV-Vis</a></li>
+  <li><a href="#design-of-experiments-doe" id="toc-design-of-experiments-doe" class="nav-link" data-scroll-target="#design-of-experiments-doe">Design of Experiments (DoE)</a></li>
+  </ul></li>
+  <li><a href="#parte-sperimentale" id="toc-parte-sperimentale" class="nav-link" data-scroll-target="#parte-sperimentale">Parte sperimentale</a>
+  <ul class="collapse">
+  <li><a href="#apparecchiatura" id="toc-apparecchiatura" class="nav-link" data-scroll-target="#apparecchiatura">Apparecchiatura</a></li>
+  <li><a href="#procedimento" id="toc-procedimento" class="nav-link" data-scroll-target="#procedimento">Procedimento</a></li>
+  <li><a href="#misura-tramite-spettrofotometro-uv-vis" id="toc-misura-tramite-spettrofotometro-uv-vis" class="nav-link" data-scroll-target="#misura-tramite-spettrofotometro-uv-vis">Misura tramite Spettrofotometro UV-Vis</a></li>
+  </ul></li>
+  <li><a href="#elaborazione-dei-dati" id="toc-elaborazione-dei-dati" class="nav-link" data-scroll-target="#elaborazione-dei-dati">Elaborazione dei dati</a>
+  <ul class="collapse">
+  <li><a href="#piano-fattoriale" id="toc-piano-fattoriale" class="nav-link" data-scroll-target="#piano-fattoriale">Piano fattoriale</a></li>
+  <li><a href="#raccolta-dati" id="toc-raccolta-dati" class="nav-link" data-scroll-target="#raccolta-dati">Raccolta dati</a></li>
+  <li><a href="#calibrazione-del-modello-che-lega-la-concentrazione-di-mb-allassorbanza" id="toc-calibrazione-del-modello-che-lega-la-concentrazione-di-mb-allassorbanza" class="nav-link" data-scroll-target="#calibrazione-del-modello-che-lega-la-concentrazione-di-mb-allassorbanza">Calibrazione del modello che lega la concentrazione di MB all’assorbanza</a></li>
+  <li><a href="#spettri-delle-varie-prove" id="toc-spettri-delle-varie-prove" class="nav-link" data-scroll-target="#spettri-delle-varie-prove">Spettri delle varie prove</a></li>
+  <li><a href="#curva-cinetica-della-reazione-e-calcolo-della-costante-k" id="toc-curva-cinetica-della-reazione-e-calcolo-della-costante-k" class="nav-link" data-scroll-target="#curva-cinetica-della-reazione-e-calcolo-della-costante-k">Curva cinetica della reazione e calcolo della costante k</a></li>
+  <li><a href="#modello-che-lega-k-ai-fattori---anova" id="toc-modello-che-lega-k-ai-fattori---anova" class="nav-link" data-scroll-target="#modello-che-lega-k-ai-fattori---anova">Modello che lega k ai fattori - ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#verifica-di-normalità" id="toc-verifica-di-normalità" class="nav-link" data-scroll-target="#verifica-di-normalità">Verifica di normalità</a></li>
+  <li><a href="#assenza-di-pattern" id="toc-assenza-di-pattern" class="nav-link" data-scroll-target="#assenza-di-pattern">Assenza di pattern</a></li>
+  <li><a href="#superficie-di-risposta" id="toc-superficie-di-risposta" class="nav-link" data-scroll-target="#superficie-di-risposta">Superficie di risposta</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusioni" id="toc-conclusioni" class="nav-link" data-scroll-target="#conclusioni">Conclusioni</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Degradazione fotocatalitica di soluzioni di blu di metilene</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">materiali</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autore/Autrice</div>
+    <div class="quarto-title-meta-contents">
+             <p>Tommaso Stefani </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Data di Pubblicazione</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">1 settembre 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Sommario</div>
+    <p>In questa attività si conducono reazioni fotocatalitiche di degradazione di soluzioni acquose di blu di metilene. L’obiettivo dell’esperienza è confermare la cinetica di una reazione del primo ordine e determinare la costante k dell’equazione cinetica, per poi elaborare un modello empirico che la correli a quattro parametri presi in considerazione: concentrazione di blu di metilene, concentrazione del catalizzatore, temperatura della soluzione e intensità della radiazione UV incidente.</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="descrizione-dellattività" class="level1">
+<h1>Descrizione dell’attività</h1>
+<p>Nella presente attività si conducono reazioni di fotocatalisi per determinare come varia la velocità di degradazione fotocatalitica di soluzioni acquose di blu di metilene al variare di diversi fattori presi in considerazione.</p>
+<p>Allo scopo è necessaria una progettazione dell’esperimento (<strong>DoE</strong>) che permetta di valutare statisticamente come ogni parametro tra quelli presi in considerazione influenzi la velocità (= la resa) del processo.</p>
+<p>I parametri che si considerano sono:</p>
+<ul>
+<li>concentrazione di catalizzatore</li>
+<li>concentrazione di blu di metilene</li>
+<li>intensità luminosa (numero di lampade UV accese durante la reazione)</li>
+<li>temperatura della soluzione</li>
+</ul>
+</section>
+<section id="cenni-teorici" class="level1">
+<h1>Cenni teorici</h1>
+<section id="blu-di-metilene-e-meccanismo-di-reazione" class="level2">
+<h2 class="anchored" data-anchor-id="blu-di-metilene-e-meccanismo-di-reazione">Blu di metilene e meccanismo di reazione</h2>
+<p>Il <strong>blu di metilene (MB)</strong> è un colorante organico ampiamente utilizzato come molecola sonda per testare l’efficienza di processi di decontaminazione di effluenti acquosi, in quanto presenta:</p>
+<ul>
+<li>Colore intenso (blu brillante),</li>
+<li>Facilità di solubilizzazione in acqua,</li>
+<li>Spettro di assorbimento ben definito nell’UV-visibile,</li>
+<li>Stabilità e tracciabilità tramite spettrofotometria UV-Vis.</li>
+</ul>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/spettroMB.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Spettro e molecola del blu di metilene</figcaption>
+</figure>
+</div>
+</div>
+<p>Lo spettro di assorbimento UV-Vis del MB mostra un <strong>massimo di assorbanza a 664 nm</strong>. Durante una reazione di degradazione, questa assorbanza diminuisce progressivamente, segnalando la <strong>riduzione della concentrazione</strong> della molecola in soluzione.</p>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/provette.jpg" class="img-fluid figure-img" style="width:30.0%"></p>
+<figcaption>Provette con soluzione di MB prelevate a diversi tempi durante la reazione</figcaption>
+</figure>
+</div>
+</div>
+<p>Il processo di <strong>fotocatalisi eterogenea</strong> sfrutta semiconduttori come il <strong>biossido di titanio (TiO₂)</strong>, che viene attivato da radiazione UV. Il meccanismo alla base della reazione considerata è il seguente:</p>
+<ol type="1">
+<li><p>Attivazione del fotocatalizzatore: <span class="math inline">\(\text{TiO}_2 + h\nu \rightarrow e^- + h^+\)</span></p></li>
+<li><p>Reazioni alle interfacce:</p></li>
+</ol>
+<ul>
+<li><p>Riduzione dell’ossigeno disciolto da parte degli elettroni <span class="math inline">\(e^-\)</span>: <span class="math inline">\(O_2 + e^- \rightarrow O_2^{\cdot-}\)</span></p></li>
+<li><p>Ossidazione dell’acqua da parte delle lacune: <span class="math inline">\(h^+\)</span>: <span class="math inline">\(H_2O + h^+ \rightarrow \cdot OH + H^+\)</span></p></li>
+</ul>
+<ol start="3" type="1">
+<li>Degradazione del blu di metilene: <span class="math inline">\(\text{MB} + \cdot OH \rightarrow \text{prodotti ossidati}\)</span></li>
+</ol>
+<p>Queste specie reattive degradano il blu di metilene in composti meno complessi, fino alla completa mineralizzazione (<span class="math inline">\(CO_2\)</span>, <span class="math inline">\(H_2O\)</span>, sali inorganici).</p>
+<p>In figura la sintesi di quanto detto:</p>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reazione.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Meccanismo di reazione</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="cinetica-della-reazione" class="level2">
+<h2 class="anchored" data-anchor-id="cinetica-della-reazione">Cinetica della reazione</h2>
+<p>La degradazione fotocatalitica del MB segue una <strong>cinetica di primo ordine</strong>, governata dalla seguente equazione differenziale:</p>
+<p><span class="math display">\[
+\frac{dC}{dt} = -kC
+\]</span></p>
+<p>dove:</p>
+<ul>
+<li><span class="math inline">\(C\)</span> è la concentrazione del MB al tempo <span class="math inline">\(t\)</span>,</li>
+<li><span class="math inline">\(C_0\)</span> è la concentrazione iniziale (<span class="math inline">\(t = 0\)</span>),</li>
+<li><span class="math inline">\(k\)</span> è la costante cinetica (in <span class="math inline">\(min^{-1}\)</span>).</li>
+</ul>
+<p>La soluzione dell’equazione risulta:</p>
+<p><span class="math display">\[
+\ln\left(\frac{C}{C_0}\right) = -kt
+\]</span></p>
+<p>oppure:</p>
+<p><span class="math display">\[
+C(t) = C_0 \cdot e^{-kt}
+\]</span></p>
+</section>
+<section id="misura-della-concentrazione-tramite-uv-vis" class="level2">
+<h2 class="anchored" data-anchor-id="misura-della-concentrazione-tramite-uv-vis">Misura della concentrazione tramite UV-Vis</h2>
+<p>Per determinare l’andamento della concentrazione del blu di metilene nel tempo, si misura l’assorbanza della soluzione a 664 nm. In base alla legge di <strong>Lambert-Beer</strong>, la relazione tra assorbanza e concentrazione è:</p>
+<p><span class="math display">\[
+A = \varepsilon \cdot l \cdot C
+\]</span></p>
+<p>dove <span class="math inline">\(A\)</span> è l’assorbanza misurata, <span class="math inline">\(\varepsilon\)</span> è il coefficiente di estinzione molare del blu di metilene, <span class="math inline">\(l\)</span> è il cammino ottico della cuvetta (in genere 1 cm) e <span class="math inline">\(C\)</span> è la concentrazione.</p>
+<p>Poiché <span class="math inline">\(\varepsilon\)</span> e <span class="math inline">\(l\)</span> sono costanti nelle condizioni sperimentali, la concentrazione si può ottenere da:</p>
+<span class="math display">\[
+C = \frac{A}{\varepsilon \cdot l}
+\]</span>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/spettrofotometro.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Spettrofotometro</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="design-of-experiments-doe" class="level2">
+<h2 class="anchored" data-anchor-id="design-of-experiments-doe">Design of Experiments (DoE)</h2>
+<p>Il <strong>Design of Experiments (DoE)</strong> è un’insieme di metodologie statistiche utilizzate per pianificare, eseguire e analizzare esperimenti in modo efficace, con l’obiettivo di identificare l’influenza di più fattori su una risposta misurabile,con il presupposto di ridurre il più possibile il numero di prove necessarie. Nella progettazione di un esperimento, una fase fondamentale consiste nell’elaborazione del <strong>piano fattoriale</strong>, che definisce in modo preciso quali prove devono essere eseguite per studiare l’effetto dei fattori coinvolti.</p>
+<p>Quando i fattori sono molti (o quando le risorse a disposizione limitano il numero di prove possibili) il DoE mette a disposizione diversi metodi, tra i quali:</p>
+<ol type="1">
+<li><p>I <strong>piani fattoriali frazionati</strong>, che consentono di indagare solo una frazione delle combinazioni possibili, risparmiando tempo e risorse.</p></li>
+<li><p>Il <strong>metodo di Daniel</strong>, che aiuta a identificare rapidamente i fattori e le interazioni significative rappresentando gli effetti sperimentali su un grafico quantile-quantile (Q-Q plot). In questo grafico, gli effetti più piccoli (ossia quelli non significativi) tendono ad allinearsi lungo la diagonale, mentre gli effetti maggiori si discostano da essa. Questo permette di distinguere facilmente quali fattori o interazioni hanno un impatto reale sul sistema. Un vantaggio importante di questo approccio è che, eliminando dall’analisi i fattori o le interazioni non significative (ossia quelli che si allineano sulla diagonale del diagramma di Daniel), si riduce il numero di parametri da regredire. Di fatto, questa semplificazione permette di <strong>effettuare un’analisi statistica come l’ANOVA anche senza ripetizioni esplicite degli esperimenti</strong>.</p></li>
+</ol>
+</section>
+</section>
+<section id="parte-sperimentale" class="level1">
+<h1>Parte sperimentale</h1>
+<section id="apparecchiatura" class="level2">
+<h2 class="anchored" data-anchor-id="apparecchiatura">Apparecchiatura</h2>
+<ol type="1">
+<li>Blu di metilene (<span class="math inline">\(MB\)</span>)</li>
+<li>Acqua distillata</li>
+<li>fotocatalizzatore (<span class="math inline">\(TiO_2\)</span>)</li>
+<li>Cilindro graduato da 250 ml</li>
+<li>Agitatore magnetico</li>
+<li>Becher da 250 ml</li>
+<li>Matraccio</li>
+<li>Due siringhe da 10 ml</li>
+<li>Filtro per siringa</li>
+<li>Lampade UV</li>
+<li>Cuvette portacampioni</li>
+<li>Carta assorbente</li>
+</ol>
+</section>
+<section id="procedimento" class="level2">
+<h2 class="anchored" data-anchor-id="procedimento">Procedimento</h2>
+<p>Dopo aver preparato 1 litro di soluzione 16 mg/l di MB in un matraccio per ogni prova prevista dal piano fattoriale:</p>
+<ul>
+<li>Versare nel cilindro graduato la corretta quantità di soluzione e diluire opportunamente per ottenere la soluzione di concentrazione prevista dalla prova da eseguire.</li>
+<li>Prelevare un’idonea quantità di soluzione di MB e inserirla in una provetta, identificandola opportunamente.</li>
+<li>Aggiungere alla soluzione il catalizzatore <span class="math inline">\(TiO_2\)</span> (in quantità prevista dalla prova), versare la soluzione in un becher e lasciare agitare al buio per 30 minuti</li>
+<li>Prelevare un’idonea quantità di soluzione di MB, filtrarla mediante siringa con filtro e inserirla in una provetta, identificandola opportunamente.</li>
+<li>Indossare gli occhiali di protezione, accendere le lampade UV e lasciar irraggiare la soluzione per un tempo di 10, 20, 30 e 40 minuti.</li>
+<li>Al termine di ciascun intervallo di tempo, prelevare una provetta identificandola opportunamente.</li>
+<li>Misurare il valore di assorbanza per ogni provetta</li>
+</ul>
+<p>In quanto sarà necessario regredire un modello che permetta di correlare l’assorbanza ai valori di concentrazione di MB della soluzione è necessario eseguire anche la misura di assorbanza di diverse soluzioni di MB corrispondenti a diverse concetrazioni.</p>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/reattore.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Reattore</figcaption>
+</figure>
+</div>
+</div>
+<p>Informazioni di sicurezza:</p>
+<ul>
+<li>Blu di metilene: Frasi H: 302 (nocivo se ingerito)</li>
+<li>Utilizzare occhiali protettivi (radiazione UV)</li>
+</ul>
+</section>
+<section id="misura-tramite-spettrofotometro-uv-vis" class="level2">
+<h2 class="anchored" data-anchor-id="misura-tramite-spettrofotometro-uv-vis">Misura tramite Spettrofotometro UV-Vis</h2>
+<p>Lo Spettrofotometro è un dispositivo che misura l’intensità della luce prima e dopo aver attraversato un campione restituendo il valore dell’assorbanza dello stesso.</p>
+<p><span class="math display">\[
+A = \log_{10} \left( \frac{I_0}{I} \right)
+\]</span></p>
+<p>La procedura di misura è la seguente:</p>
+<ul>
+<li>preparare la soluzione da analizzare e inserirla nella cuvetta portacampioni<br>
+</li>
+<li>inserire la cuvetta nello spettrofotometro UV-Vis<br>
+</li>
+<li>effettuare la misura di baseline (zero strumentale) con una cuvetta in cui vi è solvente puro (acqua distillata)<br>
+</li>
+<li>impostare la scansione dello spettro su un intervallo di lunghezze d’onda opportuno (es. 400–800 nm)<br>
+</li>
+<li>avviare la scansione per acquisire lo spettro di assorbanza completo<br>
+</li>
+<li>lo spettro è memorizzabile come file di testo in cui per ogni lunghezza d’onda è riportato il valore dell’assorbanza</li>
+</ul>
+</section>
+</section>
+<section id="elaborazione-dei-dati" class="level1">
+<h1>Elaborazione dei dati</h1>
+<section id="piano-fattoriale" class="level2">
+<h2 class="anchored" data-anchor-id="piano-fattoriale">Piano fattoriale</h2>
+<p>Si vuole indagare la relazione sperimentale che lega la <span class="math inline">\(k\)</span> dell’equazione cinetica con i seguenti 4 parametri:</p>
+<ul>
+<li>concentrazione di <span class="math inline">\(TiO_2\)</span> in g/L -&gt; fattore A (quantitativo)</li>
+<li>concentrazione di <span class="math inline">\(MB\)</span> in mg/L -&gt; fattore B(quantitativo)</li>
+<li>temperatura della soluzione in °C -&gt; fattore C (quantitativo)</li>
+<li>intensità luminosa (numero di lampade UV utilizzate) -&gt; fattore D (qualitativo)</li>
+</ul>
+<p>Si sviluppa il piano fattoriale che specifica quali siano le prove (e quindi la combinazione di fattori) da effettuare. In quanto le reazioni richiedono un tempo di svolgimento non indifferente si analizzano solo livello alto e livello basso di ogni fattore (al più si potrà dunque ottenere una relazione di tipo lineare). Inoltre non si effettuano repliche, aspettandosi che almeno uno dei fattori o delle interazioni risulti essere non significativo. Se si realizza tale situazione sii avrebbero di fatto delle repliche implicite nelle misure (cosa molto probabile dato il numero di fattori).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dm<span class="ot">&lt;-</span><span class="fu">fp_design_matrix</span>(<span class="dv">4</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fp_add_names</span>(<span class="at">A=</span><span class="st">"Catalizzatore"</span>,<span class="at">B=</span><span class="st">"MB"</span>,<span class="at">C=</span><span class="st">"Temperatura"</span>,<span class="at">D=</span><span class="st">"Intensità_luminosa"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fp_add_scale</span>(<span class="at">A=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.4</span>),<span class="at">B=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">8</span>),<span class="at">C=</span><span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">22</span>),<span class="at">D=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(dm,<span class="at">caption =</span> <span class="st">"piano fattoriale"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>piano fattoriale</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">StdOrder</th>
+<th style="text-align: right;">RunOrder</th>
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">.rep</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">A_s</th>
+<th style="text-align: right;">B_s</th>
+<th style="text-align: right;">C_s</th>
+<th style="text-align: right;">D_s</th>
+<th style="text-align: left;">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">ab</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">ac</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">bc</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">abc</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">ad</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">bd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">abd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">cd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">acd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">bcd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">abcd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Le prove si identificano tramite la notazione di <em>Yates</em>. Si raccomanda di nominare i file ottenuti dallo spettrofotometro in maniera tale da poter poi implementare un codice che permetta di importare in dati in modo “automatico”.</p>
+</section>
+<section id="raccolta-dati" class="level2">
+<h2 class="anchored" data-anchor-id="raccolta-dati">Raccolta dati</h2>
+<p>Si creano due tabelle:</p>
+<ul>
+<li><code>data_cali</code> per i dati utili alla regressione del modello che lega assorbanza alla concentrazione (in mg/L)</li>
+<li><code>data_prove</code> per i dati utili all’analisi oggetto della presente attività</li>
+</ul>
+<p><code>data_cali</code> contiene i valori degli spettri relativi a soluzioni con diverse concentrazioni note di MB. Si importano tali dati:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file_cali <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data/calibrazione"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data_cali <span class="ot">&lt;-</span> <span class="fu">map_dfr</span>(file_cali, <span class="cf">function</span>(file) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.csv</span>(file, <span class="at">skip =</span> <span class="dv">42</span>, <span class="at">header =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Wavelength_nm =</span> Wavelength..nm.)<span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Concentration_mgL =</span> <span class="fu">parse_number</span>(<span class="fu">sub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.txt$"</span>, <span class="st">""</span>, <span class="fu">basename</span>(file))))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">%&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Concentration_mgL)<span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Concentration_mgL,<span class="at">.before=</span> Wavelength_nm)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(data_cali),<span class="at">caption=</span><span class="st">"`data_cali`: dati degli spettri relativi a soluzioni a diversa concentrazione nota di MB"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption><code>data_cali</code>: dati degli spettri relativi a soluzioni a diversa concentrazione nota di MB</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Concentration_mgL</th>
+<th style="text-align: right;">Wavelength_nm</th>
+<th style="text-align: right;">Absorbance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">0.0031</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">401</td>
+<td style="text-align: right;">0.0028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">402</td>
+<td style="text-align: right;">0.0026</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">403</td>
+<td style="text-align: right;">0.0025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">404</td>
+<td style="text-align: right;">0.0022</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">405</td>
+<td style="text-align: right;">0.0019</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><code>data_prove</code> contiene i dati degli spettri raccolti dalle provette prelevate a diversi tempi durante lo svolgimento della reazione, per tutte le prove effettuate.</p>
+<p>Poiché sono state svolte più prove e per ciascuna prova si hanno piu file che rappresentano gli spettri delle provette prelevate a diversi tempi, si raggruppano tutti questi dati in un’unica tibble.</p>
+<p>Questa tibble avrà quattro colonne:</p>
+<ul>
+<li><em>.treat</em>: la sigla di yates che identifica la prova</li>
+<li><em>time_min</em>: il tempo di prelievo in minuti alla quale è stata prelevata una provetta di soluzione durante la reazione</li>
+<li><em>Wavelength_nm</em>: la lunghezza d’onda corrispondente alla misura</li>
+<li><em>Absorbance</em>: il valore dell’assorbanza misurata per una specifica lunghezza d’onda</li>
+</ul>
+<p>Esistono molti modi per importare i dati come appena spiegato, uno di questi può essere quello di fare uso del codice seguente (ovviamente dipende da come si sono organizzati i file di dati raccolti).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cartelle_prove contiene la lista dei percorsi delle cartelle contentente i file dei vari trattamenti </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cartelle_prove <span class="ot">&lt;-</span> <span class="fu">list.dirs</span>(<span class="st">"data/"</span>, <span class="at">recursive =</span> <span class="cn">FALSE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">keep</span>(<span class="sc">~</span> <span class="fu">str_detect</span>(<span class="fu">basename</span>(.), <span class="st">"^prova"</span>))   </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># read.file carica i dati relativi allo spettro di una singola provetta</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>read.file<span class="ot">&lt;-</span><span class="cf">function</span>(file){</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  time <span class="ot">&lt;-</span> <span class="fu">str_extract</span>(file, <span class="st">"_-?</span><span class="sc">\\</span><span class="st">d+min"</span>) <span class="sc">%&gt;%</span> <span class="fu">str_remove_all</span>(<span class="st">"_|min"</span>) <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read.csv</span>(file, <span class="at">skip =</span> <span class="dv">42</span>,<span class="at">header =</span> T) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">Wavelength_nm =</span> Wavelength..nm.) <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">.treat =</span> <span class="fu">str_extract</span>(<span class="fu">basename</span>(file), <span class="st">"(?&lt;=prova_)[^_]+"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">time_min =</span> time</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>()</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># read.treat carica i dati relativi agli spettri di un trattamento (quindi gli spettri delle provette prelevate a diversi tempi di uno stesso trattamento)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>read.treat<span class="ot">&lt;-</span><span class="cf">function</span>(directory){</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  files<span class="ot">&lt;-</span><span class="fu">list.files</span>(directory, <span class="at">pattern =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">.txt$"</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(files,<span class="sc">~</span><span class="fu">read.file</span>(.))<span class="sc">%&gt;%</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">bind_rows</span>()</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>data_prove<span class="ot">&lt;-</span><span class="fu">map</span>(cartelle_prove,<span class="sc">~</span><span class="fu">read.treat</span>(.))<span class="sc">%&gt;%</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.treat =</span> <span class="fu">factor</span>(.treat, <span class="at">levels =</span> dm <span class="sc">%&gt;%</span> <span class="fu">pull</span>(.treat)))<span class="sc">%&gt;%</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(.treat,time_min)<span class="sc">%&gt;%</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(.treat,time_min,<span class="at">.before =</span> Wavelength_nm)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(data_prove),<span class="at">caption =</span> <span class="st">"`data_prove`: dati degli spettri relativi a tutte le provette prelevate a diversi tempi per tutti i trattamenti"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption><code>data_prove</code>: dati degli spettri relativi a tutte le provette prelevate a diversi tempi per tutti i trattamenti</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">time_min</th>
+<th style="text-align: right;">Wavelength_nm</th>
+<th style="text-align: right;">Absorbance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">0.0062</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">401</td>
+<td style="text-align: right;">0.0059</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">402</td>
+<td style="text-align: right;">0.0055</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">403</td>
+<td style="text-align: right;">0.0052</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">404</td>
+<td style="text-align: right;">0.0047</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">405</td>
+<td style="text-align: right;">0.0042</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="calibrazione-del-modello-che-lega-la-concentrazione-di-mb-allassorbanza" class="level2">
+<h2 class="anchored" data-anchor-id="calibrazione-del-modello-che-lega-la-concentrazione-di-mb-allassorbanza">Calibrazione del modello che lega la concentrazione di MB all’assorbanza</h2>
+<p>Si graficano gli spettri delle soluzioni a diversa concentrazione di MB:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_cali<span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Wavelength_nm,<span class="at">y=</span>Absorbance,<span class="at">color =</span> <span class="fu">factor</span>(Concentration_mgL)))<span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Spettri di assorbimento per diverse concentrazioni di MB"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Lunghezza d'onda (nm)"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Assorbanza"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Concentrazione di MB (mg/L)"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Per trovare il coefficiente del modello che correla assorbanza con concentrazione (che deve essere lineare secondo la legge di <em>Lambert-Beer</em>) si individuano i valori di assorbanza che corrispondono al massimo degli spettri per le varie concentrazioni:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_cali<span class="ot">&lt;-</span>data_cali<span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Concentration_mgL)<span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Absorbance=</span><span class="fu">max</span>(Absorbance,<span class="at">na.rm=</span>T))</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(data_cali, <span class="at">caption=</span><span class="st">"Valori di picco dell'assorbanza per div ersi valori di concentrazione MB (mg/L)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Valori di picco dell’assorbanza per div ersi valori di concentrazione MB (mg/L)</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Concentration_mgL</th>
+<th style="text-align: right;">Absorbance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.3141</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.6875</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.0103</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1.4832</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.7000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2.1716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">2.4825</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">2.7954</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>I punti sperimentali su un grafico Assorbanza vs Concentrazione sono:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_cali<span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Concentration_mgL,<span class="at">y=</span>Absorbance))<span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Assorbanza vs Concentrazione: punti sperimentali"</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Concentrazione MB (mg/L)"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Assorbanza"</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si regredisce quindi il modello lineare che lega assorbanza con concentraizone di MB (in mg/L) ponendo nulla l’intercetta:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data_cali.lm<span class="ot">&lt;-</span><span class="fu">lm</span>(Absorbance <span class="sc">~</span> Concentration_mgL <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> data_cali)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data_cali.lm)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Absorbance ~ Concentration_mgL - 1, data = data_cali)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.06282 -0.04070 -0.02137  0.02497  0.07294 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+Concentration_mgL 0.176282   0.001741   101.3 2.41e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.04972 on 7 degrees of freedom
+Multiple R-squared:  0.9993,    Adjusted R-squared:  0.9992 
+F-statistic: 1.026e+04 on 1 and 7 DF,  p-value: 2.412e-12</code></pre>
+</div>
+</div>
+<p>Si effettua l’analisi dei residui al fine di validare il modello (normalità e assenza di pattern):</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data_cali<span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(data_cali.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(resid)<span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro.test</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  .
+W = 0.91243, p-value = 0.3715</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span>data_cali<span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(data_cali.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample=</span>resid))<span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>()<span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">title=</span><span class="st">"Grafico quantile-quantile"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span>data_cali<span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(data_cali.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Concentration_mgL,<span class="at">y=</span>resid))<span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residui vs Concentrazione"</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Concentrazione MB (mg/L)"</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residui (Assorbanza)"</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>p3<span class="ot">&lt;-</span>data_cali<span class="sc">%&gt;%</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(data_cali.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(data_cali.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pred,<span class="at">y=</span>resid))<span class="sc">+</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residui vs Predizioni"</span>,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Predizioni (Assorbanza)"</span>,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residui (Assorbanza)"</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">/</span>(p2<span class="sc">+</span>p3)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si grafica l’andamento del modello regredito, insieme alla sua banda di confidenza al 95%.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pl_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Concentration_mgL =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(data_cali<span class="sc">$</span>Concentration_mgL), <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(data_cali.lm, pl_data, <span class="at">interval =</span> <span class="st">"confidence"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>pl_data <span class="ot">&lt;-</span> <span class="fu">bind_cols</span>(pl_data, <span class="fu">as_tibble</span>(pred))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> data_cali, <span class="fu">aes</span>(<span class="at">x =</span> Concentration_mgL, <span class="at">y =</span> Absorbance)) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> pl_data, <span class="fu">aes</span>(<span class="at">x =</span> Concentration_mgL, <span class="at">y =</span> fit), <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="at">data =</span> pl_data, <span class="fu">aes</span>(<span class="at">x =</span> Concentration_mgL, <span class="at">ymin =</span> lwr, <span class="at">ymax =</span> upr), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Assorbanza vs Concentrazione: modello lineare e banda di confidenza al 95 %"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Concentrazione MB (mg/L)"</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Assorbanza"</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>coeff<span class="ot">&lt;-</span>data_cali.lm<span class="sc">$</span>coefficients</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Ovviamente, con più che la concentrazione si avvicina al valore nullo la banda di confidenza si restringe.</p>
+<p>Il coefficiente che lega la concentrazione in ppm all’assorbanza è quindi <code>coeff</code>= 0.1762821. Per trovare il valore incognito di concentrazione di una soluzione di` MB basterà quindi moltiplicare il valore di picco del suo spettro per l’inverso del coefficiente appena trovato.</p>
+</section>
+<section id="spettri-delle-varie-prove" class="level2">
+<h2 class="anchored" data-anchor-id="spettri-delle-varie-prove">Spettri delle varie prove</h2>
+<p>Gli spettri delle soluzioni di ogni provetta (ogni provetta corrisponde ad un determinato tempo di prelievo per un determinato trattamento) si riportano di seguito:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data_prove<span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Wavelength_nm,<span class="at">y=</span>Absorbance,<span class="at">color =</span> <span class="fu">factor</span>(time_min)))<span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>.treat,<span class="at">ncol=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">400</span>,<span class="dv">800</span>,<span class="at">by =</span> <span class="dv">200</span>))<span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">400</span>,<span class="dv">800</span>))<span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Spettri di assorbimento di tutte le provette per tutti i trattamenti "</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Lunghezza d'onda (nm)"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Assorbanza"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Tempo (min)"</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si nota che per alcune prove non è stato necessario procedere fino a 90 minuti in quanto la reazione risultava gia conclusa (asintoticamente).</p>
+</section>
+<section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k" class="level2">
+<h2 class="anchored" data-anchor-id="curva-cinetica-della-reazione-e-calcolo-della-costante-k">Curva cinetica della reazione e calcolo della costante k</h2>
+<p>Si vuole innanzitutto verificare che le reazioni condotte siano effettivamente del primo ordine (come suggerito da letteratura)</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#si aggiunge al dataframe delle prove la concentrazione corrispondente al tempo 0 per ogni prova, servirà in seguito</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>data_C0 <span class="ot">&lt;-</span> data_prove <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time_min <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.treat) <span class="sc">%&gt;%</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Abs =</span> <span class="fu">max</span>(Absorbance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">C0=</span>(<span class="dv">1</span><span class="sc">/</span>coeff)<span class="sc">*</span>Abs)<span class="sc">%&gt;%</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>Abs)<span class="sc">%&gt;%</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>data_prove <span class="ot">&lt;-</span> data_prove <span class="sc">%&gt;%</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(data_C0, <span class="at">by =</span> <span class="st">".treat"</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="do">## si crea un data frame il quale contiene il valore della concentrazione per ogni tempo e per ogni prova (ricavato dal massimo dello spettro per un certo tempo)</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>data_prove_max <span class="ot">&lt;-</span> data_prove <span class="sc">%&gt;%</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.treat, time_min) <span class="sc">%&gt;%</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(<span class="at">order_by =</span> Absorbance, <span class="at">n =</span> <span class="dv">1</span>, <span class="at">with_ties =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Concentration_mgL =</span> (<span class="dv">1</span><span class="sc">/</span>coeff)<span class="sc">*</span>Absorbance) </span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="do">## si graficano i punti sperimentali ottenuti</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>data_prove_max<span class="sc">%&gt;%</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(time_min,<span class="at">y=</span>Concentration_mgL))<span class="sc">+</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>.treat)<span class="sc">+</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Concentrazioni vs tempo"</span>,</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Tempo (min)"</span>,</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Concentrazione (ppm)"</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Sembrerebbe che dall’istante 0 (che corrisponde all’accensione delle lampade UV) l’andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.</p>
+<p>Si ricorda che la forma linearizzata della soluzione dell’equazione differenziale che governa la cinetica della reazione è la seguente:</p>
+<p><span class="math display">\[
+\ln\left(\frac{C}{C_0}\right) = -kt
+\]</span></p>
+<p>Ciò suggerisce di eseguire delle regressioni per i vari trattamenti utilizzando un modello lineare <span class="math inline">\(y \sim x\)</span> in cui <span class="math inline">\(y=\ln(\frac{C}{C_0})\)</span> in modo da determinare il valore della costante <span class="math inline">\(k\)</span> per ogni trattamneto, unico parametro che descrive la velocità della reazione per il modello adottato.</p>
+<p>Si esegue quindi per ogni trattamento una regressione con un modello lineare dall’istante 0 per determinare il valore della costante <em>k</em>, unico parametro che descrive la velocità della reazione per il modello adottato.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># si filtrano i dati relativi a tempi &gt;=0 e crea una tibble raggruppata per trattamento</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>data_k <span class="ot">&lt;-</span> data_prove_max <span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time_min <span class="sc">&gt;=</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span>          </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.treat) <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span>              <span class="co"># raggruppa i dati di ciascun trattamento in una colonna "data" (ne risulta una tibble nidificata)</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">modello =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(<span class="sc">-</span><span class="fu">log</span>(Concentration_mgL<span class="sc">/</span>C0) <span class="sc">~</span> time_min <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> .x)),</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">k =</span> <span class="fu">map_dbl</span>(modello, <span class="sc">~</span> <span class="fu">coef</span>(.x)[[<span class="st">"time_min"</span>]])</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(.treat, k)                  </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(data_k, <span class="at">caption =</span> <span class="st">"Coefficienti k dei trattamenti"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Coefficienti k dei trattamenti</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">k</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">0.0935995</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">0.0958463</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">0.0307055</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ab</td>
+<td style="text-align: right;">0.0461135</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">0.0908000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ac</td>
+<td style="text-align: right;">0.0892981</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bc</td>
+<td style="text-align: right;">0.0305206</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">abc</td>
+<td style="text-align: right;">0.0435985</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">0.1120463</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ad</td>
+<td style="text-align: right;">0.1490928</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bd</td>
+<td style="text-align: right;">0.0650043</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">abd</td>
+<td style="text-align: right;">0.0677097</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cd</td>
+<td style="text-align: right;">0.1282324</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">acd</td>
+<td style="text-align: right;">0.1645459</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">bcd</td>
+<td style="text-align: right;">0.0681490</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">abcd</td>
+<td style="text-align: right;">0.0739003</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Si graficano le curve cinetiche che si sono regredite per ogni reazione condotta:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(t, k, C0) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> C0 <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>k<span class="sc">*</span>t)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">#Si aggiugono le k a data_prove_max</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>data_prove_max <span class="ot">&lt;-</span> data_prove_max <span class="sc">%&gt;%</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(data_k, <span class="at">by =</span> <span class="st">".treat"</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">#Si crea una sequenza continua di tempi da 0 al max tempo &gt;= 0 (preso da data)</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>tempo_range <span class="ot">&lt;-</span> <span class="fu">range</span>(data_prove_max<span class="sc">$</span>time_min[data_prove_max<span class="sc">$</span>time_min <span class="sc">&gt;=</span> <span class="dv">0</span>])</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>tempi_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(tempo_range[<span class="dv">1</span>], tempo_range[<span class="dv">2</span>], <span class="at">by =</span> <span class="fl">0.1</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co">#Si geenera un df con tempi continui per ogni prova e i parametri per calcolare la curva</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>df_curve <span class="ot">&lt;-</span> data_prove_max  <span class="sc">%&gt;%</span>       </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.treat) <span class="sc">%&gt;%</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand</span>(<span class="at">time_min =</span> tempi_seq) <span class="sc">%&gt;%</span>   <span class="co"># crea tempi continui per ogni prova</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(., data_prove_max <span class="sc">%&gt;%</span> <span class="fu">distinct</span>(.treat,k, C0), <span class="at">by =</span> <span class="st">".treat"</span>) <span class="sc">%&gt;%</span>  </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">y_fit =</span> <span class="fu">f</span>(time_min, k, C0)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Grafico con punti sperimentali e curva regredita</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>data_prove_max <span class="sc">%&gt;%</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(time_min <span class="sc">&gt;=</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(time_min, Concentration_mgL)) <span class="sc">+</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>.treat) <span class="sc">+</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> df_curve, <span class="fu">aes</span>(time_min, y_fit), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Concentrazioni vs tempo, curva regredita"</span>,</span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"tempo (min)"</span>,</span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"concentrazione MB (mg/L)"</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="modello-che-lega-k-ai-fattori---anova" class="level2">
+<h2 class="anchored" data-anchor-id="modello-che-lega-k-ai-fattori---anova">Modello che lega k ai fattori - ANOVA</h2>
+<p>Si possono quindi inserire i valori delle k nel piano fattoriale iniziale:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dm <span class="ot">&lt;-</span> dm <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Y) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(data_k <span class="sc">%&gt;%</span> <span class="fu">select</span>(.treat, <span class="at">Y =</span> k), <span class="at">by =</span> <span class="st">".treat"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(dm,<span class="at">caption =</span> <span class="st">"piano fattoriale con valori di risposta Y (costante k)"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>piano fattoriale con valori di risposta Y (costante k)</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">StdOrder</th>
+<th style="text-align: right;">RunOrder</th>
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">.rep</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">A_s</th>
+<th style="text-align: right;">B_s</th>
+<th style="text-align: right;">C_s</th>
+<th style="text-align: right;">D_s</th>
+<th style="text-align: right;">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0935995</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0958463</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0307055</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">ab</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0461135</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0908000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">ac</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0892981</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">bc</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0305206</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">abc</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0435985</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.1120463</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">ad</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.1490928</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">bd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0650043</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">abd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0677097</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">cd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.1282324</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">acd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.1645459</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">bcd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0681490</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">abcd</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.0739003</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>In quanto il piano fattoriale utilizzato non prevede ripetizioni. attraverso il metodo di Daniel e il diagramma di pareto si verificano se siano presenti effetti o interazioni non significative.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dm.lm<span class="ot">&lt;-</span><span class="fu">lm</span>(Y<span class="sc">~</span>A<span class="sc">*</span>B<span class="sc">*</span>C<span class="sc">*</span>D, <span class="at">data=</span>dm)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p<span class="ot">&lt;-</span>dm.lm <span class="sc">%&gt;%</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">effects</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gghalfnorm</span>(<span class="at">labs =</span> <span class="fu">names</span>(.),<span class="at">nlab=</span><span class="dv">4</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Grafico di Daniel"</span>)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pareto_chart</span>(dm.lm)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Si esegue un nuovo modello lineare escludendo gli effetti meno significativi, si effettua quindi l’analisi ANOVA (eliminando degli effetti e delle interazioni si è reso il piano implicitamente ripetuto).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>dm.lm<span class="ot">&lt;-</span><span class="fu">lm</span>(Y<span class="sc">~</span>A<span class="sc">+</span>B<span class="sc">+</span>D<span class="sc">+</span>A<span class="sc">:</span>B<span class="sc">:</span>D,<span class="at">data=</span>dm) </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(dm.lm)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Y
+          Df    Sum Sq   Mean Sq F value    Pr(&gt;F)    
+A          1 0.0007707 0.0007707  10.714  0.007423 ** 
+B          1 0.0154853 0.0154853 215.261 1.438e-08 ***
+D          1 0.0059367 0.0059367  82.525 1.913e-06 ***
+A:B:D      1 0.0005364 0.0005364   7.457  0.019552 *  
+Residuals 11 0.0007913 0.0000719                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Per ritenere validi i risultati forniti dall’analisi ANOVA va effettuata in utlimo l’analisi dei residui:</p>
+<section id="verifica-di-normalità" class="level3">
+<h3 class="anchored" data-anchor-id="verifica-di-normalità">Verifica di normalità</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dm<span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(resid)<span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shapiro.test</span>()</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  .
+W = 0.92665, p-value = 0.2156</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dm<span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample=</span>resid))<span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>()<span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>()<span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Grafico quantile-quantile"</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="assenza-di-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="assenza-di-pattern">Assenza di pattern</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p4<span class="ot">&lt;-</span>dm<span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>A,<span class="at">y=</span>resid))<span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residui vs fattore A"</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"A"</span>,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residui"</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>p5<span class="ot">&lt;-</span>dm<span class="sc">%&gt;%</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>B,<span class="at">y=</span>resid))<span class="sc">+</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residui vs fattore B"</span>,</span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"B"</span>,</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residui"</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>p6<span class="ot">&lt;-</span>dm<span class="sc">%&gt;%</span></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>D,<span class="at">y=</span>resid))<span class="sc">+</span></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residui vs fattore D"</span>,</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"D"</span>,</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residui"</span></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>p7<span class="ot">&lt;-</span>dm<span class="sc">%&gt;%</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>RunOrder,<span class="at">y=</span>resid))<span class="sc">+</span></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residui vs RunOrder"</span>,</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"RunOrder"</span>,</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residui"</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>p8<span class="ot">&lt;-</span>dm<span class="sc">%&gt;%</span></span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb27-43"><a href="#cb27-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(dm.lm)<span class="sc">%&gt;%</span></span>
+<span id="cb27-44"><a href="#cb27-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>pred,<span class="at">y=</span>resid))<span class="sc">+</span></span>
+<span id="cb27-45"><a href="#cb27-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb27-46"><a href="#cb27-46" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(</span>
+<span id="cb27-47"><a href="#cb27-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Residui vs Predizioni"</span>,</span>
+<span id="cb27-48"><a href="#cb27-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Predizioni"</span>,</span>
+<span id="cb27-49"><a href="#cb27-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Residui"</span></span>
+<span id="cb27-50"><a href="#cb27-50" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-51"><a href="#cb27-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-52"><a href="#cb27-52" aria-hidden="true" tabindex="-1"></a>(p4<span class="sc">+</span>p5<span class="sc">+</span>p6)<span class="sc">/</span>(p7<span class="sc">+</span>p8)</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="superficie-di-risposta" class="level3">
+<h3 class="anchored" data-anchor-id="superficie-di-risposta">Superficie di risposta</h3>
+<p>Dopo aver validato il modello tramite l’analisi dei residui si può riportare la superficie di risposta ottenuta (in coded unit). Essa rappreseta come varia la costante <em>k</em> al variare dei fattori (quelli significativi).</p>
+<p>Per ottenere reazioni a decadimento più rapido bisognerà scegliere una combinazione dio fattori che massimizzi il valore della costante (e/o viceversa).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>rs <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">A =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">length.out=</span><span class="dv">50</span>),</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">B =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">length.out=</span><span class="dv">50</span>),</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">D =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(dm.lm,<span class="at">var =</span> <span class="st">"k"</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>rs<span class="sc">%&gt;%</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>A, <span class="at">y=</span>B, <span class="at">z=</span>k))<span class="sc">+</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    metR<span class="sc">::</span><span class="fu">geom_contour_fill</span>(<span class="at">bins=</span><span class="dv">15</span>)<span class="sc">+</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    metR<span class="sc">::</span><span class="fu">geom_contour2</span>(<span class="fu">aes</span>(<span class="at">label=</span>(<span class="fu">after_stat</span>(level)) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)), <span class="at">bins=</span><span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span><span class="fu">factor</span>(D)) <span class="sc">+</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_c</span>()<span class="sc">+</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">fill =</span> <span class="st">"k"</span>,</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Superficie di risposta per la costante k "</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="conclusioni" class="level1">
+<h1>Conclusioni</h1>
+<div class="callout callout-style-default callout-note callout-titled" title="Conclusione">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Conclusione
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p><strong>Ordine di reazione</strong><br>
+Le reazioni analizzate seguono un andamento del <strong>primo ordine</strong> rispetto al colorante, in accordo con quanto riportato in letteratura per processi di fotocatalisi eterogenea. Questo significa che la velocità di degradazione dipende linearmente dalla concentrazione residua del blu di metilene.</p></li>
+<li><p><strong>Determinazione della costante cinetica</strong><br>
+Per ciascun trattamento sperimentale è stato calcolato il valore della costante cinetica <em>k</em>. Questo parametro consente di confrontare direttamente l’efficacia delle diverse condizioni operative e rappresenta un indicatore quantitativo della velocità di degradazione.</p></li>
+<li><p><strong>Fattori significativi</strong><br>
+L’analisi statistica (ANOVA) ha mostrato che i principali fattori che influenzano <em>k</em> sono:</p></li>
+</ol>
+<ul>
+<li><p><strong>A: concentrazione di catalizzatore ([TiO₂])</strong> Concentrazioni più alte forniscono più siti attivi sulla superficie, favorendo la generazione di radicali ossidanti e accelerando la reazione.</p></li>
+<li><p><strong>B: concentrazione di blu di metilene ([MB])</strong> Concentrazioni elevate di MB aumentano l’assorbimento competitivo della luce e possono saturare i siti catalitici, influenzando quindi la velocità osservata.</p></li>
+<li><p><strong>D: intensità della radiazione UV (numero di lampade accese)</strong> Un incremento dell’intensità luminosa genera più coppie elettrone-lacuna, aumentando la formazione di specie reattive e quindi la velocità di degradazione.</p>
+<p>È risultata inoltre <strong>leggermente significativa l’interazione ABD</strong>: ciò indica che l’effetto combinato di catalizzatore, concentrazione di MB e intensità luminosa non è puramente additivo, ma esiste una sinergia parziale tra i tre fattori.</p></li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Fattore non significativo</strong><br>
+La <strong>temperatura</strong> non è risultata significativa. Questo è coerente con la natura del processo fotocatalitico, governato principalmente dall’assorbimento fotonico e dalla generazione di specie radicaliche, piuttosto che da un’energia di attivazione termica.</li>
+</ol>
+</div>
+</div>
+<p>È importante infine sottolineare che la costante cinetica <span class="math inline">\(k\)</span> non rappresenta il “tempo che la reazione impiega a completarsi”, ma descrive la <strong>velocità intrinseca</strong> del processo.</p>
+<p>Nel caso di una reazione del primo ordine, la velocità è proporzionale alla concentrazione residua del reagente:</p>
+<p><span class="math display">\[
+v = k [C]
+\]</span></p>
+<p>Questo significa che <span class="math inline">\(k\)</span> ha unità di misura <span class="math inline">\(\text{tempo}^{-1}\)</span> (nel nostro caso <span class="math inline">\(\text{min}^{-1}\)</span>) e indica <strong>quanto rapidamente decresce la concentrazione nel tempo</strong>.</p>
+<p>La durata complessiva di una reazione dipende invece dalle condizioni iniziali (<span class="math inline">\([C_0]\)</span>) e dalla conversione considerata significativa. Un parametro utile per descrivere i tempi caratteristici è il <strong>tempo di dimezzamento</strong>:</p>
+<p><span class="math display">\[
+t_{1/2} = \frac{\ln 2}{k}
+\]</span></p>
+<p>che rappresenta l’intervallo necessario affinché la concentrazione si riduca della metà.<br>
+In questo modo, <span class="math inline">\(k\)</span> permette di confrontare diverse condizioni operative senza dover definire un tempo arbitrario di “fine reazione”.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiato!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiato!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mmt-unitn\.github\.io\/InDaLab");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

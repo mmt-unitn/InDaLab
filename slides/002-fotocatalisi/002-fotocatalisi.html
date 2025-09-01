@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="it-IT"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.30">
+
+  <meta name="author" content="Tommaso Stefani">
+  <meta name="dcterms.date" content="2025-09-01">
+  <title>InDaLab – Degradazione fotocatalitica di soluzioni di blu di metilene</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-cc2e44230b622b686867d2cb10e2530b.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Degradazione fotocatalitica di soluzioni di blu di metilene</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Tommaso Stefani 
+</div>
+</div>
+</div>
+
+  <p class="date">2025-09-01</p>
+</section>
+<section>
+<section id="descrizione-dellattività" class="title-slide slide level1 center">
+<h1>Descrizione dell’attività</h1>
+
+</section>
+<section id="descrizione-dellattività-1" class="slide level2">
+<h2>Descrizione dell’attività</h2>
+<p>Nella presente attività si conducono reazioni di fotocatalisi per determinare come varia la <strong>velocità di degradazione fotocatalitica di soluzioni acquose di blu di metilene</strong> al variare di <strong>diversi fattori presi in considerazione</strong>.</p>
+<p>Allo scopo è necessaria una progettazione dell’esperimento (<strong>DoE</strong>) che permetta di valutare statisticamente come ogni fattore tra quelli presi in considerazione influenzi la velocità (= la resa) del processo.</p>
+<p>I fattori che si considerano sono:</p>
+<ul>
+<li>concentrazione di catalizzatore</li>
+<li>concentrazione di blu di metilene</li>
+<li>intensità luminosa (numero di lampade UV accese durante la reazione)</li>
+<li>temperatura della soluzione</li>
+</ul>
+</section></section>
+<section>
+<section id="richiami-teorici" class="title-slide slide level1 center">
+<h1>Richiami teorici</h1>
+
+</section>
+<section id="blu-di-metilene" class="slide level2">
+<h2>Blu di metilene</h2>
+<p>Il <strong>blu di metilene (MB)</strong> è un colorante organico ampiamente utilizzato come molecola sonda per testare l’efficienza di processi di decontaminazione di effluenti acquosi, in quanto presenta:</p>
+<ul>
+<li>Colore intenso (blu brillante),</li>
+<li>Facilità di solubilizzazione in acqua,</li>
+<li>Spettro di assorbimento ben definito nell’UV-visibile,</li>
+<li>Stabilità e tracciabilità tramite spettrofotometria UV-Vis.</li>
+</ul>
+<p>Lo spettro di assorbimento UV-Vis del MB mostra un <strong>massimo di assorbanza a 664 nm</strong>. Durante una reazione di degradazione, questa assorbanza diminuisce progressivamente, segnalando la <strong>riduzione della concentrazione</strong> della molecola in soluzione.</p>
+</section>
+<section id="blu-di-metilene-1" class="slide level2">
+<h2>Blu di metilene</h2>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/spettroMB.jpg" style="width:50.0%"></p>
+<figcaption>Spettro e molecola del blu di metilene</figcaption>
+</figure>
+</div>
+</div>
+<p>Il blu di metilene (MB) viene utilizzato in questa attività come molecola modello perché facilmente rilevabile; la sua degradazione non ha rilevanza pratica, ma permette di valutare l’efficacia di processi fotocatalitici destinati a inquinanti organici reali.</p>
+</section>
+<section id="meccanismo-di-reazione" class="slide level2">
+<h2>Meccanismo di reazione</h2>
+<p>Il processo di <strong>fotocatalisi eterogenea</strong> sfrutta semiconduttori come il <strong>biossido di titanio (TiO₂)</strong>, che viene attivato da radiazione UV. Il meccanismo alla base della reazione considerata è il seguente:</p>
+<ol type="1">
+<li><p>Attivazione del fotocatalizzatore: <span class="math inline">\(\text{TiO}_2 + h\nu \rightarrow e^- + h^+\)</span></p></li>
+<li><p>Reazioni alle interfacce:</p></li>
+</ol>
+<ul>
+<li><p>Riduzione dell’ossigeno disciolto da parte degli elettroni <span class="math inline">\(e^-\)</span>: <span class="math inline">\(O_2 + e^- \rightarrow O_2^{\cdot-}\)</span></p></li>
+<li><p>Ossidazione dell’acqua da parte delle lacune: <span class="math inline">\(h^+\)</span>: <span class="math inline">\(H_2O + h^+ \rightarrow \cdot OH + H^+\)</span></p></li>
+</ul>
+<ol start="3" type="1">
+<li>Degradazione del blu di metilene: <span class="math inline">\(\text{MB} + \cdot OH \rightarrow \text{prodotti ossidati}\)</span></li>
+</ol>
+<p>Queste specie reattive degradano il blu di metilene in composti meno complessi, fino alla completa mineralizzazione (<span class="math inline">\(CO_2\)</span>, <span class="math inline">\(H_2O\)</span>, sali inorganici).</p>
+</section>
+<section id="meccanismo-di-reazione-1" class="slide level2">
+<h2>Meccanismo di reazione</h2>
+<p>In figura la sintesi di quanto detto:</p>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/reazione.jpg" style="width:40.0%"></p>
+<figcaption>Meccanismo di reazione</figcaption>
+</figure>
+</div>
+</div>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/provette.jpg" style="width:20.0%"></p>
+<figcaption>Provette con soluzione di MB prelevate a diversi tempi durante la reazione</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="cinetica-della-reazione" class="slide level2">
+<h2>Cinetica della reazione</h2>
+<p>La degradazione fotocatalitica del MB segue una <strong>cinetica di primo ordine</strong>, governata dalla seguente equazione differenziale:</p>
+<p><span class="math display">\[
+\frac{dC}{dt} = -k \cdot C
+\]</span></p>
+<p>dove:</p>
+<ul>
+<li><span class="math inline">\(C\)</span> è la concentrazione del MB al tempo <span class="math inline">\(t\)</span>,</li>
+<li><span class="math inline">\(C_0\)</span> è la concentrazione iniziale (<span class="math inline">\(t = 0\)</span>),</li>
+<li><span class="math inline">\(k\)</span> è la costante cinetica (in <span class="math inline">\(min^{-1}\)</span>).</li>
+</ul>
+<p>La <strong>soluzione dell’equazione</strong> risulta <span class="math inline">\(\ln\left(\frac{C}{C_0}\right) = -kt\)</span>, oppure <span class="math inline">\(C(t) = C_0 \cdot e^{-kt}\)</span></p>
+</section>
+<section id="misura-della-concentrazione-tramite-uv-vis" class="slide level2">
+<h2>Misura della concentrazione tramite UV-Vis</h2>
+<p>Per determinare <strong>l’andamento della concentrazione del blu di metilene nel tempo</strong>, si misura <strong>l’assorbanza della soluzione a 664 nm</strong>. In base alla legge di <strong>Lambert-Beer</strong>, la relazione tra assorbanza e concentrazione è:</p>
+<p><span class="math display">\[
+A = \varepsilon \cdot l \cdot C
+\]</span></p>
+<p>dove <span class="math inline">\(A\)</span> è l’assorbanza misurata, <span class="math inline">\(\varepsilon\)</span> è il coefficiente di estinzione molare del blu di metilene, <span class="math inline">\(l\)</span> è il cammino ottico della cuvetta (in genere 1 cm) e <span class="math inline">\(C\)</span> è la concentrazione.</p>
+<p>Poiché <span class="math inline">\(\varepsilon\)</span> e <span class="math inline">\(l\)</span> sono costanti nelle condizioni sperimentali, la concentrazione si può ottenere da:</p>
+<p><span class="math display">\[
+C = \frac{A}{\varepsilon \cdot l}
+\]</span></p>
+</section>
+<section id="misura-della-concentrazione-tramite-uv-vis-1" class="slide level2">
+<h2>Misura della concentrazione tramite UV-Vis</h2>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/spettrofotometro.jpg" style="width:25.0%"></p>
+<figcaption>Spettrofotometro</figcaption>
+</figure>
+</div>
+</div>
+<p>Sarà quindi necessario raccogliere i dati relativi agli spettri di assorbimento di soluzioni a concentrazione nota di MB in modo da calibrare un modello che leghi la concentrazione all’assorbanza.</p>
+<p>In questo modo, tramite la misura dell’assorbanza sarà possibile risalire alla concentrazione di una soluzione di MB.</p>
+</section>
+<section id="design-of-experiments-doe" class="slide level2">
+<h2>Design of Experiments (DoE)</h2>
+<p>Il <strong>DoE</strong> è l’insieme delle metodologie statistiche utili a pianificare esperimenti in modo efficiente, al fine di poter studiare l’effetto di più fattori realizzando il minor numero di prove necessarie. Il piano fattoriale definisce quali combinazioni testare.</p>
+<p>Quando i fattori sono tanti, si usano di frequente:</p>
+<ul>
+<li><p><strong>Piani frazionati su due livelli</strong>: testano solo alcune combinazioni di fattori.</p></li>
+<li><p><strong>Metodo di Daniel</strong>: individua i fattori significativi con un <strong>Q-Q plot</strong>. Gli effetti non significativi si allineano lungo la diagonale, quelli grandi no.</p></li>
+</ul>
+<p>Eliminando gli effetti non significativi, si può fare l’analisi ANOVA anche senza ripetizioni esplicite.</p>
+</section></section>
+<section>
+<section id="parte-sperimentale" class="title-slide slide level1 center">
+<h1>Parte sperimentale</h1>
+
+</section>
+<section id="apparecchiatura" class="slide level2">
+<h2>Apparecchiatura</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Blu di metilene (<span class="math inline">\(MB\)</span>)<br>
+</li>
+<li>Acqua distillata<br>
+</li>
+<li>Fotocatalizzatore (<span class="math inline">\(TiO_2\)</span>)<br>
+</li>
+<li>Cilindro graduato da 250 ml<br>
+</li>
+<li>Agitatore magnetico<br>
+</li>
+<li>Becher da 250 ml<br>
+</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Matraccio<br>
+</li>
+<li>Due siringhe da 10 ml<br>
+</li>
+<li>Filtro per siringa<br>
+</li>
+<li>Lampade UV<br>
+</li>
+<li>Cuvette portacampioni<br>
+</li>
+<li>Carta assorbente<br>
+</li>
+</ul>
+</div></div>
+</section>
+<section id="procedimento" class="slide level2">
+<h2>Procedimento</h2>
+<p>Per ogni prova (trattamento) prevista dal piano fattoriale, si preleveranno campioni della soluzione in provette separate, a partire da 30 minuti prima dell’accensione delle lampade (tempo zero) e poi a intervalli di tempo definiti fino al completamento della reazione. Questi campioni permetteranno, tramite spettrofotometria UV-Vis, di seguire l’andamento della concentrazione di MB nel tempo per tutte le soluzioni, rappresentanti i diversi trattamenti.</p>
+<p>Allo scopo:</p>
+<ul>
+<li>Preparare una <strong>soluzione madre di MB a 16 mg/L in un matraccio</strong>, in quantità sufficiente per tutte le prove previste dal piano fattoriale. Questa soluzione costituirà la soluzione di partenza per ogni esperimento.</li>
+</ul>
+<p>Per <strong>ogni prova</strong> prevista dal piano fattoriale:</p>
+<ul>
+<li>Prelevare dal matraccio la quantità necessaria di soluzione madre e <strong>diluire per ottenere la concentrazione richiesta dalla prova</strong>.</li>
+</ul>
+</section>
+<section id="procedimento-1" class="slide level2">
+<h2>Procedimento</h2>
+<ul>
+<li><p>Aggiungere alla soluzione il <strong>catalizzatore</strong> <span class="math inline">\(TiO_2\)</span> nella quantità prevista.</p></li>
+<li><p>Prelevare una quantità di soluzione di MB sufficiente a riempire la cuvetta dello spettrofotometro usando una <strong>siringa</strong>, filtrarla con un <strong>filtro</strong> applicato alla siringa e <strong>trasferirla in una provetta, identificandola chiaramente</strong> (ad esempio: prova 1, -30 min).</p></li>
+<li><p>Trasferire la soluzione in un <strong>becher</strong> e lasciarla agitare al buio per 30 minuti mediante <strong>agitatore magnetico</strong>.</p></li>
+<li><p>Prelevare nuovamente una quantità di soluzione di MB, <strong>filtrarla con la siringa</strong> e inserirla in una provetta, <strong>identificandola chiaramente</strong> (tempo 0).</p></li>
+<li><p>Indossare occhiali di protezione, <strong>accendere le lampade UV</strong> e lasciare irraggiare la soluzione per <strong>intervalli di tempo definiti</strong> (ad esempio 10, 20, 30 minuti, fino al completamento della reazione). Al termine di ciascun intervallo, prelevare una quantità di soluzione, <strong>filtrarla con la siringa</strong> e trasferirla in una provetta, <strong>identificandola chiaramente</strong>.</p></li>
+<li><p>Eseguire tramite lo spettrofotometro <strong>l’acquisizione dello spettro di assorbimento di ogni provetta</strong> (corrispondente ai vari tempi di prelievo)</p></li>
+</ul>
+</section>
+<section id="procedimento-2" class="slide level2">
+<h2>Procedimento</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In quanto sarà necessario regredire un <strong>modello che permetta di correlare l’assorbanza ai valori di concentrazione di MB della soluzione</strong> eseguire anche la misura di assorbanza di diverse soluzioni di MB corrispondenti a diverse concetrazioni note.</p>
+<p>Informazioni di sicurezza:</p>
+<ul>
+<li>Blu di metilene: Frasi H: 302 (nocivo se ingerito)</li>
+<li>Utilizzare occhiali protettivi (radiazione UV)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/reattore.jpg" style="width:60.0%"></p>
+<figcaption>Reattore</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="misura-tramite-spettrofotometro-uv-vis" class="slide level2">
+<h2>Misura tramite Spettrofotometro UV-Vis</h2>
+<p>Lo Spettrofotometro è un dispositivo che misura l’intensità della luce prima e dopo aver attraversato un campione restituendo il valore dell’assorbanza dello stesso.</p>
+<span class="math display">\[
+A = \log_{10} \left( \frac{I_0}{I} \right)
+\]</span>
+<div style="text-align:center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/spettrofotometro.jpg" style="width:25.0%"></p>
+<figcaption>Spettrofotometro</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="misura-tramite-spettrofotometro-uv-vis-1" class="slide level2">
+<h2>Misura tramite Spettrofotometro UV-Vis</h2>
+<p>La procedura di misura è la seguente:</p>
+<ul>
+<li>preparare la soluzione da analizzare e inserirla nella cuvetta portacampioni<br>
+</li>
+<li>inserire la cuvetta nello spettrofotometro UV-Vis<br>
+</li>
+<li>effettuare la misura di baseline (zero strumentale) con una cuvetta in cui vi è solvente puro (acqua distillata)</li>
+<li>impostare la scansione dello spettro su un intervallo di lunghezze d’onda opportuno (es. 400–800 nm)<br>
+</li>
+<li>avviare la scansione per acquisire lo spettro di assorbanza completo<br>
+</li>
+<li>lo spettro è memorizzabile come file di testo in cui per ogni lunghezza d’onda è riportato il valore dell’assorbanza</li>
+</ul>
+</section></section>
+<section>
+<section id="elaborazione-dei-dati" class="title-slide slide level1 center">
+<h1>Elaborazione dei dati</h1>
+
+</section>
+<section id="piano-fattoriale" class="slide level2">
+<h2>Piano fattoriale</h2>
+<p>Si vuole indagare la relazione sperimentale che lega la <span class="math inline">\(k\)</span> dell’equazione cinetica con i seguenti 4 fattori:</p>
+<ul>
+<li>concentrazione di <span class="math inline">\(TiO_2\)</span> in g/l: fattore A (quantitativo)</li>
+<li>concentrazione di <span class="math inline">\(MB\)</span> in g/l: fattore B(quantitativo)</li>
+<li>temperatura della soluzione in °C: fattore C (quantitativo)</li>
+<li>intensità luminosa (numero di lampade UV utilizzate): fattore D (qualitativo)</li>
+</ul>
+<p>In quanto le prove richiedono un tempo di svolgimento rilevante bisogna ricorrere ad un piano frazionato o ad un piano non replicato.</p>
+</section>
+<section id="piano-fattoriale-1" class="slide level2">
+<h2>Piano fattoriale</h2>
+<ul>
+<li><p>Le reazioni richiedono un tempo di svolgimento non indifferente, si analizzano quindi solo livello alto e livello basso di ogni fattore (al più si potrà dunque ottenere una relazione di tipo lineare).</p></li>
+<li><p>Non si effettuano repliche, aspettandosi che almeno uno dei fattori o delle interazioni risulti essere non significativo. Se si realizza tale situazione si avrebbero di fatto delle repliche implicite nelle misure (cosa molto probabile dato il numero di fattori) che permettono di effettuare un’analisi ANOVA.</p></li>
+<li><p>Esistono diversi approcci per raggiungere l’obiettivo dell’esperienza (verificare che le reazioni siano del primo ordine, determinare la costante <span class="math inline">\(k\)</span> dell’equazione cinetica e determinare una relazione empirica che leghi la stessa ai fattori presi in considerazione); di seguito ne viene presentato uno come esempio.</p></li>
+</ul>
+</section>
+<section id="piano-fattoriale-2" class="slide level2">
+<h2>Piano fattoriale</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>piano fattoriale (troncato alla riga 7)</caption>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">StdOrder</th>
+<th style="text-align: right;">RunOrder</th>
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">.rep</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">A_s</th>
+<th style="text-align: right;">B_s</th>
+<th style="text-align: right;">C_s</th>
+<th style="text-align: right;">D_s</th>
+<th style="text-align: left;">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">ab</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">ac</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">bc</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Le prove si identificano tramite la notazione di <em>Yates</em>. Si raccomanda di nominare i file ottenuti dallo spettrofotometro in maniera tale da poter poi implementare un codice che permetta di importare i dati in modo “automatico”.</p>
+</section>
+<section id="raccolta-dati" class="slide level2">
+<h2>Raccolta dati</h2>
+<p>Si lavora su due tabelle (in seguito sono riportate solo le prime righe) importando i dati ottenuti dallo spettrofotometro:</p>
+<ul>
+<li><p><code>data_cali</code> per i dati utili alla regressione del modello che lega assorbanza alla concentrazione (in ppm), tale tabella contiene i valori degli spettri relativi a soluzioni con diverse concentrazioni di MB.</p></li>
+<li><p><code>data_prove</code> per i dati utili all’analisi oggetto della presente attività, contiene i dati degli spettri raccolti dalle provette prelevate a diversi tempi durante lo svolgimento della reazione, per tutte le prove effettuate.</p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption><code>data_cali</code>: dati degli spettri relativi a soluzioni a diversa concentrazione nota di MB</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Concentration_mgL</th>
+<th style="text-align: right;">Wavelength_nm</th>
+<th style="text-align: right;">Absorbance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">0.0031</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">401</td>
+<td style="text-align: right;">0.0028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">402</td>
+<td style="text-align: right;">0.0026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="raccolta-dati-1" class="slide level2">
+<h2>Raccolta dati</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption><code>data_prove</code>: dati degli spettri relativi a tutte le provette prelevate a diversi tempi per tutti i trattamenti</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">time_min</th>
+<th style="text-align: right;">Wavelength_nm</th>
+<th style="text-align: right;">Absorbance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">400</td>
+<td style="text-align: right;">0.0062</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">401</td>
+<td style="text-align: right;">0.0059</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">402</td>
+<td style="text-align: right;">0.0055</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">403</td>
+<td style="text-align: right;">0.0052</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">404</td>
+<td style="text-align: right;">0.0047</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">-30</td>
+<td style="text-align: right;">405</td>
+<td style="text-align: right;">0.0042</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza" class="slide level2">
+<h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
+<p>Le misure ottenute tramite spettrofotometro delle soluzioni a concentrazione nota (contenute in <code>data_cali</code>), permettono di graficare gli spettri delle stesse:</p>
+
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-1" class="slide level2">
+<h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
+<p>Per trovare il coefficiente del modello che correla assorbanza con concentrazione (che deve essere lineare secondo la legge di <em>Lambert-Beer</em>) si individuano i valori di assorbanza che corrispondono al massimo degli spettri per le varie concentrazioni. Si noti che è presente una colonna RunOrder che riporta l’ordine con cui si sono eseguite le misurazioni allo spettrofotometro (ordine casuale).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Concentrazione MB (mg/L) vs Assorbanza</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">RunOrder</th>
+<th style="text-align: right;">Concentration_mgL</th>
+<th style="text-align: right;">Absorbance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">2.7954</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2.1716</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.3141</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1.4832</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.0103</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.6875</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-2" class="slide level2">
+<h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
+<p>Tali punti sperimentali, su un grafico Assorbanza vs Concentrazione sono:</p>
+
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-3" class="slide level2">
+<h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
+<p>Si regredisce quindi il modello lineare che lega assorbanza con concentraizone di MB (in mg/L) ponendo nulla l’intercetta:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Absorbance ~ Concentration_mgL - 1, data = data_cali)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.06282 -0.04070 -0.02137  0.02497  0.07294 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+Concentration_mgL 0.176282   0.001741   101.3 2.41e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.04972 on 7 degrees of freedom
+Multiple R-squared:  0.9993,    Adjusted R-squared:  0.9992 
+F-statistic: 1.026e+04 on 1 and 7 DF,  p-value: 2.412e-12</code></pre>
+</div>
+</div>
+</section>
+<section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-4" class="slide level2">
+<h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
+<p>Si effettua l’analisi dei residui al fine di validare il modello (normalità e assenza di pattern):</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  .
+W = 0.91243, p-value = 0.3715</code></pre>
+</div>
+
+</div>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-5" class="slide level2">
+<h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
+<p>L’andamento del modello regredito, insieme alla sua banda di confidenza al 95% è quindi:</p>
+
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<section id="spettri-delle-varie-prove" class="slide level2">
+<h2>Spettri delle varie prove</h2>
+
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Si nota che per alcune prove non è stato necessario procedere fino a 90 minuti in quanto la reazione risultava gia conclusa (asintoticamente).</p>
+</section>
+<section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k" class="slide level2">
+<h2>Curva cinetica della reazione e calcolo della costante k</h2>
+<p>Si vuole innanzitutto verificare che le reazioni condotte siano effettivamente del primo ordine (come suggerito da letteratura)</p>
+
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Sembrerebbe che dall’istante 0 (che corrisponde all’accensione delle lampade UV) l’andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.</p>
+</section>
+<section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k-1" class="slide level2">
+<h2>Curva cinetica della reazione e calcolo della costante k</h2>
+<p>Si ricorda che la forma linearizzata della soluzione dell’equazione differenziale che governa la cinetica della reazione è la seguente:</p>
+<p><span class="math display">\[
+\ln\left(\frac{C}{C_0}\right) = -kt
+\]</span></p>
+<p>Ciò suggerisce di eseguire delle regressioni per i vari trattamenti utilizzando un modello lineare <span class="math inline">\(y \sim x\)</span> in cui <span class="math inline">\(y=\ln(\frac{C}{C_0})\)</span> in modo da determinare il valore della costante <span class="math inline">\(k\)</span> per ogni trattamneto, unico parametro che descrive la velocità della reazione per il modello adottato.</p>
+</section>
+<section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k-2" class="slide level2">
+<h2>Curva cinetica della reazione e calcolo della costante k</h2>
+<p>Si esegue quindi per ogni trattamento una regressione con un modello lineare dall’istante 0 per determinare il valore della costante <em>k</em>, unico parametro che descrive la velocità della reazione per il modello adottato.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Coefficienti k dei trattamenti</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">k</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">0.0935995</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">0.0958463</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">0.0307055</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ab</td>
+<td style="text-align: right;">0.0461135</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">0.0908000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ac</td>
+<td style="text-align: right;">0.0892981</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k-3" class="slide level2">
+<h2>Curva cinetica della reazione e calcolo della costante k</h2>
+<p>Si graficano le curve cinetiche che si sono regredite per ogni reazione condotta:</p>
+
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<section id="modello-che-lega-k-ai-fattori---anova" class="slide level2">
+<h2>Modello che lega k ai fattori - ANOVA</h2>
+<p>Si possono quindi inserire i valori delle k nel piano fattoriale iniziale:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>piano fattoriale con valori di risposta Y (costante k)</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">StdOrder</th>
+<th style="text-align: right;">RunOrder</th>
+<th style="text-align: left;">.treat</th>
+<th style="text-align: right;">.rep</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">A_s</th>
+<th style="text-align: right;">B_s</th>
+<th style="text-align: right;">C_s</th>
+<th style="text-align: right;">D_s</th>
+<th style="text-align: right;">Y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">(1)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0935995</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">a</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0958463</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0307055</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">ab</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0461135</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0908000</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">ac</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0892981</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="modello-che-lega-k-ai-fattori---anova-1" class="slide level2">
+<h2>Modello che lega k ai fattori - ANOVA</h2>
+<p>In quanto il piano fattoriale utilizzato non prevede ripetizioni. attraverso il metodo di Daniel e il diagramma di pareto si verificano se siano presenti effetti o interazioni non significative.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="modello-che-lega-k-ai-fattori---anova-2" class="slide level2">
+<h2>Modello che lega k ai fattori - ANOVA</h2>
+<p>Si esegue un nuovo modello lineare escludendo gli effetti meno significativi, si effettua quindi l’analisi ANOVA (eliminando degli effetti e delle interazioni si è reso il piano implicitamente ripetuto).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: Y
+          Df    Sum Sq   Mean Sq F value    Pr(&gt;F)    
+A          1 0.0007707 0.0007707  10.714  0.007423 ** 
+B          1 0.0154853 0.0154853 215.261 1.438e-08 ***
+D          1 0.0059367 0.0059367  82.525 1.913e-06 ***
+A:B:D      1 0.0005364 0.0005364   7.457  0.019552 *  
+Residuals 11 0.0007913 0.0000719                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+<p>Per ritenere validi i risultati forniti dall’analisi ANOVA va effettuata in utlimo l’analisi dei residui (che non si riporta)</p>
+</section>
+<section id="superficie-di-risposta" class="slide level2">
+<h2>Superficie di risposta</h2>
+<p>Dopo aver validato il modello tramite l’analisi dei residui si può riportare la superficie di risposta ottenuta (in coded unit). Essa rappreseta come varia la costante <em>k</em> al variare dei fattori (quelli significativi).</p>
+<p>Per ottenere reazioni a decadimento più rapido bisognerà scegliere una combinazione di fattori che massimizzi il valore della costante (e/o viceversa).</p>
+
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<section id="conclusioni" class="slide level2">
+<h2>Conclusioni</h2>
+<ol type="1">
+<li><p><strong>Ordine di reazione</strong><br>
+Le reazioni analizzate seguono un andamento del <strong>primo ordine</strong> rispetto al colorante, in accordo con quanto riportato in letteratura per processi di fotocatalisi eterogenea. Questo significa che la velocità di degradazione dipende linearmente dalla concentrazione residua del blu di metilene.</p></li>
+<li><p><strong>Determinazione della costante cinetica</strong><br>
+Per ciascun trattamento sperimentale è stato calcolato il valore della costante cinetica <em>k</em>. Questo parametro consente di confrontare direttamente l’efficacia delle diverse condizioni operative e rappresenta un indicatore quantitativo della velocità di degradazione.</p></li>
+</ol>
+</section>
+<section id="conclusioni-1" class="slide level2">
+<h2>Conclusioni</h2>
+<ol start="3" type="1">
+<li><strong>Fattori significativi</strong><br>
+L’analisi statistica (ANOVA) ha mostrato che i principali fattori che influenzano <em>k</em> sono:</li>
+</ol>
+<ul>
+<li><p><strong>A: concentrazione di catalizzatore ([TiO₂])</strong> Concentrazioni più alte forniscono più siti attivi sulla superficie, favorendo la generazione di radicali ossidanti e accelerando la reazione.</p></li>
+<li><p><strong>B: concentrazione di blu di metilene ([MB])</strong> Concentrazioni elevate di MB aumentano l’assorbimento competitivo della luce e possono saturare i siti catalitici, influenzando quindi la velocità osservata.</p></li>
+<li><p><strong>D: intensità della radiazione UV (numero di lampade accese)</strong> Un incremento dell’intensità luminosa genera più coppie elettrone-lacuna, aumentando la formazione di specie reattive e quindi la velocità di degradazione.</p>
+<p>È risultata inoltre <strong>leggermente significativa l’interazione ABD</strong>: ciò indica che l’effetto combinato di catalizzatore, concentrazione di MB e intensità luminosa non è puramente additivo, ma esiste una sinergia parziale tra i tre fattori.</p></li>
+</ul>
+</section>
+<section id="conclusioni-2" class="slide level2">
+<h2>Conclusioni</h2>
+<ol start="4" type="1">
+<li><strong>Fattore non significativo</strong><br>
+La <strong>temperatura</strong> non è risultata significativa. Questo è coerente con la natura del processo fotocatalitico, governato principalmente dall’assorbimento fotonico e dalla generazione di specie radicaliche, piuttosto che da un’energia di attivazione termica.</li>
+</ol>
+</section>
+<section id="conclusioni-3" class="slide level2">
+<h2>Conclusioni</h2>
+<p>È importante infine sottolineare che la costante cinetica <span class="math inline">\(k\)</span> non rappresenta il “tempo che la reazione impiega a completarsi”, ma descrive la <strong>velocità intrinseca</strong> del processo.</p>
+<p>Nel caso di una reazione del primo ordine, la velocità è proporzionale alla concentrazione residua del reagente:</p>
+<p><span class="math display">\[
+v = k [C]
+\]</span></p>
+<p>Questo significa che <span class="math inline">\(k\)</span> ha unità di misura <span class="math inline">\(\text{tempo}^{-1}\)</span> (nel nostro caso <span class="math inline">\(\text{min}^{-1}\)</span>) e indica <strong>quanto rapidamente decresce la concentrazione nel tempo</strong>.</p>
+</section>
+<section id="conclusioni-4" class="slide level2">
+<h2>Conclusioni</h2>
+<p>La durata complessiva di una reazione dipende invece dalle condizioni iniziali (<span class="math inline">\([C_0]\)</span>) e dalla conversione considerata significativa. Un parametro utile per descrivere i tempi caratteristici è il <strong>tempo di dimezzamento</strong>:</p>
+<p><span class="math display">\[
+t_{1/2} = \frac{\ln 2}{k}
+\]</span></p>
+<p>che rappresenta l’intervallo necessario affinché la concentrazione si riduca della metà.<br>
+In questo modo, <span class="math inline">\(k\)</span> permette di confrontare diverse condizioni operative senza dover definire un tempo arbitrario di “fine reazione”.</p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="https://keystoneacademic-res.cloudinary.com/image/upload/c_pad,w_640,h_304/dpr_auto/f_auto/q_auto/v1/element/14/147138_logoUnitrento_1000px.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="../../slides.html">Home</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': true,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiato!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiato!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/mmt-unitn\.github\.io\/InDaLab");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+                // default icon
+                link.classList.add("external");
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+            let selectedAnnoteEl;
+            const selectorForAnnotation = ( cell, annotation) => {
+              let cellAttr = 'data-code-cell="' + cell + '"';
+              let lineAttr = 'data-code-annotation="' +  annotation + '"';
+              const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+              return selector;
+            }
+            const selectCodeLines = (annoteEl) => {
+              const doc = window.document;
+              const targetCell = annoteEl.getAttribute("data-target-cell");
+              const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+              const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+              const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+              const lineIds = lines.map((line) => {
+                return targetCell + "-" + line;
+              })
+              let top = null;
+              let height = null;
+              let parent = null;
+              if (lineIds.length > 0) {
+                  //compute the position of the single el (top and bottom and make a div)
+                  const el = window.document.getElementById(lineIds[0]);
+                  top = el.offsetTop;
+                  height = el.offsetHeight;
+                  parent = el.parentElement.parentElement;
+                if (lineIds.length > 1) {
+                  const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+                  const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+                  height = bottom - top;
+                }
+                if (top !== null && height !== null && parent !== null) {
+                  // cook up a div (if necessary) and position it 
+                  let div = window.document.getElementById("code-annotation-line-highlight");
+                  if (div === null) {
+                    div = window.document.createElement("div");
+                    div.setAttribute("id", "code-annotation-line-highlight");
+                    div.style.position = 'absolute';
+                    parent.appendChild(div);
+                  }
+                  div.style.top = top - 2 + "px";
+                  div.style.height = height + 4 + "px";
+                  div.style.left = 0;
+                  let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+                  if (gutterDiv === null) {
+                    gutterDiv = window.document.createElement("div");
+                    gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                    gutterDiv.style.position = 'absolute';
+                    const codeCell = window.document.getElementById(targetCell);
+                    const gutter = codeCell.querySelector('.code-annotation-gutter');
+                    gutter.appendChild(gutterDiv);
+                  }
+                  gutterDiv.style.top = top - 2 + "px";
+                  gutterDiv.style.height = height + 4 + "px";
+                }
+                selectedAnnoteEl = annoteEl;
+              }
+            };
+            const unselectCodeLines = () => {
+              const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+              elementsIds.forEach((elId) => {
+                const div = window.document.getElementById(elId);
+                if (div) {
+                  div.remove();
+                }
+              });
+              selectedAnnoteEl = undefined;
+            };
+              // Handle positioning of the toggle
+          window.addEventListener(
+            "resize",
+            throttle(() => {
+              elRect = undefined;
+              if (selectedAnnoteEl) {
+                selectCodeLines(selectedAnnoteEl);
+              }
+            }, 10)
+          );
+          function throttle(fn, ms) {
+          let throttle = false;
+          let timer;
+            return (...args) => {
+              if(!throttle) { // first call gets through
+                  fn.apply(this, args);
+                  throttle = true;
+              } else { // all the others get throttled
+                  if(timer) clearTimeout(timer); // cancel #2
+                  timer = setTimeout(() => {
+                    fn.apply(this, args);
+                    timer = throttle = false;
+                  }, ms);
+              }
+            };
+          }
+            // Attach click handler to the DT
+            const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+            for (const annoteDlNode of annoteDls) {
+              annoteDlNode.addEventListener('click', (event) => {
+                const clickedEl = event.target;
+                if (clickedEl !== selectedAnnoteEl) {
+                  unselectCodeLines();
+                  const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+                  if (activeEl) {
+                    activeEl.classList.remove('code-annotation-active');
+                  }
+                  selectCodeLines(clickedEl);
+                  clickedEl.classList.add('code-annotation-active');
+                } else {
+                  // Unselect the line
+                  unselectCodeLines();
+                  clickedEl.classList.remove('code-annotation-active');
+                }
+              });
+            }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

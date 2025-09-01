@@ -10,33 +10,33 @@
 <atom:link href="https://mmt-unitn.github.io/InDaLab/slides.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.7.30</generator>
-<lastBuildDate>Mon, 04 Aug 2025 22:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 31 Aug 2025 22:00:00 GMT</lastBuildDate>
 <item>
   <title></title>
   <dc:creator>Tommaso Stefani</dc:creator>
-  <link>https://mmt-unitn.github.io/InDaLab/slides/003-fotocatalisi.html</link>
+  <link>https://mmt-unitn.github.io/InDaLab/slides/002-fotocatalisi/002-fotocatalisi.html</link>
   <description><![CDATA[ undefined ]]></description>
   <category>tesi</category>
-  <guid>https://mmt-unitn.github.io/InDaLab/slides/003-fotocatalisi.html</guid>
-  <pubDate>Mon, 04 Aug 2025 22:00:00 GMT</pubDate>
+  <guid>https://mmt-unitn.github.io/InDaLab/slides/002-fotocatalisi/002-fotocatalisi.html</guid>
+  <pubDate>Sun, 31 Aug 2025 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title></title>
   <dc:creator>Tommaso Stefani</dc:creator>
-  <link>https://mmt-unitn.github.io/InDaLab/slides/002-durezza.html</link>
+  <link>https://mmt-unitn.github.io/InDaLab/slides/001-durezza/001-durezza.html</link>
   <description><![CDATA[ undefined ]]></description>
   <category>tesi</category>
-  <guid>https://mmt-unitn.github.io/InDaLab/slides/002-durezza.html</guid>
-  <pubDate>Mon, 04 Aug 2025 22:00:00 GMT</pubDate>
+  <guid>https://mmt-unitn.github.io/InDaLab/slides/001-durezza/001-durezza.html</guid>
+  <pubDate>Sun, 31 Aug 2025 22:00:00 GMT</pubDate>
 </item>
 <item>
   <title></title>
-  <dc:creator>Paolo Bosetti</dc:creator>
-  <link>https://mmt-unitn.github.io/InDaLab/slides/001-tesi.html</link>
+  <dc:creator>Tommaso Stefani</dc:creator>
+  <link>https://mmt-unitn.github.io/InDaLab/slides/003-rivestimenti/002-rivestimenti.html</link>
   <description><![CDATA[ undefined ]]></description>
   <category>tesi</category>
-  <guid>https://mmt-unitn.github.io/InDaLab/slides/001-tesi.html</guid>
-  <pubDate>Tue, 04 Feb 2025 23:00:00 GMT</pubDate>
+  <guid>https://mmt-unitn.github.io/InDaLab/slides/003-rivestimenti/002-rivestimenti.html</guid>
+  <pubDate>Sun, 31 Aug 2025 22:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>
