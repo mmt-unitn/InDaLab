@@ -5,6 +5,8 @@ format: html
 
 ## Contenuti
 
+![](experiments/002-fotocatalisi/images/provette.jpg){style="width: 800px; height: 300px; object-fit: cover;"}
+
 Questo sito contiene una guida alle esercitazioni di laboratorio tenute durante il corso di laurea triennale in Ingegneria Industriale del Dipartimento di Ingegneria Industriale dell'Università di Trento.
 
 Alla pagina [Esperimenti](/experiments.qmd) trovate gli esperimenti proposti organizzati in schede. Ogni scheda contiene una descrizione dell'esperimento con una traccia per l'analisi dei risultati.
