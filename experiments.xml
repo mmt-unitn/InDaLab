@@ -314,7 +314,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -344,7 +344,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -359,7 +359,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -374,7 +374,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">c</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -389,7 +389,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">ac</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -404,7 +404,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">bc</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -419,7 +419,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">abc</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -434,7 +434,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: left;">d</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -449,7 +449,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">ad</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -464,7 +464,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">bd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -479,7 +479,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: left;">abd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -494,7 +494,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">cd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -509,7 +509,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="even">
 <td style="text-align: right;">14</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">acd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -524,7 +524,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">bcd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -539,7 +539,7 @@ font-style: inherit;">"piano fattoriale"</span>)</span></code></pre></div>
 </tr>
 <tr class="even">
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">abcd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -1009,7 +1009,7 @@ font-style: inherit;">"Concentrazione di MB (mg/L)"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -1131,7 +1131,7 @@ font-style: inherit;">"Assorbanza"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -1343,7 +1343,7 @@ font-style: inherit;">+</span>p3)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -1479,7 +1479,7 @@ font-style: inherit;">0</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -1587,7 +1587,7 @@ font-style: inherit;">"Tempo (min)"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -1768,7 +1768,7 @@ font-style: inherit;">"Concentrazione (ppm)"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -2128,7 +2128,7 @@ font-style: inherit;">"concentrazione MB (mg/L)"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -2209,7 +2209,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2239,7 +2239,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2254,7 +2254,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -2269,7 +2269,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">c</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2284,7 +2284,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">ac</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -2299,7 +2299,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">bc</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2314,7 +2314,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">abc</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -2329,7 +2329,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: left;">d</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2344,7 +2344,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">ad</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -2359,7 +2359,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">bd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2374,7 +2374,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: left;">abd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -2389,7 +2389,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="odd">
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">cd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2404,7 +2404,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="even">
 <td style="text-align: right;">14</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">acd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -2419,7 +2419,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="odd">
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">bcd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -2434,7 +2434,7 @@ font-style: inherit;">"piano fattoriale con valori di risposta Y (costante k)"</
 </tr>
 <tr class="even">
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">abcd</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -2511,7 +2511,7 @@ font-style: inherit;">"Grafico di Daniel"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -2523,7 +2523,7 @@ font-style: inherit;">pareto_chart</span>(dm.lm)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -2632,7 +2632,7 @@ font-style: inherit;">"Grafico quantile-quantile"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -2888,7 +2888,7 @@ font-style: inherit;">+</span>p8)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -3037,7 +3037,7 @@ font-style: inherit;">"Superficie di risposta per la costante k "</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/002-fotocatalisi/index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -3669,242 +3669,242 @@ font-style: inherit;">"Tabella di raccolta dati per taratura"</span>)</span></co
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">26</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: left;">HV5</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV30</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">5</td>
 <td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HV20</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
-<tr class="even">
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
 <tr class="odd">
-<td style="text-align: right;">18</td>
+<td style="text-align: right;">29</td>
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">HV20</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV30</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">HV30</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV5</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">HV30</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">HV5</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: right;">4</td>
+<td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">HV5</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">22</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">17</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: left;">HV10</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">HV30</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">14</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">HV30</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">HV30</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">HV50</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">21</td>
 <td style="text-align: right;">24</td>
+<td style="text-align: right;">19</td>
 <td style="text-align: right;">5</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV5</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">HV20</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">HV10</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">6</td>
 <td style="text-align: left;">HV30</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
 <td style="text-align: right;">30</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV20</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV50</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">28</td>
 <td style="text-align: right;">3</td>
+<td style="text-align: left;">HV10</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">HV5</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">HV30</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: left;">NA</td>
 </tr>
@@ -4569,7 +4569,7 @@ font-style: inherit;">"Boxplot"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -4641,7 +4641,7 @@ font-style: inherit;">"Stima"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -4733,7 +4733,7 @@ font-style: inherit;">"Rotto"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -4983,7 +4983,7 @@ font-style: inherit;">"Grafici quantile-quantile"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -5219,7 +5219,7 @@ font-style: inherit;">"Quantili reali"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -5452,7 +5452,7 @@ font-style: inherit;">"Dati per analisi di taratura"</span>)</span></code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">29</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV5</td>
 <td style="text-align: right;">5</td>
@@ -5461,7 +5461,7 @@ font-style: inherit;">"Dati per analisi di taratura"</span>)</span></code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV10</td>
 <td style="text-align: right;">10</td>
@@ -5470,7 +5470,7 @@ font-style: inherit;">"Dati per analisi di taratura"</span>)</span></code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">27</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV20</td>
 <td style="text-align: right;">20</td>
@@ -5479,7 +5479,7 @@ font-style: inherit;">"Dati per analisi di taratura"</span>)</span></code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV30</td>
 <td style="text-align: right;">30</td>
@@ -5488,7 +5488,7 @@ font-style: inherit;">"Dati per analisi di taratura"</span>)</span></code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">HV50</td>
 <td style="text-align: right;">50</td>
@@ -5497,7 +5497,7 @@ font-style: inherit;">"Dati per analisi di taratura"</span>)</span></code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">25</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">HV5</td>
 <td style="text-align: right;">5</td>
@@ -5579,7 +5579,7 @@ font-style: inherit;">"Materiale"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -5857,7 +5857,7 @@ font-style: inherit;">+</span>p4)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -5903,7 +5903,7 @@ font-style: inherit;">"Grafico quantile-quantile"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -6268,7 +6268,7 @@ font-style: inherit;">~</span>Scale)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -6317,7 +6317,7 @@ font-style: inherit;">~</span>Scale)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-21-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -6366,7 +6366,7 @@ font-style: inherit;">~</span>Scale)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-21-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-20-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -6406,7 +6406,7 @@ font-style: inherit;">"QQ-plot dei residui per ogni scala"</span>)</span></code>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-21-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-20-4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -6705,7 +6705,7 @@ font-style: inherit;">"Stima"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/001-durezza/index_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -7034,7 +7034,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -7049,7 +7049,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -7064,7 +7064,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -7079,7 +7079,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -7094,7 +7094,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">-1</td>
@@ -7109,7 +7109,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
@@ -7139,7 +7139,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
@@ -7154,7 +7154,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">center</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
@@ -7169,7 +7169,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">center</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
@@ -7184,7 +7184,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">center</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">0</td>
@@ -7199,7 +7199,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: left;">center</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">0</td>
@@ -7214,7 +7214,7 @@ font-style: inherit;">"piano fattoriale con design centrale"</span>)</span></cod
 </tr>
 <tr class="odd">
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: left;">center</td>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">0</td>
@@ -7251,19 +7251,19 @@ Table: piano fattoriale media e varianza delle grandezze adesione e spessore
 
 | StdOrder| RunOrder|.treat | .rep|  A|  B| A_s| B_s| ades| dur_media|   dur_var|
 |--------:|--------:|:------|----:|--:|--:|---:|---:|----:|---------:|---------:|
-|        1|        5|(1)    |    1| -1| -1| 1.0|   1|    1|      9.00| 0.0000000|
-|        2|        2|a      |    1|  1| -1| 4.0|   1|    1|      9.25| 0.2500000|
-|        3|        8|b      |    1| -1|  1| 1.0|   9|    2|     10.25| 0.2500000|
-|        4|        1|ab     |    1|  1|  1| 4.0|   9|    3|     10.25| 0.2500000|
-|        5|        3|(1)    |    2| -1| -1| 1.0|   1|    1|      8.75| 0.2500000|
-|        6|        7|a      |    2|  1| -1| 4.0|   1|    2|      9.00| 0.0000000|
+|        1|        6|(1)    |    1| -1| -1| 1.0|   1|    1|      9.00| 0.0000000|
+|        2|        8|a      |    1|  1| -1| 4.0|   1|    1|      9.25| 0.2500000|
+|        3|        3|b      |    1| -1|  1| 1.0|   9|    2|     10.25| 0.2500000|
+|        4|        7|ab     |    1|  1|  1| 4.0|   9|    3|     10.25| 0.2500000|
+|        5|        2|(1)    |    2| -1| -1| 1.0|   1|    1|      8.75| 0.2500000|
+|        6|        5|a      |    2|  1| -1| 4.0|   1|    2|      9.00| 0.0000000|
 |        7|        4|b      |    2| -1|  1| 1.0|   9|    2|     10.50| 0.3333333|
-|        8|        6|ab     |    2|  1|  1| 4.0|   9|    3|     10.75| 0.2500000|
-|        9|       12|center |    1|  0|  0| 2.5|   5|    2|      9.25| 0.2500000|
-|       10|        9|center |    2|  0|  0| 2.5|   5|    1|     10.25| 0.2500000|
-|       11|       13|center |    3|  0|  0| 2.5|   5|    2|     10.25| 0.2500000|
-|       12|       11|center |    4|  0|  0| 2.5|   5|    3|     10.25| 0.2500000|
-|       13|       10|center |    5|  0|  0| 2.5|   5|    2|     10.00| 0.0000000|
+|        8|        1|ab     |    2|  1|  1| 4.0|   9|    3|     10.75| 0.2500000|
+|        9|       13|center |    1|  0|  0| 2.5|   5|    2|      9.25| 0.2500000|
+|       10|       10|center |    2|  0|  0| 2.5|   5|    1|     10.25| 0.2500000|
+|       11|       11|center |    3|  0|  0| 2.5|   5|    2|     10.25| 0.2500000|
+|       12|       12|center |    4|  0|  0| 2.5|   5|    3|     10.25| 0.2500000|
+|       13|        9|center |    5|  0|  0| 2.5|   5|    2|     10.00| 0.0000000|
 
 
 :::
@@ -7674,7 +7674,7 @@ font-style: inherit;">"Residui dell'adesione"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -7871,7 +7871,7 @@ font-style: inherit;">"Residui della media della durezza"</span>)</span></code><
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -7907,7 +7907,7 @@ font-style: inherit;">"red"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -8127,7 +8127,7 @@ font-style: inherit;">"Residui della varianza della durezza"</span>)</span></cod
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -8163,7 +8163,7 @@ font-style: inherit;">"red"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -8560,7 +8560,7 @@ font-style: inherit;">"Residui dell'adesione"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -8714,7 +8714,7 @@ font-style: inherit;">"Residui della media della durezza"</span>)</span></code><
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -8750,7 +8750,7 @@ font-style: inherit;">"red"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -8927,7 +8927,7 @@ font-style: inherit;">"Residui della varianza della durezza"</span>)</span></cod
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -8963,7 +8963,7 @@ font-style: inherit;">"red"</span>)</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -9117,7 +9117,7 @@ font-style: inherit;">"adesione"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -9166,7 +9166,7 @@ font-style: inherit;">"spessore"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -9215,7 +9215,7 @@ font-style: inherit;">"varianza dello spessore"</span></span>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-13-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-12-3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -9534,7 +9534,7 @@ font-style: inherit;">coord_equal</span>()</span></code></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
+<p><img src="https://mmt-unitn.github.io/InDaLab/experiments/003-rivestimenti/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:16cm"></p>
 </figure>
 </div>
 </div>

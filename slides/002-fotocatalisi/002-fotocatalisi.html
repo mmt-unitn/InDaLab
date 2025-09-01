@@ -450,7 +450,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -465,7 +465,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -495,7 +495,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -510,7 +510,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">c</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -525,7 +525,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: left;">ac</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -540,7 +540,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">bc</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -658,7 +658,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Le misure ottenute tramite spettrofotometro delle soluzioni a concentrazione nota (contenute in <code>data_cali</code>), permettono di graficare gli spettri delle stesse:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-1" class="slide level2">
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Per trovare il coefficiente del modello che correla assorbanza con concentrazione (che deve essere lineare secondo la legge di <em>Lambert-Beer</em>) si individuano i valori di assorbanza che corrispondono al massimo degli spettri per le varie concentrazioni. Si noti che è presente una colonna RunOrder che riporta l’ordine con cui si sono eseguite le misurazioni allo spettrofotometro (ordine casuale).</p>
@@ -676,8 +676,8 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">2.7954</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">2.4825</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
@@ -691,13 +691,13 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">1.4832</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1.0103</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">1.0103</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.7000</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
@@ -713,7 +713,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Tali punti sperimentali, su un grafico Assorbanza vs Concentrazione sono:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-3" class="slide level2">
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Si regredisce quindi il modello lineare che lega assorbanza con concentraizone di MB (in mg/L) ponendo nulla l’intercetta:</p>
@@ -752,22 +752,22 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </div>
 
 </div>
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-5" class="slide level2">
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>L’andamento del modello regredito, insieme alla sua banda di confidenza al 95% è quindi:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="spettri-delle-varie-prove" class="slide level2">
 <h2>Spettri delle varie prove</h2>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Si nota che per alcune prove non è stato necessario procedere fino a 90 minuti in quanto la reazione risultava gia conclusa (asintoticamente).</p>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Si nota che per alcune prove non è stato necessario procedere fino a 90 minuti in quanto la reazione risultava gia conclusa (asintoticamente).</p>
 </section>
 <section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k" class="slide level2">
 <h2>Curva cinetica della reazione e calcolo della costante k</h2>
 <p>Si vuole innanzitutto verificare che le reazioni condotte siano effettivamente del primo ordine (come suggerito da letteratura)</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Sembrerebbe che dall’istante 0 (che corrisponde all’accensione delle lampade UV) l’andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.</p>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Sembrerebbe che dall’istante 0 (che corrisponde all’accensione delle lampade UV) l’andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.</p>
 </section>
 <section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k-1" class="slide level2">
 <h2>Curva cinetica della reazione e calcolo della costante k</h2>
@@ -824,7 +824,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <h2>Curva cinetica della reazione e calcolo della costante k</h2>
 <p>Si graficano le curve cinetiche che si sono regredite per ogni reazione condotta:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-k-ai-fattori---anova" class="slide level2">
 <h2>Modello che lega k ai fattori - ANOVA</h2>
 <p>Si possono quindi inserire i valori delle k nel piano fattoriale iniziale:</p>
@@ -867,7 +867,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -882,7 +882,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -912,7 +912,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -927,7 +927,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">7</td>
 <td style="text-align: left;">c</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -942,7 +942,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: left;">ac</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -969,7 +969,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
+<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -979,7 +979,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
+<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -1011,7 +1011,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>Dopo aver validato il modello tramite l’analisi dei residui si può riportare la superficie di risposta ottenuta (in coded unit). Essa rappreseta come varia la costante <em>k</em> al variare dei fattori (quelli significativi).</p>
 <p>Per ottenere reazioni a decadimento più rapido bisognerà scegliere una combinazione di fattori che massimizzi il valore della costante (e/o viceversa).</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="conclusioni" class="slide level2">
 <h2>Conclusioni</h2>
 <ol type="1">
