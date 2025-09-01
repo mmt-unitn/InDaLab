@@ -1,7 +1,5 @@
 project:
   type: website
-execute:
-  freeze: auto
 website:
   title: "InDaLab"
   site-url: "https://mmt-unitn.github.io/InDaLab"

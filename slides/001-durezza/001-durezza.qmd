@@ -608,7 +608,9 @@ df_b<-expand.grid(
   arrange(RunOrder)%>%
   tibble()
 
-write.csv(df_b,"misure_per_taratura.csv")  #serve per avere la tabella in formato .csv così da poter essere riempita dallo speriementatore
+if (!file.exists("misure_per_taratura.csv")){
+  write.csv(df_b,"misure_per_taratura.csv")  #serve per avere la tabella in formato .csv così da poter essere riempita dallo speriementatore
+}
 
 kable(df_b, caption = "Tabella di raccolta dati per taratura")
 
