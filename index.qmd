@@ -16,3 +16,8 @@ Alla pagina [Presentazioni](/slides.qmd) trovate alcune presentazioni utili a il
 Questo sito ed i contenuti in esso proposti sono sviluppati come tesi di laurea triennale in Ingegneria Industriale.
 
 Si informa che, all'interno della descrizione dell'attività, sono inclusi blocchi di codice R utilizzati a supporto delle analisi effettuate.
+
+
+::: callout-note
+Per il nome *InDaLab*, vedi [qui](https://www.urbandictionary.com/define.php?term=In+da+house).
+:::
