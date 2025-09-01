@@ -7,13 +7,13 @@ $base-color: #86c109;
 $base-color-dark: scale-color($base-color, $lightness: -30%);
 $base-color-light: scale-color($base-color, $lightness: +30%);
 
-$alt-color-1: adjust-color($base-color, $hue: -120deg);
+$alt-color-1: adjust-color($base-color, $hue: -120deg, $space: hsl);
 // $alt-color-1: #C10986;
 $alt-color-1-dark: scale-color($alt-color-1, $lightness: -30%);
 $alt-color-1-light: scale-color($alt-color-1, $lightness: +30%);
 @debug "ac1: #{$alt-color-1}";
 
-$alt-color-2: adjust-color($base-color, $hue: 120deg);
+$alt-color-2: adjust-color($base-color, $hue: 120deg, $space: hsl);
 // $alt-color-2: #0986C1;
 $alt-color-2-dark: scale-color($alt-color-2, $lightness: -30%);
 $alt-color-2-light: scale-color($alt-color-2, $lightness: +30%);
@@ -269,7 +269,7 @@ div.abstract {
 
 .reveal p.subtitle {
   text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
-  color: complement($presentation-heading-color);  
+  color: complement($presentation-heading-color, $space: null);  
 }
 
 .reveal h2 {
