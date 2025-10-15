@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.7.30">
 
   <meta name="author" content="Tommaso Stefani">
-  <meta name="dcterms.date" content="2025-09-01">
-  <title>InDaLab – Degradazione fotocatalitica di soluzioni di blu di metilene</title>
+  <meta name="dcterms.date" content="2025-10-15">
+  <title>InDaLab – 2 - Degradazione fotocatalitica di soluzioni di blu di metilene</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,8 +29,74 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-cc2e44230b622b686867d2cb10e2530b.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-b281c96ffc26bcac856eda7518bb18a3.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -130,7 +196,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Degradazione fotocatalitica di soluzioni di blu di metilene</h1>
+  <h1 class="title">2 - Degradazione fotocatalitica di soluzioni di blu di metilene</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -140,7 +206,7 @@ Tommaso Stefani
 </div>
 </div>
 
-  <p class="date">2025-09-01</p>
+  <p class="date">2025-10-15</p>
 </section>
 <section>
 <section id="descrizione-dellattività" class="title-slide slide level1 center">
@@ -411,10 +477,68 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </section>
 <section id="piano-fattoriale-2" class="slide level2">
 <h2>Piano fattoriale</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(adas.utils)</span>
+<span id="cb1-2"><a></a>dm <span class="ot">&lt;-</span> <span class="fu">fp_design_matrix</span>(<span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">fp_add_names</span>(</span>
+<span id="cb1-4"><a></a>    <span class="at">A=</span><span class="st">"Catalizzatore"</span>,</span>
+<span id="cb1-5"><a></a>    <span class="at">B=</span><span class="st">"MB"</span>,</span>
+<span id="cb1-6"><a></a>    <span class="at">C=</span><span class="st">"Temperatura"</span>,</span>
+<span id="cb1-7"><a></a>    <span class="at">D=</span><span class="st">"Intensità_luminosa"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb1-8"><a></a>  <span class="fu">fp_add_scale</span>(</span>
+<span id="cb1-9"><a></a>    <span class="at">A=</span><span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.4</span>), <span class="at">B=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">8</span>),</span>
+<span id="cb1-10"><a></a>    <span class="at">C=</span><span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">22</span>), <span class="at">D=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">6</span>))</span>
+<span id="cb1-11"><a></a>dm</span></code><button title="Copia negli appunti" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code> Factorial Plan Design Matrix
+ Defining Relationship:  ~ A * B * C * D 
+ Factors:  A B C D 
+ Levels:  -1 1 
+ Fraction:  NA 
+ Type:  plain 
+ Scales suffix: _s
+ Scaled factors:
+    A_s: [0.2, 0.4]
+    B_s: [4, 8]
+    C_s: [8, 22]
+    D_s: [3, 6]
+ Factor names:
+    A: Catalizzatore
+    B: MB
+    C: Temperatura
+    D: Intensità_luminosa
+ 
+# A tibble: 16 × 13
+   StdOrder RunOrder .treat  .rep     A     B     C     D   A_s   B_s   C_s
+      &lt;int&gt;    &lt;int&gt; &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1        1        4 (1)        1    -1    -1    -1    -1   0.2     4     8
+ 2        2        2 a          1     1    -1    -1    -1   0.4     4     8
+ 3        3        9 b          1    -1     1    -1    -1   0.2     8     8
+ 4        4       13 ab         1     1     1    -1    -1   0.4     8     8
+ 5        5        3 c          1    -1    -1     1    -1   0.2     4    22
+ 6        6        8 ac         1     1    -1     1    -1   0.4     4    22
+ 7        7       12 bc         1    -1     1     1    -1   0.2     8    22
+ 8        8       14 abc        1     1     1     1    -1   0.4     8    22
+ 9        9       10 d          1    -1    -1    -1     1   0.2     4     8
+10       10       15 ad         1     1    -1    -1     1   0.4     4     8
+11       11        5 bd         1    -1     1    -1     1   0.2     8     8
+12       12       16 abd        1     1     1    -1     1   0.4     8     8
+13       13       11 cd         1    -1    -1     1     1   0.2     4    22
+14       14        1 acd        1     1    -1     1     1   0.4     4    22
+15       15        6 bcd        1    -1     1     1     1   0.2     8    22
+16       16        7 abcd       1     1     1     1     1   0.4     8    22
+# ℹ 2 more variables: D_s &lt;dbl&gt;, Y &lt;lgl&gt;</code></pre>
+</div>
+</div></div>
+<p>Le prove si identificano tramite la notazione di <em>Yates</em>. Si raccomanda di nominare i file ottenuti dallo spettrofotometro in maniera tale da poter poi implementare un codice che permetta di importare i dati in modo “automatico”.</p>
+</section>
+<section id="piano-fattoriale-3" class="slide level2">
+<h2>Piano fattoriale</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <table class="caption-top">
-<caption>piano fattoriale (troncato alla riga 7)</caption>
 <colgroup>
 <col style="width: 14%">
 <col style="width: 14%">
@@ -450,7 +574,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -465,7 +589,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -480,7 +604,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -495,7 +619,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -510,7 +634,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">c</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -525,7 +649,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">ac</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -540,7 +664,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: left;">bc</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -553,11 +677,38 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <td style="text-align: right;">3</td>
 <td style="text-align: left;">NA</td>
 </tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">abc</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">NA</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Le prove si identificano tramite la notazione di <em>Yates</em>. Si raccomanda di nominare i file ottenuti dallo spettrofotometro in maniera tale da poter poi implementare un codice che permetta di importare i dati in modo “automatico”.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Importante</strong></p>
+</div>
+<div class="callout-content">
+<p>Eseguire <code>vignette("adas.utils")</code> nella console di R per ottenere una guida sull’uso di <code>adas.utils</code> per i piani fattriali</p>
+</div>
+</div>
+</div>
 </section>
 <section id="raccolta-dati" class="slide level2">
 <h2>Raccolta dati</h2>
@@ -658,7 +809,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Le misure ottenute tramite spettrofotometro delle soluzioni a concentrazione nota (contenute in <code>data_cali</code>), permettono di graficare gli spettri delle stesse:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-1" class="slide level2">
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Per trovare il coefficiente del modello che correla assorbanza con concentrazione (che deve essere lineare secondo la legge di <em>Lambert-Beer</em>) si individuano i valori di assorbanza che corrispondono al massimo degli spettri per le varie concentrazioni. Si noti che è presente una colonna RunOrder che riporta l’ordine con cui si sono eseguite le misurazioni allo spettrofotometro (ordine casuale).</p>
@@ -676,28 +827,28 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.6875</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1.4832</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">1.7000</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.3141</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">2.4825</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">2.1716</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">1.0103</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.6875</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">1.4832</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1.7000</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
@@ -713,7 +864,7 @@ A = \log_{10} \left( \frac{I_0}{I} \right)
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Tali punti sperimentali, su un grafico Assorbanza vs Concentrazione sono:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-3" class="slide level2">
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>Si regredisce quindi il modello lineare che lega assorbanza con concentraizone di MB (in mg/L) ponendo nulla l’intercetta:</p>
@@ -752,22 +903,22 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </div>
 
 </div>
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-la-concentrazione-di-mb-allassorbanza-5" class="slide level2">
 <h2>Modello che lega la concentrazione di MB all’assorbanza</h2>
 <p>L’andamento del modello regredito, insieme alla sua banda di confidenza al 95% è quindi:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="spettri-delle-varie-prove" class="slide level2">
 <h2>Spettri delle varie prove</h2>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Si nota che per alcune prove non è stato necessario procedere fino a 90 minuti in quanto la reazione risultava gia conclusa (asintoticamente).</p>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Si nota che per alcune prove non è stato necessario procedere fino a 90 minuti in quanto la reazione risultava gia conclusa (asintoticamente).</p>
 </section>
 <section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k" class="slide level2">
 <h2>Curva cinetica della reazione e calcolo della costante k</h2>
 <p>Si vuole innanzitutto verificare che le reazioni condotte siano effettivamente del primo ordine (come suggerito da letteratura)</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Sembrerebbe che dall’istante 0 (che corrisponde all’accensione delle lampade UV) l’andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.</p>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"><p>Sembrerebbe che dall’istante 0 (che corrisponde all’accensione delle lampade UV) l’andamento della concentrazione sia effettivamente a decadimento esponenziale, e quindi del primo ordine.</p>
 </section>
 <section id="curva-cinetica-della-reazione-e-calcolo-della-costante-k-1" class="slide level2">
 <h2>Curva cinetica della reazione e calcolo della costante k</h2>
@@ -824,7 +975,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <h2>Curva cinetica della reazione e calcolo della costante k</h2>
 <p>Si graficano le curve cinetiche che si sono regredite per ogni reazione condotta:</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="modello-che-lega-k-ai-fattori---anova" class="slide level2">
 <h2>Modello che lega k ai fattori - ANOVA</h2>
 <p>Si possono quindi inserire i valori delle k nel piano fattoriale iniziale:</p>
@@ -867,7 +1018,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">(1)</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -882,7 +1033,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">a</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -897,7 +1048,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: left;">b</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -912,7 +1063,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">ab</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -927,7 +1078,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">c</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">-1</td>
@@ -942,7 +1093,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">ac</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">1</td>
@@ -969,7 +1120,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
+<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -979,7 +1130,7 @@ W = 0.91243, p-value = 0.3715</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
+<p><img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" style="width:16cm"></p>
 </figure>
 </div>
 </div>
@@ -1011,7 +1162,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <p>Dopo aver validato il modello tramite l’analisi dei residui si può riportare la superficie di risposta ottenuta (in coded unit). Essa rappreseta come varia la costante <em>k</em> al variare dei fattori (quelli significativi).</p>
 <p>Per ottenere reazioni a decadimento più rapido bisognerà scegliere una combinazione di fattori che massimizzi il valore della costante (e/o viceversa).</p>
 
-<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
+<img data-src="002-fotocatalisi_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:16cm"></section>
 <section id="conclusioni" class="slide level2">
 <h2>Conclusioni</h2>
 <ol type="1">

@@ -2,17 +2,17 @@
   {
     "listing": "/experiments.html",
     "items": [
-      "/experiments/002-fotocatalisi/index.html",
       "/experiments/001-durezza/index.html",
+      "/experiments/002-fotocatalisi/index.html",
       "/experiments/003-rivestimenti/index.html"
     ]
   },
   {
     "listing": "/slides.html",
     "items": [
-      "/slides/002-fotocatalisi/002-fotocatalisi.html",
       "/slides/001-durezza/001-durezza.html",
-      "/slides/003-rivestimenti/002-rivestimenti.html"
+      "/slides/002-fotocatalisi/002-fotocatalisi.html",
+      "/slides/003-rivestimenti/003-rivestimenti.html"
     ]
   }
 ]
