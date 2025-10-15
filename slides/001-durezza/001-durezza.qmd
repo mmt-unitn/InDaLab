@@ -1,5 +1,5 @@
 ---
-title: "Misure di durezza"
+title: "1 - Misure di durezza"
 author: "Tommaso Stefani"
 date: today
 draft: false
@@ -31,14 +31,14 @@ library(patchwork)
 
 ## Descrizione dell'esperienza
 
-L’attività si concentra sulla **misurazione della durezza Vickers** di materiali metallici utilizzando un durometro da laboratorio.
+L'attività si concentra sulla **misurazione della durezza Vickers** di materiali metallici utilizzando un durometro da laboratorio.
 
 I dati raccolti saranno utilizzati per due tipi di analisi statistiche:
 
-- **Test di Student accoppiato**: per verificare l’impatto effettivo di un indentatore danneggiato su eventuali anomalie nelle misure.  
+- **Test di Student accoppiato**: per verificare l'impatto effettivo di un indentatore danneggiato su eventuali anomalie nelle misure.  
 - **Taratura degli strumenti di misura**: sviluppo del modello analitico che lega il valore di stima fornito dal durometro sulla base della sola profondità dell'impronta con la misura reale e relativa regressione.
 
-Il percorso prevede quindi la pianificazione delle misure, l’esecuzione in laboratorio e l’analisi statistica dei dati ottenuti.
+Il percorso prevede quindi la pianificazione delle misure, l'esecuzione in laboratorio e l'analisi statistica dei dati ottenuti.
 
 
 ## Descrizione dell'esperienza
@@ -47,7 +47,7 @@ Gli **obiettivi** si possono riassumere quindi nei seguenti:
 
 * Acquisire competenze nella **misura della durezza dei materiali**.
 
-* **Valutare la significatività statistica** dell’impatto di un indentatore danneggiato sulle misure. 
+* **Valutare la significatività statistica** dell'impatto di un indentatore danneggiato sulle misure. 
 
 * **Regredire una caratteristica di taratura** che correli la stima fornita dal durometro sulla base della sola profondità di impronta con il valore reale di durezza.
 
@@ -63,7 +63,7 @@ Essa rappresenta la capacità di un materiale ad opporsi alla formazione di impr
 
 :::
 
-* La durezza si valuta a partire dalla misura dell’impronta lasciata da un penetratore sul materiale, con metodi diversi a seconda del tipo di prova adottata.
+* La durezza si valuta a partire dalla misura dell'impronta lasciata da un penetratore sul materiale, con metodi diversi a seconda del tipo di prova adottata.
 
 * Le misure di durezza sono relative e dipendono dal metodo e dalle condizioni di prova, perciò è essenziale indicare sempre la sigla della scala utilizzata (es. HV30).
 
@@ -82,10 +82,10 @@ Alla luce di quanto detto è evidente come non esista un metodo generale di conv
 Le **prove di durezza** sono molto utilizzate perché:
 
 1. Sono **semplici e poco costose**: richiedono minima preparazione del campione e strumenti economici.
-2. Sono quasi **non distruttive**: l’unico effetto sul campione è una piccola impronta.
+2. Sono quasi **non distruttive**: l'unico effetto sul campione è una piccola impronta.
 3. Permettono di **stimare altre proprietà meccaniche**, come la resistenza a rottura (approssimativamente).
 
-Tra le scale di durezza più comuni vi sono: Mohs,Brinell, Rockwell e Vickers. In particolare, la scala Vickers è adottata nelle misure del presente esperimento. 
+Tra le scale di durezza più comuni vi sono: Mohs, Brinell, Rockwell e Vickers. In particolare, la scala Vickers è adottata nelle misure del presente esperimento. 
 
 
 ## Scala Mohs
@@ -105,14 +105,14 @@ Si tratta di un metodo empirico e comparativo, che non fornisce un valore numeri
 
 ::: {.callout-note title="Scala Rockwell"}
 
-La **prova Rockwell** è un metodo per misurare la durezza dei materiali basato sulla misura della profondità residua di penetrazione di un penetratore standardizzato, dopo l’applicazione sequenziale di un carico preliminare e uno principale, secondo procedure normalizzate.
+La **prova Rockwell** è un metodo per misurare la durezza dei materiali basato sulla misura della profondità residua di penetrazione di un penetratore standardizzato, dopo l'applicazione sequenziale di un carico preliminare e uno principale, secondo procedure normalizzate.
 :::
 
 La procedura prevede 3 fasi:
 
 -   preparazione dei campioni
 -   Applicazione di un **precarico** per stabilizzare il contatto;
--   Applicazione e successiva rimozione del **carico principale**, dopo cui si misura la profondità $h$ dell’impronta residua.
+-   Applicazione e successiva rimozione del **carico principale**, dopo cui si misura la profondità $h$ dell'impronta residua.
 
 
 ## Scala Rockwell
@@ -126,7 +126,7 @@ $$
 dove:
 
 - $HR$ è il valore di durezza, 
-- $h$ è la profondità residua dell’impronta (mm),
+- $h$ è la profondità residua dell'impronta (mm),
 - $s = 0.002 \, \text{mm}$ è il coefficiente di scala, 
 - $N$ è una costante che dipende dalla scala (es. $N = 100$ per la scala HRC).
 
@@ -154,15 +154,15 @@ $$
 
 * riferimento normativo: **UNI EN ISO 6508-1:2016**
 
-## Scala Brinel
+## Scala Brinell
 
 ::: {.callout-note title="Scala Brinell"}
 
 La **prova Brinell**  è un metodo che si basa sulla misura del diametro dell'impronta di penetrazione provocata da una **sfera in acciaio o carburo di tungsteno** sottoposta a un carico statico. 
-E' una prova robusta che può essere applicata ad un ampio intervallo di durezze.
+È una prova robusta che può essere applicata ad un ampio intervallo di durezze.
 :::
 
-Dopo l’applicazione del carico, si misura il **diametro dell’impronta** residua. La durezza Brinell si calcola mediante la formula:
+Dopo l'applicazione del carico, si misura il **diametro dell'impronta** residua. La durezza Brinell si calcola mediante la formula:
 
 $$
 HBW = \frac{2P}{\pi D \left( D - \sqrt{D^2 - d^2} \right)}
@@ -172,7 +172,7 @@ dove:
 
 - $P$: carico applicato (kgf)
 - $D$: diametro della sfera (mm)
-- $d$: diametro medio dell’impronta (mm)
+- $d$: diametro medio dell'impronta (mm)
 
 ## Scala Brinell
 
@@ -195,11 +195,11 @@ dove:
 
 ::: {.callout-note title="Scala Vickers"}
 
-La **prova Vickers** è un metodo di prova basato sulla misurazione delle dimensioni di un’impronta ottenuta tramite un penetratore piramidale in diamante.
-Durante la prova, si applica un carico statico definito, mantenuto per un determinato intervallo di tempo. Una volta rimosso il carico, si osserva l’impronta lasciata sulla superficie del campione.
+La **prova Vickers** è un metodo di prova basato sulla misurazione delle dimensioni di un'impronta ottenuta tramite un penetratore piramidale in diamante.
+Durante la prova, si applica un carico statico definito, mantenuto per un determinato intervallo di tempo. Una volta rimosso il carico, si osserva l'impronta lasciata sulla superficie del campione.
 :::
 
-La durezza Vickers si determina misurando le diagonali dell’impronta con un microscopio e calcolando il rapporto tra carico applicato e area dell’impronta secondo la seguente formula:
+La durezza Vickers si determina misurando le diagonali dell'impronta con un microscopio e calcolando il rapporto tra carico applicato e area dell'impronta secondo la seguente formula:
 
 $$
 HV = \frac{1.854 \cdot P}{d^2}
@@ -208,7 +208,7 @@ $$
 dove:
 
 - $P$ è il carico applicato in kgf 
-- $d$ è la lunghezza media delle due diagonali dell’impronta, espressa in millimetri.
+- $d$ è la lunghezza media delle due diagonali dell'impronta, espressa in millimetri.
 
 ## Scala Vickers
 
@@ -231,7 +231,7 @@ dove:
 - $yy$: tempo di applicazione del carico in secondi (opzionale, spesso non indicato)
 
 
-Tutti i dettagli tecnici, i criteri di esecuzione e le tolleranze della prova sono regolati dalla norma **UNI EN ISO 6507-1**, che rappresenta il riferimento principale per l’applicazione corretta del metodo Vickers.
+Tutti i dettagli tecnici, i criteri di esecuzione e le tolleranze della prova sono regolati dalla norma **UNI EN ISO 6507-1**, che rappresenta il riferimento principale per l'applicazione corretta del metodo Vickers.
 
 ## Scala Vickers
 
@@ -244,20 +244,20 @@ In figura le caratteristiche principali che caratterizzano le prove Brinell e Vi
 </div>
 
 
-## t_test
+## T-test
 
-* Il t-test di Student è un test statistico che serve a confrontare le medie di due gruppi per capire se la differenza osservata sia dovuta al caso o a un effetto reale.
+* Il T-test di Student è un test statistico che serve a confrontare le medie di due gruppi per capire se la differenza osservata sia dovuta al caso o a un effetto reale.
 
 Esistono diverse varianti del t-test:
 
 * ad uno due lati
 * ad uno o due campioni
-* t test accoppiato
+* T-test accoppiato
 
 
 In questa attività si utilizza il **test accoppiato**.
 
-## t_test
+## T-test
 
 Nel caso di test di Student a due campioni, quando essi **hanno la stessa dimensione e sono raccolti due a due in condizioni molto simili**, è opportuno accoppiarli e effettuare il **test di Student accoppiato**.
 
@@ -270,7 +270,7 @@ dove:
 - $i$ identifica il campione
 - $j$ identifica la singola misura di un campione
 
-## t_test
+## T-test
 
 Se si definisce $d_j=y_{1j} - y_{2j}$, ricordando le proprietà dell'operatore $E(\cdot)$, risulta $\mu_d = \mu_1 - \mu_2$. Quindi si può formulare la seguente coppia di ipotesi:
 $$
@@ -291,14 +291,14 @@ Il test accoppiato è quindi evidentemente un test a un campione, con il vantagg
   * dirette, se ottenute per confronto con un campione noto
   * indirette, se ricavate da grandezze correlate tramite un modello.
 
-* Il modello è un insieme di relazioni tra parametri che descrive le interazioni nel sistema e rappresenta lo strumento di misura. Può essere analitico, numerico o empirico, e non richiede una comprensione fisica completa del sistema.
+* Il modello è un insieme di relazioni tra parametri che descrive le interazioni nel sistema e rappresenta lo strumento di misura. Può essere analitico, numerico o empirico; quest'ultimo non include informazioni sulla fisica completa del sistema.
 
 * Nel caso di misurazioni indirette, lo strumento si basa su un trasduttore e richiede un modello che ne descriva il comportamento. Se il modello è statico, non considera il tempo; se dinamico, sì. La taratura è il processo di identificazione dei parametri del modello.
 
 ## Taratura
 
 ::: {.callout-note title="Taratura"}
-La **taratura** punta a definire la correlazione $y=f(m)$ tra l’ingresso misurando $m$ e l’uscita del trasduttore $y$, e la relativa incertezza. La $f(\cdot)$ è detta caratteristica statica dello strumento.
+La **taratura** punta a definire la correlazione $y=f(m)$ tra l'ingresso misurando $m$ e l'uscita del trasduttore $y$, e la relativa incertezza. La $f(\cdot)$ è detta caratteristica statica dello strumento.
 :::
 
 * Uno strumento fornisce la misura mediante inversione della caratteristica statica: $m=f^{-1}(y)$
@@ -317,7 +317,7 @@ La taratura statica si sviluppa quindi su quattro passaggi:
 3. Regressione: identificazione dei parametri del modello
 4. Validazione del modello: verifica adeguatezza mediante analisi dei residui
 
-La taratura deve anche definire l’incertezza dello strumento, dovuta al modello (la forma della caratteristica statica), ai parametri del modello e alla stima del misurando (dovuta a ingressi di disturbo).
+La taratura deve anche definire l'incertezza dello strumento, dovuta al modello (la forma della caratteristica statica), ai parametri del modello e alla stima del misurando (dovuta a ingressi di disturbo).
 
 
 
@@ -334,96 +334,124 @@ La taratura deve anche definire l’incertezza dello strumento, dovuta al modell
 
 ## Fasi da seguire in laboratorio
 
-
+:::columns
+:::column
 * Scelta di 10 campioni di acciai ignoti
 * Preparazione dei campioni:
     * I campioni devono essere accuratamente lucidati per ottenere una superficie liscia e priva di ossidazioni o impurità. Non sono prescritte grane specifiche nelle normative, ma si consiglia di utilizzare una sequenza di abrasivi da grana 120 a 1200. Se possibile lucidare a specchio.
     * Pulizia con panno morbido e detergente per metallo per rimuovere polveri o residui.
+:::
 
-
-<div style="text-align:center">
-![Campione prima e dopo preparazione superficiale](images/preparazione_campioni.jpg){#Preparazione_campioni width=15% .un}
-</div>
+:::column
+![Campione prima (in basso) e dopo preparazione superficiale](images/preparazione_campioni.jpg){#Preparazione_campioni width=75% .un}
+:::
+:::
 
 ## Fasi da seguire in laboratorio
 
+
+:::columns
+:::column
 *  Numerazione dei campioni: Indentificare i campioni numerandoli da 1 a 10 
-
-<div style="text-align:center">
-![Campioni numerati](images/campioni.jpg){width=15% #Campioni}
-</div>
-
 *  Montaggio indentatore Vickers danneggiato sulla macchina
 *  Esecuzione delle prove previste dalla campagna di misure per l'indentatore danneggiato
 *  Montaggio indentatore Vickers integro sulla macchina
 *  Esecuzione delle prove previste dalla campagna di misure per l'indentatore integro
+:::
+
+:::column
+![Campioni numerati](images/campioni.jpg){width=75% #Campioni}
+:::
+:::
 
 ## Misurazione 
 
+:::columns
+::: column
 Per eseguire una misura di durezza:
 
 * Poggiare il provino sul piano di supporto della macchina
 * Ruotare il volantino portando in adesione il provino con l'elemento di contatto del durometro
+:::
 
-<div style="text-align:center">
-![Provino a contatto](images/contatto.jpg){width=20% #provino}
-</div>
+:::column
+![Provino a contatto](images/contatto.jpg){width=50% #provino}
+:::
+:::
 
 ## Misurazione 
 
+:::columns
+:::column
 * Premere il tasto <span style="font-size:40%">$\begin{array}{c}\downarrow \\ - \\ \uparrow\end{array}$</span> che avvia il ciclo di misura
 * Attendere la fine della prova, quindi che compaia l'immagine dell imnpronta sullo schermo, annotare la stima fornita dalla macchina.
 * Azzerare la posizione del regolo portando a contatto i due corsoi del calibro, premere il tasto <span style="color:red;">f</span> (solo per prima misura dopo accensione)
+:::
 
-<div style="text-align:center">
-![Azzeramento del regolo](images/zeroregolo.jpg){width=15% #zeroregolo}
-</div>
+:::column
+![Azzeramento del regolo](images/zeroregolo.jpg){width=50% #zeroregolo}
+:::
+:::
+
+
 
 ## Misurazione 
 
+:::columns
+:::column
 * Allineare la linea presente su uno dei due corsoi con una delle diagonali dell'impronta, in modo da fissare l'orientamento corretto per la misurazione 
+:::
 
-<div style="text-align:center">
-![Orientamento regolo](images/orientamento.jpg){width=22% #orientamento}
-</div>
+:::column
+![Orientamento regolo](images/orientamento.jpg){width=50% #orientamento}
+:::
+:::
 
 
 ## Misurazione 
 
+:::columns
+:::column
 * Mantendendo l'orientamento ottenuto al punto precedente regolare attraverso i due pomelli presenti sul calibro la posizione dei due corsoi, in modo che le linee presenti sugli stessi combacino con i vertici della diagonale opposta a quella usata da riferimento al punto precedente
+* Confermare con il tasto [f]{.bred}
+:::
 
-
-* Confermare con il tasto <span style="color:red;">f</span>.
-
-<div style="text-align:center">
-![Misura della diagonale](images/misura.jpg){width=18% #misura}
-</div>
+:::column
+![Misura della diagonale](images/misura.jpg){width=50% #misura}
+:::
+:::
 
 ## Misurazione 
 
+:::columns
+:::column
 * Ripetere i precedenti punti  per l'altra diagonale
 * Annotare la misura che compare a display
-* Premere il tasto <span style="color:red;">f</span>
+* Premere il tasto [f]{.bred}
 
+::: callout-important
 Per le misure che prevedono di usare due volte la stessa diagonale (quella chiaramente visibile dell'indentatore rotto) rilevare due volte la stessa diagonale.
+:::
+:::
 
-<div style="text-align:center">
-![Durometro EMCO TEST M4U 02](images/durometro.jpg){width=12% #Durometro}
-</div>
+:::column
+![Durometro EMCO TEST M4U 02](images/durometro.jpg){width=50% #Durometro}
+:::
+:::
 
 
 # Elaborazione dei dati
 ## Confronto tra intentatore integro e danneggiato
 
-E' necessario creare una tabella di raccolta dati, in colonna i valori delle misure e delle stime fornite dalla macchina per tutti i 10 provini usando
+È necessario creare una tabella di raccolta dati, in colonna i valori delle misure e delle stime fornite dalla macchina per tutti i 10 provini usando
 
-* indentatore integro (``HV30_OK` e `stima_OK`), 
+* indentatore integro (`HV30_OK` e `stima_OK`), 
 * indentatore danneggiato (`HV30_NOK` e `stima_NOK`) 
 * due volte la diagonale visibile dell'indentatore danneggiato (`HV30_dd` e ` stima_dd`). 
 
 Si utilizza sempre la scala HV30.
 
-## Confronto tra intentatore integro e danneggiato
+## Confronto tra intentatore integro e danneggiato {.smaller}
 
 ```{r}
 #| include: false
@@ -444,14 +472,17 @@ kable(head(df_a,8), caption = "Tabella di raccolta dati per T-test")
 
 
 ```{r}
-df_a$stima_OK=c(591,205,209,262,318,578,206,156,624,581)
-df_a$HV30_NOK = c(676,259,259,306,352,660,244,164,659,625)
-df_a$HV30_OK=c(662,242,262,302,330,641,244,165,668,651)
-df_a$stima_NOK = c(620,212,217,307,339,629,216,157,622,596)
-df_a$HV30_dd=c(648,256,253,297,351,652,247,166,659,635)      
-df_a$stima_dd=c(612,219,218,297,337,621,218,157,618,596)
+df_a <- tibble(
+  material=1:10,
+  stima_OK=c(591,205,209,262,318,578,206,156,624,581),
+  HV30_NOK = c(676,259,259,306,352,660,244,164,659,625),
+  HV30_OK=c(662,242,262,302,330,641,244,165,668,651),
+  stima_NOK = c(620,212,217,307,339,629,216,157,622,596),
+  HV30_dd=c(648,256,253,297,351,652,247,166,659,635),
+  stima_dd=c(612,219,218,297,337,621,218,157,618,596)
+)
 
-kable(head(df_a,8),caption = "Tabella di raccolta dati per T-test")
+kable(head(df_a, n=10), caption = "Tabella di raccolta dati per T-test")
 ```
 ## Confronto tra intentatore integro e danneggiato
 
@@ -489,6 +520,7 @@ Una volta importati i dati si possono confrontare tutti i dati:
 :::
 
 :::
+
 ## Confronto tra intentatore integro e danneggiato
 ::: columns
 
@@ -531,13 +563,11 @@ Si osserva la relazione tra le misure fatte con indentatore rotto e indentatore 
 
 * se non ci fosse differenza sarebbero allineate sulla retta diagonale con equazione $y=x$:
 * i punti corrispondenti alla misura effettiva HV30  hanno una regressione che corrisponde alla diagonale
+:::
+:::
+
 * i punti corrispondenti alla stima fornita dalla macchina hanno una regressione che è al di sopra della diagonale e i punti sono consistentemente al di sopra di essa,
-
-:::
-
-:::
-
-Quanto osservato sta a significare che la stima fornisce una durezza maggiore per l'indentatore rotto che per quello integro.
+* Quanto osservato sta a significare che la stima fornisce una durezza maggiore per l'indentatore rotto che per quello integro.
 
 
 ## Confronto tra intentatore integro e danneggiato
@@ -566,7 +596,7 @@ dfv %>% pivot_wider(names_from = ok, values_from = durezza) %>%
 Ciò che si evince è:
 
 
-* Il danno al penetratore viene compensato dalla capacità dell’operatore di estrapolare dal contesto la posizione del vertice mancante nell’impronta. Questa compensazione è però soggettiva e dipende dall’esperienza e capacità dell’operatore.
+* Il danno al penetratore viene compensato dalla capacità dell'operatore di estrapolare dal contesto la posizione del vertice mancante nell'impronta. Questa compensazione è però soggettiva e dipende dall'esperienza e capacità dell'operatore.
 
 * Viceversa, la misura basata sulla penetrazione è completamente oggettiva e risente quindi della integrità del penetratore: tanto più la geometria reale si discosta dalla geometria nominale per la quale è nota la relazione tra altezza della piramide e area della base, tanto più la misura è errata.
 
@@ -574,10 +604,11 @@ Ciò che si evince è:
 
 Si confrontano le misure ottenute con doppia diagonale e quelle con vertice estrapolato da un indentatore danneggiato per stabilire quale sia più affidabile: se il p-value del confronto con la doppia diagonale è maggiore di quello ottenuto dal confronto con quelle ottenute estrapolando la posizione, allora conviene usare due volte la stessa diagonale.
 
+:::smaller
 ```{r}
 t.test(df_a$HV30_OK,df_a$HV30_dd,paired = T)%>%tidy()%>%kable()
 ```
-
+:::
 
 
 * Quindi, se si ha a disposizione solo l'indentatore danneggiato, è preferibile utilizzare due volte la stessa diagonale. Ovviamente, questa conclusione è valida solo per l'indentatore e per il campo di applicazione specifico considerato.
@@ -587,7 +618,7 @@ t.test(df_a$HV30_OK,df_a$HV30_dd,paired = T)%>%tidy()%>%kable()
 
 ## Analisi per taratura
 
-E' necessario creare una tabella di raccolta dati. Si sceglie di indagare per 6 materiali differenti (rappresentanti 6 diverse durezze) la relazione tra stima e durezza effettiva per 5 scale differenti (HV5,HV10,HV20;HV30;HV50).
+È necessario creare una tabella di raccolta dati. Si sceglie di indagare per 6 materiali differenti (rappresentanti 6 diverse durezze) la relazione tra stima e durezza effettiva per 5 scale differenti (HV5, HV10, HV20, HV30, HV50).
 
 ```{r}
 #| include: false

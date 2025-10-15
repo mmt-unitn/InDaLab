@@ -1,5 +1,5 @@
 ---
-title: "Rivestimenti protettivi sol-gel ibridi nanocompositi."
+title: "3 - Rivestimenti protettivi sol-gel ibridi nanocompositi"
 author: "Tommaso Stefani"
 date: today
 draft: false
@@ -36,7 +36,7 @@ library(patchwork)
 
 * I dati riportati nel presente documento sono interamente generati a scopo didattico e **non derivano da esperimenti reali**. 
 
-* L’obiettivo principale è illustrare l’approccio sperimentale e statistico nell’analisi di rivestimenti sol-gel ibridi su substrati di legno di larice, mostrando come variano le proprietà di adesione e durezza in funzione dei parametri di sintesi.
+* L'obiettivo principale è illustrare l'approccio sperimentale e statistico nell'analisi di rivestimenti sol-gel ibridi su substrati di legno di larice, mostrando come variano le proprietà di adesione e durezza in funzione dei parametri di sintesi.
 
 * Ogni valore numerico deve essere interpretato come un **esempio illustrativo e non come un dato sperimentale reale**.
 
@@ -46,9 +46,9 @@ library(patchwork)
 
 * In questa attività si studiano e realizzano **rivestimenti sol-gel ibridi nanocompositi su substrati di legno di larice**.
 
-* L’obiettivo è quello di individuare le combinazioni dei **parametri di sintesi** che garantiscano le migliori prestazioni in termini di adesione, durezza e uniformità dei valori di durezza sulla superficie del rivestimento.
+* L'obiettivo è quello di individuare le combinazioni dei **parametri di sintesi** che garantiscano le migliori prestazioni in termini di adesione, durezza e uniformità dei valori di durezza sulla superficie del rivestimento.
 
-* Per materiali quali l'acciaio questi rivestimenti rappresentano un’alternativa ai tradizionali trattamenti cromati o chimici più impattanti, rispondendo alla crescente esigenza di soluzioni **eco-friendly** e sostenibili nell’ambito dei materiali protettivi.
+* Per materiali quali l'acciaio questi rivestimenti rappresentano un'alternativa ai tradizionali trattamenti cromati o chimici più impattanti, rispondendo alla crescente esigenza di soluzioni **eco-friendly** e sostenibili nell'ambito dei materiali protettivi.
 
 ## Descrizione dell'attività
 
@@ -78,7 +78,7 @@ library(patchwork)
 
 ### Idrolisi dei precursori
 
-L’idrolisi di TEOS o GPTMS avviene in presenza di acqua e di un catalizzatore acido o basico, trasformando i gruppi alchossilici in gruppi silanolici ($Si–OH$):
+L'idrolisi di TEOS o GPTMS avviene in presenza di acqua e di un catalizzatore acido o basico, trasformando i gruppi alchossilici in gruppi silanolici ($Si–OH$):
 
 $$
 Si(OR)_4 + 4 H_2O \rightarrow Si(OH)_4 + 4 ROH
@@ -107,13 +107,13 @@ Queste reazioni di **condensazione** portano alla formazione di una rete tridime
 
 ### Formazione del rivestimento ibrido
 
-Nel caso di GPTMS, il gruppo organico epossidico può ulteriormente reagire con gruppi amminici o idrossilici presenti nell’ambiente, creando un **reticolo ibrido organico-inorganico**:
+Nel caso di GPTMS, il gruppo organico epossidico può ulteriormente reagire con gruppi amminici o idrossilici presenti nell'ambiente, creando un **reticolo ibrido organico-inorganico**:
 
 $$
 R–CH–(epossido) + R'–OH \rightarrow R–CH–OH–R'
 $$
 
-Questo legame organico conferisce flessibilità e migliora l’adesione al substrato metallico.  
+Questo legame organico conferisce flessibilità e migliora l'adesione al substrato metallico.  
 
 ## Chimica dei rivestimenti sol–gel ibridi
 
@@ -123,13 +123,13 @@ La **composizione e le condizioni di processo** (rapporto $TEOS/GPTMS$, pH, temp
 
 - la densità della rete $Si–O–Si$;  
 - la distribuzione dei gruppi organici;  
-- la resistenza all’adesione, lo spessore e lan resistenza alla corrosione del rivestimento finale.
+- la resistenza all'adesione, lo spessore e lan resistenza alla corrosione del rivestimento finale.
 
 ## Central composite design - CCD
 
 Il **Central Composite Design (CCD)** è una metodologia di progettazione sperimentale molto utilizzata nelle analisi di ottimizzazione dei processi chimici e dei materiali, particolarmente indicata quando si sospettano effetti non lineari. Questo disegno sperimentale permette di valutare preventivamente la **curvature** del modello di risposta, aggiungendo punti centrali replicati che migliorano la stima della variabilità sperimentale e la riproducibilità dei risultati.  
 
-Grazie alla sua struttura preventiva, il CCD permette di prevedere il comportamento del sistema nei valori intermedi delle variabili, senza la necessità di testare ogni possibile combinazione sperimentale, migliorando così l’efficienza e l’affidabilità dell’ottimizzazione del processo.
+Grazie alla sua struttura preventiva, il CCD permette di prevedere il comportamento del sistema nei valori intermedi delle variabili, senza la necessità di testare ogni possibile combinazione sperimentale, migliorando così l'efficienza e l'affidabilità dell'ottimizzazione del processo.
 
 
 # Parte sperimentale {.centered-slide}
@@ -166,15 +166,18 @@ Si riporta lo svolgimento necessario per condurre una prova.
 
 Per la preparazione del sol-gel:
 
+:::smaller
+
 1. Posizionare il palloncino sotto cappa aspirante, fissandolo con un supporto adatto (asta + morsetto).
-2. Collocare l’agitatore magnetico sotto il pallone e inserire al suo interno una barretta magnetica.
+2. Collocare l'agitatore magnetico sotto il pallone e inserire al suo interno una barretta magnetica.
 
 3. Si inserisce la quantità di MTES prevista dalla prova e 15 ml di M (quantità fissa per tutte le prove).
 4. Si lascia agitare per 5 minuti verificando che non vi siano precipitazioni o reazioni non previste.
-5. Si aggiungono 1,3 ml (quantità fissa) di soluzione di $HCl$ con ph previsto dalla prova.
+5. Si aggiungono 1.3 ml (quantità fissa) di soluzione di $HCl$ con ph previsto dalla prova.
 6. Si lascia agitare per 5 minuti verificando che non vi siano precipitazioni o reazioni non previste.
 7. Si aggiuge la quantità di TEOS prevista dalla prova
 8. Si lascia agitare per 30 minuti.
+:::
 
 ## Procedimento
 
@@ -257,7 +260,7 @@ In quanto si vuole valutare la risposta in termini di adesione e di durezza del 
 ```{r}
 dm<-fp_design_matrix(2,rep=2)%>%
   fp_add_names(A="ph",B="inorganico_organico")%>%
-  fp_add_scale(A=c(1,4),B=c(1,9))%>%
+  fp_add_scale(A=c(1, 4),B=c(1, 9))%>%
   fp_augment_center(rep=5)%>%
   rename(
     ades=Y
@@ -280,7 +283,7 @@ kable(head(dm,10),caption = "piano fattoriale con design centrale")
 
 * Per quanto riguarda la misura della durezza, il test delle matite prevede di assegnare un livello di durezza tra i seguenti: **8B, 7B, 6B, 5B, 4B, 3B, 2B, B, HB, F, H, 2H, 3H, 4H, 5H, 6H, 7H, 8H**
 
-* Per consentire un’analisi statistica, a ogni classe di durezza viene assegnato un numero crescente, **da 1 per 8B a 18 per 8H**.
+* Per consentire un'analisi statistica, a ogni classe di durezza viene assegnato un numero crescente, **da 1 per 8B a 18 per 8H**.
 
 ## Raccolta dati
 
@@ -317,7 +320,7 @@ kable(head(dm,8),caption="piano fattoriale media e varianza delle grandezze ades
 
 ## Analisi ANOVA
 
-E' evidente che la risposta si riferisce a 3 grandezze:
+È evidente che la risposta si riferisce a 3 grandezze:
 
 * adesione
 * durezza media
@@ -507,14 +510,14 @@ ggplot(grid, aes(x = A, y = B, z = pred_dur)) +
 
 ## Conclusioni
 
-Dall’analisi dei risultati si osserva che **nel range considerato**:
+Dall'analisi dei risultati si osserva che **nel range considerato**:
 
 * **Adesione**: il fattore più influente risulta essere il rapporto inorganico/organico, mentre il pH ha un effetto minore:
 
-  * L’aumento del fattore ph produce un incremento dell’adesione
+  * L'aumento del fattore ph produce un incremento dell'adesione
   * Un'aumento del rapporto inorganico/organico produce una diminuzione dell'adesione (aumento della classe d'adesione). 
 
-Questi fattori presentano un effetto lineare nei range considerati. L’interazione tra i due fattori è statisticamente trascurabile in questo intervallo.
+Questi fattori presentano un effetto lineare nei range considerati. L'interazione tra i due fattori è statisticamente trascurabile in questo intervallo.
 
 ## Conclusioni
 
@@ -525,11 +528,11 @@ Il pH  e l'interazione tra i due fattori risultano non risultano statisticamente
 
 ## Conclusioni
 
-* **Omogeneità (varianza) della durezza**: aumentando il rapporto inorganico/organico si osserva una diminuzione dell’omogeneità del rivestimento (aumento della varianza). 
+* **Omogeneità (varianza) della durezza**: aumentando il rapporto inorganico/organico si osserva una diminuzione dell'omogeneità del rivestimento (aumento della varianza). 
 
 Ph e interazione tra i due fattori risutlano statisticamente non determinanti.
 
-In sintesi, per ottimizzare le proprietà del rivestimento su substrati di legno (larice) operando sui fattori di sintesi nel range considerato è necessario bilanciare il rapporto inorganico/organico per massimizzare adesione e durezza, senza compromettere l’omogeneità del rivestimento.
+In sintesi, per ottimizzare le proprietà del rivestimento su substrati di legno (larice) operando sui fattori di sintesi nel range considerato è necessario bilanciare il rapporto inorganico/organico per massimizzare adesione e durezza, senza compromettere l'omogeneità del rivestimento.
 
 
 ## Nota finale

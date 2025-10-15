@@ -1,5 +1,5 @@
 ---
-title: "Rivestimenti protettivi sol-gel ibridi nanocompositi."
+title: "3 . Rivestimenti protettivi sol-gel ibridi nanocompositi"
 author: "Tommaso Stefani"
 date: today
 format: html

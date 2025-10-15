@@ -1,5 +1,5 @@
 ---
-title: "Degradazione fotocatalitica di soluzioni di blu di metilene"
+title: "2 - Degradazione fotocatalitica di soluzioni di blu di metilene"
 author: "Tommaso Stefani"
 date: today
 draft: false
@@ -49,7 +49,7 @@ I fattori che si considerano sono:
 
 ## Blu di metilene
 
-Il **blu di metilene (MB)** è un colorante organico ampiamente utilizzato come molecola sonda per testare l’efficienza di processi di decontaminazione di effluenti acquosi, in quanto presenta:
+Il **blu di metilene (MB)** è un colorante organico ampiamente utilizzato come molecola sonda per testare l'efficienza di processi di decontaminazione di effluenti acquosi, in quanto presenta:
 
 - Colore intenso (blu brillante),
 - Facilità di solubilizzazione in acqua,
@@ -64,7 +64,7 @@ Lo spettro di assorbimento UV-Vis del MB mostra un **massimo di assorbanza a 664
 ![Spettro e molecola del blu di metilene](images/spettroMB.jpg){width=50% fig-align="center"}
 </div>
 
-Il blu di metilene (MB) viene utilizzato in questa attività come molecola modello perché facilmente rilevabile; la sua degradazione non ha rilevanza pratica, ma permette di valutare l’efficacia di processi fotocatalitici destinati a inquinanti organici reali.
+Il blu di metilene (MB) viene utilizzato in questa attività come molecola modello perché facilmente rilevabile; la sua degradazione non ha rilevanza pratica, ma permette di valutare l'efficacia di processi fotocatalitici destinati a inquinanti organici reali.
 
 ## Meccanismo di reazione
 
@@ -113,13 +113,13 @@ La **soluzione dell'equazione** risulta $\ln\left(\frac{C}{C_0}\right) = -kt$, o
 
 ## Misura della concentrazione tramite UV-Vis
 
-Per determinare **l’andamento della concentrazione del blu di metilene nel tempo**, si misura **l’assorbanza della soluzione a 664 nm**. In base alla legge di **Lambert-Beer**, la relazione tra assorbanza e concentrazione è:
+Per determinare **l'andamento della concentrazione del blu di metilene nel tempo**, si misura **l'assorbanza della soluzione a 664 nm**. In base alla legge di **Lambert-Beer**, la relazione tra assorbanza e concentrazione è:
 
 $$
 A = \varepsilon \cdot l \cdot C
 $$
 
-dove $A$ è l’assorbanza misurata, $\varepsilon$ è il coefficiente di estinzione molare del blu di metilene, $l$ è il cammino ottico della cuvetta (in genere 1 cm) e $C$ è la concentrazione.
+dove $A$ è l'assorbanza misurata, $\varepsilon$ è il coefficiente di estinzione molare del blu di metilene, $l$ è il cammino ottico della cuvetta (in genere 1 cm) e $C$ è la concentrazione.
 
 Poiché $\varepsilon$ e $l$ sono costanti nelle condizioni sperimentali, la concentrazione si può ottenere da:
 
@@ -178,8 +178,8 @@ Eliminando gli effetti non significativi, si può fare l'analisi ANOVA anche sen
 
 ## Procedimento
 
-Per ogni prova (trattamento) prevista dal piano fattoriale, si preleveranno campioni della soluzione in provette separate, a partire da 30 minuti prima dell’accensione delle lampade (tempo zero) e poi a intervalli di tempo definiti fino al completamento della reazione.
-Questi campioni permetteranno, tramite spettrofotometria UV-Vis, di seguire l’andamento della concentrazione di MB nel tempo per tutte le soluzioni, rappresentanti i diversi trattamenti.
+Per ogni prova (trattamento) prevista dal piano fattoriale, si preleveranno campioni della soluzione in provette separate, a partire da 30 minuti prima dell'accensione delle lampade (tempo zero) e poi a intervalli di tempo definiti fino al completamento della reazione.
+Questi campioni permetteranno, tramite spettrofotometria UV-Vis, di seguire l'andamento della concentrazione di MB nel tempo per tutte le soluzioni, rappresentanti i diversi trattamenti.
 
 Allo scopo:
 
@@ -223,7 +223,7 @@ Informazioni di sicurezza:
 
 ## Misura tramite Spettrofotometro UV-Vis
 
-Lo Spettrofotometro è un dispositivo che misura l’intensità della luce prima e dopo aver attraversato un campione restituendo il valore dell'assorbanza dello stesso. 
+Lo Spettrofotometro è un dispositivo che misura l'intensità della luce prima e dopo aver attraversato un campione restituendo il valore dell'assorbanza dello stesso. 
 
 $$
 A = \log_{10} \left( \frac{I_0}{I} \right)
@@ -238,7 +238,7 @@ La procedura di misura è la seguente:
 - preparare la soluzione da analizzare e inserirla nella cuvetta portacampioni  
 - inserire la cuvetta nello spettrofotometro UV-Vis  
 - effettuare la misura di baseline (zero strumentale) con una cuvetta in cui vi è solvente puro (acqua distillata)
-- impostare la scansione dello spettro su un intervallo di lunghezze d’onda opportuno (es. 400–800 nm)  
+- impostare la scansione dello spettro su un intervallo di lunghezze d'onda opportuno (es. 400–800 nm)  
 - avviare la scansione per acquisire lo spettro di assorbanza completo  
 - lo spettro è memorizzabile come file di testo in cui per ogni lunghezza d'onda è riportato il valore dell'assorbanza
 
@@ -263,19 +263,38 @@ In quanto le prove richiedono un tempo di svolgimento rilevante bisogna ricorrer
 
 * Non si effettuano repliche, aspettandosi che almeno uno dei fattori o delle interazioni risulti essere non significativo. Se si realizza tale situazione si avrebbero di fatto delle repliche implicite nelle misure (cosa molto probabile dato il numero di fattori) che permettono di effettuare un'analisi ANOVA.
 
-* Esistono diversi approcci per raggiungere l’obiettivo dell’esperienza (verificare che le reazioni siano del primo ordine, determinare la costante $k$ dell'equazione cinetica e determinare una relazione empirica che leghi la stessa ai fattori presi in considerazione); di seguito ne viene presentato uno come esempio.
+* Esistono diversi approcci per raggiungere l'obiettivo dell'esperienza (verificare che le reazioni siano del primo ordine, determinare la costante $k$ dell'equazione cinetica e determinare una relazione empirica che leghi la stessa ai fattori presi in considerazione); di seguito ne viene presentato uno come esempio.
 
 ## Piano fattoriale
 
 ```{r}
-dm<-fp_design_matrix(4)%>%
-  fp_add_names(A="Catalizzatore",B="MB",C="Temperatura",D="Intensità_luminosa")%>%
-  fp_add_scale(A=c(0.2,0.4),B=c(4,8),C=c(8,22),D=c(3,6))
-
-kable(head(dm,7),caption = "piano fattoriale (troncato alla riga 7)",n=7)
+#| echo: true
+#| output-location: column
+library(adas.utils)
+dm <- fp_design_matrix(4) %>%
+  fp_add_names(
+    A="Catalizzatore",
+    B="MB",
+    C="Temperatura",
+    D="Intensità_luminosa")%>%
+  fp_add_scale(
+    A=c(0.2,0.4), B=c(4,8),
+    C=c(8,22), D=c(3,6))
+dm
 ```
 
 Le prove si identificano tramite la notazione di *Yates*. Si raccomanda di nominare i file ottenuti dallo spettrofotometro in maniera tale da poter poi implementare un codice che permetta di importare i dati in modo "automatico".
+
+## Piano fattoriale
+
+```{r}
+dm %>% slice_head(n=8) %>% kable()
+```
+
+:::callout-important
+Eseguire `vignette("adas.utils")` nella console di R per ottenere una guida sull'uso di `adas.utils` per i piani fattriali
+:::
+
 
 ## Raccolta dati
 
@@ -715,27 +734,27 @@ rs%>%
 Le reazioni analizzate seguono un andamento del **primo ordine** rispetto al colorante, in accordo con quanto riportato in letteratura per processi di fotocatalisi eterogenea. Questo significa che la velocità di degradazione dipende linearmente dalla concentrazione residua del blu di metilene.
 
 2. **Determinazione della costante cinetica**  
-Per ciascun trattamento sperimentale è stato calcolato il valore della costante cinetica *k*. Questo parametro consente di confrontare direttamente l’efficacia delle diverse condizioni operative e rappresenta un indicatore quantitativo della velocità di degradazione.
+Per ciascun trattamento sperimentale è stato calcolato il valore della costante cinetica *k*. Questo parametro consente di confrontare direttamente l'efficacia delle diverse condizioni operative e rappresenta un indicatore quantitativo della velocità di degradazione.
 
 ## Conclusioni
 
 3. **Fattori significativi**  
-L’analisi statistica (ANOVA) ha mostrato che i principali fattori che influenzano *k* sono:  
+L'analisi statistica (ANOVA) ha mostrato che i principali fattori che influenzano *k* sono:  
 
 - **A: concentrazione di catalizzatore \([TiO₂]\)**
 Concentrazioni più alte forniscono più siti attivi sulla superficie, favorendo la generazione di radicali ossidanti e accelerando la reazione.  
 
 - **B: concentrazione di blu di metilene \([MB]\)** 
-Concentrazioni elevate di MB aumentano l’assorbimento competitivo della luce e possono saturare i siti catalitici, influenzando quindi la velocità osservata.
+Concentrazioni elevate di MB aumentano l'assorbimento competitivo della luce e possono saturare i siti catalitici, influenzando quindi la velocità osservata.
 - **D: intensità della radiazione UV (numero di lampade accese)** 
-Un incremento dell’intensità luminosa genera più coppie elettrone-lacuna, aumentando la formazione di specie reattive e quindi la velocità di degradazione.  
+Un incremento dell'intensità luminosa genera più coppie elettrone-lacuna, aumentando la formazione di specie reattive e quindi la velocità di degradazione.  
   
-  È risultata inoltre **leggermente significativa l’interazione ABD**: ciò indica che l’effetto combinato di catalizzatore, concentrazione di MB e intensità luminosa non è puramente additivo, ma esiste una sinergia parziale tra i tre fattori.
+  È risultata inoltre **leggermente significativa l'interazione ABD**: ciò indica che l'effetto combinato di catalizzatore, concentrazione di MB e intensità luminosa non è puramente additivo, ma esiste una sinergia parziale tra i tre fattori.
 
 ## Conclusioni
 
 4. **Fattore non significativo**  
-La **temperatura** non è risultata significativa. Questo è coerente con la natura del processo fotocatalitico, governato principalmente dall’assorbimento fotonico e dalla generazione di specie radicaliche, piuttosto che da un’energia di attivazione termica.
+La **temperatura** non è risultata significativa. Questo è coerente con la natura del processo fotocatalitico, governato principalmente dall'assorbimento fotonico e dalla generazione di specie radicaliche, piuttosto che da un'energia di attivazione termica.
 
 ## Conclusioni
 
@@ -757,6 +776,6 @@ $$
 t_{1/2} = \frac{\ln 2}{k}
 $$
 
-che rappresenta l’intervallo necessario affinché la concentrazione si riduca della metà.  
+che rappresenta l'intervallo necessario affinché la concentrazione si riduca della metà.  
 In questo modo, $k$ permette di confrontare diverse condizioni operative senza dover definire un tempo arbitrario di “fine reazione”.
 
